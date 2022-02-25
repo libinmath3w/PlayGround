@@ -7,7 +7,7 @@
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              xmlns:local="clr-namespace:PlayGround.View"
              mc:Ignorable="d" 
-             d:DesignHeight="850" d:DesignWidth="1100">
+             d:DesignHeight="750" d:DesignWidth="1100">
 
     <Grid>
 
