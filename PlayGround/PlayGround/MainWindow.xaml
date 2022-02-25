@@ -14,7 +14,7 @@
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="PlayGround" Height="550" Width="900">
+        Title="PlayGround" Height="750" Width="1100">
     <Grid>
         <StackPanel>
             <materialDesign:Card Padding="32" Margin="16">

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FontAwesome.WPF;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace PlayGround
         public MainWindow()
         {
             InitializeComponent();
+            Icon = ImageAwesome.CreateImageSource(FontAwesomeIcon.SoccerBallOutline, Brushes.Green);
         }
     }
 }
