@@ -1,6 +1,4 @@
-﻿using FontAwesome.WPF;
-using PlayGround.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,18 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PlayGround
+namespace PlayGround.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for UserDashboard.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class UserDashboard : UserControl
     {
-        public MainWindow()
+        public UserDashboard()
         {
             InitializeComponent();
-            Icon = ImageAwesome.CreateImageSource(FontAwesomeIcon.SoccerBallOutline, Brushes.Green);
-            DataContext = new MainViewModel();
         }
     }
 }
