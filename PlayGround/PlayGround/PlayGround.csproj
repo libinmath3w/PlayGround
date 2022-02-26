@@ -59,11 +59,15 @@
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\UserDashboardViewModel.cs" />
+    <Compile Include="ViewModel\UserSettingsViewModels.cs" />
     <Compile Include="View\LoginViewActivity.xaml.cs">
       <DependentUpon>LoginViewActivity.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserDashboard.xaml.cs">
       <DependentUpon>UserDashboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserSettingsView.xaml.cs">
+      <DependentUpon>UserSettingsView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -82,6 +86,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\UserDashboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserSettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
