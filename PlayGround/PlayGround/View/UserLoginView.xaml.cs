@@ -23,5 +23,7 @@ namespace PlayGround.View
         {
             InitializeComponent();
         }
+
+        
     }
 }

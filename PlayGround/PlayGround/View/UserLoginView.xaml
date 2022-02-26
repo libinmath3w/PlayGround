@@ -12,7 +12,7 @@
         TextElement.FontSize="14"
         FontFamily="{materialDesign:MaterialDesignFont}"
         Title="Login" Height="580" Width="1000">
-    
+
     <Grid>
         <Image Source="/Assets/turf.png" />
         <materialDesign:Card HorizontalAlignment="Left" Margin="344,0,0,0" VerticalAlignment="Center" Height="414" Width="344" >
@@ -23,9 +23,33 @@
             </materialDesign:Card.Resources>
             <StackPanel>
                 <Grid>
-                    <Label/>
-                    <Label Margin="0,50,0,0"/>
-                    <Label Content="Login" Margin="135,45,0,0" FontSize="22"/>
+                    <!-- <Label/>-->
+                    <!--<Label Margin="0,50,0,0"/>-->
+                    <Label Content="Login" Margin="0,30,0,0" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Label Content="Email" Margin="10,94,200,156" Height="30" FontSize="18"/>
+                    <Label Content="Password" Margin="10,194,200,56" Height="30" FontSize="18"/>
+                    <TextBox x:Name="txtEmail" FontSize="14" Height="30" Margin="58,129,92,121">
+                        <TextBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <TextBox x:Name="txtPassword" FontSize="14" Height="30" Padding="0" Margin="58,229,92,21">
+                        <TextBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <Button Content="LOGIN" x:Name="btnLogin" FontSize="21" FontWeight="Bold" Margin="75,354,75,-106"  Foreground="White" Background="DarkGreen" Padding="0" RenderTransformOrigin="0.582,0.626">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="15"></Setter>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+
                 </Grid>
 
             </StackPanel>
