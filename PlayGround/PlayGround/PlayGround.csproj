@@ -60,11 +60,11 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\UserDashboardViewModel.cs" />
     <Compile Include="ViewModel\UserSettingsViewModels.cs" />
-    <Compile Include="View\LoginViewActivity.xaml.cs">
-      <DependentUpon>LoginViewActivity.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\UserDashboard.xaml.cs">
       <DependentUpon>UserDashboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserLoginView.xaml.cs">
+      <DependentUpon>UserLoginView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserSettingsView.xaml.cs">
       <DependentUpon>UserSettingsView.xaml</DependentUpon>
@@ -81,11 +81,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\LoginViewActivity.xaml">
+    <Page Include="View\UserDashboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\UserDashboard.xaml">
+    <Page Include="View\UserLoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -143,6 +143,12 @@
   <ItemGroup>
     <Resource Include="Assets\avatar.jpg" />
     <Resource Include="Assets\cartoon-woman-pretty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\turfs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\turf.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
