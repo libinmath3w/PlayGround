@@ -25,7 +25,7 @@
                 <Grid>
                     <Label/>
                     <Label Margin="0,50,0,0"/>
-                    <Label Content="Login" Margin="130,45,0,0" FontSize="22"/>
+                    <Label Content="Login" Margin="135,45,0,0" FontSize="22"/>
                 </Grid>
 
             </StackPanel>
