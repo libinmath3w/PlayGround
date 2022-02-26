@@ -16,7 +16,7 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         xmlns:playgroundviewmodel="clr-namespace:PlayGround.ViewModel"
         xmlns:playgroundview="clr-namespace:PlayGround.View"
-        Title="PlayGround" Height="750" Width="1200">
+        Title="PlayGround" Height="900" Width="1200">
 
     <Window.Resources>
         <DataTemplate DataType="{x:Type playgroundviewmodel:UserDashboardViewModel}">
