@@ -14,7 +14,17 @@
         Title="Login" Height="580" Width="1000">
     <Grid>
         <Image Source="/Assets/turf.png" />
-        <materialDesign:Card HorizontalAlignment="Left" Margin="342,0,0,0" VerticalAlignment="Center" Height="422" Width="346"/>
+        <materialDesign:Card HorizontalAlignment="Left" Margin="344,0,0,0" VerticalAlignment="Center" Height="414" Width="344">
+            <StackPanel>
+                <Grid>
+                    <Label/>
+                    <Label Margin="0,50,0,0"/>
+                    <Label Content="Login" Margin="130,45,0,0" FontSize="22"/>
+                </Grid>
+
+            </StackPanel>
+        </materialDesign:Card>
+
 
     </Grid>
 </Window>
