@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PlayGround.View"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
@@ -15,7 +16,7 @@
 
     <Grid>
         <Image Source="/Assets/turf.png" />
-        <materialDesign:Card HorizontalAlignment="Left" Margin="344,0,0,0" VerticalAlignment="Center" Height="414" Width="344" >
+        <materialDesign:Card HorizontalAlignment="Left" Margin="334,0,0,0" VerticalAlignment="Center" Height="414" Width="344" >
             <materialDesign:Card.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="20"/>
@@ -23,38 +24,50 @@
             </materialDesign:Card.Resources>
             <StackPanel>
                 <Grid>
-                    <!-- <Label/>-->
-                    <!--<Label Margin="0,50,0,0"/>-->
+                    
                     <Label Content="Login" Margin="0,30,0,0" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                    <Label Content="Email" Margin="10,94,200,156" Height="30" FontSize="18"/>
-                    <Label Content="Password" Margin="10,194,200,56" Height="30" FontSize="18"/>
-                    <TextBox x:Name="txtEmail" FontSize="14" Height="30" Margin="58,129,92,121">
+                    <Label Content="User Name" Margin="10,94,200,156" Height="30" FontSize="16"/>
+                    <Label Content="Password" Margin="10,180,200,56" Height="30" FontSize="16"/>
+                    <StackPanel>
+                        <materialDesign:PackIcon Kind="User" Width="25" Height="25" Foreground="Green" Margin="18,136,63,-315"/>
+                        <TextBox x:Name="txtUserName" FontSize="14" Height="35" Margin="58,132,63,125" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" TextAlignment="Center" VerticalAlignment="Stretch" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Enter Username" Foreground="Black">
                         <TextBox.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="20"/>
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <TextBox x:Name="txtPassword" FontSize="14" Height="30" Padding="0" Margin="58,229,92,21">
-                        <TextBox.Resources>
+                    </StackPanel>
+                    <StackPanel>
+                        <materialDesign:PackIcon Kind="Lock" Width="25" Height="25" Foreground="Green" Margin="18,226,63,-315"/>
+                        <PasswordBox x:Name="txtPassword" FontSize="14" Height="35" Margin="58,222,63,25" Style="{DynamicResource MaterialDesignOutlinedTextFieldPasswordBox}" VerticalAlignment="Stretch" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="********" Foreground="Black">
+                        <PasswordBox.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="20"/>
                             </Style>
-                        </TextBox.Resources>
-                    </TextBox>
-                    <Button Content="LOGIN" x:Name="btnLogin" FontSize="21" FontWeight="Bold" Margin="75,354,75,-106"  Foreground="White" Background="DarkGreen" Padding="0" RenderTransformOrigin="0.582,0.626">
+                        </PasswordBox.Resources>
+                    </PasswordBox>
+                    </StackPanel>
+                    <Button Content="LOGIN" x:Name="btnLogin" FontSize="18" FontWeight="Bold" Margin="70,317,75,-62"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626">
                         <Button.Resources>
                             <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="15"></Setter>
+                                <Setter Property="CornerRadius" Value="15"/>
                             </Style>
                         </Button.Resources>
                     </Button>
 
+                    <Label Content="Don't have an account ?" Margin="31,369,94,-149" FontSize="12"/>
+                    <Button Content="Create an account" x:Name="btnRegistration" FontSize="14" FontWeight="Bold" Margin="170,362,24,-102"  Foreground="Blue" Background="White" RenderTransformOrigin="0.582,0.626">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="15"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
                 </Grid>
 
             </StackPanel>
         </materialDesign:Card>
-
 
     </Grid>
 </Window>

@@ -59,12 +59,16 @@
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\UserDashboardViewModel.cs" />
+    <Compile Include="ViewModel\UserRegistrationViewModel.cs" />
     <Compile Include="ViewModel\UserSettingsViewModels.cs" />
     <Compile Include="View\UserDashboard.xaml.cs">
       <DependentUpon>UserDashboard.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserLoginView.xaml.cs">
       <DependentUpon>UserLoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserRegistrationView.xaml.cs">
+      <DependentUpon>UserRegistrationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserSettingsView.xaml.cs">
       <DependentUpon>UserSettingsView.xaml</DependentUpon>
@@ -86,6 +90,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\UserLoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserRegistrationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -149,6 +157,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\turf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\turfregpage.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

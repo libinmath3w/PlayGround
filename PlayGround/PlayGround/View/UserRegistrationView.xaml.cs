@@ -16,16 +16,14 @@ using System.Windows.Shapes;
 namespace PlayGround.View
 {
     /// <summary>
-    /// Interaction logic for UserLoginView.xaml
+    /// Interaction logic for UserRegistrationView.xaml
     /// </summary>
-    public partial class UserLoginView : Window
+    public partial class UserRegistrationView : Window
     {
-        public UserLoginView()
+        public UserRegistrationView()
         {
             InitializeComponent();
             Icon = ImageAwesome.CreateImageSource(FontAwesomeIcon.SoccerBallOutline, Brushes.Green);
         }
-
-        
     }
 }
