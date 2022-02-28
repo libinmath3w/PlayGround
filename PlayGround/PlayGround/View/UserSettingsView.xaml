@@ -13,111 +13,106 @@
              FontFamily="{materialDesign:MaterialDesignFont}"
              d:DesignHeight="750" d:DesignWidth="1100">
     <Grid>
-        <Button Content="Browse" Margin="200,334,0,384" Width="100" HorizontalAlignment="Left"/>
-        <Label Content="Name"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,31,0,0" Width="300" ></Label>
-        <StackPanel>
-            <materialDesign:PackIcon Kind="User" Width="25" Height="25" Foreground="Green" Margin="390,61,0,0"/>
-            <TextBox x:Name="txtName" Text="" FontSize="20" Height="36" Margin="69,-30,43,125" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" TextAlignment="Center" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Enter name" Foreground="Black" Width="278">
-                <TextBox.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="20"/>
-                    </Style>
-                </TextBox.Resources>
-            </TextBox>
-        </StackPanel>
-        <Label Content="Password"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="800,188,0,0" Width="300" ></Label>
-        <TextBox x:Name="txtPassword" HorizontalAlignment="Left" Text="" VerticalAlignment="Top" Margin="150,590,0,0" FontSize="20" Width="300" Height="36">
-            <TextBox.Resources>
-                <Style TargetType="TextBox">
-                    <Setter Property="Padding" Value="3"/>
-                </Style>
-            </TextBox.Resources>
-        </TextBox>
-        <Label Content="Email"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,100,0,0" Width="300" Height="25" ></Label>
-        <StackPanel>
-            <materialDesign:PackIcon Kind="Email" Width="25" Height="25" Foreground="Green" Margin="390,130,0,0"/>
-            <TextBox x:Name="txtEmail" Text="" FontSize="20" Height="36" Margin="58,-30,43,125" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" TextAlignment="Center" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Enter name" Foreground="Black" Width="278">
-                <TextBox.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="20"/>
-                    </Style>
-                </TextBox.Resources>
-            </TextBox>
-        </StackPanel>
-        <Label Content="Phone Number"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,165,0,0" Width="300" Height="25" ></Label>
-        <StackPanel>
-            <materialDesign:PackIcon Kind="Phone" Width="25" Height="25" Foreground="Green" Margin="390,200,0,0"/>
-            <TextBox x:Name="txtPhoneNumber" Text="" FontSize="20" Height="36" Margin="58,-30,43,125" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" TextAlignment="Center" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Enter name" Foreground="Black" Width="278">
-                <TextBox.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="20"/>
-                    </Style>
-                </TextBox.Resources>
-            </TextBox>
-        </StackPanel>
-        <Label Content="City"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,235,0,0" Width="300" Height="25" ></Label>
-        <StackPanel>
-            <materialDesign:PackIcon Kind="City" Width="25" Height="25" Foreground="Green" Margin="390,265,0,0"/>
-            <TextBox x:Name="txtCity" Text="" FontSize="20" Height="36" Margin="58,-27,43,125" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" TextAlignment="Center" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Enter name" Foreground="Black" Width="278">
-                <TextBox.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="20"/>
-                    </Style>
-                </TextBox.Resources>
-            </TextBox>
-        </StackPanel>
-        <Label Content="State"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,300,0,0" Width="300" Height="25" ></Label>
-        <StackPanel>
-            <materialDesign:PackIcon Kind="Estate" Width="25" Height="25" Foreground="Green" Margin="390,330,0,0"/>
-            <TextBox x:Name="txtState" Text="" FontSize="20" Height="36" Margin="58,-25,43,125" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" TextAlignment="Center" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Enter name" Foreground="Black" Width="278">
-                <TextBox.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="20"/>
-                    </Style>
-                </TextBox.Resources>
-            </TextBox>
-        </StackPanel>
-        <Label Content="Zip"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,370,0,0" Width="300" Height="25" ></Label>
-        <StackPanel Margin="0,-10,0,10">
-            <materialDesign:PackIcon Kind="ZipDisk" Width="25" Height="25" Foreground="Green" Margin="390,405,0,0"/>
-            <TextBox x:Name="txtZip" Text="" FontSize="20" Height="36" Margin="58,-25,43,125" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" TextAlignment="Center" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Enter name" Foreground="Black" Width="278">
-                <TextBox.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="20"/>
-                    </Style>
-                </TextBox.Resources>
-            </TextBox>
-        </StackPanel>
-        <Button Content="Save New Changes" Width="200" Height="50" Margin="0,490,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Background="Green">
-            <Button.Resources>
+        <materialDesign:Card HorizontalAlignment="Center" Margin="250,-250,0,0" VerticalAlignment="Center" Height="450" Width="600">
+            <materialDesign:Card.Resources>
                 <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="2"/>
+                    <Setter Property="CornerRadius" Value="20"/>
                 </Style>
-            </Button.Resources>
-        </Button>
+            </materialDesign:Card.Resources>
+            <StackPanel>
+                <Label Content="Name" Margin="25,20,0,0"></Label>
+                <StackPanel>
+                    <materialDesign:PackIcon Kind="User" Width="25" Height="25" Foreground="Green" Margin="25,3,0,0"/>
+                    <TextBox x:Name="txtName" Text="" FontSize="20" Width="400" Height="36" Margin="0,-29,0,0" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" TextAlignment="Center" VerticalAlignment="Stretch" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Enter Username" >
+                        <TextBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </StackPanel>
+                <Label Content="Email" Margin="25,0,0,0"></Label>
+                <StackPanel>
+                    <materialDesign:PackIcon Kind="Email" Width="25" Height="25" Foreground="Green" Margin="25,3,0,0"/>
+                    <TextBox x:Name="txtEmail" Text="" FontSize="20" Width="400" Height="36" Margin="0,-29,0,0" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" TextAlignment="Center" VerticalAlignment="Stretch" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Enter Email" >
+                        <TextBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </StackPanel>
+                <Label Content="Phone Number" Margin="25,0,0,0"></Label>
+                <StackPanel>
+                    <materialDesign:PackIcon Kind="Phone" Width="25" Height="25" Foreground="Green" Margin="25,3,0,0"/>
+                    <TextBox x:Name="txtPhoneNumber" Text="" FontSize="20" Width="400" Height="36" Margin="0,-29,0,0" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" TextAlignment="Center" VerticalAlignment="Stretch" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Enter Phone Number" >
+                        <TextBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </StackPanel>
+                <Label Content="City" Margin="25,0,0,0"></Label>
+                <StackPanel>
+                    <materialDesign:PackIcon Kind="City" Width="25" Height="25" Foreground="Green" Margin="25,3,0,0"/>
+                    <TextBox x:Name="txtCity" Text="" FontSize="20" Width="400" Height="36" Margin="0,-29,0,0" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" TextAlignment="Center" VerticalAlignment="Stretch" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Enter Phone Number" >
+                        <TextBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </StackPanel>
+                <Label Content="State" Margin="25,0,0,0"></Label>
+                <StackPanel>
+                    <materialDesign:PackIcon Kind="Estate" Width="25" Height="25" Foreground="Green" Margin="25,3,0,0"/>
+                    <TextBox x:Name="txtState" Text="" FontSize="20" Width="400" Height="36" Margin="0,-29,0,0" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" TextAlignment="Center" VerticalAlignment="Stretch" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Enter Phone Number" >
+                        <TextBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </StackPanel>
+                <Label Content="Zip" Margin="25,0,0,0"></Label>
+                <StackPanel>
+                    <materialDesign:PackIcon Kind="post" Width="25" Height="25" Foreground="Green" Margin="25,3,0,0"/>
+                    <TextBox x:Name="txtZip" Text="" FontSize="20" Width="400" Height="36" Margin="0,-29,0,0" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" TextAlignment="Center" VerticalAlignment="Stretch" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Enter Phone Number" >
+                        <TextBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </StackPanel>
+                <StackPanel>
+                    <Button Content="Save Changes" x:Name="btnSaveChanges" FontSize="16" FontWeight="Bold" Margin="0,20,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="15"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </materialDesign:Card>
+        <materialDesign:Card HorizontalAlignment="Left" Margin="30,15,0,0" VerticalAlignment="Top" Height="300" Width="300">
+            <materialDesign:Card.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </materialDesign:Card.Resources>
+            <StackPanel>
 
-        <Ellipse HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,15,0,0" Height="200" Width="200">
-            <Ellipse.Fill>
-                <ImageBrush ImageSource="/Assets/Avatar.jpg"></ImageBrush>
-            </Ellipse.Fill>
-        </Ellipse>
-        <Label Content="Current Password"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,500,0,0" Width="300" Height="25" ></Label>
-        <StackPanel>
-            <materialDesign:PackIcon Kind="PasswordAlert" Width="25" Height="25" Foreground="Green" Margin="100,550,0,0"/>
-            <TextBox x:Name="txtCurrentPassword" Text="" FontSize="20" Height="36" Margin="-500,-25,43,125" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" TextAlignment="Center" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Enter name" Foreground="Black" Width="278">
-                <TextBox.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="20"/>
-                    </Style>
-                </TextBox.Resources>
-            </TextBox>
-        </StackPanel>
-        <Button Content="Update" Width="200" Height="50" Margin="652,652,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Background="Green">
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="2"/>
-                </Style>
-            </Button.Resources>
-        </Button>
+                <StackPanel>
+                    <Ellipse HorizontalAlignment="Center" Margin="10" Height="200" Width="200">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/Assets/Avatar.jpg"></ImageBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </StackPanel>
+            </StackPanel>
+        </materialDesign:Card>
     </Grid>
 </UserControl>
