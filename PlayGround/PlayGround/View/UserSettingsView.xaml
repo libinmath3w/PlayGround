@@ -16,13 +16,16 @@
         <!--<Border CornerRadius="50" BorderThickness="2" BorderBrush="Black"/>-->
         <Button Content="Browse" Margin="200,334,0,384" Width="100" HorizontalAlignment="Left"/>
         <Label Content="Name"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,31,0,0" Width="300" ></Label>
-        <TextBox x:Name="txtName" HorizontalAlignment="Center" Text="" VerticalAlignment="Top" Margin="0,61,0,0" FontSize="20" Width="300" Height="36">
-            <TextBox.Resources>
-                <Style TargetType="TextBox">
-                    <Setter Property="Padding" Value="3"/>
-                </Style>
-            </TextBox.Resources>
-        </TextBox>
+        <StackPanel>
+            <materialDesign:PackIcon Kind="User" Width="25" Height="25" Foreground="Green" Margin="390,61,0,0"/>
+            <TextBox x:Name="txtName" Text="" FontSize="20" Width="300" Height="36">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type TextBox}">
+                        <Setter Property="Padding" Value="3"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+        </StackPanel>
         <Label Content="Password"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="800,188,0,0" Width="300" ></Label>
         <TextBox x:Name="txtPassword" HorizontalAlignment="Left" Text="" VerticalAlignment="Top" Margin="150,590,0,0" FontSize="20" Width="300" Height="36">
             <TextBox.Resources>
