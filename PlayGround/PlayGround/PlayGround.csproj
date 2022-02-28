@@ -177,5 +177,8 @@
   <ItemGroup>
     <Resource Include="Assets\turfregpage.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\avatars.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
