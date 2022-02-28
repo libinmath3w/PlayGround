@@ -32,6 +32,10 @@ namespace PlayGround.Commands
             {
                 viewModel.SelectedViewModel = new UserSettingsViewModels();
             }
+            else if (parameter.ToString() == "UserTurfBooking")
+            {
+                viewModel.SelectedViewModel = new UserTurfBookingViewModel();
+            }
         }
     }
 }
