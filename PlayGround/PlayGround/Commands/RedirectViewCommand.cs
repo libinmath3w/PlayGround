@@ -28,6 +28,10 @@ namespace PlayGround.Commands
             {
                 viewModel.SelectedViewModel = new UserDashboardViewModel();
             }
+            else if (parameter.ToString() == "UserSettings")
+            {
+                viewModel.SelectedViewModel = new UserSettingsViewModels();
+            }
         }
     }
 }

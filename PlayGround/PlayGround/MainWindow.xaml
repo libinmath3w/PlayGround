@@ -22,6 +22,9 @@
         <DataTemplate DataType="{x:Type playgroundviewmodel:UserDashboardViewModel}">
             <playgroundview:UserDashboard/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type playgroundviewmodel:UserSettingsViewModels}">
+            <playgroundview:UserSettingsView/>
+        </DataTemplate>
     </Window.Resources>
     
     <Grid>
@@ -65,7 +68,7 @@
                         </ListViewItem>
                         <ListViewItem HorizontalAlignment="Center" Margin="0">
                             <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
-                             BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black">
+                             BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Command="{Binding RedirectViewCommands}" CommandParameter="UserSettings">
                                 <StackPanel Margin="-5">
                                     <materialDesign:PackIcon Kind="EqualiserVertical"/>
                                 </StackPanel>
