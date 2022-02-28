@@ -37,8 +37,9 @@
                             </TextBox.Resources>
                         </TextBox>
                     </StackPanel>
+
                     <StackPanel>
-                        <materialDesign:PackIcon Kind="Lock" Width="25" Height="25" Foreground="Green" Margin="18,226,63,-315"/>
+                        <materialDesign:PackIcon Kind="Key" Width="25" Height="25" Foreground="Green" Margin="18,226,63,-315"/>
                         <PasswordBox x:Name="txtPassword"  Width="224" FontSize="14" Height="35" Margin="0,222,0,25" VerticalContentAlignment="Center">
                             <PasswordBox.Style>
                                 <Style TargetType="{x:Type PasswordBox}">
@@ -87,7 +88,6 @@
                             </Style>
                         </Button.Resources>
                     </Button>
-
                     <Label Content="Don't have an account ?" Margin="31,369,94,-149" FontSize="12"/>
                     <Button Content="Create an account" x:Name="btnRegistration" FontSize="14" FontWeight="Bold" Margin="170,362,24,-102"  Foreground="Blue" Background="White" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" BorderThickness="0">
                         <Button.Resources>

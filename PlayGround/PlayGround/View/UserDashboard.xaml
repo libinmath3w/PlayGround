@@ -29,12 +29,6 @@
         <Grid Grid.Column="0" Background="#F6F6F8">
             <StackPanel Margin="10">
                 <Grid Height="60">
-                    <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
-                     BorderBrush="{x:Null}" Background="{x:Null}">
-                        <StackPanel Margin="-5">
-                            <materialDesign:PackIcon Kind="ReorderHorizontal" Foreground="Gray" />
-                        </StackPanel>
-                    </Button>
                     <ComboBox HorizontalAlignment="Right" Width="100" materialDesign:HintAssist.Hint="Last 15 Days">
                         <ComboBoxItem>
                             <TextBlock Text="Last 15 Days" />

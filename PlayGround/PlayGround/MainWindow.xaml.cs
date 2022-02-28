@@ -1,4 +1,5 @@
 ﻿using FontAwesome.WPF;
+using MaterialDesignThemes.Wpf;
 using PlayGround.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -22,11 +23,28 @@ namespace PlayGround
     /// </summary>
     public partial class MainWindow : Window
     {
+        public bool IsDarknLightMode { get; set; }
+        private readonly PaletteHelper paletteHelper = new PaletteHelper();
         public MainWindow()
         {
             InitializeComponent();
             Icon = ImageAwesome.CreateImageSource(FontAwesomeIcon.SoccerBallOutline, Brushes.Green);
             DataContext = new MainViewModel();
+        }
+        private void TongleTheme (object sender, RoutedEventArgs e)
+        {
+            ITheme theme = paletteHelper.GetTheme();
+            if (IsDarknLightMode = theme.GetBaseTheme() == BaseTheme.Dark)
+            {
+                IsDarknLightMode = false;
+                theme.SetBaseTheme(Theme.Light);
+            }
+            else
+            {
+                IsDarknLightMode = true;
+                theme.SetBaseTheme(Theme.Dark);
+            }
+            paletteHelper.SetTheme(theme);
         }
     }
 }

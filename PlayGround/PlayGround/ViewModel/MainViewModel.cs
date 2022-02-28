@@ -11,6 +11,7 @@ namespace PlayGround.ViewModel
     public class MainViewModel : BaseViewModel
     {
         private BaseViewModel _selectedViewModel = new UserDashboardViewModel();
+        public bool IsDarknLightMode { get; set; }
         public BaseViewModel SelectedViewModel { get => _selectedViewModel; set { _selectedViewModel = value; onPropertyChanged(nameof(SelectedViewModel)); } }
         public ICommand RedirectViewCommands { get; set; }
 
