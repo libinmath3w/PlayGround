@@ -20,7 +20,7 @@
                 </Style>
             </materialDesign:Card.Resources>
             <StackPanel>
-                <Label Content="Name" Margin="25,20,0,0"></Label>
+                <Label Content="Name" Margin="25,20,0,0"/>
                 <StackPanel>
                     <materialDesign:PackIcon Kind="User" Width="25" Height="25" Foreground="Green" Margin="25,3,0,0"/>
                     <TextBox x:Name="txtName" Text="" FontSize="20" Width="400" Height="36" Margin="0,-29,0,0" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" TextAlignment="Center" VerticalAlignment="Stretch" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Enter Username" >
@@ -114,7 +114,7 @@
                 </StackPanel>
             </StackPanel>
         </materialDesign:Card>
-        <materialDesign:Card HorizontalAlignment="Left" Margin="50,480,50,0" Height="250" Width="1000">
+        <materialDesign:Card HorizontalAlignment="Left" Margin="50,480,50,0" Height="250" Width="970">
             <materialDesign:Card.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="20"/>
