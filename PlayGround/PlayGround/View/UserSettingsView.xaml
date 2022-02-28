@@ -13,12 +13,11 @@
              FontFamily="{materialDesign:MaterialDesignFont}"
              d:DesignHeight="750" d:DesignWidth="1100">
     <Grid>
-        <!--<Border CornerRadius="50" BorderThickness="2" BorderBrush="Black"/>-->
         <Button Content="Browse" Margin="200,334,0,384" Width="100" HorizontalAlignment="Left"/>
         <Label Content="Name"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,31,0,0" Width="300" ></Label>
         <StackPanel>
             <materialDesign:PackIcon Kind="User" Width="25" Height="25" Foreground="Green" Margin="390,61,0,0"/>
-            <TextBox x:Name="txtName" Text="" FontSize="20" Height="36" Margin="58,-30,43,125" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" TextAlignment="Center" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Enter name" Foreground="Black" Width="278">
+            <TextBox x:Name="txtName" Text="" FontSize="20" Height="36" Margin="69,-30,43,125" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" TextAlignment="Center" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Enter name" Foreground="Black" Width="278">
                 <TextBox.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="20"/>
@@ -96,6 +95,7 @@
                 </Style>
             </Button.Resources>
         </Button>
+
         <Ellipse HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,15,0,0" Height="200" Width="200">
             <Ellipse.Fill>
                 <ImageBrush ImageSource="/Assets/Avatar.jpg"></ImageBrush>
