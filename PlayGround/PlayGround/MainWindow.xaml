@@ -35,11 +35,13 @@
         <materialDesign:ColorZone
   Mode="PrimaryMid"
   Padding="16">
-            <DockPanel>
+            <DockPanel Margin="0,0,10,0">
+                <Label Name="darkmodes" Content="Dark Mode" DockPanel.Dock="Right" Height="22" Foreground="White" Width="76"/>
+                <materialDesign:PackIcon Kind="ThemeLightDark" DockPanel.Dock="Right" Width="16" Height="39"/>
                 <ToggleButton
       Style="{DynamicResource MaterialDesignSwitchAccentToggleButton}"
       VerticalAlignment="Center"
-      Cursor="Hand" ToolTip="Enable Dark Mode" x:Name="tbDarkLight" IsChecked="{Binding RedirectViewCommands}" CommandParameter="IsDarkMode" Click="TongleTheme"         
+      Cursor="Hand" ToolTip="Enable Dark Mode" x:Name="tbDarkLight" IsChecked="{Binding IsDarknLightMode}" Click="TongleTheme"         
       DockPanel.Dock="Right" />
                 <StackPanel
       Orientation="Horizontal"
