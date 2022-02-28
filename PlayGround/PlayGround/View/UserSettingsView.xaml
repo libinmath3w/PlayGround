@@ -97,7 +97,7 @@
                 </StackPanel>
             </StackPanel>
         </materialDesign:Card>
-        <materialDesign:Card HorizontalAlignment="Left" Margin="30,25,0,0" VerticalAlignment="Top" Height="300" Width="300">
+        <materialDesign:Card HorizontalAlignment="Left" Margin="30,40,0,0" VerticalAlignment="Top" Height="300" Width="300">
             <materialDesign:Card.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="20"/>
@@ -111,6 +111,13 @@
                             <ImageBrush ImageSource="/Assets/Avatar.jpg"></ImageBrush>
                         </Ellipse.Fill>
                     </Ellipse>
+                    <Button Content="Browse Image" x:Name="btnBrowserImage" FontSize="16" FontWeight="Bold" Margin="0,30,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="15"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
                 </StackPanel>
             </StackPanel>
         </materialDesign:Card>

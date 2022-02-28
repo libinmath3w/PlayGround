@@ -58,16 +58,21 @@
     <Compile Include="Commands\RedirectViewCommand.cs" />
     <Compile Include="ViewModel\AdminAddNewTurfViewModel.cs" />
     <Compile Include="ViewModel\AdminSettingsViewModel.cs" />
+    <Compile Include="ViewModel\AdminTurfBookingViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\UserDashboardViewModel.cs" />
     <Compile Include="ViewModel\UserRegistrationViewModel.cs" />
     <Compile Include="ViewModel\UserSettingsViewModels.cs" />
+    <Compile Include="ViewModel\UserTurfBookingViewModel.cs" />
     <Compile Include="View\AdminAddNewTurfView.xaml.cs">
       <DependentUpon>AdminAddNewTurfView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\AdminSettingsView.xaml.cs">
       <DependentUpon>AdminSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminTurfBookingView.xaml.cs">
+      <DependentUpon>AdminTurfBookingView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserDashboard.xaml.cs">
       <DependentUpon>UserDashboard.xaml</DependentUpon>
@@ -80,6 +85,9 @@
     </Compile>
     <Compile Include="View\UserSettingsView.xaml.cs">
       <DependentUpon>UserSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserTurfBookingView.xaml.cs">
+      <DependentUpon>UserTurfBookingView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -101,6 +109,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\AdminTurfBookingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\UserDashboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -114,6 +126,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\UserSettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserTurfBookingView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
