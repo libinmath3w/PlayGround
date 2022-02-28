@@ -25,5 +25,7 @@ namespace PlayGround.View
             InitializeComponent();
             Icon = ImageAwesome.CreateImageSource(FontAwesomeIcon.SoccerBallOutline, Brushes.Green);
         }
+
+        
     }
 }
