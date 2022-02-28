@@ -57,7 +57,7 @@
                     </Button>
 
                     <Label Content="Don't have an account ?" Margin="31,369,94,-149" FontSize="12"/>
-                    <Button Content="Create an account" x:Name="btnRegistration" FontSize="14" FontWeight="Bold" Margin="170,362,24,-102"  Foreground="Blue" Background="White" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}">
+                    <Button Content="Create an account" x:Name="btnRegistration" FontSize="14" FontWeight="Bold" Margin="170,362,24,-102"  Foreground="Blue" Background="White" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" BorderThickness="0">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="15"/>

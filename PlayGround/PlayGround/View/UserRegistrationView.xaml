@@ -98,8 +98,8 @@
                         </Button.Resources>
                     </Button>
                         </StackPanel>
-                     <Label Content="Already have an account ?" Margin="67,520,169,55"/>
-                    <Button Content="Create an account" x:Name="btnRegistration" FontSize="14" FontWeight="Bold" Margin="220,515,19,50"  Foreground="Blue" Background="White" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}">
+                     <Label Content="Already have an account ?" Margin="50,520,169,55"/>
+                    <Button Content="Create an account" x:Name="btnRegistration" FontSize="14" FontWeight="Bold" Margin="200,515,39,50"  Foreground="Blue" Background="White" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" BorderThickness="0">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="15"/>
