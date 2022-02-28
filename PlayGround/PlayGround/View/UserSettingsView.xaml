@@ -126,33 +126,21 @@
                 <Label Content="New Password" Margin="580,-25,0,0"/>
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Password" Width="25" Height="25" Foreground="Green" Margin="50,11,0,0"/>
-                    <PasswordBox x:Name="txtCurrentPassword" FontSize="20" Width="100" Height="36" Margin="90,5,-450,0">
+                    <PasswordBox x:Name="txtCurrentPassword" FontSize="20" Width="330" Height="36" Margin="-80,5,-450,0" VerticalContentAlignment="Center" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}">
                         <PasswordBox.Resources>
-                            <Style TargetType="PasswordBox">
-                                <Setter Property="Template" >
-                                    <Setter.Value>
-                                        <ControlTemplate>
-                                            <Border CornerRadius="20" BorderBrush="Gray" BorderThickness="1" Margin="-208,0,0,0" />
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="20"/>
                             </Style>
                         </PasswordBox.Resources>
                     </PasswordBox>
                 <!--</StackPanel>-->
              
                 <!--<StackPanel>-->
-                    <materialDesign:PackIcon Kind="Password" Width="25" Height="25" Foreground="Green" Margin="507,10,0,0"/>
-                    <PasswordBox x:Name="txtNewPassword" FontSize="20" Width="100" Height="36" Margin="220,5,0,0">
+                    <materialDesign:PackIcon Kind="Password" Width="25" Height="25" Foreground="Green" Margin="507,10,0,0" />
+                    <PasswordBox x:Name="txtNewPassword" FontSize="20" Width="330" Height="36" Margin="20,5,0,0" VerticalContentAlignment="Center" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}">
                         <PasswordBox.Resources>
-                            <Style TargetType="PasswordBox">
-                                <Setter Property="Template" >
-                                    <Setter.Value>
-                                        <ControlTemplate>
-                                            <Border CornerRadius="20" BorderBrush="Gray" BorderThickness="1" Margin="-208,0,0,0" />
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="20"/>
                             </Style>
                         </PasswordBox.Resources>
                     </PasswordBox>
@@ -160,16 +148,10 @@
                 <Label Content="Confirm Password" Margin="50,30,0,0"></Label>
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Password" Width="25" Height="25" Foreground="Green" Margin="50,5,0,0"/>
-                    <PasswordBox x:Name="txtConfirmPassword" FontSize="20" Width="100" Height="36" Margin="220,0,0,0">
+                    <PasswordBox x:Name="txtConfirmPassword" FontSize="20" Width="330" Height="36" Margin="20,0,0,0" VerticalContentAlignment="Center" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}">
                         <PasswordBox.Resources>
-                            <Style TargetType="PasswordBox">
-                                <Setter Property="Template" >
-                                    <Setter.Value>
-                                        <ControlTemplate>
-                                            <Border CornerRadius="20" BorderBrush="Gray" BorderThickness="1" Margin="-208,0,0,0" />
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="20"/>
                             </Style>
                         </PasswordBox.Resources>
                     </PasswordBox>
