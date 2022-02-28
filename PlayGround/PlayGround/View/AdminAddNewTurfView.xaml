@@ -5,8 +5,39 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PlayGround.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal" 
+             TextOptions.TextRenderingMode="Auto"        
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             d:DesignHeight="750" d:DesignWidth="1100">
     <Grid>
-            
+        <materialDesign:Card HorizontalAlignment="Center" Margin="200,0,0,210" VerticalAlignment="Center" Height="500" Width="500">
+            <materialDesign:Card.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </materialDesign:Card.Resources>
+            <StackPanel>
+                
+                
+            </StackPanel>
+        </materialDesign:Card>
+
+        <materialDesign:Card HorizontalAlignment="Left" Margin="20,-400,0,0" VerticalAlignment="Center" Height="300" Width="350">
+            <materialDesign:Card.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </materialDesign:Card.Resources>
+            <StackPanel>
+                
+                
+            </StackPanel>
+        </materialDesign:Card>
+
     </Grid>
 </UserControl>

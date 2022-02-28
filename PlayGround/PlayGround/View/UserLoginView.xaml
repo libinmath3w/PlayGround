@@ -24,7 +24,6 @@
             </materialDesign:Card.Resources>
             <StackPanel>
                 <Grid>
-
                     <Label Content="Login" Margin="0,30,0,0" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                     <Label Content="User Name" Margin="10,94,200,156" Height="30" FontSize="16"/>
                     <Label Content="Password" Margin="10,180,200,56" Height="30" FontSize="16"/>
