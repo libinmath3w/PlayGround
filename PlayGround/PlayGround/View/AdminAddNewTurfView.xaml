@@ -15,15 +15,100 @@
              FontFamily="{DynamicResource MaterialDesignFont}"
              d:DesignHeight="750" d:DesignWidth="1100">
     <Grid>
-        <materialDesign:Card HorizontalAlignment="Center" Margin="200,0,0,210" VerticalAlignment="Center" Height="500" Width="500">
+        <materialDesign:Card HorizontalAlignment="Left" Margin="400,0,0,0" VerticalAlignment="Center" Height="700" Width="520">
             <materialDesign:Card.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="20"/>
                 </Style>
             </materialDesign:Card.Resources>
             <StackPanel>
-                
-                
+                <Label Content="Turf Name" Margin="25,60,0,0"></Label>
+                <StackPanel>
+                    <materialDesign:PackIcon Kind="User" Width="25" Height="25" Foreground="Green" Margin="5,10,0,0"/>
+                    <TextBox x:Name="txtTurfName" Text="" FontSize="20" Width="400" Height="36" Margin="0,-25,0,0" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" TextAlignment="Center" VerticalAlignment="Stretch" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Enter Username" >
+                        <TextBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </StackPanel>
+                <Label Content="City" Margin="25,3,0,0"></Label>
+                <StackPanel>
+                    <materialDesign:PackIcon Kind="City" Width="25" Height="25" Foreground="Green" Margin="5,5,0,0"/>
+                    <TextBox x:Name="txtEmail" Text="" FontSize="20" Width="400" Height="36" Margin="0,-29,0,0" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" TextAlignment="Center" VerticalAlignment="Stretch" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Enter Email" >
+                        <TextBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </StackPanel>
+                <Label Content="State" Margin="25,3,0,0"></Label>
+                <StackPanel>
+                    <materialDesign:PackIcon Kind="Estate" Width="25" Height="25" Foreground="Green" Margin="5,5,0,0"/>
+                    <TextBox x:Name="txState" Text="" FontSize="20" Width="400" Height="36" Margin="0,-29,0,0" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" TextAlignment="Center" VerticalAlignment="Stretch" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Enter Phone Number" >
+                        <TextBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </StackPanel>
+                <Label Content="Zip" Margin="25,3,0,0"></Label>
+                <StackPanel>
+                    <materialDesign:PackIcon Kind="ZipDisk" Width="25" Height="25" Foreground="Green" Margin="5,5,0,0"/>
+                    <TextBox x:Name="txtZip" Text="" FontSize="20" Width="400" Height="36" Margin="0,-29,0,0" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" TextAlignment="Center" VerticalAlignment="Stretch" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Enter Phone Number" >
+                        <TextBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </StackPanel>
+                <Label Content="Time Slot" Margin="-50,20,0,0" Width="423" HorizontalContentAlignment="Center"></Label>
+                <materialDesign:PackIcon Kind="Timelapse" Width="25" Height="25" Foreground="Green" Margin="170,-23,0,0"/>
+                <StackPanel Margin="-280,10,0,0" Width="200" Height="61">
+                    <Label Content="Start Time" Margin="10,0,0,0" Width="190"></Label>
+                    <ComboBox Margin="25,10,0,0" Height="30" Width="124">
+                        <ComboBoxItem IsSelected="True">Select Start Time</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Margin="-1,-62,-250,0" Width="221" Height="61">
+                    <Label Content="Closing Time" Margin="-10,0,0,0" Width="190" Height="23.6033333333333"></Label>
+                    <ComboBox Margin="25,10,0,0" Height="30" Width="136">
+                        <ComboBoxItem IsSelected="True">Select Closing Time</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                <Label Content="Type of Turf" Margin="25,20,0,0" Width="455"></Label>
+                <StackPanel  Margin="5,10,0,0"  Width="420" Height="49">
+                    <materialDesign:PackIcon Kind="GamepadClassic" Width="25" Height="25" Foreground="Green" Margin="-45,0,0,0"/>
+                    <ComboBox Margin="-200,-30,0,0" Height="24" Width="136">
+                        <ComboBoxItem IsSelected="True">FootBall</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                <Label Content="Pricing per Hour" Margin="25,0,0,0"></Label>
+                <StackPanel Height="71">
+                    <materialDesign:PackIcon Kind="Rupee" Width="25" Height="25" Foreground="Green" Margin="5,10,0,0"/>
+                    <TextBox x:Name="txtPricing" Text="" FontSize="20" Width="400" Height="36" Margin="0,-25,0,0" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" TextAlignment="Center" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Enter Username" >
+                        <TextBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </StackPanel>
+                <StackPanel>
+                    <Button Content="Save Changes" x:Name="btnSaveChanges" FontSize="16" FontWeight="Bold" Margin="0,-2,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="15"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
+
+
             </StackPanel>
         </materialDesign:Card>
 
@@ -34,8 +119,20 @@
                 </Style>
             </materialDesign:Card.Resources>
             <StackPanel>
-                
-                
+                <StackPanel Width="350" Margin="0,0,0,0">
+                    <Ellipse HorizontalAlignment="Left" Margin="75,10,0,0" Height="200" Width="200">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/Assets/Avatar.jpg"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <Button Content="Click to add Turf Photo" x:Name="btnTurfPhoto" FontSize="16" FontWeight="Bold" Margin="0,30,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="15"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
             </StackPanel>
         </materialDesign:Card>
 
