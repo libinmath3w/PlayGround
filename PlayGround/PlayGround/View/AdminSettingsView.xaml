@@ -76,37 +76,37 @@
             <StackPanel>
             <Label Content="Current Password" Margin="25,5,0,0"></Label>
             <StackPanel>
-                <materialDesign:PackIcon Kind="Password" Width="25" Height="25" Foreground="Green" Margin="5,0,0,0"/>
-                <TextBox x:Name="txtCurrentPassword" Text="" FontSize="20" Width="400" Height="36" Margin="0,-20,0,0" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" TextAlignment="Center" VerticalAlignment="Stretch" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Enter Current Password" >
-                    <TextBox.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="20"/>
-                        </Style>
-                    </TextBox.Resources>
-                </TextBox>
+                <materialDesign:PackIcon Kind="Password" Width="25" Height="25" Foreground="Green" Margin="5,5,0,0"/>
+                    <PasswordBox x:Name="txtCurrentPassword" FontSize="20" Width="330" Height="36" Margin="-500,-30,-450,0" VerticalContentAlignment="Center" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}">
+                        <PasswordBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </PasswordBox.Resources>
+                    </PasswordBox>
             </StackPanel>
             <Label Content="New Password" Margin="25,0,0,0"></Label>
             <StackPanel>
-                <materialDesign:PackIcon Kind="Password" Width="25" Height="25" Foreground="Green" Margin="5,0,0,0"/>
-                <TextBox x:Name="txtNewPassword" Text="" FontSize="20" Width="400" Height="36" Margin="10,-20,0,0" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" TextAlignment="Center" VerticalAlignment="Stretch" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Enter New Password" >
-                    <TextBox.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="20"/>
-                        </Style>
-                    </TextBox.Resources>
-                </TextBox>
-            </StackPanel>
+                <materialDesign:PackIcon Kind="Password" Width="25" Height="25" Foreground="Green" Margin="5,5,0,0"/>
+                    <PasswordBox x:Name="txtNewPassword" FontSize="20" Width="330" Height="36" Margin="-500,-30,-450,0" VerticalContentAlignment="Center" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}">
+                        <PasswordBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </PasswordBox.Resources>
+                    </PasswordBox>
+                </StackPanel>
             <Label Content="Confirm Password" Margin="25,0,0,0"></Label>
             <StackPanel>
-                <materialDesign:PackIcon Kind="Password" Width="25" Height="25" Foreground="Green" Margin="5,0,0,0"/>
-                <TextBox x:Name="txtConfirmPassword" Text="" FontSize="20" Width="400" Height="36" Margin="10,-20,0,0" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" TextAlignment="Center" VerticalAlignment="Stretch" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Enter Confirm Password" >
-                    <TextBox.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="20"/>
-                        </Style>
-                    </TextBox.Resources>
-                </TextBox>
-            </StackPanel>
+                <materialDesign:PackIcon Kind="Password" Width="25" Height="25" Foreground="Green" Margin="5,5,0,0"/>
+                    <PasswordBox x:Name="txtConfirmPassword" FontSize="20" Width="330" Height="36" Margin="-500,-30,-450,0" VerticalContentAlignment="Center" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}">
+                        <PasswordBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </PasswordBox.Resources>
+                    </PasswordBox>
+                </StackPanel>
             <StackPanel>
                 <Button Content="Update" x:Name="btnUpdate" FontSize="16" FontWeight="Bold" Margin="0,30,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198">
                     <Button.Resources>
