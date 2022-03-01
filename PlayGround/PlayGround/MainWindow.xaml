@@ -10,14 +10,13 @@
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
-        WindowStartupLocation="CenterScreen"
         TextOptions.TextFormattingMode="Ideal" 
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         xmlns:playgroundviewmodel="clr-namespace:PlayGround.ViewModel"
         xmlns:playgroundview="clr-namespace:PlayGround.View"
-        Title="PlayGround" Height="960" Width="1200">
+        Title="PlayGround" Height="960" Width="1200" WindowState="Maximized" WindowStartupLocation="CenterOwner" SizeToContent="WidthAndHeight">
 
     <Window.Resources>
         <DataTemplate DataType="{x:Type playgroundviewmodel:UserDashboardViewModel}">

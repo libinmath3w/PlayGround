@@ -48,5 +48,6 @@ namespace PlayGround
             }
             paletteHelper.SetTheme(theme);
         }
+        
     }
 }
