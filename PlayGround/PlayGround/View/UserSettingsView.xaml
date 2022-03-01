@@ -22,8 +22,8 @@
                 </materialDesign:Card.Resources>
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="User" Width="25" Height="25" Margin="25,25,0,0"/>
-                        <TextBox x:Name="txtName" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,15,0,5"
+                        <materialDesign:PackIcon Kind="User" Width="25" Height="25" Margin="25,35,0,0"/>
+                        <TextBox x:Name="txtName" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,25,0,5"
                             materialDesign:HintAssist.Hint="Name" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
