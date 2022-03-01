@@ -21,71 +21,36 @@
                     </Style>
                 </materialDesign:Card.Resources>
                 <StackPanel>
-                    <Label Content="Name" Margin="25,20,0,0"/>
-                    <StackPanel>
-                        <materialDesign:PackIcon Kind="User" Width="25" Height="25" Foreground="Green" Margin="25,3,0,0"/>
-                        <TextBox x:Name="txtName" Text="" FontSize="20" Width="400" Height="36" Margin="0,-29,0,0" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" TextAlignment="Center" VerticalAlignment="Stretch" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Enter Username" >
-                            <TextBox.Resources>
-                                <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="20"/>
-                                </Style>
-                            </TextBox.Resources>
-                        </TextBox>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="User" Width="25" Height="25" Margin="25,25,0,0"/>
+                        <TextBox x:Name="txtName" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,15,0,5"
+                            materialDesign:HintAssist.Hint="Name" />
                     </StackPanel>
-                    <Label Content="Email" Margin="25,0,0,0"></Label>
-                    <StackPanel>
-                        <materialDesign:PackIcon Kind="Email" Width="25" Height="25" Foreground="Green" Margin="25,3,0,0"/>
-                        <TextBox x:Name="txtEmail" Text="" FontSize="20" Width="400" Height="36" Margin="0,-29,0,0" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" TextAlignment="Center" VerticalAlignment="Stretch" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Enter Email" >
-                            <TextBox.Resources>
-                                <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="20"/>
-                                </Style>
-                            </TextBox.Resources>
-                        </TextBox>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Email" Width="25" Height="25" Margin="25,12,0,0"/>
+                        <TextBox x:Name="txtEmail" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,2,0,5"
+                            materialDesign:HintAssist.Hint="Email ID" />
                     </StackPanel>
-                    <Label Content="Phone Number" Margin="25,0,0,0"></Label>
-                    <StackPanel>
-                        <materialDesign:PackIcon Kind="Phone" Width="25" Height="25" Foreground="Green" Margin="25,3,0,0"/>
-                        <TextBox x:Name="txtPhoneNumber" Text="" FontSize="20" Width="400" Height="36" Margin="0,-29,0,0" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" TextAlignment="Center" VerticalAlignment="Stretch" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Enter Phone Number" >
-                            <TextBox.Resources>
-                                <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="20"/>
-                                </Style>
-                            </TextBox.Resources>
-                        </TextBox>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Phone" Width="25" Height="25"  Margin="25,12,0,0"/>
+                        <TextBox x:Name="txtPhoneNumber" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,2,0,5"
+                            materialDesign:HintAssist.Hint="Phone Number" />
                     </StackPanel>
-                    <Label Content="City" Margin="25,0,0,0"></Label>
-                    <StackPanel>
-                        <materialDesign:PackIcon Kind="City" Width="25" Height="25" Foreground="Green" Margin="25,3,0,0"/>
-                        <TextBox x:Name="txtCity" Text="" FontSize="20" Width="400" Height="36" Margin="0,-29,0,0" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" TextAlignment="Center" VerticalAlignment="Stretch" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Enter Phone Number" >
-                            <TextBox.Resources>
-                                <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="20"/>
-                                </Style>
-                            </TextBox.Resources>
-                        </TextBox>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="City" Width="25" Height="25"  Margin="25,12,0,0"/>
+                        <TextBox x:Name="txtCity" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,2,0,5"
+                            materialDesign:HintAssist.Hint="City" />
                     </StackPanel>
-                    <Label Content="State" Margin="25,0,0,0"></Label>
-                    <StackPanel>
-                        <materialDesign:PackIcon Kind="Estate" Width="25" Height="25" Foreground="Green" Margin="25,3,0,0"/>
-                        <TextBox x:Name="txtState" Text="" FontSize="20" Width="400" Height="36" Margin="0,-29,0,0" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" TextAlignment="Center" VerticalAlignment="Stretch" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Enter Phone Number" >
-                            <TextBox.Resources>
-                                <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="20"/>
-                                </Style>
-                            </TextBox.Resources>
-                        </TextBox>
+
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Estate" Width="25" Height="25" Margin="25,12,0,0"/>
+                        <TextBox x:Name="txtState" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,2,0,5"
+                            materialDesign:HintAssist.Hint="State" />
                     </StackPanel>
-                    <Label Content="Zip" Margin="25,0,0,0"></Label>
-                    <StackPanel>
-                        <materialDesign:PackIcon Kind="post" Width="25" Height="25" Foreground="Green" Margin="25,3,0,0"/>
-                        <TextBox x:Name="txtZip" Text="" FontSize="20" Width="400" Height="36" Margin="0,-29,0,0" Style="{DynamicResource MaterialDesignOutlinedTextFieldTextBox}" TextAlignment="Center" VerticalAlignment="Stretch" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Enter Phone Number" >
-                            <TextBox.Resources>
-                                <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="20"/>
-                                </Style>
-                            </TextBox.Resources>
-                        </TextBox>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Post" Width="25" Height="25"  Margin="25,12,0,0"/>
+                        <TextBox x:Name="txtZip" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,2,0,5"
+                            materialDesign:HintAssist.Hint="Zip Code" />
                     </StackPanel>
                     <StackPanel>
                         <Button Content="Save Changes" x:Name="btnSaveChanges" FontSize="16" FontWeight="Bold" Margin="0,20,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198">
@@ -133,146 +98,16 @@
                 <Label Content="Change Password" HorizontalAlignment="Center" FontSize="20" Height="50" />
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Key" Width="25" Height="25" Margin="50,20,0,0"/>
-
-                    <PasswordBox Style="{DynamicResource MaterialDesignOutlinedPasswordBox}" VerticalAlignment="Top" Width="330"
+                    <PasswordBox x:Name="pwbCurrentPassword" Style="{DynamicResource MaterialDesignOutlinedPasswordBox}" VerticalAlignment="Top" Width="330"
                         materialDesign:HintAssist.Hint="Current Password" Margin="10,10,0,20" materialDesign:HintAssist.HelperText="At least 8 characters"/>
-
-
-                    <!--<PasswordBox x:Name="txtCurrentPassword" FontSize="20" Width="330" Height="36" Margin="-80,5,-450,0" VerticalContentAlignment="Center">
-                        <PasswordBox.Style>
-                            <Style TargetType="{x:Type PasswordBox}">
-                                <Style.Resources>
-                                    <Style TargetType="Border">
-                                        <Setter Property="CornerRadius" Value="8" />
-                                    </Style>
-                                </Style.Resources>
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="{x:Type PasswordBox}">
-                                            <Border x:Name="border" CornerRadius="20" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
-                                                <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
-                                            </Border>
-                                            <ControlTemplate.Triggers>
-                                                <Trigger Property="IsEnabled" Value="false">
-                                                    <Setter Property="Opacity" TargetName="border" Value="0.56"/>
-                                                </Trigger>
-                                                <Trigger Property="IsMouseOver" Value="true">
-                                                    <Setter Property="BorderBrush" TargetName="border" Value="#FF7EB4EA"/>
-                                                </Trigger>
-                                                <Trigger Property="IsKeyboardFocused" Value="true">
-                                                    <Setter Property="BorderBrush" TargetName="border" Value="#FF569DE5"/>
-                                                </Trigger>
-                                            </ControlTemplate.Triggers>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                                <Style.Triggers>
-                                    <MultiTrigger>
-                                        <MultiTrigger.Conditions>
-                                            <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
-                                            <Condition Property="IsSelectionActive" Value="false"/>
-                                        </MultiTrigger.Conditions>
-                                        <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
-                                    </MultiTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </PasswordBox.Style>
-                    </PasswordBox>-->
-
                     <materialDesign:PackIcon Kind="Password" Width="25" Height="25" Margin="50,25,0,0" />
-
-                    <PasswordBox Style="{DynamicResource MaterialDesignOutlinedPasswordBox}" VerticalAlignment="Top" Width="330"
+                    <PasswordBox x:Name="pwbNewPassword" Style="{DynamicResource MaterialDesignOutlinedPasswordBox}" VerticalAlignment="Top" Width="330"
                         materialDesign:HintAssist.Hint="New Password" Margin="10,10,0,20" materialDesign:HintAssist.HelperText="At least 8 characters"/>
-
-
-                    <!--<PasswordBox x:Name="txtNewPassword" FontSize="20" Width="330" Height="36" Margin="20,5,0,0" VerticalContentAlignment="Center" >
-                        <PasswordBox.Style>
-                            <Style TargetType="{x:Type PasswordBox}">
-                                <Style.Resources>
-                                    <Style TargetType="Border">
-                                        <Setter Property="CornerRadius" Value="8" />
-                                    </Style>
-                                </Style.Resources>
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="{x:Type PasswordBox}">
-                                            <Border x:Name="border" CornerRadius="20" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
-                                                <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
-                                            </Border>
-                                            <ControlTemplate.Triggers>
-                                                <Trigger Property="IsEnabled" Value="false">
-                                                    <Setter Property="Opacity" TargetName="border" Value="0.56"/>
-                                                </Trigger>
-                                                <Trigger Property="IsMouseOver" Value="true">
-                                                    <Setter Property="BorderBrush" TargetName="border" Value="#FF7EB4EA"/>
-                                                </Trigger>
-                                                <Trigger Property="IsKeyboardFocused" Value="true">
-                                                    <Setter Property="BorderBrush" TargetName="border" Value="#FF569DE5"/>
-                                                </Trigger>
-                                            </ControlTemplate.Triggers>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                                <Style.Triggers>
-                                    <MultiTrigger>
-                                        <MultiTrigger.Conditions>
-                                            <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
-                                            <Condition Property="IsSelectionActive" Value="false"/>
-                                        </MultiTrigger.Conditions>
-                                        <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
-                                    </MultiTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </PasswordBox.Style>
-                     </PasswordBox>-->
-
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Password" Width="25" Height="25" Margin="50,25,0,0"/>
-                    <PasswordBox Style="{DynamicResource MaterialDesignOutlinedPasswordBox}" VerticalAlignment="Top" Width="330"
+                    <PasswordBox x:Name="pwbConfirmPassword" Style="{DynamicResource MaterialDesignOutlinedPasswordBox}" VerticalAlignment="Top" Width="330"
                         materialDesign:HintAssist.Hint="Confirm Password" Margin="10,10,0,20" materialDesign:HintAssist.HelperText="At least 8 characters"/>
-
-                    <!--<PasswordBox x:Name="txtConfirmPassword" FontSize="20" Width="330" Height="36" Margin="20,0,0,0" VerticalContentAlignment="Center" >
-                        <PasswordBox.Style>
-                            <Style TargetType="{x:Type PasswordBox}">
-                                <Style.Resources>
-                                    <Style TargetType="Border">
-                                        <Setter Property="CornerRadius" Value="8" />
-                                    </Style>
-                                </Style.Resources>
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="{x:Type PasswordBox}">
-                                            <Border x:Name="border" CornerRadius="20" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
-                                                <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
-                                            </Border>
-                                            <ControlTemplate.Triggers>
-                                                <Trigger Property="IsEnabled" Value="false">
-                                                    <Setter Property="Opacity" TargetName="border" Value="0.56"/>
-                                                </Trigger>
-                                                <Trigger Property="IsMouseOver" Value="true">
-                                                    <Setter Property="BorderBrush" TargetName="border" Value="#FF7EB4EA"/>
-                                                </Trigger>
-                                                <Trigger Property="IsKeyboardFocused" Value="true">
-                                                    <Setter Property="BorderBrush" TargetName="border" Value="#FF569DE5"/>
-                                                </Trigger>
-                                            </ControlTemplate.Triggers>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                                <Style.Triggers>
-                                    <MultiTrigger>
-                                        <MultiTrigger.Conditions>
-                                            <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
-                                            <Condition Property="IsSelectionActive" Value="false"/>
-                                        </MultiTrigger.Conditions>
-                                        <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
-                                    </MultiTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </PasswordBox.Style>
-                    </PasswordBox>-->
-                   
                     <Button Content="Update" x:Name="btnUpdate" FontSize="16" FontWeight="Bold" Margin="135,0,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198">
                         <Button.Resources>
                             <Style TargetType="Border">
