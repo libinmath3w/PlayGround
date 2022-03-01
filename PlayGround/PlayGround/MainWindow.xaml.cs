@@ -38,13 +38,13 @@ namespace PlayGround
             {
                 IsDarknLightMode = false;
                 theme.SetBaseTheme(Theme.Light);
-                darkmodes.Content = "Dark Mode";
+                //darkmodes.Content = "Dark Mode";
             }
             else
             {
                 IsDarknLightMode = true;
                 theme.SetBaseTheme(Theme.Dark);
-                darkmodes.Content = "Light Mode";
+                //darkmodes.Content = "Light Mode";
             }
             paletteHelper.SetTheme(theme);
         }

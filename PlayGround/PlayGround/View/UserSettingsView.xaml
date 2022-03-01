@@ -25,7 +25,7 @@
             <StackPanel>
                 <Label Content="Personal Details" HorizontalAlignment="Center" FontSize="14" Height="22" />
                 <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="User" Width="25" Height="25" Margin="25,15,0,0"/>
+                    <materialDesign:PackIcon Kind="User" Width="25" Height="25" Margin="25,25,0,0"/>
                     <TextBox x:Name="txtName" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,15,0,5"
                             materialDesign:HintAssist.Hint="Name" />
                 </StackPanel>
@@ -56,13 +56,9 @@
                             materialDesign:HintAssist.Hint="Zip Code" />
                 </StackPanel>
                 <StackPanel>
-                    <Button Content="Save Changes" x:Name="btnSaveChanges" FontSize="16" FontWeight="Bold" Margin="0,20,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198">
-                        <Button.Resources>
-                            <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="15"/>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
+                    <Button Style="{DynamicResource MaterialDesignRaisedDarkButton}"
+                        Content="Save Changes" x:Name="btnSaveChanges" FontSize="16" FontWeight="Bold" Margin="-40,15,0,0"
+                        materialDesign:ButtonAssist.CornerRadius="25" Width="230" Height="40" ToolTip="Save Details" />
                 </StackPanel>
             </StackPanel>
         </materialDesign:Card>
@@ -111,13 +107,9 @@
                     <materialDesign:PackIcon Kind="Password" Width="25" Height="25" Margin="50,25,0,0"/>
                     <PasswordBox x:Name="pwbConfirmPassword" Style="{DynamicResource MaterialDesignOutlinedPasswordBox}" VerticalAlignment="Top" Width="330"
                         materialDesign:HintAssist.Hint="Confirm Password" Margin="10,10,0,20" materialDesign:HintAssist.HelperText="At least 8 characters"/>
-                    <Button Content="Update" x:Name="btnUpdate" FontSize="16" FontWeight="Bold" Margin="135,0,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198">
-                        <Button.Resources>
-                            <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="15"/>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
+                    <Button Style="{DynamicResource MaterialDesignRaisedDarkButton}"
+                        Content="Update Password" x:Name="btnPasswordUpdate" FontSize="16" FontWeight="Bold" Margin="100,15,0,0"
+                        materialDesign:ButtonAssist.CornerRadius="25" Width="230" Height="40" ToolTip="Save Details" />
                 </StackPanel>
             </StackPanel>
         </materialDesign:Card>

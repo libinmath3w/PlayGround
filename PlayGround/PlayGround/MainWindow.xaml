@@ -34,14 +34,31 @@
         <materialDesign:ColorZone
   Mode="PrimaryMid"
   Padding="16">
-            <DockPanel Margin="0,0,10,0">
-                <Label Name="darkmodes" Content="Dark Mode" DockPanel.Dock="Right" Height="22" Foreground="White" Width="76"/>
-                <materialDesign:PackIcon Kind="ThemeLightDark" DockPanel.Dock="Right" Width="16" Height="39"/>
-                <ToggleButton
-      Style="{DynamicResource MaterialDesignSwitchAccentToggleButton}"
-      VerticalAlignment="Center"
-      Cursor="Hand" ToolTip="Enable Dark Mode" x:Name="tbDarkLight" IsChecked="{Binding IsDarknLightMode}" Click="TongleTheme"         
-      DockPanel.Dock="Right" />
+            <DockPanel Margin="0,0,20,0">
+                <materialDesign:Chip
+  Content="Hello, David" Foreground="Wheat" DockPanel.Dock="Right" Width="150">
+                    <materialDesign:Chip.Icon>
+                        <Image
+      Source="/Assets/avatar.jpg" />
+                    </materialDesign:Chip.Icon>
+                </materialDesign:Chip>
+                <materialDesign:DialogHost CloseOnClickAway="True" x:Name="MoreMenu" DockPanel.Dock="Right" Margin="0,0,-195,0">
+                    <StackPanel>
+                        <materialDesign:PopupBox HorizontalAlignment="Right" Margin="0,7,20,0" PlacementMode="BottomAndAlignRightEdges"
+                                                 StaysOpen="False" Height="25" Width="40">
+                            <StackPanel Margin="10,10,0,2" Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBlock VerticalAlignment="Center" Text="Light Mode"/>
+                                <ToggleButton
+                                    Style="{DynamicResource MaterialDesignSwitchAccentToggleButton}"
+                                    VerticalAlignment="Center"
+                                    Cursor="Hand" ToolTip="Enable Dark Mode" x:Name="tbDarkLight" IsChecked="{Binding IsDarknLightMode}" Click="TongleTheme"         
+                                    DockPanel.Dock="Right" />
+                                <TextBlock VerticalAlignment="Center" Text="Dark"/>
+                            </StackPanel>
+                        </materialDesign:PopupBox>
+                    </StackPanel>
+                </materialDesign:DialogHost>
+                
                 <StackPanel
       Orientation="Horizontal"
       materialDesign:RippleAssist.IsCentered="True">
@@ -147,7 +164,7 @@
 
                         <ListViewItem HorizontalAlignment="Center" Margin="0 60 0 0">
                             <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
-                             BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" x:Name="btnExit" ToolTip="Log Out">
+                             BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" x:Name="btnExit" ToolTip="Log Out" Command="{Binding RedirectViewCommands}" CommandParameter="SignOut">
                                 <StackPanel Margin="-5">
                                     <materialDesign:PackIcon Kind="ExitToApp"/>
                                 </StackPanel>
@@ -157,8 +174,16 @@
                 </Grid>
                 <Grid Grid.Column="1" Background="#F6F5F8" Name="RenderPages">
                     <ContentControl Content="{Binding SelectedViewModel}"/>
+                    <Button
+        Style="{DynamicResource MaterialDesignFloatingActionMiniAccentButton}"
+        Command="{Binding RedirectViewCommands}" CommandParameter="UserSettings" ToolTip="Book Turf Now"
+        VerticalAlignment="Bottom"
+        HorizontalAlignment="Right"
+        Margin="0 0 100 100"
+        Content="{materialDesign:PackIcon Kind=Plus, Size=34}" />
                 </Grid>
             </Grid>
         </materialDesign:Card>
+
     </Grid>
 </Window>

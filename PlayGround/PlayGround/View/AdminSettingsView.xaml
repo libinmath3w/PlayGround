@@ -30,9 +30,9 @@
                     <Setter Property="CornerRadius" Value="20"/>
                 </Style>
             </materialDesign:Card.Resources>
-            <StackPanel>
-                <Label Content="Personal Details" HorizontalAlignment="Center" FontSize="17" Height="29" />
-                <StackPanel Orientation="Horizontal">
+                <StackPanel>
+                    <Label Content="Personal Details" HorizontalAlignment="Center" FontSize="17" Height="29" />
+                    <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="User" Width="25" Height="25" Margin="25,35,0,0"/>
                     <TextBox x:Name="txtName" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,25,0,5"
                             materialDesign:HintAssist.Hint="Name" />
