@@ -132,7 +132,7 @@
             <StackPanel>
                 <Label Content="Change Password" HorizontalAlignment="Center" FontSize="20" Height="50" />
                 <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Key" Width="25" Height="25" Foreground="Green" Margin="50,20,0,0"/>
+                    <materialDesign:PackIcon Kind="Key" Width="25" Height="25" Margin="50,20,0,0"/>
 
                     <PasswordBox Style="{DynamicResource MaterialDesignOutlinedPasswordBox}" VerticalAlignment="Top" Width="330"
                         materialDesign:HintAssist.Hint="Current Password" Margin="10,10,0,20" materialDesign:HintAssist.HelperText="At least 8 characters"/>
@@ -179,7 +179,7 @@
                         </PasswordBox.Style>
                     </PasswordBox>-->
 
-                    <materialDesign:PackIcon Kind="Password" Width="25" Height="25" Foreground="Green" Margin="50,25,0,0" />
+                    <materialDesign:PackIcon Kind="Password" Width="25" Height="25" Margin="50,25,0,0" />
 
                     <PasswordBox Style="{DynamicResource MaterialDesignOutlinedPasswordBox}" VerticalAlignment="Top" Width="330"
                         materialDesign:HintAssist.Hint="New Password" Margin="10,10,0,20" materialDesign:HintAssist.HelperText="At least 8 characters"/>
@@ -228,7 +228,7 @@
 
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Password" Width="25" Height="25" Foreground="Green" Margin="50,25,0,0"/>
+                    <materialDesign:PackIcon Kind="Password" Width="25" Height="25" Margin="50,25,0,0"/>
                     <PasswordBox Style="{DynamicResource MaterialDesignOutlinedPasswordBox}" VerticalAlignment="Top" Width="330"
                         materialDesign:HintAssist.Hint="Confirm Password" Margin="10,10,0,20" materialDesign:HintAssist.HelperText="At least 8 characters"/>
 
@@ -273,7 +273,7 @@
                         </PasswordBox.Style>
                     </PasswordBox>-->
                    
-                    <Button Content="Update" x:Name="btnUpdate" FontSize="16" FontWeight="Bold" Margin="225,0,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198">
+                    <Button Content="Update" x:Name="btnUpdate" FontSize="16" FontWeight="Bold" Margin="135,0,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="15"/>
