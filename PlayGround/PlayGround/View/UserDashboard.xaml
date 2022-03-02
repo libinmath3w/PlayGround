@@ -29,7 +29,7 @@
         <Grid Grid.Column="0" Background="#F6F6F8">
             <StackPanel Margin="10">
                 <Grid Height="60">
-                    <ComboBox HorizontalAlignment="Right" Width="100" materialDesign:HintAssist.Hint="Last 15 Days">
+                    <ComboBox HorizontalAlignment="Right" Width="108" materialDesign:HintAssist.Hint="Last 15 Days" Margin="0,0,0,30">
                         <ComboBoxItem>
                             <TextBlock Text="Last 15 Days" />
                         </ComboBoxItem>
@@ -91,7 +91,7 @@
                         </materialDesign:Card>
                     </Border>
                 </WrapPanel>
-                <materialDesign:Card Margin="30 20" UniformCornerRadius="20">
+                <materialDesign:Card Margin="30 30" UniformCornerRadius="20" Height="232">
                     <StackPanel>
                         <Grid>
                             <TextBlock Margin="20" HorizontalAlignment="Left"  FontWeight="SemiBold" Text="Instagram Subscribers" FontSize="18"/>
@@ -112,7 +112,7 @@
                         </lvc:CartesianChart>
                     </StackPanel>
                 </materialDesign:Card>
-                <WrapPanel HorizontalAlignment="Center">
+                <WrapPanel HorizontalAlignment="Center" Height="203">
                     <materialDesign:Card Margin="10" UniformCornerRadius="20" Padding="10">
                         <StackPanel>
                             <TextBlock Text="Key Matrics" Margin="10 20" FontWeight="SemiBold" />
@@ -182,7 +182,7 @@
             </StackPanel>
         </Grid>
         <StackPanel Grid.Column="1" Background="White">
-            <WrapPanel VerticalAlignment="Top" Margin="20 20 20 10">
+            <WrapPanel VerticalAlignment="Top" Margin="30 10 0 0">
                 <Button Style="{StaticResource MaterialDesignFloatingActionButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black">
                     <StackPanel Margin="-5">
                         <materialDesign:PackIcon Kind="BellOutline" />
@@ -201,9 +201,9 @@
                 </Button>
             </WrapPanel>
             <Border Margin="40 10" CornerRadius="20" Background="#FFFFEEFA">
-                <Image Source="/Assets/cartoon-woman-pretty.png"  Stretch="Uniform" x:Name="ImgCartoon" Height="150" />
+                <Image Source="/Assets/cartoon-woman-pretty.png"  Stretch="Uniform" x:Name="ImgCartoon" Height="130" />
             </Border>
-            <Calendar Margin="45 10" />
+            <Calendar Margin="50 0" Height="319" />
             <materialDesign:Card Margin="20 10" Padding="5" UniformCornerRadius="20" HorizontalAlignment="Center">
                 <WrapPanel Margin="10">
                     <materialDesign:PackIcon Kind="HandPeace" Foreground="#FFC83D" VerticalAlignment="Center" Margin="10 0" />
@@ -216,7 +216,7 @@
                     <Image Source="/Assets/avatar.jpg" Width="40" Height="40" Margin="10 0" x:Name="avatar1" />
                 </WrapPanel>
             </materialDesign:Card>
-            <materialDesign:Card Margin="20 10" Padding="5" UniformCornerRadius="20" HorizontalAlignment="Center">
+            <materialDesign:Card Margin="20 10" Padding="5" UniformCornerRadius="20" HorizontalAlignment="Center" Height="65">
                 <WrapPanel Margin="10">
                     <materialDesign:PackIcon Kind="HandPeace" Foreground="#FFC83D" VerticalAlignment="Center" Margin="10 0" />
                     <TextBlock Margin="10 0" VerticalAlignment="Center">

@@ -13,10 +13,10 @@
              FontFamily="{materialDesign:MaterialDesignFont}"
              d:DesignHeight="750" d:DesignWidth="1100">
     <Grid>
-       
-       
 
-        <materialDesign:Card HorizontalAlignment="Center"  Margin="330,30,0,0" VerticalAlignment="Top" Height="450" Width="600">
+
+
+        <materialDesign:Card HorizontalAlignment="Left"  Margin="465,40,0,0" VerticalAlignment="Top" Height="430" Width="500">
             <materialDesign:Card.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="20"/>
@@ -57,13 +57,13 @@
                 </StackPanel>
                 <StackPanel>
                     <Button Style="{DynamicResource MaterialDesignRaisedDarkButton}"
-                        Content="Save Changes" x:Name="btnSaveChanges" FontSize="16" FontWeight="Bold" Margin="-40,15,0,0"
+                        Content="Save Changes" x:Name="btnSaveChanges" FontSize="16" FontWeight="Bold" Margin="35,2,0,0"
                         materialDesign:ButtonAssist.CornerRadius="25" Width="230" Height="40" ToolTip="Save Details" />
                 </StackPanel>
             </StackPanel>
         </materialDesign:Card>
 
-        <materialDesign:Card HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" Margin="30,40,0,0" VerticalAlignment="Top" Height="300" Width="300">
+        <materialDesign:Card HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" Margin="55,40,0,0" VerticalAlignment="Top" Height="300" Width="300">
             <materialDesign:Card.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="20"/>
@@ -86,20 +86,20 @@
                 </StackPanel>
             </StackPanel>
         </materialDesign:Card>
-        <materialDesign:Card HorizontalAlignment="Left" Margin="50,480,50,0" Height="250" Width="970"  >
+        <materialDesign:Card HorizontalAlignment="Left" Margin="55,480,50,0" Height="220" Width="908"  >
             <materialDesign:Card.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="20"/>
                 </Style>
             </materialDesign:Card.Resources>
-            
+
             <StackPanel>
                 <Label Content="Change Password" HorizontalAlignment="Center" FontSize="20" Height="50" />
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Key" Width="25" Height="25" Margin="50,20,0,0"/>
                     <PasswordBox x:Name="pwbCurrentPassword" Style="{DynamicResource MaterialDesignOutlinedPasswordBox}" VerticalAlignment="Top" Width="330"
                         materialDesign:HintAssist.Hint="Current Password" Margin="10,10,0,20" materialDesign:HintAssist.HelperText="At least 8 characters"/>
-                    <materialDesign:PackIcon Kind="Password" Width="25" Height="25" Margin="50,25,0,0" />
+                    <materialDesign:PackIcon Kind="PasswordAlert" Width="25" Height="25" Margin="50,25,0,0" />
                     <PasswordBox x:Name="pwbNewPassword" Style="{DynamicResource MaterialDesignOutlinedPasswordBox}" VerticalAlignment="Top" Width="330"
                         materialDesign:HintAssist.Hint="New Password" Margin="10,10,0,20" materialDesign:HintAssist.HelperText="At least 8 characters"/>
                 </StackPanel>
@@ -108,7 +108,7 @@
                     <PasswordBox x:Name="pwbConfirmPassword" Style="{DynamicResource MaterialDesignOutlinedPasswordBox}" VerticalAlignment="Top" Width="330"
                         materialDesign:HintAssist.Hint="Confirm Password" Margin="10,10,0,20" materialDesign:HintAssist.HelperText="At least 8 characters"/>
                     <Button Style="{DynamicResource MaterialDesignRaisedDarkButton}"
-                        Content="Update Password" x:Name="btnPasswordUpdate" FontSize="16" FontWeight="Bold" Margin="100,15,0,0"
+                        Content="Update Password" x:Name="btnPasswordUpdate" FontSize="16" FontWeight="Bold" Margin="145,15,0,0"
                         materialDesign:ButtonAssist.CornerRadius="25" Width="230" Height="40" ToolTip="Save Details" />
                 </StackPanel>
             </StackPanel>
