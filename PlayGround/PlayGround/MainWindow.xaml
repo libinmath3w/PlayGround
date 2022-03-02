@@ -69,8 +69,8 @@
                     </materialDesign:Chip.Icon>
                 </materialDesign:Chip>
                 <materialDesign:DialogHost CloseOnClickAway="True" x:Name="MoreMenu" DockPanel.Dock="Right" Margin="0,0,-195,0">
-                    <StackPanel>
-                        <materialDesign:PopupBox HorizontalAlignment="Right" Margin="0,23,20,0" PlacementMode="BottomAndAlignRightEdges"
+                    <StackPanel Margin="50,0,10,0">
+                        <materialDesign:PopupBox HorizontalAlignment="Right" Margin="0,7,0,0" PlacementMode="BottomAndAlignRightEdges"
                                                  StaysOpen="False" Height="25" Width="40">
                             <StackPanel Margin="10,10,0,2" Orientation="Horizontal" HorizontalAlignment="Center">
                                 <TextBlock VerticalAlignment="Center" Text="Light Mode"/>
