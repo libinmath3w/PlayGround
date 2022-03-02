@@ -24,7 +24,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <materialDesign:Card HorizontalAlignment="left" Grid.Row="0" Grid.Column="1" Margin="30,15,0,0" VerticalAlignment="Top" Height="310" Width="500">
+        <materialDesign:Card HorizontalAlignment="left" Grid.Row="0" Grid.Column="1" Margin="30,30,0,0" VerticalAlignment="Top" Height="310" Width="500">
             <materialDesign:Card.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="20"/>
@@ -58,7 +58,7 @@
                 </StackPanel>
             </StackPanel>
         </materialDesign:Card>
-        <materialDesign:Card HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" Margin="30,20,0,0" VerticalAlignment="top" Height="330" Width="500">
+        <materialDesign:Card HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" Margin="30,50,0,0" VerticalAlignment="top" Height="330" Width="500">
             <materialDesign:Card.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="20"/>
@@ -92,15 +92,15 @@
             </StackPanel>
                 </StackPanel>
         </materialDesign:Card>
-        <materialDesign:Card HorizontalAlignment="Left" Margin="20,15,10,0" Grid.Row="0" Grid.Column="0" VerticalAlignment="top" Height="300" Width="300">
+        <materialDesign:Card HorizontalAlignment="Left" Margin="20,30,10,0" Grid.Row="0" Grid.Column="0" VerticalAlignment="top" Height="300" Width="300">
             <materialDesign:Card.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="20"/>
                 </Style>
             </materialDesign:Card.Resources>
             <StackPanel>
-                <StackPanel Width="350" Margin="0,0,0,0">
-                    <Ellipse HorizontalAlignment="Left" Margin="75,10,0,0" Height="200" Width="200">
+                <StackPanel Width="300" Margin="0,0,0,0">
+                    <Ellipse HorizontalAlignment="Left" Margin="50,10,0,0" Height="200" Width="200">
                         <Ellipse.Fill>
                             <ImageBrush ImageSource="/Assets/Avatar.jpg"/>
                         </Ellipse.Fill>
