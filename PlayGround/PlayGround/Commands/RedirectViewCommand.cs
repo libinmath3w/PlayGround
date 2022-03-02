@@ -57,6 +57,14 @@ namespace PlayGround.Commands
             {
                 //SystemCommands.CloseWindow(this);
             }
+            else if (parameter.ToString() == "AdminSettings")
+            {
+                viewModel.SelectedViewModel = new AdminSettingsViewModel();
+            }
+            else if (parameter.ToString() == "AdminAddNewTurf")
+            {
+                viewModel.SelectedViewModel = new AdminAddNewTurfViewModel();
+            }
 
         }
     }

@@ -50,7 +50,7 @@
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Post" Width="25" Height="25" Margin="25,35,0,0"/>
                     <TextBox x:Name="txtTurfPost" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,25,0,5"
-                            materialDesign:HintAssist.Hint="State" />
+                            materialDesign:HintAssist.Hint="Zip Code" />
                 </StackPanel>
                 <Label Content="Time Slot" Margin="-50,20,0,0" Width="423" HorizontalContentAlignment="Center"></Label>
                 <materialDesign:PackIcon Kind="Timelapse" Width="25" Height="25"  Margin="170,-23,0,0"/>
