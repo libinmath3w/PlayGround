@@ -64,13 +64,12 @@
                 <materialDesign:Chip Margin="0,-8,0,0"
   Content="Hello, David" Foreground="Wheat" DockPanel.Dock="Right" Width="150">
                     <materialDesign:Chip.Icon>
-                        <Image
-      Source="/Assets/avatar.jpg" />
+                        <Image Source="/Assets/avatar.jpg"/>
                     </materialDesign:Chip.Icon>
                 </materialDesign:Chip>
                 <materialDesign:DialogHost CloseOnClickAway="True" x:Name="MoreMenu" DockPanel.Dock="Right" Margin="0,0,-195,0">
                     <StackPanel Margin="50,0,10,0">
-                        <materialDesign:PopupBox HorizontalAlignment="Right" Margin="0,7,0,0" PlacementMode="BottomAndAlignRightEdges"
+                        <materialDesign:PopupBox HorizontalAlignment="Right" Margin="0,20,0,0" PlacementMode="BottomAndAlignRightEdges"
                                                  StaysOpen="False" Height="25" Width="40">
                             <StackPanel Margin="200,10,0,2" Orientation="Horizontal" HorizontalAlignment="Center">
                                 <TextBlock VerticalAlignment="Center" Text="Light Mode" Margin="-190,0,0,0"/>
