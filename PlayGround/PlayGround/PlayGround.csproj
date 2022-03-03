@@ -63,6 +63,7 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\UserDashboardViewModel.cs" />
     <Compile Include="ViewModel\UserLoginViewModel.cs" />
+    <Compile Include="ViewModel\UserLogoutViewModel.cs" />
     <Compile Include="ViewModel\UserNewTurfBookingViewModel.cs" />
     <Compile Include="ViewModel\UserRegistrationViewModel.cs" />
     <Compile Include="ViewModel\UserSettingsViewModels.cs" />
@@ -81,6 +82,9 @@
     </Compile>
     <Compile Include="View\UserLoginView.xaml.cs">
       <DependentUpon>UserLoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserLogoutView.xaml.cs">
+      <DependentUpon>UserLogoutView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserNewTurfBookingView.xaml.cs">
       <DependentUpon>UserNewTurfBookingView.xaml</DependentUpon>
@@ -123,6 +127,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\UserLoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserLogoutView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -204,6 +212,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\avatars.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\logout1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
