@@ -73,6 +73,9 @@
     <Compile Include="View\AdminAddNewTurfView.xaml.cs">
       <DependentUpon>AdminAddNewTurfView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AdminDashboard.xaml.cs">
+      <DependentUpon>AdminDashboard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AdminMainWindowView.xaml.cs">
       <DependentUpon>AdminMainWindowView.xaml</DependentUpon>
     </Compile>
@@ -119,6 +122,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\AdminAddNewTurfView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AdminDashboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
