@@ -27,7 +27,7 @@
                 </Ellipse>
             <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                     <materialDesign:PackIcon Kind="User" Width="25" Height="25" Margin="200,50,25,0"/>
-                    <Label x:Name="lblName" Content="David" FontSize="24" FontWeight="Bold" Width="216" Margin="30 43 0 0" Height="42" HorizontalAlignment="Right"/>
+                    <Label x:Name="lblName" Content="David" FontSize="24" FontWeight="Bold" Width="216" Margin="10 43 0 0" Height="42" HorizontalAlignment="Right"/>
                 </StackPanel>
                 <Button x:Name="btnLogOut" HorizontalAlignment="Left" Margin="200,50,20,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Width="168" Height="48">
                     <Button.Resources>
