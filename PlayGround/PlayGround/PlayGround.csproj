@@ -63,9 +63,6 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\UserDashboardViewModel.cs" />
     <Compile Include="ViewModel\UserLoginViewModel.cs" />
-    <Compile Include="ViewModel\UserLogoutViewModel.xaml.cs">
-      <DependentUpon>UserLogoutViewModel.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModel\UserNewTurfBookingViewModel.cs" />
     <Compile Include="ViewModel\UserRegistrationViewModel.cs" />
     <Compile Include="ViewModel\UserSettingsViewModels.cs" />
@@ -112,10 +109,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ViewModel\UserLogoutViewModel.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\AdminAddNewTurfView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
