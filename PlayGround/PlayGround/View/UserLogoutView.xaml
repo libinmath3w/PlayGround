@@ -20,7 +20,7 @@
                 </Style>
             </materialDesign:Card.Resources>
             <StackPanel Orientation="Horizontal" Margin="-119,0,0,0">
-                <materialDesign:PackIcon Kind="User" Width="25" Height="25" Margin="550,230,0,0"/>
+                <materialDesign:PackIcon Kind="User" Width="25" Height="25" Margin="260,230,25,0"/>
             </StackPanel>
         </materialDesign:Card>
         <Button x:Name="btnLogOut" Content="Log Out" HorizontalAlignment="Left" Margin="445,340,20,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Width="168" Height="48"/>
