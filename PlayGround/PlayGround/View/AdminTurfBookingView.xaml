@@ -13,20 +13,101 @@
              FontFamily="{materialDesign:MaterialDesignFont}"
              d:DesignHeight="750" d:DesignWidth="1100">
     <Grid>
-        <DataGrid x:Name="gdShowBokkings" AutoGenerateColumns="False" CanUserAddRows="False" ColumnWidth="*" ItemsSource="{Binding ViewUserTurfBokkingsAndBookNew}" Margin="20,20,0,0">
-            <DataGrid.Columns>
-                <materialDesign:DataGridTextColumn Header="Booking ID" Binding="{Binding BookingID}" IsReadOnly="True"/>
-                <DataGridTemplateColumn Width="80">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Image Source="{Binding UserAvatar}" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <materialDesign:DataGridTextColumn Header="Name" Binding="{Binding CustomerName}" IsReadOnly="True"/>
-                <materialDesign:DataGridTextColumn Header="Turf Name" Binding="{Binding TurfName}" IsReadOnly="True"/>
-                <materialDesign:DataGridTextColumn Header="Time" Binding="{Binding TurfTimeSlot}" IsReadOnly="True"/>
-            </DataGrid.Columns>
-        </DataGrid>
+        <materialDesign:ColorZone
+  Mode="Light" Margin="0,20,0,0"
+  Padding="0">
+           
+            <DockPanel Margin="0,0,20,0">
+                
+                   
+                <Grid>
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                </Grid>
+                <StackPanel
+      Orientation="Horizontal"
+      materialDesign:RippleAssist.IsCentered="True" Width="1075">
+                   
+                    <materialDesign:ColorZone
+        Mode="Standard"
+        Padding="0 5 8 4"
+        CornerRadius="2"
+        Panel.ZIndex="1"
+        Margin="55 90 0 0"
+        Width="750"                
+        materialDesign:ShadowAssist.ShadowDepth="Depth3">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition
+              Width="Auto" />
+                                <ColumnDefinition
+              Width="*" />
+                                <ColumnDefinition
+              Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Button
+            Style="{DynamicResource MaterialDesignToolButton}">
+                                <materialDesign:PackIcon
+              Kind="Search"
+              Opacity=".66" />
+                            </Button>
+                            <TextBox
+            Grid.Column="1"
+            Margin="8 0 0 0"
+            materialDesign:HintAssist.Hint="Search Turfs"
+            materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+            BorderThickness="0"
+            MinWidth="200"
+            VerticalAlignment="Center" />
+                            <Button
+            Style="{DynamicResource MaterialDesignToolButton}"
+            Grid.Column="2">
+                                <materialDesign:PackIcon
+              Kind="Microphone"
+              Opacity=".56"
+              Margin="8 0 0 0" />
+                            </Button>
+                        </Grid>
+                    </materialDesign:ColorZone>
+                    <Button Content="Add Turf" x:Name="btnSaveChanges" FontSize="16" FontWeight="Bold" Margin="50,90,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="42" Width="206">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="15"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                   
+                </StackPanel>
+            </DockPanel>
+        </materialDesign:ColorZone>
+        <materialDesign:Card Margin="55,180,50,20" >
+            <materialDesign:Card.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </materialDesign:Card.Resources>
+            <DataGrid x:Name="gdShowBokkings" AutoGenerateColumns="False" CanUserAddRows="False" ColumnWidth="*" ItemsSource="{Binding ViewUserTurfBokkingsAndBookNew}" Margin="10,10,10,20">
+                <DataGrid.Columns>
+                    <materialDesign:DataGridTextColumn Header="Turf" Binding="{Binding BookingID}" IsReadOnly="True" Width="180"/>
+                    <DataGridTemplateColumn Width="120">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding UserAvatar}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <materialDesign:DataGridTextColumn Header="Type Sports" Binding="{Binding CustomerName}" IsReadOnly="True" Width="280"/>
+                    <materialDesign:DataGridTextColumn Header="Time" Binding="{Binding TurfName}" IsReadOnly="True" Width="290"/>
+                    <materialDesign:DataGridTextColumn Header="Action" Binding="{Binding TurfTimeSlot}" IsReadOnly="True" Width="350"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </materialDesign:Card>
     </Grid>
 </UserControl>
