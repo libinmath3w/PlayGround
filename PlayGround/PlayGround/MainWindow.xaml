@@ -34,6 +34,9 @@
         <DataTemplate DataType="{x:Type playgroundviewmodel:AdminSettingsViewModel}">
             <playgroundview:AdminSettingsView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type playgroundviewmodel:UserLogoutViewModel}">
+            <playgroundview:UserLogoutView/>
+        </DataTemplate>
         <Storyboard x:Key="OpenMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
                 <EasingDoubleKeyFrame KeyTime="0" Value="95"/>

@@ -55,7 +55,7 @@ namespace PlayGround.Commands
                 paletteHelper.SetTheme(theme);
             } else if (parameter.ToString() == "SignOut")
             {
-                //SystemCommands.CloseWindow(this);
+                viewModel.SelectedViewModel = new UserLogoutViewModel();
             }
             else if (parameter.ToString() == "AdminSettings")
             {
