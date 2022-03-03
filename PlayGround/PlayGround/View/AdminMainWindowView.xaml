@@ -1,0 +1,233 @@
+﻿<Window x:Class="PlayGround.View.AdminMainWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PlayGround.View"
+        mc:Ignorable="d"
+       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        xmlns:playgroundviewmodel="clr-namespace:PlayGround.ViewModel"
+        xmlns:playgroundview="clr-namespace:PlayGround.View"
+        Title="PlayGround" Height="960" Width="1200">
+
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type playgroundviewmodel:UserDashboardViewModel}">
+            <playgroundview:UserDashboard/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type playgroundviewmodel:UserSettingsViewModels}">
+            <playgroundview:UserSettingsView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type playgroundviewmodel:UserTurfBookingViewModel}">
+            <playgroundview:UserTurfBookingView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type playgroundviewmodel:AdminAddNewTurfViewModel}">
+            <playgroundview:AdminAddNewTurfView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type playgroundviewmodel:AdminSettingsViewModel}">
+            <playgroundview:AdminSettingsView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type playgroundviewmodel:UserLogoutViewModel}">
+            <playgroundview:UserLogoutView/>
+        </DataTemplate>
+        <Storyboard x:Key="OpenMenu">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="95"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="150"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="CloseMenu">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="150"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="95"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
+            <BeginStoryboard Storyboard="{StaticResource OpenMenu}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">
+            <BeginStoryboard Storyboard="{StaticResource CloseMenu}"/>
+        </EventTrigger>
+    </Window.Triggers>
+
+    <Grid>
+        <materialDesign:ColorZone
+  Mode="PrimaryMid" Margin="0,0,0,0"
+  Padding="16">
+            <DockPanel Margin="0,0,20,0">
+                <materialDesign:Chip Margin="0,-8,0,0"
+  Content="Hello, David" Foreground="Wheat" DockPanel.Dock="Right" Width="150">
+                    <materialDesign:Chip.Icon>
+                        <Image Source="/Assets/avatar.jpg"/>
+                    </materialDesign:Chip.Icon>
+                </materialDesign:Chip>
+                <materialDesign:DialogHost CloseOnClickAway="True" x:Name="MoreMenu" DockPanel.Dock="Right" Margin="0,0,-195,0">
+                    <StackPanel Margin="50,0,10,0">
+                        <materialDesign:PopupBox HorizontalAlignment="Right" Margin="0,20,0,0" PlacementMode="BottomAndAlignRightEdges"
+                                                 StaysOpen="False" Height="25" Width="40">
+                            <StackPanel Margin="200,10,0,2" Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBlock VerticalAlignment="Center" Text="Light Mode" Margin="-190,0,0,0"/>
+                                <ToggleButton
+                                    Style="{DynamicResource MaterialDesignSwitchAccentToggleButton}" Margin="-190,0,5,0"
+                                    VerticalAlignment="Center"
+                                    Cursor="Hand" ToolTip="Enable Dark Mode" x:Name="tbDarkLight" IsChecked="{Binding IsDarknLightMode}" Click="TongleTheme"         
+                                    DockPanel.Dock="Right" />
+                                <TextBlock VerticalAlignment="Center" Text="Dark Mode" Margin="-70,0,0,0"/>
+                            </StackPanel>
+                        </materialDesign:PopupBox>
+                    </StackPanel>
+                </materialDesign:DialogHost>
+                <Grid Width="70" RenderTransformOrigin="0.5,0.5">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Button x:Name="ButtonOpenMenu" Height="70" Width="70" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{DynamicResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="ButtonOpenMenu_Click">
+                        <materialDesign:PackIcon Kind="Menu" Width="25" Height="25"/>
+                    </Button>
+                    <Button x:Name="ButtonCloseMenu" Visibility="Collapsed" Height="70" Width="70" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{DynamicResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="ButtonCloseMenu_Click">
+                        <materialDesign:PackIcon Kind="ArrowLeft" Width="25" Height="25"/>
+                    </Button>
+                </Grid>
+                <StackPanel
+      Orientation="Horizontal"
+      materialDesign:RippleAssist.IsCentered="True">
+                    <!--<ToggleButton
+        Style="{DynamicResource MaterialDesignHamburgerToggleButton}" />-->
+                    <materialDesign:ColorZone
+        Mode="Standard"
+        Padding="8 4 8 4"
+        CornerRadius="2"
+        Panel.ZIndex="1"
+        Margin="30 15 0 0"
+        Width="500"                
+        materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition
+              Width="Auto" />
+                                <ColumnDefinition
+              Width="*" />
+                                <ColumnDefinition
+              Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Button
+            Style="{DynamicResource MaterialDesignToolButton}">
+                                <materialDesign:PackIcon
+              Kind="Search"
+              Opacity=".56" />
+                            </Button>
+                            <TextBox
+            Grid.Column="1"
+            Margin="8 0 0 0"
+            materialDesign:HintAssist.Hint="Search Turfs"
+            materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+            BorderThickness="0"
+            MinWidth="200"
+            VerticalAlignment="Center" />
+                            <Button
+            Style="{DynamicResource MaterialDesignToolButton}"
+            Grid.Column="2">
+                                <materialDesign:PackIcon
+              Kind="Microphone"
+              Opacity=".56"
+              Margin="8 0 0 0" />
+                            </Button>
+                        </Grid>
+                    </materialDesign:ColorZone>
+                    <Button
+        Style="{DynamicResource MaterialDesignToolForegroundButton}"
+        Margin="8 0 0 0"
+        Panel.ZIndex="0">
+                        <materialDesign:PackIcon
+          Kind="Send" />
+                    </Button>
+                </StackPanel>
+            </DockPanel>
+        </materialDesign:ColorZone>
+        <materialDesign:Card Margin="0,95,0,0" UniformCornerRadius="15">
+            <Grid>
+                <!--<Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="75"/>
+                    <ColumnDefinition Width="13*" />
+                </Grid.ColumnDefinitions>-->
+                <Grid.Resources>
+                    <Style TargetType="materialDesign:PackIcon">
+                        <Setter Property="Width" Value="30"></Setter>
+                        <Setter Property="Height" Value="30"></Setter>
+                    </Style>
+                </Grid.Resources>
+                <Grid  x:Name="GridMenu" Width="110" HorizontalAlignment="Left">
+
+                    <ListView Margin="0,15,0,0">
+                        <ListViewItem HorizontalAlignment="Center" Margin="0 10">
+                            <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
+                             BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Command="{Binding RedirectViewCommands}" CommandParameter="UserDashboard" ToolTip="Dashboard">
+                                <StackPanel Margin="-5" Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="Resistor"/>
+                                </StackPanel>
+                            </Button>
+                        </ListViewItem>
+                        <ListViewItem HorizontalAlignment="Center" Margin="0">
+                            <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left" Command="{Binding RedirectViewCommands}" CommandParameter="AdminSettings" ToolTip="Dashboard"
+                             BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black">
+                                <StackPanel Margin="-5">
+                                    <materialDesign:PackIcon Kind="CircleSlice6"/>
+                                </StackPanel>
+                            </Button>
+                        </ListViewItem>
+                        <ListViewItem HorizontalAlignment="Center" Margin="0 10">
+                            <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
+                             BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Command="{Binding RedirectViewCommands}" CommandParameter="UserTurfBooking" ToolTip="Bookings">
+                                <StackPanel Margin="-5">
+                                    <materialDesign:PackIcon Kind="CalendarBlankOutline"/>
+                                </StackPanel>
+                            </Button>
+                        </ListViewItem>
+                        <ListViewItem HorizontalAlignment="Center" Margin="0">
+                            <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
+                             BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Command="{Binding RedirectViewCommands}" CommandParameter="UserSettings" ToolTip="Settings">
+                                <StackPanel Margin="-5">
+                                    <materialDesign:PackIcon Kind="EqualiserVertical"/>
+                                </StackPanel>
+                            </Button>
+                        </ListViewItem>
+
+                        <ListViewItem HorizontalAlignment="Center" Margin="0 60 0 0">
+                            <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
+                             BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" x:Name="btnExit" ToolTip="Log Out" Command="{Binding RedirectViewCommands}" CommandParameter="SignOut">
+                                <StackPanel Margin="-5">
+                                    <materialDesign:PackIcon Kind="ExitToApp"/>
+                                </StackPanel>
+                            </Button>
+                        </ListViewItem>
+                    </ListView>
+                </Grid>
+                <Grid Background="#F6F5F8" Name="RenderPages" Margin="110,0,0,0">
+                    <ContentControl Content="{Binding SelectedViewModel}" />
+                    <Button
+        Style="{DynamicResource MaterialDesignFloatingActionMiniAccentButton}"
+        Command="{Binding RedirectViewCommands}" CommandParameter="AdminAddNewTurf" ToolTip="Book Turf Now"
+        VerticalAlignment="Bottom"
+        HorizontalAlignment="Right"
+        Margin="0 0 100 100"
+        Content="{materialDesign:PackIcon Kind=Plus, Size=34}" />
+                </Grid>
+            </Grid>
+        </materialDesign:Card>
+
+    </Grid>
+</Window>
+
