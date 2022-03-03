@@ -13,6 +13,28 @@
              FontFamily="{materialDesign:MaterialDesignFont}"
              d:DesignHeight="750" d:DesignWidth="1100">
     <Grid>
-            
+        <materialDesign:Card HorizontalAlignment="Center" VerticalAlignment="Top" Height="450" Width="600">
+            <materialDesign:Card.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </materialDesign:Card.Resources>
+            <StackPanel Orientation="Horizontal" Margin="-119,0,0,0">
+                <materialDesign:PackIcon Kind="User" Width="25" Height="25" Margin="550,230,0,0"/>
+            </StackPanel>
+        </materialDesign:Card>
+        <Button x:Name="btnLogOut" Content="Log Out" HorizontalAlignment="Left" Margin="445,340,20,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Width="168" Height="48"/>
+
+        <StackPanel Width="350" Margin="225,10,225,0">
+            <Ellipse HorizontalAlignment="Left" Margin="80,25,0,0" Height="150" Width="152">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="/Assets/logout1.jpg"/>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Label x:Name="lblName" Content="David" FontSize="24" FontWeight="Bold" Width="216" Margin="30 35 0 0" Height="42" HorizontalAlignment="Right"/>
+
+
+        </StackPanel>
+
     </Grid>
 </UserControl>
