@@ -57,7 +57,6 @@
     </ApplicationDefinition>
     <Compile Include="Commands\AdminRedirectViewCommand.cs" />
     <Compile Include="Commands\RedirectViewCommand.cs" />
-    <Compile Include="Commands\UserModel.cs" />
     <Compile Include="Commands\UserSignupCommand.cs" />
     <Compile Include="ViewModel\AdminAddNewTurfViewModel.cs" />
     <Compile Include="ViewModel\AdminDashboardViewModel.cs" />

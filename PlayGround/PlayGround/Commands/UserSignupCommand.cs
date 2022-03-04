@@ -26,8 +26,6 @@ namespace PlayGround.Commands
         public void Execute(object parameter)
         {
             UserSignUpBusinessModel userSignUpBusinessModel = new UserSignUpBusinessModel();
-            UserModel userModel = new UserModel();
-            
 
         }
     }
