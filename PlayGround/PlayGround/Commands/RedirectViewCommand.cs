@@ -62,7 +62,7 @@ namespace PlayGround.Commands
             }
             else if (parameter.ToString() == "AdminSettings")
             {
-                viewModel.SelectedViewModel = new AdminSettingsViewModel();
+                viewModel.SelectedViewModel = new AdminTurfBookingHistoryViewModel();
             }
             else if (parameter.ToString() == "AdminAddNewTurf")
             {

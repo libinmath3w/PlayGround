@@ -11,10 +11,10 @@ namespace BusinessLayer
 {
     public class AdminBookingHistoryBusinessModel : IAdminBookingHistory
     {
-        public List<BookingModel> GetBookingDetails(BookingModel bookingModel)
+        public List<BookingModel> GetBookingDetails()
         {
            AdminBookingHistoryData adminBookingHistoryData = new AdminBookingHistoryData();
-            return adminBookingHistoryData.GetBookingDetails(bookingModel);
+            return adminBookingHistoryData.GetBookingDetails();
         }
     }
     

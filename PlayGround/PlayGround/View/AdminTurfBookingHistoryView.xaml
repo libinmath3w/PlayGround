@@ -13,6 +13,28 @@
              FontFamily="{materialDesign:MaterialDesignFont}"
              d:DesignHeight="750" d:DesignWidth="1100">
     <Grid>
-            
+        <DataGrid x:Name="gdShowBokkings" AutoGenerateColumns="False" CanUserAddRows="False" ColumnWidth="*" ItemsSource="{Binding ViewAdminTurfBookingsAndBookNew}" Margin="0,20,0,0">
+            <DataGrid.Columns>
+                <materialDesign:DataGridTextColumn Header="Booking ID" Binding="{Binding BookingID}" IsReadOnly="True" />
+                <DataGridTemplateColumn Width="0" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding UserAvatar}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <materialDesign:DataGridTextColumn Header="Turf ID" Binding="{Binding TurfID}" IsReadOnly="True" Width="85"/>
+                <materialDesign:DataGridTextColumn Header="User ID" Binding="{Binding UserID}" IsReadOnly="True" Width="93"/>
+                <materialDesign:DataGridTextColumn Header="Start Time" Binding="{Binding StartTime}" IsReadOnly="True" Width="100"/>
+                <materialDesign:DataGridTextColumn Header="End Time" Binding="{Binding EndTime}" IsReadOnly="True" Width="90"/>
+                <materialDesign:DataGridTextColumn Header="Payment ID" Binding="{Binding PaymentID}" IsReadOnly="True" Width="100"/>
+                <materialDesign:DataGridTextColumn Header="Amount" Binding="{Binding Amount}" IsReadOnly="True" Width="80"/>
+                <materialDesign:DataGridTextColumn Header="Payment Status" Binding="{Binding PaymentStatus}" IsReadOnly="True" Width="150"/>
+                <materialDesign:DataGridTextColumn Header="Booking Time" Binding="{Binding BookingTime}" IsReadOnly="True" Width="90"/>
+                <materialDesign:DataGridTextColumn Header="Booking Date" Binding="{Binding BookingDate}" IsReadOnly="True" Width="100"/>
+                <materialDesign:DataGridTextColumn Header="Booking Status" Binding="{Binding BookingStatus}" IsReadOnly="True" Width="100"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>
