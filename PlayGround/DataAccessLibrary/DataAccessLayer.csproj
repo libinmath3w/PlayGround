@@ -33,6 +33,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,8 +43,50 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Booking.cs">
+      <DependentUpon>PlayGroundDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Class1.cs" />
+    <Compile Include="Payment_Type.cs">
+      <DependentUpon>PlayGroundDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlayGroundDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlayGroundDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlayGroundDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlayGroundDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlayGroundDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlayGroundDB.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="spBookingDetailsWithSOmeConditions_Result.cs">
+      <DependentUpon>PlayGroundDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSloteBookingDetails_Result.cs">
+      <DependentUpon>PlayGroundDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Time_Slote.cs">
+      <DependentUpon>PlayGroundDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Turf.cs">
+      <DependentUpon>PlayGroundDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Turf_Category.cs">
+      <DependentUpon>PlayGroundDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>PlayGroundDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserRole.cs">
+      <DependentUpon>PlayGroundDB.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="EntityFramework">
@@ -51,6 +95,33 @@
     <PackageReference Include="LiveCharts.Wpf">
       <Version>0.9.7</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="PlayGroundDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PlayGroundDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="PlayGroundDB.edmx.diagram">
+      <DependentUpon>PlayGroundDB.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PlayGroundDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PlayGroundDB.edmx</DependentUpon>
+      <LastGenOutput>PlayGroundDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="PlayGroundDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PlayGroundDB.edmx</DependentUpon>
+      <LastGenOutput>PlayGroundDB.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
