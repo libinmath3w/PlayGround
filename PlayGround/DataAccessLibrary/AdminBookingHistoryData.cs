@@ -24,13 +24,13 @@ namespace DataAccessLibrary
                     BookingModel bookingModels = new BookingModel();
                     bookingModels.UserID = item.User_ID;
                     bookingModels.BookingID = item.Booking_ID;
-                    bookingModels.BookingDate = (DateTime)item.Booking_Date;
+                    //bookingModels.BookingDate = (DateTime)item.Booking_Date;
                     bookingModels.TurfID = item.Turf_ID;
-                    bookingModels.StartTime = item.Start_Time;
-                    bookingModels.EndTime = item.End_Time;
+                    //bookingModels.StartTime = item.Start_Time;
+                    //bookingModels.EndTime = item.End_Time;
                     bookingModels.Amount = (float)item.Amount;
                     bookingModels.BookingStatus = (bool)item.Booking_Status;
-                    bookingModels.PaymentStatus = item.Payment_Status;
+                    //bookingModels.PaymentStatus = item.Payment_Type.Payment_Method;
                     bookingModels.PaymentID = item.Payment_ID;
                     bookingModels.BookingTime = (DateTime)item.Booking_Time;
                     BookingResultList.Add(bookingModels);

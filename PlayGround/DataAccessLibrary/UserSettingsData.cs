@@ -41,7 +41,6 @@ namespace DataAccessLibrary
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             return UserSettingsResult;

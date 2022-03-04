@@ -19,13 +19,22 @@
                 <DataGridTemplateColumn Width="80">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Image Source="{Binding UserAvatar}" />
+                            <Ellipse HorizontalAlignment="Center" Height="30" Width="30">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="{Binding Avatar}"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <materialDesign:DataGridTextColumn Header="Turf ID" Binding="{Binding TurfID}" IsReadOnly="True"/>
-                <materialDesign:DataGridTextColumn Header="User ID" Binding="{Binding UserID}" IsReadOnly="True"/>
+                <materialDesign:DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True"/>
+                <materialDesign:DataGridTextColumn Header="Turf Name" Binding="{Binding TurfName}" IsReadOnly="True"/>
+                <materialDesign:DataGridTextColumn Header="Date" Binding="{Binding BookingDate}" IsReadOnly="True"/>
                 <materialDesign:DataGridTextColumn Header="Start Time" Binding="{Binding StartTime}" IsReadOnly="True"/>
+                <materialDesign:DataGridTextColumn Header="End Time" Binding="{Binding StartTime}" IsReadOnly="True"/>
+                <materialDesign:DataGridTextColumn Header="Amount" Binding="{Binding Amount}" IsReadOnly="True"/>
+                <materialDesign:DataGridTextColumn Header="Payment Status" Binding="{Binding PaymentStatus}" IsReadOnly="True"/>
+                <materialDesign:DataGridTextColumn Header="Payment Type" Binding="{Binding PaymentType}" IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
