@@ -9,8 +9,7 @@ using EntityLayer;
 
 namespace DataAccessLibrary
 {
-  
-        public class AdminBookingHistoryData : IAdminBookingHistory
+  public class AdminBookingHistoryData : IAdminBookingHistory
         {
             public List<BookingModel> GetBookingDetails(BookingModel bookingModel)
             {
@@ -19,7 +18,6 @@ namespace DataAccessLibrary
                 {
                     TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
                     var query = from bookings in turfManagementDBEntities.Bookings
-                                
                                 select bookings;
                     foreach (var item in query)
                     {
