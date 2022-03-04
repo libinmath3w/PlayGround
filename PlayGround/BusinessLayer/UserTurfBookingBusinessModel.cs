@@ -10,10 +10,10 @@ namespace BusinessLayer
 {
     public class UserTurfBookingBusinessModel
     {
-        public List<TurfModel> GetTurfDetails(TurfModel turfModel)
+        public List<TurfModel> GetTurfDetails()
         {
             UserTurfBookingData userTurfBookingData = new UserTurfBookingData();
-            return userTurfBookingData.GetTurfDetails(turfModel);
+            return userTurfBookingData.GetTurfDetails();
         }
     }
 }

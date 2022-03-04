@@ -27,17 +27,17 @@
                 HorizontalAlignment="Left"
             VerticalAlignment="Top" Height="31" Width="270" />
         </StackPanel>
-        <Grid Margin="102,-250,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid Margin="-100,-250,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
             <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" Height="200" ItemsSource="{Binding ViewUserTurfBokkingsAndBookNew}">
                 <DataGrid.Columns >
-                    <DataGridTextColumn Header="Turf ID" Binding="{Binding TurfID}" IsReadOnly="True"/>
+                    <!--<DataGridTextColumn Header="Turf ID" Binding="{Binding TurfID}" IsReadOnly="True"/>-->
                     <DataGridTextColumn Header="Turf Name" Binding="{Binding TurfName}" IsReadOnly="True"/>
                     <DataGridTextColumn Header="Turf Location" Binding="{Binding TurfLocation}" IsReadOnly="True"/>
                     <DataGridTextColumn Header="Opening Time" Binding="{Binding OpeningTime}" IsReadOnly="True"/>
                     <DataGridTextColumn Header="Closing Time" Binding="{Binding ClosingTime}" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="State" Binding="{Binding TurfState}" IsReadOnly="True"/>
+                    <!--<DataGridTextColumn Header="State" Binding="{Binding TurfState}" IsReadOnly="True"/>-->
                     <DataGridTextColumn Header="City" Binding="{Binding TurfCity}" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="Zip" Binding="{Binding Zip}" IsReadOnly="True"/>
+                    <!--<DataGridTextColumn Header="Zip" Binding="{Binding Zip}" IsReadOnly="True"/>-->
                     <DataGridTextColumn Header="Amount" Binding="{Binding TurfPrice}" IsReadOnly="True"/>
                 </DataGrid.Columns>
             </DataGrid>
