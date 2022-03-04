@@ -89,6 +89,7 @@
       <DependentUpon>PlayGroundDB.tt</DependentUpon>
     </Compile>
     <Compile Include="UserSettingsData.cs" />
+    <Compile Include="UserSignUpData.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="EntityFramework">
