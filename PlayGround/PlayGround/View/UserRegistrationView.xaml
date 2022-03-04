@@ -51,7 +51,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Key" Width="25" Height="25" Margin="15,30,0,0"/>
-                    <PasswordBox x:Name="pwbConfirmPassword" Style="{DynamicResource MaterialDesignOutlinedPasswordBox}" MaxLength="8" PasswordChar="*" VerticalAlignment="Top" Width="300"
+                    <PasswordBox x:Name="pwbConfirmPassword" PasswordChanged="OnPasswordChanged" Style="{DynamicResource MaterialDesignOutlinedPasswordBox}" MaxLength="8" PasswordChar="*" VerticalAlignment="Top" Width="300"
                         materialDesign:HintAssist.Hint="Confirm Password" Margin="10,20,0,0" materialDesign:HintAssist.HelperText="At least 8 characters"/>
                 </StackPanel>
                 <StackPanel>
