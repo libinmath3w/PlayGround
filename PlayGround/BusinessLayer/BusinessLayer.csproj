@@ -45,6 +45,7 @@
     <Compile Include="UserBookingHistoryBusinessModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserSettingsBusinessModel.cs" />
+    <Compile Include="UserTurfBookingBusinessModel.cs" />
     <Compile Include="UserSignUpBusinessModel.cs" />
   </ItemGroup>
   <ItemGroup>

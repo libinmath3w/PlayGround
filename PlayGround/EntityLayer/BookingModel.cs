@@ -26,6 +26,7 @@ namespace EntityLayer
         public string PaymentStatus { get; set; }
         public DateTime BookingTime { get; set; }
         public bool BookingStatus { get; set ; }
+        public string BStatus { get; set;}
         public string Avatar { get; set; }
     }
 }

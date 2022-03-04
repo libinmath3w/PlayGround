@@ -2,6 +2,8 @@
 using EntityLayer.Interface;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,9 +15,9 @@ namespace DataAccessLibrary
         public List<UsersModel> GetUserDetails(UsersModel usersModel)
         {
             List<UsersModel> UserSettingsResult = new List<UsersModel>();
+           
             try
             {
-
                 TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
                 var query = from userdetails in turfManagementDBEntities.Users
                             where userdetails.ID.Equals(usersModel.UserId)
@@ -34,7 +36,7 @@ namespace DataAccessLibrary
                     usersModels.RoleID = item.Role_ID;
                     usersModels.City = item.City;
                     usersModels.State = item.State;
-                   // usersModels.Zip = item.Zip;
+                    // usersModels.Zip = item.Zip;
                     usersModels.Avatar = item.Avatar;
                     UserSettingsResult.Add(usersModels);
                 }

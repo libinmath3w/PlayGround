@@ -13,14 +13,36 @@
              FontFamily="{materialDesign:MaterialDesignFont}"
              d:DesignHeight="750" d:DesignWidth="1100">
     <Grid>
-        
-            <Grid Margin="12,126,28,354">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="302*"/>
-                <ColumnDefinition Width="221*"/>
-            </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Horizontal" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="20">
+            <Button
+            Style="{DynamicResource MaterialDesignToolButton}">
+                <materialDesign:PackIcon Kind="Search" Opacity="10" Margin="300,0,0,0" HorizontalAlignment="Right"/>
+            </Button>
+            <TextBox
+            Margin="-300,10,0,0"
+            materialDesign:HintAssist.Hint="Search Turf Location"
+            materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+            BorderThickness="0"
+                HorizontalAlignment="Left"
+            VerticalAlignment="Top" Height="31" Width="270" />
+        </StackPanel>
+        <Grid Margin="102,-250,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" Height="200" ItemsSource="{Binding ViewUserTurfBokkingsAndBookNew}">
+                <DataGrid.Columns >
+                    <DataGridTextColumn Header="Turf ID" Binding="{Binding TurfID}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Turf Name" Binding="{Binding TurfName}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Turf Location" Binding="{Binding TurfLocation}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Opening Time" Binding="{Binding OpeningTime}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Closing Time" Binding="{Binding ClosingTime}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="State" Binding="{Binding TurfState}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="City" Binding="{Binding TurfCity}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Zip" Binding="{Binding Zip}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Amount" Binding="{Binding TurfPrice}" IsReadOnly="True"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
-        <materialDesign:Card Margin="25,400,0,0" Height="300" Width="500"  >
+        <materialDesign:Card Margin="25,350,0,0" Height="300" Width="500"  >
             <materialDesign:Card.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="20"/>
@@ -37,7 +59,7 @@
                     <Label x:Name="lblAmount" Content="Amount" Margin="-474,90,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="20"/>
                     <materialDesign:PackIcon Kind="Rupee" Width="25" Height="25" Margin="-370,96,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"/>
                     <Label x:Name="lblPrice" Content="1200" Margin="-300,90,0,0" Width="80" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                    
+
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label x:Name="lblPayment" Content="Payment"  VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-474,140,0,0" FontSize="20"/>
@@ -55,8 +77,6 @@
                     </Button>
                 </StackPanel>
             </StackPanel>
-           
         </materialDesign:Card>
-       
     </Grid>
 </UserControl>
