@@ -62,6 +62,8 @@ namespace PlayGround.Commands
             }
             else if (parameter.ToString() == "AdminSettings")
             {
+                BookingModel bookingModel = new BookingModel();
+                bookingModel.UserID = 2;
                 viewModel.SelectedViewModel = new AdminTurfBookingHistoryViewModel();
             }
             else if (parameter.ToString() == "AdminAddNewTurf")

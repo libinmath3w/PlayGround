@@ -10,13 +10,13 @@ namespace PlayGround.ViewModel
 {
     public class UserTurfBookingViewModel : BaseViewModel
     {
-        private List<BookingModel> _viewUserTurfBokkingsAndBookNew;
-        public List<BookingModel> ViewUserTurfBokkingsAndBookNew { get => _viewUserTurfBokkingsAndBookNew; set => _viewUserTurfBokkingsAndBookNew = value; }
+        private List<BookingModel> _viewUserTurfBookingsAndBookNew;
+        public List<BookingModel> ViewUserTurfBokkingsAndBookNew { get => _viewUserTurfBookingsAndBookNew; set => _viewUserTurfBookingsAndBookNew = value; }
         public UserBookingHistoryBusinessModel userBookingHistoryBusinessModel = new UserBookingHistoryBusinessModel();
         public UserTurfBookingViewModel(BookingModel bookingModel)
         {
             bookingModel.UserID = 2;
-            _viewUserTurfBokkingsAndBookNew = userBookingHistoryBusinessModel.GetBookingDetails(bookingModel);
+            _viewUserTurfBookingsAndBookNew = userBookingHistoryBusinessModel.GetBookingDetails(bookingModel);
         }
     }
 }
