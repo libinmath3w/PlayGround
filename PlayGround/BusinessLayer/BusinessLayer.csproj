@@ -45,6 +45,7 @@
     <Compile Include="UserBookingHistoryBusinessModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserSettingsBusinessModel.cs" />
+    <Compile Include="UserTurfBookingBusinessModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="LiveCharts.Wpf">

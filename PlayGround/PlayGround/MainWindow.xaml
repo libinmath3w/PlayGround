@@ -40,6 +40,9 @@
         <DataTemplate DataType="{x:Type playgroundviewmodel:AdminTurfBookingHistoryViewModel}">
             <playgroundview:AdminBookingHistoryView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type playgroundviewmodel:UserNewTurfBookingViewModel}">
+            <playgroundview:UserNewTurfBookingView/>
+        </DataTemplate>
         <Storyboard x:Key="OpenMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
                 <EasingDoubleKeyFrame KeyTime="0" Value="95"/>
