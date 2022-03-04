@@ -55,8 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\AdminRedirectViewCommand.cs" />
     <Compile Include="Commands\RedirectViewCommand.cs" />
     <Compile Include="ViewModel\AdminAddNewTurfViewModel.cs" />
+    <Compile Include="ViewModel\AdminDashboardViewModel.cs" />
     <Compile Include="ViewModel\AdminTurfBookingHistoryViewModel.cs" />
     <Compile Include="ViewModel\AdminMainWindowViewModel.cs" />
     <Compile Include="ViewModel\AdminSettingsViewModel.cs" />
