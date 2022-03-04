@@ -57,6 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="Commands\RedirectViewCommand.cs" />
     <Compile Include="ViewModel\AdminAddNewTurfViewModel.cs" />
+    <Compile Include="ViewModel\AdminTurfBookingHistoryViewModel.cs" />
     <Compile Include="ViewModel\AdminMainWindowViewModel.cs" />
     <Compile Include="ViewModel\AdminSettingsViewModel.cs" />
     <Compile Include="ViewModel\AdminTurfBookingViewModel.cs" />
@@ -72,6 +73,9 @@
     <Compile Include="ViewModel\UserTurfBookingViewModel.cs" />
     <Compile Include="View\AdminAddNewTurfView.xaml.cs">
       <DependentUpon>AdminAddNewTurfView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminTurfBookingHistoryView.xaml.cs">
+      <DependentUpon>AdminTurfBookingHistoryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\AdminDashboard.xaml.cs">
       <DependentUpon>AdminDashboard.xaml</DependentUpon>
@@ -122,6 +126,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\AdminAddNewTurfView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AdminTurfBookingHistoryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -217,9 +225,7 @@
       <Version>4.3.0</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Assets\avatar.jpg" />
     <Resource Include="Assets\cartoon-woman-pretty.png" />
