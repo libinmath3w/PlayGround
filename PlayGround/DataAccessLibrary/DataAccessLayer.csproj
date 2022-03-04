@@ -46,7 +46,7 @@
     <Compile Include="Booking.cs">
       <DependentUpon>PlayGroundDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Class1.cs" />
+    <Compile Include="UserBookingHistoryData.cs" />
     <Compile Include="Payment_Type.cs">
       <DependentUpon>PlayGroundDB.tt</DependentUpon>
     </Compile>
@@ -122,6 +122,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EntityLayer\EntityLayer.csproj">
+      <Project>{9670F018-7966-4446-82E0-F329A84F3F46}</Project>
+      <Name>EntityLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -23,9 +23,9 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <materialDesign:DataGridTextColumn Header="Name" Binding="{Binding CustomerName}" IsReadOnly="True"/>
-                <materialDesign:DataGridTextColumn Header="Turf Name" Binding="{Binding TurfName}" IsReadOnly="True"/>
-                <materialDesign:DataGridTextColumn Header="Time" Binding="{Binding TurfTimeSlot}" IsReadOnly="True"/>
+                <materialDesign:DataGridTextColumn Header="Turf ID" Binding="{Binding TurfID}" IsReadOnly="True"/>
+                <materialDesign:DataGridTextColumn Header="User ID" Binding="{Binding UserID}" IsReadOnly="True"/>
+                <materialDesign:DataGridTextColumn Header="Start Time" Binding="{Binding StartTime}" IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
