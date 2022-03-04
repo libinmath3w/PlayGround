@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminBookingHistoryData.cs" />
     <Compile Include="Booking.cs">
       <DependentUpon>PlayGroundDB.tt</DependentUpon>
     </Compile>
