@@ -13,7 +13,7 @@
              FontFamily="{materialDesign:MaterialDesignFont}"
              d:DesignHeight="750" d:DesignWidth="1100">
     <Grid>
-        <DataGrid x:Name="gdShowBokkings" AutoGenerateColumns="False" CanUserAddRows="False" ColumnWidth="*" ItemsSource="{Binding ViewUserTurfBokkingsAndBookNew}" Margin="20,20,0,0">
+        <DataGrid x:Name="gdShowBokkings" AutoGenerateColumns="False" CanUserAddRows="False" ColumnWidth="*" ItemsSource="{Binding ViewUserTurfBookingsAndBookNew}" Margin="20,20,0,0">
             <DataGrid.Columns>
                 <materialDesign:DataGridTextColumn Header="Booking ID" Binding="{Binding BookingID}" IsReadOnly="True"/>
                 <DataGridTemplateColumn Width="80">

@@ -11,7 +11,7 @@ namespace DataAccessLibrary
 {
     public class AdminBookingHistoryData : IAdminBookingHistory
     {
-        public List<BookingModel> GetBookingDetails(BookingModel bookingModel)
+        public List<BookingModel> GetBookingDetails()
         {
             List<BookingModel> BookingResultList = new List<BookingModel>();
             try
@@ -34,7 +34,6 @@ namespace DataAccessLibrary
                     bookingModels.PaymentID = item.Payment_ID;
                     bookingModels.BookingTime = (DateTime)item.Booking_Time;
                     BookingResultList.Add(bookingModels);
-
                 }
             }
             catch (Exception ex)
