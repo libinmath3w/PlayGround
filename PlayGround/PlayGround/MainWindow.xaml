@@ -210,7 +210,7 @@
                             <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
                              BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" x:Name="btnExit" ToolTip="Log Out" Command="{Binding RedirectViewCommands}" CommandParameter="SignOut">
                                 <StackPanel Margin="-5">
-                                    <materialDesign:PackIcon Kind="ExitToApp"/>
+                                    <materialDesign:PackIcon Kind="Logout"/>
                                 </StackPanel>
                             </Button>
                         </ListViewItem>
