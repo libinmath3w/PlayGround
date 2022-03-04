@@ -33,7 +33,10 @@ namespace DataAccessLibrary
                         bookingModels.Amount = (float)item.Amount;
                         bookingModels.BookingStatus = (bool)item.Booking_Status;
                         bookingModels.PaymentStatus = item.Payment_Status;
+                        bookingModels.PaymentID = item.Payment_ID;
+                        bookingModels.BookingTime = (DateTime)item.Booking_Time;
                         BookingResultList.Add(bookingModels);
+                        
                     }
                 }
                 catch (Exception ex)
