@@ -90,6 +90,7 @@
     </Compile>
     <Compile Include="UserSettingsData.cs" />
     <Compile Include="UserTurfBookingData.cs" />
+    <Compile Include="UserSignUpData.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="EntityFramework">

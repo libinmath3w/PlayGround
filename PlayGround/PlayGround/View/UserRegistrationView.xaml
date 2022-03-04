@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:viewmodel="clr-namespace:PlayGround.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:UserRegistrationViewModel}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
         TextElement.FontWeight="Medium"
@@ -26,32 +26,32 @@
                 <Label Content="CREATE AN ACCOUNT " Margin="0,30,0,0" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="User" Width="25" Height="25" Margin="15,30,0,0"/>
-                        <TextBox x:Name="txtName" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="300" VerticalContentAlignment="Center" Margin="10,20,0,0"
+                    <TextBox x:Name="txtName" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="300"  Text="{Binding Name}"  VerticalContentAlignment="Center" Margin="10,20,0,0" 
                             materialDesign:HintAssist.Hint="Name" />
                     </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Person" Width="25" Height="25" Margin="15,20,0,0"/>
-                    <TextBox x:Name="txtUserName" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="300" VerticalContentAlignment="Center" Margin="10,10,0,0"
+                    <TextBox x:Name="txtUserName" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="300" Text="{Binding UserName}" VerticalContentAlignment="Center" Margin="10,10,0,0"
                             materialDesign:HintAssist.Hint="User Name" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Email" Width="25" Height="25" Margin="15,20,0,0"/>
-                    <TextBox x:Name="txtEmail" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="300" VerticalContentAlignment="Center" Margin="10,10,0,0"
+                    <TextBox x:Name="txtEmail" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="300" Text="{Binding UserEmailID}"  VerticalContentAlignment="Center" Margin="10,10,0,0"
                             materialDesign:HintAssist.Hint="Email ID" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Phone" Width="25" Height="25" Margin="15,20,0,0"/>
-                    <TextBox x:Name="txtPhoneNumber" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="300" VerticalContentAlignment="Center" Margin="10,10,0,0"
+                    <TextBox x:Name="txtPhoneNumber" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="300" Text="{Binding PhoneNumber}"  VerticalContentAlignment="Center" Margin="10,10,0,0"
                             materialDesign:HintAssist.Hint="Phone Number" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Key" Width="25" Height="25" Margin="15,20,0,0"/>
-                    <PasswordBox x:Name="pwbPassword" Style="{DynamicResource MaterialDesignOutlinedPasswordBox}" VerticalAlignment="Top" Width="300"
+                    <PasswordBox x:Name="pwbPassword"  Style="{DynamicResource MaterialDesignOutlinedPasswordBox}" MaxLength="8" PasswordChar="*" VerticalAlignment="Top" Width="300"
                         materialDesign:HintAssist.Hint="Enter Password" Margin="10,10,0,0" materialDesign:HintAssist.HelperText="At least 8 characters"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Key" Width="25" Height="25" Margin="15,30,0,0"/>
-                    <PasswordBox x:Name="pwbConfirmPassword" Style="{DynamicResource MaterialDesignOutlinedPasswordBox}" VerticalAlignment="Top" Width="300"
+                    <PasswordBox x:Name="pwbConfirmPassword" PasswordChanged="OnPasswordChanged" Style="{DynamicResource MaterialDesignOutlinedPasswordBox}" MaxLength="8" PasswordChar="*" VerticalAlignment="Top" Width="300"
                         materialDesign:HintAssist.Hint="Confirm Password" Margin="10,20,0,0" materialDesign:HintAssist.HelperText="At least 8 characters"/>
                 </StackPanel>
                 <StackPanel>
