@@ -38,7 +38,7 @@
                         </ComboBoxItem>
                     </ComboBox>
                 </Grid>
-                <WrapPanel HorizontalAlignment="Center">
+                <!--<WrapPanel HorizontalAlignment="Center">
                     <Border BorderBrush="White" BorderThickness="5" Margin="20 0" CornerRadius="15">
                         <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth0" UniformCornerRadius="15" BorderThickness="5"
                          BorderBrush="White" Width="110" Height="130" Background="#F6F6F8">
@@ -90,16 +90,16 @@
                             </StackPanel>
                         </materialDesign:Card>
                     </Border>
-                </WrapPanel>
+                </WrapPanel>-->
                 <materialDesign:Card Margin="30 30" UniformCornerRadius="20" Height="232">
                     <StackPanel>
                         <Grid>
-                            <TextBlock Margin="20" HorizontalAlignment="Left"  FontWeight="SemiBold" Text="Instagram Subscribers" FontSize="18"/>
+                            <TextBlock Margin="20" HorizontalAlignment="Left"  FontWeight="SemiBold" Text="Total Turf Bookings" FontSize="18"/>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                                 <TextBlock FontWeight="ExtraBold" FontSize="14" Text="&#xF06C;" FontFamily="wingdings" VerticalAlignment="Center" Foreground="#42A5F4" />
-                                <TextBlock Text="Gained" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="14" Margin="5 0 10 0" />
+                                <TextBlock Text="Played" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="14" Margin="5 0 10 0" />
                                 <TextBlock FontWeight="ExtraBold" FontSize="14" Text="&#xF06C;" FontFamily="wingdings" VerticalAlignment="Center" Foreground="#F55F54" />
-                                <TextBlock Text="Lost" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="14" Margin="5 0 20 0" />
+                                <TextBlock Text="Cancelled" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="14" Margin="5 0 20 0" />
                             </StackPanel>
                         </Grid>
                         <lvc:CartesianChart Series="{Binding SeriesCollection}" Foreground="Black" Margin="10 0" Height="200">
@@ -114,7 +114,7 @@
                 </materialDesign:Card>
                 <WrapPanel HorizontalAlignment="Center" Height="203">
                     <materialDesign:Card Margin="10" UniformCornerRadius="20" Padding="10">
-                        <StackPanel>
+                        <!--<StackPanel>
                             <TextBlock Text="Key Matrics" Margin="10 20" FontWeight="SemiBold" />
                             <Grid Height="150">
                                 <Grid.ColumnDefinitions>
@@ -152,12 +152,12 @@
                                     <TextBlock Text="12K" FontWeight="SemiBold" />
                                 </StackPanel>
                             </Grid>
-                        </StackPanel>
+                        </StackPanel>-->
                     </materialDesign:Card>
                     <materialDesign:Card Margin="10" UniformCornerRadius="20" Background="#633648">
                         <StackPanel Margin="10">
-                            <TextBlock Text="Engagged Users" FontSize="14" Foreground="White" TextAlignment="Center" />
-                            <TextBlock Text="12.5K" TextAlignment="Center" Margin="0 5" Foreground="White" FontSize="18" />
+                            <!--<TextBlock Text="Engagged Users" FontSize="14" Foreground="White" TextAlignment="Center" />
+                            <TextBlock Text="12.5K" TextAlignment="Center" Margin="0 5" Foreground="White" FontSize="18" />-->
                             <lvc:CartesianChart Margin="0 5" Series="{Binding LastHourSeries}" Hoverable="False" DataTooltip="{x:Null}" Height="160" Width="160">
                                 <lvc:CartesianChart.AxisX>
                                     <lvc:Axis MinValue="0" />
@@ -168,8 +168,8 @@
                     </materialDesign:Card>
                     <materialDesign:Card Margin="10" UniformCornerRadius="20" Background="#633648">
                         <StackPanel Margin="10">
-                            <TextBlock Text="Page Impression" FontSize="14" Foreground="White" TextAlignment="Center" />
-                            <TextBlock Text="12.5K" TextAlignment="Center" Margin="0 5" Foreground="White" FontSize="18" />
+                            <!--<TextBlock Text="Page Impression" FontSize="14" Foreground="White" TextAlignment="Center" />
+                            <TextBlock Text="12.5K" TextAlignment="Center" Margin="0 5" Foreground="White" FontSize="18" />-->
                             <lvc:CartesianChart Margin="0 5" Series="{Binding LastHourSeries1}" Hoverable="False" DataTooltip="{x:Null}" Height="160" Width="160">
                                 <lvc:CartesianChart.AxisX>
                                     <lvc:Axis MinValue="0" />

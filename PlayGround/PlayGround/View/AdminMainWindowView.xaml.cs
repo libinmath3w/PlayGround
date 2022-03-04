@@ -1,5 +1,6 @@
 ﻿using FontAwesome.WPF;
 using MaterialDesignThemes.Wpf;
+using PlayGround.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,7 @@ namespace PlayGround.View
         {
             InitializeComponent();
             Icon = ImageAwesome.CreateImageSource(FontAwesomeIcon.SoccerBallOutline, Brushes.Green);
-            DataContext = new AdminMainWindowView();
+            DataContext = new AdminMainWindowViewModel();
         }
         private void TongleTheme(object sender, RoutedEventArgs e)
         {

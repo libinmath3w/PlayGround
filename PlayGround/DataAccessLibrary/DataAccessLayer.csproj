@@ -88,6 +88,7 @@
     <Compile Include="UserRole.cs">
       <DependentUpon>PlayGroundDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="UserSettingsData.cs" />
     <Compile Include="UserTurfBookingData.cs" />
   </ItemGroup>
   <ItemGroup>

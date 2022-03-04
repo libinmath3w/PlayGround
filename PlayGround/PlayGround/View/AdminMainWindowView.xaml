@@ -18,23 +18,23 @@
         Title="PlayGround" Height="960" Width="1200">
 
     <Window.Resources>
-        <DataTemplate DataType="{x:Type playgroundviewmodel:UserDashboardViewModel}">
-            <playgroundview:UserDashboard/>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type playgroundviewmodel:UserSettingsViewModels}">
-            <playgroundview:UserSettingsView/>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type playgroundviewmodel:UserTurfBookingViewModel}">
-            <playgroundview:UserTurfBookingView/>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type playgroundviewmodel:AdminAddNewTurfViewModel}">
-            <playgroundview:AdminAddNewTurfView/>
+        <DataTemplate DataType="{x:Type playgroundviewmodel:AdminDashboardViewModel}">
+            <playgroundview:AdminDashboard/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type playgroundviewmodel:AdminSettingsViewModel}">
             <playgroundview:AdminSettingsView/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type playgroundviewmodel:UserLogoutViewModel}">
-            <playgroundview:UserLogoutView/>
+        <DataTemplate DataType="{x:Type playgroundviewmodel:AdminAddNewTurfViewModel}">
+            <playgroundview:AdminAddNewTurfView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type playgroundviewmodel:AdminTurfBookingViewModel}">
+            <playgroundview:AdminTurfBookingView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type playgroundviewmodel:AdminTurfBookingHistoryViewModel}">
+            <playgroundview:AdminBookingHistoryView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type playgroundviewmodel:AdminUserDashboardViewModel}">
+            <playgroundview:AdminUserDashboardView/>
         </DataTemplate>
         <Storyboard x:Key="OpenMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
@@ -174,14 +174,14 @@
                     <ListView Margin="0,15,0,0">
                         <ListViewItem HorizontalAlignment="Center" Margin="0 10">
                             <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
-                             BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Command="{Binding RedirectViewCommands}" CommandParameter="UserDashboard" ToolTip="Dashboard">
+                             BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Command="{Binding AdminRedirectViewCommands}" CommandParameter="AdminDashboard" ToolTip="Dashboard">
                                 <StackPanel Margin="-5" Orientation="Horizontal">
                                     <materialDesign:PackIcon Kind="Resistor"/>
                                 </StackPanel>
                             </Button>
                         </ListViewItem>
                         <ListViewItem HorizontalAlignment="Center" Margin="0">
-                            <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left" Command="{Binding RedirectViewCommands}" CommandParameter="AdminSettings" ToolTip="Dashboard"
+                            <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left" Command="{Binding AdminRedirectViewCommands}" CommandParameter="AdminUsers" ToolTip="Users List"
                              BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black">
                                 <StackPanel Margin="-5">
                                     <materialDesign:PackIcon Kind="CircleSlice6"/>
@@ -190,7 +190,7 @@
                         </ListViewItem>
                         <ListViewItem HorizontalAlignment="Center" Margin="0 10">
                             <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
-                             BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Command="{Binding RedirectViewCommands}" CommandParameter="UserTurfBooking" ToolTip="Bookings">
+                             BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Command="{Binding AdminRedirectViewCommands}" CommandParameter="AdminTurfBookingDetails" ToolTip="Bookings">
                                 <StackPanel Margin="-5">
                                     <materialDesign:PackIcon Kind="CalendarBlankOutline"/>
                                 </StackPanel>
@@ -198,7 +198,7 @@
                         </ListViewItem>
                         <ListViewItem HorizontalAlignment="Center" Margin="0">
                             <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
-                             BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Command="{Binding RedirectViewCommands}" CommandParameter="UserSettings" ToolTip="Settings">
+                             BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Command="{Binding AdminRedirectViewCommands}" CommandParameter="AdminSettings" ToolTip="Settings">
                                 <StackPanel Margin="-5">
                                     <materialDesign:PackIcon Kind="EqualiserVertical"/>
                                 </StackPanel>
@@ -207,7 +207,7 @@
 
                         <ListViewItem HorizontalAlignment="Center" Margin="0 60 0 0">
                             <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
-                             BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" x:Name="btnExit" ToolTip="Log Out" Command="{Binding RedirectViewCommands}" CommandParameter="SignOut">
+                             BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" x:Name="btnExit" ToolTip="Log Out" Command="{Binding AdminRedirectViewCommands}" CommandParameter="SignOut">
                                 <StackPanel Margin="-5">
                                     <materialDesign:PackIcon Kind="ExitToApp"/>
                                 </StackPanel>
