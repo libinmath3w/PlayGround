@@ -1,0 +1,609 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TurfManagementDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Booking">
+          <Key>
+            <PropertyRef Name="Booking_ID" />
+          </Key>
+          <Property Name="Booking_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_ID" Type="int" Nullable="false" />
+          <Property Name="Turf_ID" Type="int" Nullable="false" />
+          <Property Name="Start_Time" Type="int" Nullable="false" />
+          <Property Name="End_Time" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="float" Nullable="false" />
+          <Property Name="Payment_ID" Type="int" Nullable="false" />
+          <Property Name="Booking_Date" Type="datetime" />
+          <Property Name="Payment_Status" Type="int" Nullable="false" />
+          <Property Name="Booking_Time" Type="datetime" Nullable="false" />
+          <Property Name="Booking_Status" Type="bit" />
+        </EntityType>
+        <EntityType Name="Payment_Type">
+          <Key>
+            <PropertyRef Name="Payment_ID" />
+          </Key>
+          <Property Name="Payment_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Payment_Method" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Time_Slote">
+          <Key>
+            <PropertyRef Name="Time_ID" />
+          </Key>
+          <Property Name="Time_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Time_Slots" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Turf">
+          <Key>
+            <PropertyRef Name="Turf_ID" />
+          </Key>
+          <Property Name="Turf_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Turf_Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Turf_Location" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Opening_Time" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Closing_Time" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Turf_Category_ID" Type="int" Nullable="false" />
+          <Property Name="Turf_Price" Type="float" Nullable="false" />
+          <Property Name="Turf_City" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Turf_State" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Turf_Zip" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Turf_Status" Type="int" Nullable="false" />
+          <Property Name="Turf_Image" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Turf_Category">
+          <Key>
+            <PropertyRef Name="TurfID" />
+          </Key>
+          <Property Name="TurfID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Turf_Type" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="Role_ID" />
+          </Key>
+          <Property Name="Role_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Role_Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="Date_Of_Created_Account" Type="datetime" />
+          <Property Name="Role_ID" Type="int" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="255" />
+          <Property Name="State" Type="varchar" MaxLength="255" />
+          <Property Name="Zip" Type="varchar" MaxLength="50" />
+          <Property Name="Avatar" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK_Booking_End_Time_Slote">
+          <End Role="Time_Slote" Type="Self.Time_Slote" Multiplicity="1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Time_Slote">
+              <PropertyRef Name="Time_ID" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="End_Time" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Booking_Payment_Type">
+          <End Role="Payment_Type" Type="Self.Payment_Type" Multiplicity="1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payment_Type">
+              <PropertyRef Name="Payment_ID" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="Payment_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Booking_Start_Timeslote">
+          <End Role="Time_Slote" Type="Self.Time_Slote" Multiplicity="1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Time_Slote">
+              <PropertyRef Name="Time_ID" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="Start_Time" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Booking_Turf">
+          <End Role="Turf" Type="Self.Turf" Multiplicity="1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Turf">
+              <PropertyRef Name="Turf_ID" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="Turf_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Booking_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="User_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Turf_Turf_Category1">
+          <End Role="Turf_Category" Type="Self.Turf_Category" Multiplicity="1" />
+          <End Role="Turf" Type="Self.Turf" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Turf_Category">
+              <PropertyRef Name="TurfID" />
+            </Principal>
+            <Dependent Role="Turf">
+              <PropertyRef Name="Turf_Category_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_UserRole">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="Role_ID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="Role_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="spBookingDetailsWithSOmeConditions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spSloteBookingDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spTurfDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="TurfManagementDBModelStoreContainer">
+          <EntitySet Name="Booking" EntityType="Self.Booking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payment_Type" EntityType="Self.Payment_Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Time_Slote" EntityType="Self.Time_Slote" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Turf" EntityType="Self.Turf" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Turf_Category" EntityType="Self.Turf_Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Booking_End_Time_Slote" Association="Self.FK_Booking_End_Time_Slote">
+            <End Role="Time_Slote" EntitySet="Time_Slote" />
+            <End Role="Booking" EntitySet="Booking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Booking_Payment_Type" Association="Self.FK_Booking_Payment_Type">
+            <End Role="Payment_Type" EntitySet="Payment_Type" />
+            <End Role="Booking" EntitySet="Booking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Booking_Start_Timeslote" Association="Self.FK_Booking_Start_Timeslote">
+            <End Role="Time_Slote" EntitySet="Time_Slote" />
+            <End Role="Booking" EntitySet="Booking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Booking_Turf" Association="Self.FK_Booking_Turf">
+            <End Role="Turf" EntitySet="Turf" />
+            <End Role="Booking" EntitySet="Booking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Booking_Users" Association="Self.FK_Booking_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Booking" EntitySet="Booking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Turf_Turf_Category1" Association="Self.FK_Turf_Turf_Category1">
+            <End Role="Turf_Category" EntitySet="Turf_Category" />
+            <End Role="Turf" EntitySet="Turf" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_UserRole" Association="Self.FK_Users_UserRole">
+            <End Role="UserRole" EntitySet="UserRole" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TurfManagementDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Booking">
+          <Key>
+            <PropertyRef Name="Booking_ID" />
+          </Key>
+          <Property Name="Booking_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_ID" Type="Int32" Nullable="false" />
+          <Property Name="Turf_ID" Type="Int32" Nullable="false" />
+          <Property Name="Start_Time" Type="Int32" Nullable="false" />
+          <Property Name="End_Time" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Double" Nullable="false" />
+          <Property Name="Payment_ID" Type="Int32" Nullable="false" />
+          <Property Name="Booking_Date" Type="DateTime" Precision="3" />
+          <Property Name="Payment_Status" Type="Int32" Nullable="false" />
+          <Property Name="Booking_Time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Booking_Status" Type="Boolean" />
+          <NavigationProperty Name="Time_Slote" Relationship="Self.FK_Booking_End_Time_Slote" FromRole="Booking" ToRole="Time_Slote" />
+          <NavigationProperty Name="Payment_Type" Relationship="Self.FK_Booking_Payment_Type" FromRole="Booking" ToRole="Payment_Type" />
+          <NavigationProperty Name="Time_Slote1" Relationship="Self.FK_Booking_Start_Timeslote" FromRole="Booking" ToRole="Time_Slote" />
+          <NavigationProperty Name="Turf" Relationship="Self.FK_Booking_Turf" FromRole="Booking" ToRole="Turf" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Booking_Users" FromRole="Booking" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Payment_Type">
+          <Key>
+            <PropertyRef Name="Payment_ID" />
+          </Key>
+          <Property Name="Payment_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Payment_Method" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Bookings" Relationship="Self.FK_Booking_Payment_Type" FromRole="Payment_Type" ToRole="Booking" />
+        </EntityType>
+        <EntityType Name="Time_Slote">
+          <Key>
+            <PropertyRef Name="Time_ID" />
+          </Key>
+          <Property Name="Time_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Time_Slots" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Bookings" Relationship="Self.FK_Booking_End_Time_Slote" FromRole="Time_Slote" ToRole="Booking" />
+          <NavigationProperty Name="Bookings1" Relationship="Self.FK_Booking_Start_Timeslote" FromRole="Time_Slote" ToRole="Booking" />
+        </EntityType>
+        <EntityType Name="Turf">
+          <Key>
+            <PropertyRef Name="Turf_ID" />
+          </Key>
+          <Property Name="Turf_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Turf_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Turf_Location" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Opening_Time" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Closing_Time" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Turf_Category_ID" Type="Int32" Nullable="false" />
+          <Property Name="Turf_Price" Type="Double" Nullable="false" />
+          <Property Name="Turf_City" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Turf_State" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Turf_Zip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Turf_Status" Type="Int32" Nullable="false" />
+          <Property Name="Turf_Image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Bookings" Relationship="Self.FK_Booking_Turf" FromRole="Turf" ToRole="Booking" />
+          <NavigationProperty Name="Turf_Category" Relationship="Self.FK_Turf_Turf_Category1" FromRole="Turf" ToRole="Turf_Category" />
+        </EntityType>
+        <EntityType Name="Turf_Category">
+          <Key>
+            <PropertyRef Name="TurfID" />
+          </Key>
+          <Property Name="TurfID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Turf_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Turfs" Relationship="Self.FK_Turf_Turf_Category1" FromRole="Turf_Category" ToRole="Turf" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="Role_ID" />
+          </Key>
+          <Property Name="Role_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Role_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_UserRole" FromRole="UserRole" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="Date_Of_Created_Account" Type="DateTime" Precision="3" />
+          <Property Name="Role_ID" Type="Int32" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Zip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Avatar" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Bookings" Relationship="Self.FK_Booking_Users" FromRole="Users" ToRole="Booking" />
+          <NavigationProperty Name="UserRole" Relationship="Self.FK_Users_UserRole" FromRole="Users" ToRole="UserRole" />
+        </EntityType>
+        <Association Name="FK_Booking_End_Time_Slote">
+          <End Role="Time_Slote" Type="Self.Time_Slote" Multiplicity="1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Time_Slote">
+              <PropertyRef Name="Time_ID" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="End_Time" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Booking_Payment_Type">
+          <End Role="Payment_Type" Type="Self.Payment_Type" Multiplicity="1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payment_Type">
+              <PropertyRef Name="Payment_ID" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="Payment_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Booking_Start_Timeslote">
+          <End Role="Time_Slote" Type="Self.Time_Slote" Multiplicity="1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Time_Slote">
+              <PropertyRef Name="Time_ID" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="Start_Time" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Booking_Turf">
+          <End Role="Turf" Type="Self.Turf" Multiplicity="1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Turf">
+              <PropertyRef Name="Turf_ID" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="Turf_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Booking_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="User_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Turf_Turf_Category1">
+          <End Role="Turf_Category" Type="Self.Turf_Category" Multiplicity="1" />
+          <End Role="Turf" Type="Self.Turf" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Turf_Category">
+              <PropertyRef Name="TurfID" />
+            </Principal>
+            <Dependent Role="Turf">
+              <PropertyRef Name="Turf_Category_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_UserRole">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="Role_ID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="Role_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TurfManagementDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bookings" EntityType="Self.Booking" />
+          <EntitySet Name="Payment_Type" EntityType="Self.Payment_Type" />
+          <EntitySet Name="Time_Slote" EntityType="Self.Time_Slote" />
+          <EntitySet Name="Turfs" EntityType="Self.Turf" />
+          <EntitySet Name="Turf_Category" EntityType="Self.Turf_Category" />
+          <EntitySet Name="UserRoles" EntityType="Self.UserRole" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_Booking_End_Time_Slote" Association="Self.FK_Booking_End_Time_Slote">
+            <End Role="Time_Slote" EntitySet="Time_Slote" />
+            <End Role="Booking" EntitySet="Bookings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Booking_Payment_Type" Association="Self.FK_Booking_Payment_Type">
+            <End Role="Payment_Type" EntitySet="Payment_Type" />
+            <End Role="Booking" EntitySet="Bookings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Booking_Start_Timeslote" Association="Self.FK_Booking_Start_Timeslote">
+            <End Role="Time_Slote" EntitySet="Time_Slote" />
+            <End Role="Booking" EntitySet="Bookings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Booking_Turf" Association="Self.FK_Booking_Turf">
+            <End Role="Turf" EntitySet="Turfs" />
+            <End Role="Booking" EntitySet="Bookings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Booking_Users" Association="Self.FK_Booking_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Booking" EntitySet="Bookings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Turf_Turf_Category1" Association="Self.FK_Turf_Turf_Category1">
+            <End Role="Turf_Category" EntitySet="Turf_Category" />
+            <End Role="Turf" EntitySet="Turfs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_UserRole" Association="Self.FK_Users_UserRole">
+            <End Role="UserRole" EntitySet="UserRoles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <FunctionImport Name="spBookingDetailsWithSOmeConditions" ReturnType="Collection(TurfManagementDBModel.spBookingDetailsWithSOmeConditions_Result)" />
+          <FunctionImport Name="spSloteBookingDetails" ReturnType="Collection(TurfManagementDBModel.spSloteBookingDetails_Result)" />
+          <FunctionImport Name="spTurfDetails" />
+        </EntityContainer>
+        <ComplexType Name="spBookingDetailsWithSOmeConditions_Result">
+          <Property Type="Int32" Name="Booking_ID" Nullable="false" />
+          <Property Type="Int32" Name="User_ID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+          <Property Type="Int32" Name="Turf_ID" Nullable="false" />
+          <Property Type="Int32" Name="Start_Time" Nullable="false" />
+          <Property Type="Int32" Name="End_Time" Nullable="false" />
+          <Property Type="Double" Name="Amount" Nullable="false" />
+          <Property Type="Int32" Name="Payment_ID" Nullable="false" />
+          <Property Type="DateTime" Name="Booking_Date" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="Payment_Status" Nullable="false" />
+          <Property Type="DateTime" Name="Booking_Time" Nullable="false" Precision="23" />
+          <Property Type="Boolean" Name="Booking_Status" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spSloteBookingDetails_Result">
+          <Property Type="Int32" Name="Booking_ID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="Start_Time" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="End_Time" Nullable="false" MaxLength="50" />
+          <Property Type="Double" Name="Amount" Nullable="false" />
+          <Property Type="String" Name="Payment_Type" Nullable="false" MaxLength="255" />
+          <Property Type="DateTime" Name="Booking_Date" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="Payment_Status" Nullable="false" />
+          <Property Type="DateTime" Name="Booking_Time" Nullable="false" Precision="23" />
+          <Property Type="Boolean" Name="Booking_Status" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TurfManagementDBModelStoreContainer" CdmEntityContainer="TurfManagementDBEntities">
+          <EntitySetMapping Name="Bookings">
+            <EntityTypeMapping TypeName="TurfManagementDBModel.Booking">
+              <MappingFragment StoreEntitySet="Booking">
+                <ScalarProperty Name="Booking_ID" ColumnName="Booking_ID" />
+                <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+                <ScalarProperty Name="Turf_ID" ColumnName="Turf_ID" />
+                <ScalarProperty Name="Start_Time" ColumnName="Start_Time" />
+                <ScalarProperty Name="End_Time" ColumnName="End_Time" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Payment_ID" ColumnName="Payment_ID" />
+                <ScalarProperty Name="Booking_Date" ColumnName="Booking_Date" />
+                <ScalarProperty Name="Payment_Status" ColumnName="Payment_Status" />
+                <ScalarProperty Name="Booking_Time" ColumnName="Booking_Time" />
+                <ScalarProperty Name="Booking_Status" ColumnName="Booking_Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payment_Type">
+            <EntityTypeMapping TypeName="TurfManagementDBModel.Payment_Type">
+              <MappingFragment StoreEntitySet="Payment_Type">
+                <ScalarProperty Name="Payment_ID" ColumnName="Payment_ID" />
+                <ScalarProperty Name="Payment_Method" ColumnName="Payment_Method" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Time_Slote">
+            <EntityTypeMapping TypeName="TurfManagementDBModel.Time_Slote">
+              <MappingFragment StoreEntitySet="Time_Slote">
+                <ScalarProperty Name="Time_ID" ColumnName="Time_ID" />
+                <ScalarProperty Name="Time_Slots" ColumnName="Time_Slots" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Turfs">
+            <EntityTypeMapping TypeName="TurfManagementDBModel.Turf">
+              <MappingFragment StoreEntitySet="Turf">
+                <ScalarProperty Name="Turf_ID" ColumnName="Turf_ID" />
+                <ScalarProperty Name="Turf_Name" ColumnName="Turf_Name" />
+                <ScalarProperty Name="Turf_Location" ColumnName="Turf_Location" />
+                <ScalarProperty Name="Opening_Time" ColumnName="Opening_Time" />
+                <ScalarProperty Name="Closing_Time" ColumnName="Closing_Time" />
+                <ScalarProperty Name="Turf_Category_ID" ColumnName="Turf_Category_ID" />
+                <ScalarProperty Name="Turf_Price" ColumnName="Turf_Price" />
+                <ScalarProperty Name="Turf_City" ColumnName="Turf_City" />
+                <ScalarProperty Name="Turf_State" ColumnName="Turf_State" />
+                <ScalarProperty Name="Turf_Zip" ColumnName="Turf_Zip" />
+                <ScalarProperty Name="Turf_Status" ColumnName="Turf_Status" />
+                <ScalarProperty Name="Turf_Image" ColumnName="Turf_Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Turf_Category">
+            <EntityTypeMapping TypeName="TurfManagementDBModel.Turf_Category">
+              <MappingFragment StoreEntitySet="Turf_Category">
+                <ScalarProperty Name="TurfID" ColumnName="TurfID" />
+                <ScalarProperty Name="Turf_Type" ColumnName="Turf_Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRoles">
+            <EntityTypeMapping TypeName="TurfManagementDBModel.UserRole">
+              <MappingFragment StoreEntitySet="UserRole">
+                <ScalarProperty Name="Role_ID" ColumnName="Role_ID" />
+                <ScalarProperty Name="Role_Name" ColumnName="Role_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="TurfManagementDBModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Date_Of_Created_Account" ColumnName="Date_Of_Created_Account" />
+                <ScalarProperty Name="Role_ID" ColumnName="Role_ID" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spBookingDetailsWithSOmeConditions" FunctionName="TurfManagementDBModel.Store.spBookingDetailsWithSOmeConditions">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TurfManagementDBModel.spBookingDetailsWithSOmeConditions_Result">
+                <ScalarProperty Name="Booking_ID" ColumnName="Booking_ID" />
+                <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Turf_ID" ColumnName="Turf_ID" />
+                <ScalarProperty Name="Start_Time" ColumnName="Start_Time" />
+                <ScalarProperty Name="End_Time" ColumnName="End_Time" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Payment_ID" ColumnName="Payment_ID" />
+                <ScalarProperty Name="Booking_Date" ColumnName="Booking_Date" />
+                <ScalarProperty Name="Payment_Status" ColumnName="Payment_Status" />
+                <ScalarProperty Name="Booking_Time" ColumnName="Booking_Time" />
+                <ScalarProperty Name="Booking_Status" ColumnName="Booking_Status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spSloteBookingDetails" FunctionName="TurfManagementDBModel.Store.spSloteBookingDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TurfManagementDBModel.spSloteBookingDetails_Result">
+                <ScalarProperty Name="Booking_ID" ColumnName="Booking_ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Start_Time" ColumnName="Start_Time" />
+                <ScalarProperty Name="End_Time" ColumnName="End_Time" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Payment_Type" ColumnName="Payment_Type" />
+                <ScalarProperty Name="Booking_Date" ColumnName="Booking_Date" />
+                <ScalarProperty Name="Payment_Status" ColumnName="Payment_Status" />
+                <ScalarProperty Name="Booking_Time" ColumnName="Booking_Time" />
+                <ScalarProperty Name="Booking_Status" ColumnName="Booking_Status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spTurfDetails" FunctionName="TurfManagementDBModel.Store.spTurfDetails" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

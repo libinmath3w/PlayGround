@@ -1,4 +1,5 @@
-﻿using MaterialDesignThemes.Wpf;
+﻿using EntityLayer;
+using MaterialDesignThemes.Wpf;
 using PlayGround.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -36,7 +37,9 @@ namespace PlayGround.Commands
             }
             else if (parameter.ToString() == "UserTurfBooking")
             {
-                viewModel.SelectedViewModel = new UserTurfBookingViewModel();
+                BookingModel bookingModel = new BookingModel();
+                bookingModel.UserID = 2;
+                viewModel.SelectedViewModel = new UserTurfBookingViewModel(bookingModel);
             }
             else if (parameter.ToString() == "IsDarkMode")
             {
@@ -55,7 +58,7 @@ namespace PlayGround.Commands
                 paletteHelper.SetTheme(theme);
             } else if (parameter.ToString() == "SignOut")
             {
-                //SystemCommands.CloseWindow(this);
+                viewModel.SelectedViewModel = new UserLogoutViewModel();
             }
             else if (parameter.ToString() == "AdminSettings")
             {

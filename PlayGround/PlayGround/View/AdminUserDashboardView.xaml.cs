@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PlayGround.ViewModel
+namespace PlayGround.View
 {
     /// <summary>
-    /// Interaction logic for UserLogoutViewModel.xaml
+    /// Interaction logic for AdminUserDashboardView.xaml
     /// </summary>
-    public partial class UserLogoutViewModel : UserControl
+    public partial class AdminUserDashboardView : UserControl
     {
-        public UserLogoutViewModel()
+        public AdminUserDashboardView()
         {
             InitializeComponent();
         }

@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BookingModel.cs" />
+    <Compile Include="Interface\IUserBookingHistory.cs" />
     <Compile Include="PaymentTypeModel.cs" />
     <Compile Include="TimeSloteModel.cs" />
     <Compile Include="TurfCategoryModel.cs" />

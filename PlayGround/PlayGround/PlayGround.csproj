@@ -57,15 +57,15 @@
     </ApplicationDefinition>
     <Compile Include="Commands\RedirectViewCommand.cs" />
     <Compile Include="ViewModel\AdminAddNewTurfViewModel.cs" />
+    <Compile Include="ViewModel\AdminMainWindowViewModel.cs" />
     <Compile Include="ViewModel\AdminSettingsViewModel.cs" />
     <Compile Include="ViewModel\AdminTurfBookingViewModel.cs" />
+    <Compile Include="ViewModel\AdminUserDashboardViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\UserDashboardViewModel.cs" />
     <Compile Include="ViewModel\UserLoginViewModel.cs" />
-    <Compile Include="ViewModel\UserLogoutViewModel.xaml.cs">
-      <DependentUpon>UserLogoutViewModel.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="ViewModel\UserLogoutViewModel.cs" />
     <Compile Include="ViewModel\UserNewTurfBookingViewModel.cs" />
     <Compile Include="ViewModel\UserRegistrationViewModel.cs" />
     <Compile Include="ViewModel\UserSettingsViewModels.cs" />
@@ -73,11 +73,20 @@
     <Compile Include="View\AdminAddNewTurfView.xaml.cs">
       <DependentUpon>AdminAddNewTurfView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AdminDashboard.xaml.cs">
+      <DependentUpon>AdminDashboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminMainWindowView.xaml.cs">
+      <DependentUpon>AdminMainWindowView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AdminSettingsView.xaml.cs">
       <DependentUpon>AdminSettingsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\AdminTurfBookingView.xaml.cs">
       <DependentUpon>AdminTurfBookingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminUserDashboardView.xaml.cs">
+      <DependentUpon>AdminUserDashboardView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserDashboard.xaml.cs">
       <DependentUpon>UserDashboard.xaml</DependentUpon>
@@ -112,11 +121,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ViewModel\UserLogoutViewModel.xaml">
+    <Page Include="View\AdminAddNewTurfView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AdminAddNewTurfView.xaml">
+    <Page Include="View\AdminDashboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AdminMainWindowView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -125,6 +138,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AdminTurfBookingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AdminUserDashboardView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -218,6 +235,19 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\avatars.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\logout1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
+      <Project>{01E6A85B-2B4B-473F-B5E6-4BE0CAC06307}</Project>
+      <Name>BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntityLayer\EntityLayer.csproj">
+      <Project>{9670F018-7966-4446-82E0-F329A84F3F46}</Project>
+      <Name>EntityLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
