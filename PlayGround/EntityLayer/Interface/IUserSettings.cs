@@ -9,6 +9,6 @@ namespace EntityLayer.Interface
     public interface IUserSettings
     {
         List<UsersModel> GetUserDetails(UsersModel usersModel);
-        SaveUserDetails(UsersModel usersModel);
+        void SaveUserDetails(UsersModel usersModel);
     }
 }
