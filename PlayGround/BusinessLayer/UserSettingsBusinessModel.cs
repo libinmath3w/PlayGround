@@ -16,5 +16,11 @@ namespace BusinessLayer
             UserSettingsData usersettingsdata = new UserSettingsData();
             return usersettingsdata.GetUserDetails(usersModel);
         }
+        public void SaveUserDetails(UsersModel usersModel)
+        {
+            UserSettingsData usersettingsdata = new UserSettingsData();
+            usersettingsdata.SaveUserDetails(usersModel);
+        }
+
     }
 }
