@@ -28,7 +28,7 @@
             VerticalAlignment="Top" Height="31" Width="270" />
         </StackPanel>
         <Grid Margin="-100,-250,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" Height="200" ItemsSource="{Binding ViewUserTurfBokkingsAndBookNew}">
+            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" Height="200" ItemsSource="{Binding ViewUserNewTurfBooking}">
                 <DataGrid.Columns >
                     <!--<DataGridTextColumn Header="Turf ID" Binding="{Binding TurfID}" IsReadOnly="True"/>-->
                     <DataGridTextColumn Header="Turf Name" Binding="{Binding TurfName}" IsReadOnly="True"/>
