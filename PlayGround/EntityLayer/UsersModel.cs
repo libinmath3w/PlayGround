@@ -9,7 +9,7 @@ namespace EntityLayer
     /// <summary>
     /// to store user data
     /// </summary>
-    public class UsersModel
+    public class UsersModel : BaseEntity
     {
         public int UserId { get; set;}
         public string UserName { get; set;}

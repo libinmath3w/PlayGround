@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseEntity.cs" />
     <Compile Include="BookingModel.cs" />
     <Compile Include="Interface\IAdminBookingHistory.cs" />
     <Compile Include="Interface\IUserBookingHistory.cs" />

@@ -9,11 +9,13 @@ namespace EntityLayer
     /// <summary>
     /// to store datas of Booking
     /// </summary>
-    public class BookingModel
+    public class BookingModel : BaseEntity
     {
+        private int _bookingID;
+        private int _userID;
 
-        public int BookingID { get; set; }
-        public int UserID { get; set; }
+        public int BookingID { get => _bookingID; set { _bookingID = value; onPropertyChanged("Booking ID"); } } 
+        public int UserID { get => _userID; set { _userID = value; onPropertyChanged("User ID"); } }
         public string Name { get; set; }
         public int TurfID { get; set; }
         public string TurfName { get; set; }
