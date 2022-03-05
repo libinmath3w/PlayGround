@@ -24,9 +24,9 @@ namespace DataAccessLibrary
                    // turfModels.TurfID = item.Turf_ID;
                     turfModels.TurfName = item.Turf_Name;
                     turfModels.TurfLocation = item.Turf_Location;
-                    //turfModels.OpeningTime = Convert.ToDateTime(item.Opening_Time);
-                    //turfModels.ClosingTime = Convert.ToDateTime(item.Closing_Time);
-                   // turfModels.TurfCategoryID = item.Turf_Category_ID;
+                    turfModels.OpeningTime = item.Opening_Time;
+                    turfModels.ClosingTime = item.Closing_Time;
+                    // turfModels.TurfCategoryID = item.Turf_Category_ID;
                     turfModels.TurfPrice = (float)item.Turf_Price;
                     turfModels.TurfCity = item.Turf_City;
                     //turfModels.TurfState = item.Turf_State;
