@@ -8,6 +8,6 @@ namespace EntityLayer.Interface
 {
     public interface IUserTurfBooking
     {
-        List<TurfModel> GetTurfDetails();
+        List<TurfModel> GetTurfDetails(TurfModel turfModel);
     }
 }
