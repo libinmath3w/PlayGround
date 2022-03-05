@@ -1,4 +1,5 @@
 ﻿using FontAwesome.WPF;
+using PlayGround.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Navigation;
 
 namespace PlayGround.View
 {
@@ -20,10 +22,15 @@ namespace PlayGround.View
     /// </summary>
     public partial class UserRegistrationView : Window
     {
+        public UserSignupCommand pswCmd { get; set; }
+       
         public UserRegistrationView()
         {
             InitializeComponent();
             Icon = ImageAwesome.CreateImageSource(FontAwesomeIcon.SoccerBallOutline, Brushes.Green);
+            DataContext = this;
+            pswCmd = new UserSignupCommand();
+           
         }
 
         
