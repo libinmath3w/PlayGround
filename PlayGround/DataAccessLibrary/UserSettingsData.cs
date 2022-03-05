@@ -15,7 +15,7 @@ namespace DataAccessLibrary
         public List<UsersModel> GetUserDetails(UsersModel usersModel)
         {
             List<UsersModel> UserSettingsResult = new List<UsersModel>();
-           
+
             try
             {
                 TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
@@ -42,10 +42,32 @@ namespace DataAccessLibrary
                 }
             }
             catch (Exception ex)
-            {
+            { 
+
+
                 throw ex;
             }
             return UserSettingsResult;
         }
+           public void SaveUserDetails(UsersModel usersModel)
+           {
+               TurfManagementDBEntities entities = new TurfManagementDBEntities();
+               User users = new User();
+               users.UserName = usersModel.UserName;
+               users.Name = usersModel.Name;
+               users.Email = usersModel.UserEmailID;
+               users.PhoneNumber = usersModel.PhoneNumber;
+               users.Password = usersModel.Password;
+               users.Status = usersModel.Status;
+               users.Date_Of_Created_Account = usersModel.DateOfCreatedAccount;
+               users.Role_ID = usersModel.RoleID;
+               users.City = usersModel.City;
+               users.State = usersModel.State;
+               users.Zip = usersModel.Zip;
+               users.Avatar = usersModel.Avatar;
+               entities.Users.Add(users);
+               entities.SaveChanges();
+           }
     }
 }
+
