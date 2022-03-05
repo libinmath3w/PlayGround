@@ -26,38 +26,38 @@
                 <Label Content="Personal Details" HorizontalAlignment="Center" FontSize="14" Height="22" />
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="User" Width="25" Height="25" Margin="25,25,0,0"/>
-                    <TextBox x:Name="txtName" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,15,0,5"
+                    <TextBox x:Name="txtName" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Text="{Binding Name}" Width="400" VerticalContentAlignment="Center" Margin="25,15,0,5"
                             materialDesign:HintAssist.Hint="Name" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Email" Width="25" Height="25" Margin="25,12,0,0"/>
-                    <TextBox x:Name="txtEmail" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,2,0,5"
+                    <TextBox x:Name="txtEmail" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Text="{Binding UserEmailID}" Width="400" VerticalContentAlignment="Center" Margin="25,2,0,5"
                             materialDesign:HintAssist.Hint="Email ID" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Phone" Width="25" Height="25"  Margin="25,12,0,0"/>
-                    <TextBox x:Name="txtPhoneNumber" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,2,0,5"
+                    <TextBox x:Name="txtPhoneNumber" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Text="{Binding PhoneNumber}" Width="400" VerticalContentAlignment="Center" Margin="25,2,0,5"
                             materialDesign:HintAssist.Hint="Phone Number" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="City" Width="25" Height="25"  Margin="25,12,0,0"/>
-                    <TextBox x:Name="txtCity" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,2,0,5"
+                    <TextBox x:Name="txtCity" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Text="{Binding City}" Width="400" VerticalContentAlignment="Center" Margin="25,2,0,5"
                             materialDesign:HintAssist.Hint="City" />
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Estate" Width="25" Height="25" Margin="25,12,0,0"/>
-                    <TextBox x:Name="txtState" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,2,0,5"
+                    <TextBox x:Name="txtState" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Text="{Binding State}" Width="400" VerticalContentAlignment="Center" Margin="25,2,0,5"
                             materialDesign:HintAssist.Hint="State" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Post" Width="25" Height="25"  Margin="25,12,0,0"/>
-                    <TextBox x:Name="txtZip" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,2,0,5"
+                    <TextBox x:Name="txtZip" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Text="{Binding Zip}" Width="400" VerticalContentAlignment="Center" Margin="25,2,0,5"
                             materialDesign:HintAssist.Hint="Zip Code" />
                 </StackPanel>
                 <StackPanel>
                     <Button Style="{DynamicResource MaterialDesignRaisedDarkButton}"
-                        Content="Save Changes" x:Name="btnSaveChanges" FontSize="16" FontWeight="Bold" Margin="35,2,0,0"
+                        Content="Save Changes" x:Name="btnSaveChanges" FontSize="16" FontWeight="Bold" Margin="35,2,0,0" Command="{Binding UserSettingsViewCommand}" CommandParameter="{Binding SaveUserChanges}"
                         materialDesign:ButtonAssist.CornerRadius="25" Width="230" Height="40" ToolTip="Save Details" />
                 </StackPanel>
             </StackPanel>
@@ -73,10 +73,10 @@
                 <StackPanel>
                     <Ellipse HorizontalAlignment="Center" Margin="10" Height="200" Width="200">
                         <Ellipse.Fill>
-                            <ImageBrush ImageSource="/Assets/Avatar.jpg"></ImageBrush>
+                            <ImageBrush ImageSource="{Binding Avatar}"/>
                         </Ellipse.Fill>
                     </Ellipse>
-                    <Button Content="Browse Image" x:Name="btnBrowserImage" FontSize="16" FontWeight="Bold" Margin="0,30,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198">
+                    <Button Content="Browse Image" x:Name="btnBrowserImage" FontSize="16" FontWeight="Bold" Margin="0,30,0,0" Command="{Binding UserSettingsView}" CommandParameter="{Binding UserBrowseImage}"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="15"/>
@@ -108,7 +108,7 @@
                     <PasswordBox x:Name="pwbConfirmPassword" Style="{DynamicResource MaterialDesignOutlinedPasswordBox}" VerticalAlignment="Top" Width="330"
                         materialDesign:HintAssist.Hint="Confirm Password" Margin="10,10,0,20" materialDesign:HintAssist.HelperText="At least 8 characters"/>
                     <Button Style="{DynamicResource MaterialDesignRaisedDarkButton}"
-                        Content="Update Password" x:Name="btnPasswordUpdate" FontSize="16" FontWeight="Bold" Margin="145,15,0,0"
+                        Content="Update Password" x:Name="btnPasswordUpdate" FontSize="16" FontWeight="Bold" Margin="145,15,0,0" Command="{Binding UserSettingsViewCommand}" CommandParameter="{Binding UpdatePassword}"
                         materialDesign:ButtonAssist.CornerRadius="25" Width="230" Height="40" ToolTip="Save Details" />
                 </StackPanel>
             </StackPanel>
