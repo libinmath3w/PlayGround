@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminBookingHistoryData.cs" />
+    <Compile Include="AdminSettingsData.cs" />
     <Compile Include="Booking.cs">
       <DependentUpon>PlayGroundDB.tt</DependentUpon>
     </Compile>
