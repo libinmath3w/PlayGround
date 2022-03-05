@@ -29,7 +29,7 @@ namespace DataAccessLibrary
         public virtual Time_Slote Time_Slote { get; set; }
         public virtual Payment_Type Payment_Type { get; set; }
         public virtual Time_Slote Time_Slote1 { get; set; }
-        public virtual Turf Turf { get; set; }
         public virtual User User { get; set; }
+        public virtual Turf Turf { get; set; }
     }
 }

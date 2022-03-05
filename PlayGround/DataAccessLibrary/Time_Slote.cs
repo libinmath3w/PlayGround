@@ -19,6 +19,8 @@ namespace DataAccessLibrary
         {
             this.Bookings = new HashSet<Booking>();
             this.Bookings1 = new HashSet<Booking>();
+            this.Turfs = new HashSet<Turf>();
+            this.Turfs1 = new HashSet<Turf>();
         }
     
         public int Time_ID { get; set; }
@@ -28,5 +30,9 @@ namespace DataAccessLibrary
         public virtual ICollection<Booking> Bookings { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Booking> Bookings1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Turf> Turfs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Turf> Turfs1 { get; set; }
     }
 }

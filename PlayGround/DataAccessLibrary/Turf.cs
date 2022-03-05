@@ -23,8 +23,8 @@ namespace DataAccessLibrary
         public int Turf_ID { get; set; }
         public string Turf_Name { get; set; }
         public string Turf_Location { get; set; }
-        public string Opening_Time { get; set; }
-        public string Closing_Time { get; set; }
+        public int Opening_Time { get; set; }
+        public int Closing_Time { get; set; }
         public int Turf_Category_ID { get; set; }
         public double Turf_Price { get; set; }
         public string Turf_City { get; set; }
@@ -35,6 +35,8 @@ namespace DataAccessLibrary
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Booking> Bookings { get; set; }
+        public virtual Time_Slote Time_Slote { get; set; }
+        public virtual Time_Slote Time_Slote1 { get; set; }
         public virtual Turf_Category Turf_Category { get; set; }
     }
 }
