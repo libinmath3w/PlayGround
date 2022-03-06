@@ -36,7 +36,7 @@ namespace DataAccessLibrary
                     usersModels.RoleID = item.Role_ID;
                     usersModels.City = item.City;
                     usersModels.State = item.State;
-                    // usersModels.Zip = item.Zip;
+                    usersModels.Zip = item.Zip;
                     usersModels.Avatar = item.Avatar;
                     UserSettingsResult.Add(usersModels);
                 }

@@ -31,7 +31,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Email" Width="25" Height="25" Margin="25,12,0,0"/>
-                    <TextBox x:Name="txtEmail" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Text="{Binding UserEmailID}" Width="400" VerticalContentAlignment="Center" Margin="25,2,0,5"
+                    <TextBox x:Name="txtEmail" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Text="{Binding Emailid}" Width="400" VerticalContentAlignment="Center" Margin="25,2,0,5"
                             materialDesign:HintAssist.Hint="Email ID" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">

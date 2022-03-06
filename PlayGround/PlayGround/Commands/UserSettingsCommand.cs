@@ -38,6 +38,7 @@ namespace PlayGround.Commands
                 usersModel.Zip = userSettingsViewModels.Zip;
                 UserSettingsBusinessModel userSettingsBusinessModel = new UserSettingsBusinessModel();
                 userSettingsBusinessModel.SaveUserDetails(usersModel);
+                System.Windows.MessageBox.Show("Data Updated");
             }
             else if (parameter.ToString() == "UpdatePassword")
             {
