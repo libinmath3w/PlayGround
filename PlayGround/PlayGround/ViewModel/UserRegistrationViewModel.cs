@@ -1,8 +1,10 @@
-﻿using System;
+﻿using PlayGround.Commands;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace PlayGround.ViewModel
 {
@@ -13,10 +15,19 @@ namespace PlayGround.ViewModel
         private string _userEmailID;
         private string _phoneNumber;
         private string _password;
+        private UserRegistrationViewModel _userRegistrationViewModel;
         public string UserName { get => _username; set { _username = value; onPropertyChanged("User Name"); } }
         public string Name { get => _name; set { _name = value; onPropertyChanged(" Name"); } }
         public string UserEmailID { get => _userEmailID; set { _userEmailID = value; onPropertyChanged("User EmailID"); } }
         public string PhoneNumber { get => _phoneNumber; set { _phoneNumber = value; onPropertyChanged("Phone Number"); } }
         public string Password { get => _password; set { _password = value; onPropertyChanged("Password"); } }
+        public ICommand userSignUpCommands { get; set; }
+
+        public UserRegistrationViewModel(UserRegistrationViewModel userRegistrationViewModel)
+        {
+            _userRegistrationViewModel = userRegistrationViewModel;
+            userSignUpCommands = new UserSignupCommand(this);
+        }
+
     }
 }

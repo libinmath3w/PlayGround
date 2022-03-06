@@ -16,10 +16,10 @@ namespace PlayGround.Commands
        
 
         public event EventHandler CanExecuteChanged;
-        public UserLoginViewModel userLoginViewModel { get; set; }
-        public UserSignupCommand(UserLoginViewModel userLoginViewModel)
+        private UserRegistrationViewModel _userRegistrationViewModel { get; set; }
+        public UserSignupCommand(UserRegistrationViewModel userRegistrationViewModel)
         {
-            this.userLoginViewModel = userLoginViewModel;
+            _userRegistrationViewModel = userRegistrationViewModel;
         }
 
         public UserSignupCommand()
@@ -33,20 +33,26 @@ namespace PlayGround.Commands
 
         public void Execute(object parameter)
         {
-            UserSignUpBusinessModel userSignUpBusinessModel = new UserSignUpBusinessModel();
-            PasswordBox boxpass = (PasswordBox)parameter;
-            Password = boxpass.Password;
-            
-            if(Password.Length < 8)
+            if (parameter.ToString() == "userSignUp")
             {
-                System.Windows.MessageBox.Show("Password length short");
+                UserSignUpBusinessModel userSignUpBusinessModel = new UserSignUpBusinessModel();
+                PasswordBox boxpass = (PasswordBox)parameter;
+                Password = boxpass.Password;
 
+                if (Password.Length < 8)
+                {
+                    System.Windows.MessageBox.Show("Password length short");
+
+                }
+                else
+                {
+                    System.Windows.MessageBox.Show("Password length correct");
+                }
             }
-            else
+            else if (parameter.ToString() == "signin")
             {
-                System.Windows.MessageBox.Show("Password length correct"); 
+                System.Windows.MessageBox.Show("Login page");
             }
-             
         }
     }
 }
