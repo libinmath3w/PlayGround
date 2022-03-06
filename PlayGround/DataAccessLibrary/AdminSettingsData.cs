@@ -51,15 +51,26 @@ namespace DataAccessLibrary
 
         public void SaveUserDetails(UsersModel usersModel)
         {
-            TurfManagementDBEntities entities = new TurfManagementDBEntities();
-            User users = new User();
-            users.Name = usersModel.Name;
-            users.Email = usersModel.UserEmailID;
-            users.PhoneNumber = usersModel.PhoneNumber;
-            users.Password = usersModel.Password;
-            users.Avatar = usersModel.Avatar;
-            entities.Users.Add(users);
-            entities.SaveChanges();
+            try
+            {
+                TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
+                var query = from userinfo in turfManagementDBEntities.Users
+                            where userinfo.ID == usersModel.UserId
+                            select userinfo;
+                foreach (var item in query)
+                {
+                    item.Email = usersModel.UserEmailID;
+                    item.Name = usersModel.Name;
+                    item.PhoneNumber = usersModel.PhoneNumber;
+                }
+                turfManagementDBEntities.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+           
         }
     }
 }
