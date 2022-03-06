@@ -1,4 +1,5 @@
-﻿using EntityLayer;
+﻿using DataAccessLibrary;
+using EntityLayer;
 using EntityLayer.Interface;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,20 @@ namespace BusinessLayer
 {
     public class AdminAddNewTurfBusinessModel : IAddNewTurf
     {
+        public List<TurfModel> GetNewTurf(TurfModel turfModel)
+        {
+            AdminSettingsData adminSettingsData = new AdminSettingsData();
+            return adminSettingsData.GetNewTurf(turfModel);
+
+        }
+
         public void SaveNewTurf(TurfModel turfModel)
         {
-            throw new NotImplementedException();
+            AdminSettingsData adminSettingsData = new AdminSettingsData();
+            adminSettingsData.SaveNewTurf(turfModel);
         }
     }
 }
+
+       
+    
