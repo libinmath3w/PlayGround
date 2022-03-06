@@ -11,14 +11,19 @@ namespace BusinessLayer
 {
     public class UserSettingsBusinessModel : IUserSettings
     {
+        UserSettingsData usersettingsdata = new UserSettingsData();
         public List<UsersModel> GetUserDetails(UsersModel usersModel)
         {
-            UserSettingsData usersettingsdata = new UserSettingsData();
             return usersettingsdata.GetUserDetails(usersModel);
         }
+
+        public void SaveAvatar(UsersModel usersModel)
+        {
+            usersettingsdata.SaveAvatar(usersModel);
+        }
+
         public void SaveUserDetails(UsersModel usersModel)
         {
-            UserSettingsData usersettingsdata = new UserSettingsData();
             usersettingsdata.SaveUserDetails(usersModel);
         }
 

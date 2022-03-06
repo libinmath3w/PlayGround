@@ -49,7 +49,29 @@ namespace DataAccessLibrary
             }
             return UserSettingsResult;
         }
-           public void SaveUserDetails(UsersModel usersModel)
+
+        public void SaveAvatar(UsersModel usersModel)
+        {
+            try
+            {
+                TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
+                var query = from userinfo in turfManagementDBEntities.Users
+                            where userinfo.ID == usersModel.UserId
+                            select userinfo;
+                foreach (var item in query)
+                {
+                    item.Avatar = usersModel.Avatar;
+                }
+                turfManagementDBEntities.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public void SaveUserDetails(UsersModel usersModel)
            {
             try
             {

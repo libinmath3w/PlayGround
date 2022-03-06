@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EntityLayer;
+using PlayGround.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,9 @@ namespace PlayGround.View
         public UserSettingsView()
         {
             InitializeComponent();
+            //UsersModel users = new UsersModel();
+            //users.UserId = 2; 
+            //DataContext = new UserSettingsViewModels(users);
         }
     }
 }

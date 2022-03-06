@@ -17,6 +17,11 @@ namespace BusinessLayer
             return usersettingsdata.GetUserDetails(usersModel);
         }
 
+        public void SaveAvatar(UsersModel usersModel)
+        {
+            throw new NotImplementedException();
+        }
+
         public void SaveUserDetails(UsersModel usersModel)
         {
             AdminSettingsData usersettingsdata = new AdminSettingsData();

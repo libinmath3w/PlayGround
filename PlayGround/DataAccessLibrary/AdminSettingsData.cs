@@ -72,5 +72,10 @@ namespace DataAccessLibrary
             }
            
         }
+
+        public void SaveAvatar(UsersModel usersModel)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

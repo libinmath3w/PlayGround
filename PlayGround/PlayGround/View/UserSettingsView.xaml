@@ -57,7 +57,7 @@
                 </StackPanel>
                 <StackPanel>
                     <Button Style="{DynamicResource MaterialDesignRaisedDarkButton}"
-                        Content="Save Changes" x:Name="btnSaveChanges" FontSize="16" FontWeight="Bold" Margin="35,2,0,0" Command="{Binding UserSettingsViewCommand}" CommandParameter="SaveUserChanges"
+                        Content="Save Changes" x:Name="btnSaveChanges" FontSize="16" FontWeight="Bold" Margin="35,2,0,0" Command="{Binding UserSettingsCommands}" CommandParameter="SaveUserChanges"
                         materialDesign:ButtonAssist.CornerRadius="25" Width="230" Height="40" ToolTip="Save Details" />
                 </StackPanel>
             </StackPanel>
@@ -76,7 +76,7 @@
                             <ImageBrush ImageSource="{Binding Avatar}"/>
                         </Ellipse.Fill>
                     </Ellipse>
-                    <Button Content="Browse Image" x:Name="btnBrowserImage" FontSize="16" FontWeight="Bold" Margin="0,30,0,0" Command="{Binding UserSettingsView}" CommandParameter="UserBrowseImage"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198">
+                    <Button Content="Browse Image" x:Name="btnBrowserImage" FontSize="16" FontWeight="Bold" Margin="0,30,0,0" Command="{Binding UserSettingsCommands}" CommandParameter="UserBrowseImage"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="15"/>
@@ -108,7 +108,7 @@
                     <PasswordBox x:Name="pwbConfirmPassword" Style="{DynamicResource MaterialDesignOutlinedPasswordBox}" VerticalAlignment="Top" Width="330"
                         materialDesign:HintAssist.Hint="Confirm Password" Margin="10,10,0,20" materialDesign:HintAssist.HelperText="At least 8 characters"/>
                     <Button Style="{DynamicResource MaterialDesignRaisedDarkButton}"
-                        Content="Update Password" x:Name="btnPasswordUpdate" FontSize="16" FontWeight="Bold" Margin="145,15,0,0" Command="{Binding UserSettingsViewCommand}" CommandParameter="UpdatePassword"
+                        Content="Update Password" x:Name="btnPasswordUpdate" FontSize="16" FontWeight="Bold" Margin="145,15,0,0" Command="{Binding UserSettingsCommands}" CommandParameter="UpdatePassword"
                         materialDesign:ButtonAssist.CornerRadius="25" Width="230" Height="40" ToolTip="Save Details" />
                 </StackPanel>
             </StackPanel>

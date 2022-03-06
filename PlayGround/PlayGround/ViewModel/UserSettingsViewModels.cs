@@ -3,10 +3,13 @@ using EntityLayer;
 using PlayGround.Commands;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 namespace PlayGround.ViewModel
 {
@@ -34,8 +37,8 @@ namespace PlayGround.ViewModel
         public string Avatar { get => _avatar; set { _avatar = value; onPropertyChanged("Avatar"); } }
         public UserSettingsViewModels(UsersModel usersModel)
         {
-            UserSettingsBusinessModel userSettingsBusinessModel = new UserSettingsBusinessModel();
             UserSettingsCommands = new UserSettingsCommand(this);
+            UserSettingsBusinessModel userSettingsBusinessModel = new UserSettingsBusinessModel();
             UsersModel users = new UsersModel();
             users.UserId = usersModel.UserId;
             var query = userSettingsBusinessModel.GetUserDetails(users);
@@ -47,7 +50,9 @@ namespace PlayGround.ViewModel
                 City = item.City;
                 State = item.State;
                 Zip = item.Zip;
-                Avatar = item.Avatar;
+                var pathRegex = new Regex(@"\\bin(\\x86|\\x64)?\\(Debug|Release)$", RegexOptions.Compiled);
+                var directory = pathRegex.Replace(Directory.GetCurrentDirectory(), String.Empty);
+                Avatar = directory + "/Uploads/" + item.Avatar;
             }
         }
     }
