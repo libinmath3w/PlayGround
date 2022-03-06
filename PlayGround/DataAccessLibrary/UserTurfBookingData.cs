@@ -31,6 +31,7 @@ namespace DataAccessLibrary
                                 TCategory = turftypes.Turf_Type,
                                 TPrice = turfDetails.Turf_Price,
                                 TImage = turfDetails.Turf_Image,
+                                TState = turfDetails.Turf_State
                             };
                 foreach (var item in query)
                 {
@@ -43,6 +44,8 @@ namespace DataAccessLibrary
                     turfModels.TurfPrice = (float)item.TPrice;
                     turfModels.TurfCity = item.TCity;
                     turfModels.TurfImage = item.TImage;
+                    turfModels.TurfType = item.TCategory;
+                    turfModels.TurfState = item.TState;
                     BookingTurfList.Add(turfModels);
                 }
             }

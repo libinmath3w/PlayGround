@@ -3,6 +3,7 @@ using EntityLayer;
 using PlayGround.Commands;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -23,8 +24,6 @@ namespace PlayGround.ViewModel
         private string _state;
         private string _zip;
         private string _avatar;
-
-
         public ICommand UserSettingsCommands { get; set; }
         public UserSettingsViewModels userSettingsViewModels { get; set; }
         public int UserID { get => _userID; set { _userID = value; onPropertyChanged("User ID"); } }

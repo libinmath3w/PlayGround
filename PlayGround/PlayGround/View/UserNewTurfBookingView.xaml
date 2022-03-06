@@ -27,32 +27,32 @@
                 HorizontalAlignment="Left"
             VerticalAlignment="Top" Height="31" Width="270" Text="{Binding SearchTerm}"/>
         </StackPanel>
-        <Grid Margin="-100,-250,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" Height="200" ItemsSource="{Binding ViewUserNewTurfBooking}">
+        <Grid Margin="-90,-250,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="800">
+            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" Height="200" ItemsSource="{Binding TurfSearchDetails}" ColumnWidth="*">
                 <DataGrid.Columns >
-                    <!--<DataGridTextColumn Header="Turf ID" Binding="{Binding TurfID}" IsReadOnly="True"/>-->
+                    <DataGridTextColumn Header="Turf ID" Binding="{Binding TurfID}" IsReadOnly="True"/>
                     <DataGridTextColumn Header="Turf Name" Binding="{Binding TurfName}" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="Turf Location" Binding="{Binding TurfLocation}" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="Opening Time" Binding="{Binding OpeningTime}" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="Closing Time" Binding="{Binding ClosingTime}" IsReadOnly="True"/>
-                    <!--<DataGridTextColumn Header="State" Binding="{Binding TurfState}" IsReadOnly="True"/>-->
-                    <DataGridTextColumn Header="City" Binding="{Binding TurfCity}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Type" Binding="{Binding TurfType}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Location" Binding="{Binding TurfLocation}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Opening Time" Binding="{Binding StartTime}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Closing Time" Binding="{Binding EndTime}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="State" Binding="{Binding TurfState}" IsReadOnly="True"/>
                     <!--<DataGridTextColumn Header="Zip" Binding="{Binding Zip}" IsReadOnly="True"/>-->
                     <DataGridTextColumn Header="Amount" Binding="{Binding TurfPrice}" IsReadOnly="True"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
-        <materialDesign:Card Margin="25,350,0,0" Height="300" Width="600"  >
+        <materialDesign:Card Margin="25,350,0,0" Height="320" Width="600"  >
             <materialDesign:Card.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="20"/>
                 </Style>
             </materialDesign:Card.Resources>
             <StackPanel Orientation="Horizontal">
-                <StackPanel Height="30">
-                    <Label Content="Booking Date" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Margin="5,-112,0,0"/>
-                    <materialDesign:PackIcon Kind="Calendar" Width="25" Height="25" Margin="140,-110,0,0"/>
-                    <DatePicker HorizontalAlignment="Center" VerticalAlignment="Top" Height="20" Width="250" Margin="200,-110,0,0"/>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Booking Date"  VerticalAlignment="Top" FontSize="20" Margin="10,16,0,0"/>
+                    <materialDesign:PackIcon Kind="Calendar" Width="25" Height="25" Margin="0,20,0,0"/>
+                    <DatePicker HorizontalAlignment="Center" VerticalAlignment="Top" Width="300" materialDesign:HintAssist.Hint="Select Date" Style="{DynamicResource MaterialDesignOutlinedDatePicker}" Margin="10,10,0,0"/>
                 </StackPanel>
                 <Label x:Name="lblStartTime" Content="Time Slote" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-445,68,0,0" FontSize="20"/>
                 <materialDesign:PackIcon Kind="Clock" Width="25" Height="25" Margin="-310,70,0,0"/>

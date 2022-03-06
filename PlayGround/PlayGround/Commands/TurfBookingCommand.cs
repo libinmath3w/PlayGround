@@ -31,7 +31,19 @@ namespace PlayGround.Commands
                 UserTurfBookingBusinessModel userTurfBookingBusinessModel = new UserTurfBookingBusinessModel();
                 TurfModel turfModel = new TurfModel();
                 turfModel.TurfCity = userNewTurfBookingViewModel.SearchTerm;
-                userNewTurfBookingViewModel.ViewUserNewTurfBooking = userTurfBookingBusinessModel.GetTurfDetails(turfModel);
+                var query = userTurfBookingBusinessModel.GetTurfDetails(turfModel);
+                foreach (var item in query)
+                {
+                    turfModel.TurfName = item.TurfName;
+                    turfModel.StartTime = item.StartTime;
+                    turfModel.EndTime = item.EndTime;
+                    turfModel.TurfLocation = item.TurfCity;
+                    turfModel.TurfPrice = item.TurfPrice;
+                    turfModel.TurfID = item.TurfID;
+                    turfModel.TurfState = item.TurfState;
+                    turfModel.TurfType = item.TurfType;
+                    userNewTurfBookingViewModel.TurfSearchDetails.Add(turfModel);
+                }
             }
         }
     }

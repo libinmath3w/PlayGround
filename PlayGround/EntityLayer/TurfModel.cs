@@ -19,6 +19,7 @@ namespace EntityLayer
         public string StartTime { get; set; }
         public string EndTime { get; set; }
         public  int TurfCategoryID { get; set; }
+        public string TurfType { get; set; }
         public float TurfPrice { get; set; }
         public string TurfCity { get; set; }
         public string TurfState { get; set; }
