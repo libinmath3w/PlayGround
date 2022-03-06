@@ -39,6 +39,16 @@ namespace DataAccessLibrary
             return AdminSettingsResult;
         }
 
+        public void SaveNewTurf(TurfModel turfModel)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<TurfModel> GetNewTurf(TurfModel turfModel)
+        {
+            throw new NotImplementedException();
+        }
+
         public void SaveUserDetails(UsersModel usersModel)
         {
             TurfManagementDBEntities entities = new TurfManagementDBEntities();
