@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminAddNewTurfBusinessModel.cs" />
     <Compile Include="AdminBookingHistoryBusinessModel.cs" />
     <Compile Include="AdminSettingsBusinessModel.cs" />
     <Compile Include="UserBookingHistoryBusinessModel.cs" />

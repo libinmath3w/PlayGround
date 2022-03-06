@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddNewTurfDataModel.cs" />
     <Compile Include="AdminBookingHistoryData.cs" />
     <Compile Include="AdminSettingsData.cs" />
     <Compile Include="Booking.cs">
