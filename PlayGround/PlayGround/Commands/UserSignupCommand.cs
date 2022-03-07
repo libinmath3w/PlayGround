@@ -44,6 +44,7 @@ namespace PlayGround.Commands
 
                 if (Password.Length > 8)
                 {
+                  
                     if (_userRegistrationViewModel.UserEmailID.Length > 0)
                     {
                         System.Text.RegularExpressions.Regex rEmail = new System.Text.RegularExpressions.Regex(@"^[a-zA-Z][\w\.-]{2,28}[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$");
@@ -52,9 +53,9 @@ namespace PlayGround.Commands
                             MessageBox.Show("Invalid Email ID");
 
                         }
-                    }
+                    
                     System.Windows.MessageBox.Show("Password length too small");
-
+}
                 }
                 else
                 {

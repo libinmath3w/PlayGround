@@ -91,6 +91,7 @@
       <DependentUpon>PlayGroundDB.tt</DependentUpon>
     </Compile>
     <Compile Include="UserSettingsData.cs" />
+    <Compile Include="UserSignInData.cs" />
     <Compile Include="UserTurfBookingData.cs" />
     <Compile Include="UserSignUpData.cs" />
   </ItemGroup>
