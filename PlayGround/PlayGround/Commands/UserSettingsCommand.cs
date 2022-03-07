@@ -45,6 +45,7 @@ namespace PlayGround.Commands
                 System.Windows.MessageBox.Show("Data Updated");
             }
             else if (parameter.ToString() == "UpdatePassword")
+
             {
 
             }

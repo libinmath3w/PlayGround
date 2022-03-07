@@ -13,6 +13,37 @@
              FontFamily="{materialDesign:MaterialDesignFont}"
              d:DesignHeight="750" d:DesignWidth="1100">
     <Grid>
-            
+        <DataGrid x:Name="gdShowBokkings" AutoGenerateColumns="False" CanUserAddRows="False" ColumnWidth="*" ItemsSource="{Binding ViewAdminUserDashboard}" Margin="0,20,0,0">
+            <DataGrid.Columns>
+                <materialDesign:DataGridTextColumn Header="User Id " Binding="{Binding UserId}" IsReadOnly="True" />
+                <DataGridTemplateColumn Width="0" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Avatar}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <materialDesign:DataGridTextColumn Header="User Name" Binding="{Binding UserName}" IsReadOnly="True"/>
+                <materialDesign:DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True"/>
+                <materialDesign:DataGridTextColumn Header="User EmailID" Binding="{Binding UserEmailID}" IsReadOnly="True"/>
+                <materialDesign:DataGridTextColumn Header="Phone Number" Binding="{Binding PhoneNumber}" IsReadOnly="True"/>
+                <materialDesign:DataGridTextColumn Header="Status" Binding="{Binding Status}" IsReadOnly="True"/>
+                <materialDesign:DataGridTextColumn Header="Date Of Created Account" Binding="{Binding DateOfCreatedAccount}" IsReadOnly="True"/>
+                <materialDesign:DataGridTextColumn Header="Role ID" Binding="{Binding RoleID}" IsReadOnly="True"/>
+                <materialDesign:DataGridTextColumn Header="City" Binding="{Binding City}" IsReadOnly="True"/>
+                <materialDesign:DataGridTextColumn Header="State" Binding="{Binding State}" IsReadOnly="True"/>
+                <materialDesign:DataGridTextColumn Header="Zip" Binding="{Binding Zip}" IsReadOnly="True"/>
+                <materialDesign:DataGridTextColumn Header="Avatar" Binding="{Binding Avatar}" IsReadOnly="True"/>
+                <materialDesign:DataGridComboBoxColumn  Header="Status"/>
+                <materialDesign:DataGridComboBoxColumn  Header="Status"/>
+                <DataGridTemplateColumn Header="Delete">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Delete"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>
