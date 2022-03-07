@@ -55,7 +55,7 @@
                         materialDesign:HintAssist.Hint="Confirm Password" Margin="10,20,0,0" materialDesign:HintAssist.HelperText="At least 8 characters"/>
                 </StackPanel>
                 <StackPanel>
-                    <Button Command="{Binding pswCmd}" CommandParameter="{Binding ElementName=pwbPassword}" Content="Sign Up" x:Name="btnSignUp" FontSize="16" FontWeight="Bold" Margin="10,30,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="172">
+                    <Button Command="{Binding pswCmd}" CommandParameter="{Binding ElementName=pwbPassword}" Content="Sign Up" x:Name="btnSignUp" FontSize="16" FontWeight="Bold" Margin="10,30,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="172" Click="btnSignUp_Click">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="15"/>

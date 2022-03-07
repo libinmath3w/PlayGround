@@ -39,12 +39,12 @@ namespace PlayGround.Commands
             
             if(Password.Length < 8)
             {
-                System.Windows.MessageBox.Show("Password length short");
+                System.Windows.MessageBox.Show("Password length too small");
 
             }
             else
             {
-                System.Windows.MessageBox.Show("Password length correct"); 
+               
             }
              
         }
