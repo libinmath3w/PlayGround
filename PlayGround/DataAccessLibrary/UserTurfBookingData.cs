@@ -55,6 +55,34 @@ namespace DataAccessLibrary
             }
             return BookingTurfList;
         }
-            
+        public List<TimeSloteModel> GetOpeningTime(TimeSloteModel timeModel)
+        {
+            List<TimeSloteModel> TurfOpeningTime = new List<TimeSloteModel>();
+
+            TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
+            var result = from time in turfManagementDBEntities.Time_Slote
+                         where time.Time_ID >= timeModel.TimeID
+                         select time;
+            foreach (var turf in result)
+            {
+                TimeSloteModel timeModels = new TimeSloteModel();
+                timeModels.TimeSlots = turf.Time_Slots;
+                TurfOpeningTime.Add(timeModels);
+            }
+            return TurfOpeningTime;
+        }
+
+        //public List<PaymentTypeModel> GetPaymentType(PaymentTypeModel paymentTypeModel)
+        //{
+        //    List<PaymentTypeModel> paymentTypes = new List<PaymentTypeModel>();
+
+        //    TurfManagementDBEntities turfManagementDB = new TurfManagementDBEntities();
+        //    var query = from type in turfManagementDB.Payment_Type
+                        
+        //                select type;
+
+        //}
+       
+
     }
 }

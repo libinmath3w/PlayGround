@@ -13,5 +13,6 @@ namespace EntityLayer
     {
         public int TimeID { get; set; }
         public string TimeSlots { get; set; }
+        public int TurfID { get; set; }
     }
 }
