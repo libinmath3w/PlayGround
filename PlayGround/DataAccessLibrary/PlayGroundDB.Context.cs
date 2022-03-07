@@ -32,8 +32,8 @@ namespace DataAccessLibrary
         public virtual DbSet<Time_Slote> Time_Slote { get; set; }
         public virtual DbSet<Turf_Category> Turf_Category { get; set; }
         public virtual DbSet<UserRole> UserRoles { get; set; }
-        public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Turf> Turfs { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     
         public virtual ObjectResult<spBookingDetailsWithSOmeConditions_Result> spBookingDetailsWithSOmeConditions()
         {

@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Navigation;
 using System.Text.RegularExpressions;
+using PlayGround.ViewModel;
 
 namespace PlayGround.View
 {
@@ -29,7 +30,7 @@ namespace PlayGround.View
         {
             InitializeComponent();
             Icon = ImageAwesome.CreateImageSource(FontAwesomeIcon.SoccerBallOutline, Brushes.Green);
-            DataContext = this;
+            DataContext = new UserRegistrationViewModel();
             pswCmd = new UserSignupCommand();
            
         }
