@@ -1,5 +1,7 @@
-﻿using FontAwesome.WPF;
+﻿using EntityLayer;
+using FontAwesome.WPF;
 using MaterialDesignThemes.Wpf;
+using PlayGround.View;
 using PlayGround.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -25,11 +27,13 @@ namespace PlayGround
     {
         public bool IsDarknLightMode { get; set; }
         private readonly PaletteHelper paletteHelper = new PaletteHelper();
-        public MainWindow()
+        public MainWindow(UsersModel usersModel)
         {
             InitializeComponent();
-            Icon = ImageAwesome.CreateImageSource(FontAwesomeIcon.SoccerBallOutline, Brushes.Green);
-            DataContext = new MainViewModel();
+            UserLoginView userLoginView = new UserLoginView();
+            userLoginView.Close();
+           Icon = ImageAwesome.CreateImageSource(FontAwesomeIcon.SoccerBallOutline, Brushes.Green);
+            DataContext = new MainViewModel(usersModel);
         }
         private void TongleTheme (object sender, RoutedEventArgs e)
         {

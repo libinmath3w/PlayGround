@@ -7,24 +7,26 @@ using System.Windows.Input;
 using BusinessLayer;
 using PlayGround.ViewModel;
 using System.Windows.Controls;
-
+using EntityLayer;
+using PlayGround.View;
+using System.Reflection;
+using System.Security.Cryptography;
+using System.Windows;
 
 namespace PlayGround.Commands
 {
     public class UserSigninCommand : ICommand
     {
-        public string Name { get; set; }
         public string Password { get; set; }
+        public int RoleID { get; set; }
 
         public event EventHandler CanExecuteChanged;
-       
-        private UserLoginViewModel _userLoginViewModel { get; set; }
-        public UserSigninCommand(UserLoginViewModel userLoginViewModel)
+        public string UserNames { get; set; }
+        public UserLoginViewModel userLoginViewModel { get; set; }
+        public UserSigninCommand(UserLoginViewModel userLoginViewModels)
         {
-            _userLoginViewModel = userLoginViewModel;
+            userLoginViewModel = userLoginViewModels;
         }
-        public UserSigninCommand()
-        { }
 
         public bool CanExecute(object parameter)
         {
@@ -35,21 +37,80 @@ namespace PlayGround.Commands
         {
             PasswordBox boxpass = (PasswordBox)parameter;
             Password = boxpass.Password;
-
-            
-            if (Password == "saranya")
-            //{
-            //    UserSignInBusinessModel userSignInBusinessModel = new UserSignInBusinessModel();
-            //    if (userSignInBusinessModel != null)
+            UserNames = userLoginViewModel.UserName;
+            if (Password != null && UserNames != null && Password.Length > 0 && UserNames.Length > 0)
             {
-                System.Windows.MessageBox.Show("username and passeord ok");
+                UsersModel model = new UsersModel();
+                model.UserName = UserNames;
+                UserSignInBusinessModel userSignInBusinessModel = new UserSignInBusinessModel();
+                var query = userSignInBusinessModel.GetSignInDetails(model);
+                foreach (var item in query)
+                {
+                    if(item.UserMatch == 1)
+                    {
+                        if (Password == Unprotect(item.Password))
+                        {
+                            if (item.Status == 1)
+                            {
+                                if (item.RoleID == 2) 
+                                {
+                                    UsersModel usersModel = new UsersModel();
+                                    usersModel.UserId = item.UserId;
+                                    var newForm = new MainWindow(usersModel); //create your new form.
+                                    UserLoginView userLoginView = new UserLoginView();
+                                    userLoginView.CloseLoginPage();
+                                    newForm.Show(); //show the new form.
+                                    userLoginViewModel.CloseWindow(userLoginView); //Added call to CloseWindow Method
+                                } 
+                                else if (item.RoleID == 1)
+                                {
+                                    UsersModel usersModel = new UsersModel();
+                                    usersModel.UserId = item.UserId;
+                                    var newForm = new AdminMainWindowView(); //create your new form.
+                                    newForm.Show(); //show the new form.
+                                }
+                            }
+                            else
+                                MessageBox.Show("You are Banned :)");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Invalid Password");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid Username");
+                    }
                 }
-            
+            }
             else
             {
-                System.Windows.MessageBox.Show("error ok");
+                System.Windows.MessageBox.Show("Enter Both Fileds");
             }
+            UserLoginView userLoginViews = new UserLoginView();
+            userLoginViews.CloseLoginPage();
+        }
+        public void GetUserName(string name)
+        {
+            if (name != null)
+                UserNames = name;
+        }
+        public static string Unprotect(string str)
+        {
+            byte[] protectedData = Convert.FromBase64String(str);
+            byte[] entropy = Encoding.ASCII.GetBytes(Assembly.GetExecutingAssembly().FullName);
+            string data = Encoding.ASCII.GetString(ProtectedData.Unprotect(protectedData, entropy, DataProtectionScope.CurrentUser));
+            return data;
+        }
 
+        public static bool isValidUserName(string UserName)
+        {
+            UsersModel usersModel = new UsersModel();
+            UserSignUpBusinessModel userSignUpBusinessModel = new UserSignUpBusinessModel();
+            usersModel.UserName = UserName;
+            bool value = userSignUpBusinessModel.GetUserNameInfo(usersModel);
+            return value;
         }
     }
 }

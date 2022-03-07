@@ -1,5 +1,6 @@
 ﻿using DataAccessLibrary;
 using EntityLayer;
+using EntityLayer.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,12 +9,13 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer
 {
-    public class UserSignInBusinessModel
+    public class UserSignInBusinessModel : IUserLogin
     {
-        public void SignInDetails(UsersModel userModel)
+        UserSignInData userSignInData = new UserSignInData();
+        public List<UsersModel> GetSignInDetails(UsersModel usersModel)
         {
-            UserSignInData userSignInData = new UserSignInData();
-            userSignInData.SaveSignInData(userModel);
+            return userSignInData.GetSignInDetails(usersModel);
         }
+
     }
 }

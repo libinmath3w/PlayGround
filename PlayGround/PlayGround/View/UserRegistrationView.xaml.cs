@@ -63,6 +63,11 @@ namespace PlayGround.View
             }
         }
 
-       
+        private void btnRegistration_Click(object sender, RoutedEventArgs e)
+        {
+            var newForm = new UserLoginView(); //create your new form.
+            newForm.Show(); //show the new form.
+            this.Close();
+        }
     }
 }
