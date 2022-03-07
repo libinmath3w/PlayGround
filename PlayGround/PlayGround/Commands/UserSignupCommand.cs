@@ -33,26 +33,20 @@ namespace PlayGround.Commands
 
         public void Execute(object parameter)
         {
-            if (parameter.ToString() == "userSignUp")
+            UserSignUpBusinessModel userSignUpBusinessModel = new UserSignUpBusinessModel();
+            PasswordBox boxpass = (PasswordBox)parameter;
+            Password = boxpass.Password;
+            
+            if(Password.Length < 8)
             {
-                UserSignUpBusinessModel userSignUpBusinessModel = new UserSignUpBusinessModel();
-                PasswordBox boxpass = (PasswordBox)parameter;
-                Password = boxpass.Password;
+                System.Windows.MessageBox.Show("Password length too small");
 
-                if (Password.Length < 8)
-                {
-                    System.Windows.MessageBox.Show("Password length short");
-
-                }
-                else
-                {
-                    System.Windows.MessageBox.Show("Password length correct");
-                }
             }
-            else if (parameter.ToString() == "signin")
+            else
             {
-                System.Windows.MessageBox.Show("Login page");
+               
             }
+             
         }
     }
 }
