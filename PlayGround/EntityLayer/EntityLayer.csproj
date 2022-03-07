@@ -47,6 +47,7 @@
     <Compile Include="Interface\IAdminBookingHistory.cs" />
     <Compile Include="Interface\IUserBookingHistory.cs" />
     <Compile Include="Interface\IUserSettings.cs" />
+    <Compile Include="Interface\IUserSignUp.cs" />
     <Compile Include="Interface\IUserTurfBooking.cs" />
     <Compile Include="PaymentTypeModel.cs" />
     <Compile Include="TimeSloteModel.cs" />
