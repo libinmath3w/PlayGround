@@ -29,16 +29,16 @@
 
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Person" Width="25" Height="25" Margin="15,80,0,0"/>
-                    <TextBox x:Name="txtUserName" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Height="50" Width="300" VerticalContentAlignment="Center" Margin="10,70,0,0"
+                    <TextBox x:Name="txtUserName" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Text="{Binding Name}" Height="50" Width="300" VerticalContentAlignment="Center" Margin="10,70,0,0"
                             materialDesign:HintAssist.Hint="User Name" />
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Key" Width="25" Height="25" Margin="15,50,0,0"/>
                     <PasswordBox x:Name="pwbPassword" Style="{DynamicResource MaterialDesignOutlinedPasswordBox}" VerticalAlignment="Top" Width="300"
-                        materialDesign:HintAssist.Hint="Enter Password" Margin="10,40,0,0" />
+                        materialDesign:HintAssist.Hint="Enter Password" Margin="10,40,0,0"  PasswordChar="*" />
                 </StackPanel>
-                <Button x:Name="btnLogin" FontSize="18" FontWeight="Bold" Margin="-10,30,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Width="184" Height="39">
+                <Button x:Name="btnLogin" Command="{Binding pswCmd}" CommandParameter="{Binding ElementName=pwbPassword}"  FontSize="18" FontWeight="Bold" Margin="-10,30,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Width="184" Height="39" >
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="15"/>

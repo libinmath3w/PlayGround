@@ -49,7 +49,11 @@ namespace PlayGround.Commands
                 string PhoneNumber = UserRegistrationViewModel.PhoneNumber;
                 if (Name != null && UserName != null && UserEmailID != null && PhoneNumber != null)
                 {
+                  
+                  if (_userRegistrationViewModel.UserEmailID.Length > 0)
+
                     if (UserEmailID.Length > 0)
+
                     {
                         if (!isValidEmail(UserEmailID))
                         {
@@ -101,7 +105,12 @@ namespace PlayGround.Commands
                                 }
                             }
                         }
+                    
+                    System.Windows.MessageBox.Show("Password length too small");
+
+
                     }
+
                 }
                 else
                 {

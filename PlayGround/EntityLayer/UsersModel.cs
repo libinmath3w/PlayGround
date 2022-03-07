@@ -25,6 +25,7 @@ namespace EntityLayer
         public string State { get; set;}
         public string Zip { get; set;}
         public string Avatar { get; set;}
+        public int UserMatch { get; set;}
 
     }
 }

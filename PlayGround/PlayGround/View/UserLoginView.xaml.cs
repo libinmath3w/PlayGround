@@ -1,4 +1,5 @@
 ﻿using FontAwesome.WPF;
+using PlayGround.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,10 +21,14 @@ namespace PlayGround.View
     /// </summary>
     public partial class UserLoginView : Window
     {
+        public UserSigninCommand pswCmd { get; set; }
         public UserLoginView()
         {
             InitializeComponent();
             Icon = ImageAwesome.CreateImageSource(FontAwesomeIcon.SoccerBallOutline, Brushes.Green);
+            DataContext = this;
+            pswCmd = new UserSigninCommand();
+
         }
 
         
