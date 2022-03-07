@@ -142,7 +142,6 @@ namespace PlayGround.Commands
             else
                 return (false);
         }
-
         public static string Protect(string str)
         {
             byte[] entropy = Encoding.ASCII.GetBytes(Assembly.GetExecutingAssembly().FullName);

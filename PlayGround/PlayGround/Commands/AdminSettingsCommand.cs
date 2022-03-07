@@ -60,7 +60,7 @@ namespace PlayGround.Commands
                                 usersModel.PhoneNumber = phone;
                                 AdminSettingsBusinessModel adminSettingsBusinessModel = new AdminSettingsBusinessModel();
                                 adminSettingsBusinessModel.SaveUserDetails(usersModel);
-                                System.Windows.MessageBox.Show("Profile Updated");
+                                MessageBox.Show("Profile Updated");
                             }
                             else
                             {
@@ -137,7 +137,6 @@ namespace PlayGround.Commands
                 else
                     return (false);
             }
-
         public static string Protect(string str)
         {
             byte[] entropy = Encoding.ASCII.GetBytes(Assembly.GetExecutingAssembly().FullName);
