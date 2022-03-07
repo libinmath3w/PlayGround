@@ -57,6 +57,8 @@
     </ApplicationDefinition>
     <Compile Include="Commands\AdminRedirectViewCommand.cs" />
     <Compile Include="Commands\RedirectViewCommand.cs" />
+    <Compile Include="Commands\TurfBookingCommand.cs" />
+    <Compile Include="Commands\UserSettingsCommand.cs" />
     <Compile Include="Commands\UserSignupCommand.cs" />
     <Compile Include="ViewModel\AdminAddNewTurfViewModel.cs" />
     <Compile Include="ViewModel\AdminDashboardViewModel.cs" />
@@ -228,7 +230,9 @@
       <Version>4.3.0</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Uploads\" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\avatar.jpg" />
     <Resource Include="Assets\cartoon-woman-pretty.png" />

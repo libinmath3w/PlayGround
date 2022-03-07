@@ -35,17 +35,17 @@
                     <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="User" Width="25" Height="25" Margin="25,35,0,0"/>
                     <TextBox x:Name="txtName" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,25,0,5"
-                            materialDesign:HintAssist.Hint="Name" />
+                            materialDesign:HintAssist.Hint="Name" Text="{Binding Name}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Email" Width="25" Height="25" Margin="25,12,0,0"/>
                     <TextBox x:Name="txtEmail" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,2,0,5"
-                            materialDesign:HintAssist.Hint="Email ID" />
+                            materialDesign:HintAssist.Hint="Email ID" Text="{Binding UserEmailID}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Phone" Width="25" Height="25"  Margin="25,12,0,0"/>
                     <TextBox x:Name="txtPhoneNumber" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,2,0,5"
-                            materialDesign:HintAssist.Hint="Phone Number" />
+                            materialDesign:HintAssist.Hint="Phone Number" Text="{Binding PhoneNumber}"/>
                 </StackPanel>
                 <StackPanel>
                     <Button Content="Save Changes" x:Name="btnSaveChanges" FontSize="16" FontWeight="Bold" Margin="0,30,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198">
@@ -102,7 +102,7 @@
                 <StackPanel Width="300" Margin="0,0,0,0">
                     <Ellipse HorizontalAlignment="Left" Margin="50,10,0,0" Height="200" Width="200">
                         <Ellipse.Fill>
-                            <ImageBrush ImageSource="/Assets/Avatar.jpg"/>
+                            <ImageBrush ImageSource="{Binding Avatar}" />
                         </Ellipse.Fill>
                     </Ellipse>
                     <Button Content="Browse Image" x:Name="btnBrowserImage" FontSize="16" FontWeight="Bold" Margin="0,30,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198">

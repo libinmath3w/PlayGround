@@ -14,13 +14,15 @@ namespace EntityLayer
         public int TurfID { get; set; }
         public string  TurfName { get; set; }
         public string  TurfLocation { get; set; }
-        public DateTime OpeningTime { get; set; }
-        public DateTime ClosingTime { get; set; }
+        public int OpeningTime { get; set; }
+        public int ClosingTime { get; set; }
+        public string StartTime { get; set; }
+        public string EndTime { get; set; }
         public  int TurfCategoryID { get; set; }
         public float TurfPrice { get; set; }
         public string TurfCity { get; set; }
         public string TurfState { get; set; }
-        public string   Zip { get; set; }
+        public string Zip { get; set; }
         public string TurfImage { get; set; }
     }
 }

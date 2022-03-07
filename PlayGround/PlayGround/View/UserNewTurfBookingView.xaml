@@ -16,7 +16,7 @@
 
         <StackPanel Orientation="Horizontal" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="20">
             <Button
-            Style="{DynamicResource MaterialDesignToolButton}">
+            Style="{DynamicResource MaterialDesignToolButton}" Command="{Binding TurfBookingCommands}" CommandParameter="Search">
                 <materialDesign:PackIcon Kind="Search" Opacity="10" Margin="300,0,0,0" HorizontalAlignment="Right"/>
             </Button>
             <TextBox
@@ -25,7 +25,7 @@
             materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
             BorderThickness="0"
                 HorizontalAlignment="Left"
-            VerticalAlignment="Top" Height="31" Width="270" />
+            VerticalAlignment="Top" Height="31" Width="270" Text="{Binding SearchTerm}"/>
         </StackPanel>
         <Grid Margin="-100,-250,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
             <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" Height="200" ItemsSource="{Binding ViewUserNewTurfBooking}">
@@ -42,35 +42,41 @@
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
-        <materialDesign:Card Margin="25,350,0,0" Height="300" Width="500"  >
+        <materialDesign:Card Margin="25,350,0,0" Height="300" Width="600"  >
             <materialDesign:Card.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="20"/>
                 </Style>
             </materialDesign:Card.Resources>
             <StackPanel Orientation="Horizontal">
-                <Label x:Name="lblStartTime" Content="Time Slote" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,40,0,0" FontSize="20"/>
-                <materialDesign:PackIcon Kind="Clock" Width="25" Height="25" Margin="5,46,0,0"/>
-                <ComboBox x:Name="cbTimeSlote" Width="150" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="20,40,0,0"
+                <StackPanel Height="30">
+                    <Label Content="Booking Date" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Margin="5,-112,0,0"/>
+                    <materialDesign:PackIcon Kind="Calendar" Width="25" Height="25" Margin="140,-110,0,0"/>
+                    <DatePicker HorizontalAlignment="Center" VerticalAlignment="Top" Height="20" Width="250" Margin="200,-110,0,0"/>
+                </StackPanel>
+                <Label x:Name="lblStartTime" Content="Time Slote" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-445,68,0,0" FontSize="20"/>
+                <materialDesign:PackIcon Kind="Clock" Width="25" Height="25" Margin="-310,70,0,0"/>
+                <ComboBox x:Name="cbTimeSlote" Width="150" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="-350,62,0,0"
                             materialDesign:HintAssist.Hint="Start Time" FontSize="20" />
-                <ComboBox x:Name="cbEndTime" Width="150"  VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="20,40,0,0"
+                <ComboBox x:Name="cbEndTime" Width="150"  VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="-80,62,0,0"
                             materialDesign:HintAssist.Hint="End Time" FontSize="20"/>
+
                 <StackPanel Orientation="Horizontal">
-                    <Label x:Name="lblAmount" Content="Amount" Margin="-474,90,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="20"/>
-                    <materialDesign:PackIcon Kind="Rupee" Width="25" Height="25" Margin="-370,96,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                    <Label x:Name="lblPrice" Content="1200" Margin="-300,90,0,0" Width="80" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                    <Label x:Name="lblAmount" Content="Amount" Margin="-515,110,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="20"/>
+                    <materialDesign:PackIcon Kind="Rupee" Width="25" Height="25" Margin="-380,116,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                    <Label x:Name="lblPrice" Content="1200" Margin="-300,111,0,0" Width="80" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left"/>
 
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Label x:Name="lblPayment" Content="Payment"  VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-474,140,0,0" FontSize="20"/>
-                    <materialDesign:PackIcon Kind="Payment" Width="25" Height="25" Margin="-370,146,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                    <ComboBox x:Name="cbModeOfPayment" Width="190" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="-450,140,0,0"
+                    <Label x:Name="lblPayment" Content="Payment"  VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-514,160,0,0" FontSize="20"/>
+                    <materialDesign:PackIcon Kind="Payment" Width="25" Height="25" Margin="-380,166,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                    <ComboBox x:Name="cbModeOfPayment" Width="190" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="-450,160,0,0"
                             materialDesign:HintAssist.Hint="Mode Of Payment" FontSize="20"/>
                 </StackPanel>
                 <StackPanel>
-                    <Button Content="Book Now" x:Name="btnBookNow" FontSize="16" FontWeight="Bold" Margin="-490,210,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="172">
+                    <Button Content="Book Now" x:Name="btnBookNow" FontSize="16" FontWeight="Bold" Margin="-490,230,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="172">
                         <Button.Resources>
-                            <Style TargetType="Border">
+                            <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="15"/>
                             </Style>
                         </Button.Resources>

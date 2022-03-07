@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace EntityLayer.Interface
 {
-    public interface IUserTurfBooking
+    public interface IAddNewTurf
     {
-        List<TurfModel> GetTurfDetails(TurfModel turfModel);
+        void SaveNewTurf(TurfModel turfModel);
     }
 }

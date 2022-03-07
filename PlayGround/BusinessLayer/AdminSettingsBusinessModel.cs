@@ -9,23 +9,23 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer
 {
-    public class UserSettingsBusinessModel : IUserSettings
+    public class AdminSettingsBusinessModel : IUserSettings
     {
-        UserSettingsData usersettingsdata = new UserSettingsData();
         public List<UsersModel> GetUserDetails(UsersModel usersModel)
         {
+            AdminSettingsData usersettingsdata = new AdminSettingsData();
             return usersettingsdata.GetUserDetails(usersModel);
         }
 
         public void SaveAvatar(UsersModel usersModel)
         {
-            usersettingsdata.SaveAvatar(usersModel);
+            throw new NotImplementedException();
         }
 
         public void SaveUserDetails(UsersModel usersModel)
         {
+            AdminSettingsData usersettingsdata = new AdminSettingsData();
             usersettingsdata.SaveUserDetails(usersModel);
         }
-
     }
 }

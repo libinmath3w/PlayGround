@@ -8,17 +8,19 @@
         <EntityTypeShape EntityType="TurfManagementDBModel.Booking" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="TurfManagementDBModel.Payment_Type" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="TurfManagementDBModel.Time_Slote" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="TurfManagementDBModel.Turf" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TurfManagementDBModel.Turf_Category" Width="1.5" PointX="1.5" PointY="12.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TurfManagementDBModel.UserRole" Width="1.5" PointX="1.5" PointY="20.375" IsExpanded="true" />
         <EntityTypeShape EntityType="TurfManagementDBModel.User" Width="1.5" PointX="0.75" PointY="15.25" IsExpanded="true" />
         <AssociationConnector Association="TurfManagementDBModel.FK_Booking_End_Time_Slote" ManuallyRouted="false" />
         <AssociationConnector Association="TurfManagementDBModel.FK_Booking_Payment_Type" ManuallyRouted="false" />
         <AssociationConnector Association="TurfManagementDBModel.FK_Booking_Start_Timeslote" ManuallyRouted="false" />
-        <AssociationConnector Association="TurfManagementDBModel.FK_Booking_Turf" ManuallyRouted="false" />
         <AssociationConnector Association="TurfManagementDBModel.FK_Booking_Users" ManuallyRouted="false" />
-        <AssociationConnector Association="TurfManagementDBModel.FK_Turf_Turf_Category1" ManuallyRouted="false" />
         <AssociationConnector Association="TurfManagementDBModel.FK_Users_UserRole" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TurfManagementDBModel.Turf" Width="1.5" PointX="3.75" PointY="6.25" />
+        <AssociationConnector Association="TurfManagementDBModel.FK_Booking_Turf" />
+        <AssociationConnector Association="TurfManagementDBModel.FK_Turf_Time_Slote" />
+        <AssociationConnector Association="TurfManagementDBModel.FK_Turf_Time_Slote1" />
+        <AssociationConnector Association="TurfManagementDBModel.FK_Turf_Turf_Category1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

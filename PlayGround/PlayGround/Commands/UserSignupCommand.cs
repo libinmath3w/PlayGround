@@ -16,10 +16,10 @@ namespace PlayGround.Commands
        
 
         public event EventHandler CanExecuteChanged;
-        public UserLoginViewModel userLoginViewModel { get; set; }
-        public UserSignupCommand(UserLoginViewModel userLoginViewModel)
+        private UserRegistrationViewModel _userRegistrationViewModel { get; set; }
+        public UserSignupCommand(UserRegistrationViewModel userRegistrationViewModel)
         {
-            this.userLoginViewModel = userLoginViewModel;
+            _userRegistrationViewModel = userRegistrationViewModel;
         }
 
         public UserSignupCommand()

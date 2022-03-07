@@ -15,7 +15,7 @@ namespace DataAccessLibrary
         public List<UsersModel> GetUserDetails(UsersModel usersModel)
         {
             List<UsersModel> UserSettingsResult = new List<UsersModel>();
-           
+
             try
             {
                 TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
@@ -36,16 +36,66 @@ namespace DataAccessLibrary
                     usersModels.RoleID = item.Role_ID;
                     usersModels.City = item.City;
                     usersModels.State = item.State;
-                    // usersModels.Zip = item.Zip;
+                    usersModels.Zip = item.Zip;
                     usersModels.Avatar = item.Avatar;
                     UserSettingsResult.Add(usersModels);
                 }
             }
             catch (Exception ex)
-            {
+            { 
+
+
                 throw ex;
             }
             return UserSettingsResult;
         }
+
+        public void SaveAvatar(UsersModel usersModel)
+        {
+            try
+            {
+                TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
+                var query = from userinfo in turfManagementDBEntities.Users
+                            where userinfo.ID == usersModel.UserId
+                            select userinfo;
+                foreach (var item in query)
+                {
+                    item.Avatar = usersModel.Avatar;
+                }
+                turfManagementDBEntities.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public void SaveUserDetails(UsersModel usersModel)
+           {
+            try
+            {
+                TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
+                var query = from userinfo in turfManagementDBEntities.Users
+                            where userinfo.ID == usersModel.UserId
+                            select userinfo;
+                foreach (var item in query)
+                {
+                    item.Email = usersModel.UserEmailID;
+                    item.Name = usersModel.Name;
+                    item.Zip = usersModel.Zip;
+                    item.State = usersModel.State;
+                    item.City = usersModel.City;
+                    item.PhoneNumber = usersModel.PhoneNumber;
+                }
+                turfManagementDBEntities.SaveChanges();
+            }
+            catch (Exception ex)
+                {
+                    throw ex;
+                }
+               
+           }
     }
 }
+

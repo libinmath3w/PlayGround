@@ -33,7 +33,9 @@ namespace PlayGround.Commands
             }
             else if (parameter.ToString() == "UserSettings")
             {
-                viewModel.SelectedViewModel = new UserSettingsViewModels();
+                UsersModel usersModel = new UsersModel();
+                usersModel.UserId = 2;
+                viewModel.SelectedViewModel = new UserSettingsViewModels(usersModel);
             }
             else if (parameter.ToString() == "UserTurfBooking")
             {
