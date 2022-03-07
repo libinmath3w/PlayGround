@@ -40,21 +40,12 @@ namespace PlayGround.Commands
         {
             if (parameter.ToString() == "userSignUp")
             {
-
-                UserSignUpBusinessModel userSignUpBusinessModel = new UserSignUpBusinessModel();
-                UsersModel usersModel = new UsersModel();
                 string Name = UserRegistrationViewModel.Name;
                 string UserName = UserRegistrationViewModel.UserName;
                 string UserEmailID = UserRegistrationViewModel.UserEmailID;
                 string PhoneNumber = UserRegistrationViewModel.PhoneNumber;
                 if (Name != null && UserName != null && UserEmailID != null && PhoneNumber != null)
                 {
-                  
-                  if (_userRegistrationViewModel.UserEmailID.Length > 0)
-
-                    if (UserEmailID.Length > 0)
-
-                    {
                         if (!isValidEmail(UserEmailID))
                         {
                             MessageBox.Show("Invalid Email ID");
@@ -105,11 +96,6 @@ namespace PlayGround.Commands
                                 }
                             }
                         }
-                    
-                    System.Windows.MessageBox.Show("Password length too small");
-
-
-                    }
 
                 }
                 else

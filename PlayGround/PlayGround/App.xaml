@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:PlayGround"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
               xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-             StartupUri="MainWindow.xaml">
+             StartupUri="../View/AdminMainWindowView.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
