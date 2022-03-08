@@ -44,7 +44,6 @@ namespace PlayGround.ViewModel
             }
         }
 
-
         private List<TimeSloteModel> _timeSlotes;
 
         public List<TimeSloteModel> TimeSlotes { get { return _timeSlotes; } set { _timeSlotes = value;} }
@@ -58,13 +57,12 @@ namespace PlayGround.ViewModel
             var query = userTurfBookingBusinessModel.GetOpeningTime(timeModel);
             foreach (var item in query)
             {  
-
                 TimeSloteModel timeSloteModel = new TimeSloteModel();
                 timeSloteModel.TimeID = item.TimeID;
                 timeSloteModel.TimeSlots = item.TimeSlots;
                 TimeSloteModels.Add(timeSloteModel);
             }
-            
+
         }
         public void TurfFillData(object param)
         {

@@ -56,6 +56,8 @@ namespace PlayGround.Commands
                                 {
                                     UsersModel usersModel = new UsersModel();
                                     usersModel.UserId = item.UserId;
+                                    usersModel.Name = item.Name;
+                                    usersModel.Avatar = item.Avatar;
                                     var newForm = new MainWindow(usersModel); //create your new form.
                                     //var newForm = new MainWindow();
                                     UserLoginView userLoginView = new UserLoginView();

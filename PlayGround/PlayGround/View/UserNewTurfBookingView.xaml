@@ -57,7 +57,7 @@
                 <Label x:Name="lblTimeSlot" Content="Time Slot" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-487,88,0,0" FontSize="20"/>
                 <materialDesign:PackIcon Kind="Clock" Width="25" Height="25" Margin="-350,90,0,0"/>
                 <ComboBox x:Name="cbStartTime" Width="150" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="-445,82,0,0"
-                            materialDesign:HintAssist.Hint="Start Time" FontSize="20" ItemsSource="{Binding TimeSloteModels}" SelectedItem="{Binding TimeSlotes}" />
+                            materialDesign:HintAssist.Hint="Start Time" FontSize="20" ItemsSource="{Binding TimeSloteModels.TimeSlots}"/>
                 <ComboBox x:Name="cbEndTime" Width="150"  VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="-120,82,0,0"
                             materialDesign:HintAssist.Hint="End Time" FontSize="20" ItemsSource="{Binding timeSloteModels}" SelectedItem="{Binding TimeSlotes}"/>
 
