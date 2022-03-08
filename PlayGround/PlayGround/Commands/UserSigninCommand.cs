@@ -56,8 +56,8 @@ namespace PlayGround.Commands
                                 {
                                     UsersModel usersModel = new UsersModel();
                                     usersModel.UserId = item.UserId;
-                                    //var newForm = new MainWindow(usersModel); //create your new form.
-                                    var newForm = new MainWindow();
+                                    var newForm = new MainWindow(usersModel); //create your new form.
+                                    //var newForm = new MainWindow();
                                     UserLoginView userLoginView = new UserLoginView();
                                     userLoginView.CloseLoginPage();
                                     newForm.Show(); //show the new form.

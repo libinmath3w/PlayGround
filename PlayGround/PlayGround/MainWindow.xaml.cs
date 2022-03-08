@@ -27,14 +27,14 @@ namespace PlayGround
     {
         public bool IsDarknLightMode { get; set; }
         private readonly PaletteHelper paletteHelper = new PaletteHelper();
-        public MainWindow()
+        public MainWindow(UsersModel usersModel)
         {
             InitializeComponent();
             UserLoginView userLoginView = new UserLoginView();
             userLoginView.Close();
            Icon = ImageAwesome.CreateImageSource(FontAwesomeIcon.SoccerBallOutline, Brushes.Green);
-            //DataContext = new MainViewModel(usersModel);
-            DataContext = new MainViewModel();
+            DataContext = new MainViewModel(usersModel);
+            //DataContext = new MainViewModel();
         }
         private void TongleTheme (object sender, RoutedEventArgs e)
         {

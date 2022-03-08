@@ -16,7 +16,7 @@ namespace PlayGround.ViewModel
         public BaseViewModel SelectedViewModel { get => _selectedViewModel; set { _selectedViewModel = value; onPropertyChanged(nameof(SelectedViewModel)); } }
         public ICommand RedirectViewCommands { get; set; }
 
-        public MainViewModel()
+        public MainViewModel(UsersModel usersModel)
         {
             RedirectViewCommands = new RedirectViewCommand(this);
         }
