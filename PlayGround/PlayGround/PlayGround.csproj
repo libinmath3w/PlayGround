@@ -58,6 +58,7 @@
     </ApplicationDefinition>
     <Compile Include="Commands\AdminRedirectViewCommand.cs" />
     <Compile Include="Commands\AdminSettingsCommand.cs" />
+    <Compile Include="Commands\AdminTurfDetailsCommand.cs" />
     <Compile Include="Commands\AdminUserDetailsCommand.cs" />
     <Compile Include="Commands\RedirectViewCommand.cs" />
     <Compile Include="Commands\TurfBookingCommand.cs" />
@@ -69,7 +70,7 @@
     <Compile Include="ViewModel\AdminTurfBookingHistoryViewModel.cs" />
     <Compile Include="ViewModel\AdminMainWindowViewModel.cs" />
     <Compile Include="ViewModel\AdminSettingsViewModel.cs" />
-    <Compile Include="ViewModel\AdminTurfBookingViewModel.cs" />
+    <Compile Include="ViewModel\AdminTurfDetailsViewModel.cs" />
     <Compile Include="ViewModel\AdminUserDashboardViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />

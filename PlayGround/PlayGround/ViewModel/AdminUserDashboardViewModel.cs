@@ -46,7 +46,6 @@ namespace PlayGround.ViewModel
         public int RoleID { get => _roleID; set { _roleID = value; onPropertyChanged("Role ID"); } }
         public string SearchName { get => _search; set { _search = value; onPropertyChanged("Search Name"); } }
         public string FindUserID { get => _findbyid; set { _findbyid = value; onPropertyChanged("Find User ID"); } }
-        public List<UsersModel> usersDetailsList { get; set; }
 
         public ObservableCollection<UsersModel> _usersDetailsoc;
         public ObservableCollection<UsersModel> UsersDetailsOC
@@ -64,15 +63,6 @@ namespace PlayGround.ViewModel
         {
             AdminUserDetailsCommands = new AdminUserDetailsCommand(this);
             GetUsersList();
-            //GetusersfromList();
-        }
-
-        private void GetusersfromList()
-        {
-            AdminUsersDetailsBusinessModel adminUsersDetailsBusinessModel = new AdminUsersDetailsBusinessModel();
-            usersDetailsList = new List<UsersModel>();
-            usersDetailsList = adminUsersDetailsBusinessModel.GetAdminUsersDetails();
-
         }
 
         public void GetUsersList()

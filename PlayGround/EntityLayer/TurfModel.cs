@@ -12,8 +12,8 @@ namespace EntityLayer
     public  class TurfModel
     {
         public int TurfID { get; set; }
-        public string  TurfName { get; set; }
-        public string  TurfLocation { get; set; }
+        public string TurfName { get; set; }
+        public string TurfLocation { get; set; }
         public int OpeningTime { get; set; }
         public int ClosingTime { get; set; }
         public string StartTime { get; set; }
@@ -25,5 +25,9 @@ namespace EntityLayer
         public string TurfState { get; set; }
         public string Zip { get; set; }
         public string TurfImage { get; set; }
+        public int TurfStatus { get; set; }
+        public string TurfStatusName { get; set; }
+
+
     }
 }

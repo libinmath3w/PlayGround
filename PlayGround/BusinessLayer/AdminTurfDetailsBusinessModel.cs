@@ -1,4 +1,5 @@
-﻿using EntityLayer;
+﻿using DataAccessLibrary;
+using EntityLayer;
 using EntityLayer.Interface;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,26 @@ namespace BusinessLayer
 {
     public class AdminTurfDetailsBusinessModel : IAdminTurfDetails
     {
+        AdminTurfDetailsData adminTurfDetailsData = new AdminTurfDetailsData();
+
+        public void DisableTurf(TurfModel turfModel)
+        {
+            adminTurfDetailsData.DisableTurf(turfModel);
+        }
+
+        public void EnableTurf(TurfModel turfModel)
+        {
+            adminTurfDetailsData.EnableTurf(turfModel);
+        }
+
         public List<TurfModel> GetTurfDetails()
         {
-            throw new NotImplementedException();
+            return adminTurfDetailsData.GetTurfDetails();
+        }
+
+        public List<TurfModel> SearchTurfDetails(TurfModel turfModel)
+        {
+            return adminTurfDetailsData.SearchTurfDetails(turfModel);
         }
     }
 }
