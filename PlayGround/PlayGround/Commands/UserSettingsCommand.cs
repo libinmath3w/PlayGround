@@ -32,17 +32,51 @@ namespace PlayGround.Commands
         {
             if (parameter.ToString() == "SaveUserChanges")
             {
-                UsersModel usersModel = new UsersModel();
-                usersModel.UserId = 2;
-                usersModel.Name = userSettingsViewModels.Name;
-                usersModel.UserEmailID = userSettingsViewModels.Emailid;
-                usersModel.PhoneNumber = userSettingsViewModels.PhoneNumber;
-                usersModel.City = userSettingsViewModels.City;
-                usersModel.State = userSettingsViewModels.State;
-                usersModel.Zip = userSettingsViewModels.Zip;
-                UserSettingsBusinessModel userSettingsBusinessModel = new UserSettingsBusinessModel();
-                userSettingsBusinessModel.SaveUserDetails(usersModel);
-                System.Windows.MessageBox.Show("Data Updated");
+                string name = userSettingsViewModels.Name;
+                string email = userSettingsViewModels.Emailid;
+                string phone = userSettingsViewModels.PhoneNumber;
+                string City = userSettingsViewModels.City;
+                string State = userSettingsViewModels.State;
+                string Zip = userSettingsViewModels.Zip;
+                if (name != null && email != null && phone != null && City != null && State != null && Zip != null)
+                {
+                    if (!isValidEmail(email))
+                    {
+                        MessageBox.Show("Invalid Email ID");
+                    }
+                    else
+                    {
+                        if (!isValidPhoneNumber(phone))
+                        {
+                            MessageBox.Show("Invalid Phone Number");
+                        }
+                        else
+                        {
+                            if (phone.Length == 10)
+                            {
+                                UsersModel usersModel = new UsersModel();
+                                usersModel.UserId = 3;
+                                usersModel.Name = userSettingsViewModels.Name;
+                                usersModel.UserEmailID = userSettingsViewModels.Emailid;
+                                usersModel.PhoneNumber = userSettingsViewModels.PhoneNumber;
+                                usersModel.City = userSettingsViewModels.City;
+                                usersModel.State = userSettingsViewModels.State;
+                                usersModel.Zip = userSettingsViewModels.Zip;
+                                UserSettingsBusinessModel userSettingsBusinessModel = new UserSettingsBusinessModel();
+                                userSettingsBusinessModel.SaveUserDetails(usersModel);
+                                MessageBox.Show("Profile Details Updated");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Phone Number should be 10 digits");
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Enter all fields");
+                }
             }
             else if (parameter.ToString() == "UpdatePassword")
             {
@@ -66,7 +100,7 @@ namespace PlayGround.Commands
                             File.Copy(fd.FileName, imagePath);
                             UsersModel usersModel = new UsersModel();
                             usersModel.Avatar = fileNameToSave;
-                            usersModel.UserId = 2;
+                            usersModel.UserId = 3;
                             UserSettingsBusinessModel userSettingsBusinessModel = new UserSettingsBusinessModel();
                             userSettingsBusinessModel.SaveAvatar(usersModel);
                         }
