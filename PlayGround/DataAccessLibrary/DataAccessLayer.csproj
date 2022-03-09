@@ -46,6 +46,7 @@
     <Compile Include="AddNewTurfDataModel.cs" />
     <Compile Include="AdminBookingHistoryData.cs" />
     <Compile Include="AdminSettingsData.cs" />
+    <Compile Include="AdminViewUserDetailsData.cs" />
     <Compile Include="Booking.cs">
       <DependentUpon>PlayGroundDB.tt</DependentUpon>
     </Compile>
@@ -91,6 +92,7 @@
       <DependentUpon>PlayGroundDB.tt</DependentUpon>
     </Compile>
     <Compile Include="UserSettingsData.cs" />
+    <Compile Include="UserSignInData.cs" />
     <Compile Include="UserTurfBookingData.cs" />
     <Compile Include="UserSignUpData.cs" />
   </ItemGroup>

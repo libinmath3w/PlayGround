@@ -13,19 +13,18 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media.Imaging;
 
 namespace PlayGround.Commands
 {
-    public class UserSettingsCommand : ICommand
+    public class AdminSettingsCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
-        public System.IO.Stream StreamSource { get; set; }
-        public UserSettingsViewModels userSettingsViewModels { get; set; }
-        public UserSettingsCommand(UserSettingsViewModels userSettingsViewModel)
+        public AdminSettingsViewModel adminSettingsViewModel { get; set; }
+        public AdminSettingsCommand(AdminSettingsViewModel adminSettingsViewModels)
         {
-                userSettingsViewModels = userSettingsViewModel;
+            adminSettingsViewModel = adminSettingsViewModels;
         }
+
         public bool CanExecute(object parameter)
         {
             return true;
@@ -35,13 +34,10 @@ namespace PlayGround.Commands
         {
             if (parameter.ToString() == "SaveUserChanges")
             {
-                string name = userSettingsViewModels.Name;
-                string email = userSettingsViewModels.Emailid;
-                string phone = userSettingsViewModels.PhoneNumber;
-                string City = userSettingsViewModels.City;
-                string State = userSettingsViewModels.State;
-                string Zip = userSettingsViewModels.Zip;
-                if (name != null && email != null && phone != null && City != null && State != null && Zip != null)
+                string name = adminSettingsViewModel.Name;
+                string email = adminSettingsViewModel.Emailid;
+                string phone = adminSettingsViewModel.PhoneNumber;
+                if (name != null && email != null && phone != null)
                 {
                     if (!isValidEmail(email))
                     {
@@ -58,16 +54,13 @@ namespace PlayGround.Commands
                             if (phone.Length == 10)
                             {
                                 UsersModel usersModel = new UsersModel();
-                                usersModel.UserId = 2;
-                                usersModel.Name = userSettingsViewModels.Name;
-                                usersModel.UserEmailID = userSettingsViewModels.Emailid;
-                                usersModel.PhoneNumber = userSettingsViewModels.PhoneNumber;
-                                usersModel.City = userSettingsViewModels.City;
-                                usersModel.State = userSettingsViewModels.State;
-                                usersModel.Zip = userSettingsViewModels.Zip;
-                                UserSettingsBusinessModel userSettingsBusinessModel = new UserSettingsBusinessModel();
-                                userSettingsBusinessModel.SaveUserDetails(usersModel);
-                                MessageBox.Show("Profile Details Updated");
+                                usersModel.UserId = 1;
+                                usersModel.Name = name;
+                                usersModel.UserEmailID = email;
+                                usersModel.PhoneNumber = phone;
+                                AdminSettingsBusinessModel adminSettingsBusinessModel = new AdminSettingsBusinessModel();
+                                adminSettingsBusinessModel.SaveUserDetails(usersModel);
+                                MessageBox.Show("Profile Updated");
                             }
                             else
                             {
@@ -103,15 +96,16 @@ namespace PlayGround.Commands
                             File.Copy(fd.FileName, imagePath);
                             UsersModel usersModel = new UsersModel();
                             usersModel.Avatar = fileNameToSave;
-                            usersModel.UserId = 2;
-                            UserSettingsBusinessModel userSettingsBusinessModel = new UserSettingsBusinessModel();
-                            userSettingsBusinessModel.SaveAvatar(usersModel);
-                            MessageBox.Show("Avatar Updated");
+                            usersModel.UserId = 1;
+                            AdminSettingsBusinessModel adminSettingsBusinessModel = new AdminSettingsBusinessModel();
+                            adminSettingsBusinessModel.SaveAvatar(usersModel);
+                            System.Windows.MessageBox.Show("Avatar Updated");
                         }
                     }
                 }
                 catch (Exception ex)
                 {
+
                     throw ex;
                 }
             }
@@ -121,27 +115,28 @@ namespace PlayGround.Commands
         {
             return value.ToString("yyyyMMddHHmmssffff");
         }
-        public static bool isValidEmail(string inputEmail)
-        {
-            string strRegex = @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
-         @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
-         @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
-            Regex re = new Regex(strRegex);
-            if (re.IsMatch(inputEmail))
-                return (true);
-            else
-                return (false);
-        }
 
-        public static bool isValidPhoneNumber(string PhoneNumber)
-        {
-            string strRegex = @"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}";
-            Regex re = new Regex(strRegex);
-            if (re.IsMatch(PhoneNumber))
-                return (true);
-            else
-                return (false);
-        }
+            public static bool isValidEmail(string inputEmail)
+            {
+                string strRegex = @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
+             @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
+             @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
+                Regex re = new Regex(strRegex);
+                if (re.IsMatch(inputEmail))
+                    return (true);
+                else
+                    return (false);
+            }
+
+            public static bool isValidPhoneNumber(string PhoneNumber)
+            {
+                string strRegex = @"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}";
+                Regex re = new Regex(strRegex);
+                if (re.IsMatch(PhoneNumber))
+                    return (true);
+                else
+                    return (false);
+            }
         public static string Protect(string str)
         {
             byte[] entropy = Encoding.ASCII.GetBytes(Assembly.GetExecutingAssembly().FullName);
@@ -157,4 +152,4 @@ namespace PlayGround.Commands
             return data;
         }
     }
-}
+ }
