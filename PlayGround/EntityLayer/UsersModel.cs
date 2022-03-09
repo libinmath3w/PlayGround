@@ -20,6 +20,7 @@ namespace EntityLayer
         public string ConfirmPassword { get; set;}
         public int Status { get; set;}
         public DateTime DateOfCreatedAccount { get; set;}
+        public string DateOfCreatedAccountTime { get; set; }
         public  int RoleID { get; set;}
         public string City { get; set;}
         public string State { get; set;}

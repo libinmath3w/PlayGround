@@ -28,6 +28,8 @@ namespace DataAccessLibrary
                         user.Password = item.Password;
                         user.RoleID = item.Role_ID;
                         user.Status = item.Status;
+                        user.Name = item.Name;
+                        user.Avatar = item.Avatar;
                         user.UserMatch = 1;
                         UserLoginResultList.Add(user);
                     }
