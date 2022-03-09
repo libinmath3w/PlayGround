@@ -72,17 +72,36 @@ namespace DataAccessLibrary
             return TurfOpeningTime;
         }
 
-        //public List<PaymentTypeModel> GetPaymentType(PaymentTypeModel paymentTypeModel)
-        //{
-        //    List<PaymentTypeModel> paymentTypes = new List<PaymentTypeModel>();
+        public List<TimeSloteModel> GetClosingTime(TimeSloteModel timeModel)
+        {
+            List<TimeSloteModel> TurfClosingTime = new List<TimeSloteModel>();
 
-        //    TurfManagementDBEntities turfManagementDB = new TurfManagementDBEntities();
-        //    var query = from type in turfManagementDB.Payment_Type
-                        
-        //                select type;
-
-        //}
-       
-
+            TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
+            var result = from time in turfManagementDBEntities.Time_Slote
+                         where time.Time_ID > timeModel.TimeID
+                         select time;
+            foreach (var turf in result)
+            {
+                TimeSloteModel timeModels = new TimeSloteModel();
+                timeModels.TimeSlots = turf.Time_Slots;
+                TurfClosingTime.Add(timeModels);
+            }
+            return TurfClosingTime;
+        }
+        public List<PaymentTypeModel> GetPaymentTypes(PaymentTypeModel paymentTypeModel)
+        {
+            List<PaymentTypeModel> paymentTypes = new List<PaymentTypeModel>();
+            TurfManagementDBEntities turfManagementDB = new TurfManagementDBEntities();
+            var query = from type in turfManagementDB.Payment_Type
+                        where type.Payment_ID >= paymentTypeModel.PaymentID
+                        select type;
+            foreach (var turf in query)
+            {
+                PaymentTypeModel paymentTypeModels = new PaymentTypeModel();
+                paymentTypeModel.PaymentMethod = turf.Payment_Method;
+                paymentTypes.Add(paymentTypeModels);
+            }
+            return paymentTypes;
+        }
     }
 }
