@@ -32,35 +32,73 @@ namespace PlayGround.ViewModel
         public string SearchTerm { get => _searchTerm; set {  _searchTerm = value; onPropertyChanged("Search box"); } }
 
 
-        private ObservableCollection<TimeSloteModel> _timeSloteModels = new ObservableCollection<TimeSloteModel>();
-        public ObservableCollection<TimeSloteModel> TimeSloteModels
+        private ObservableCollection<TimeSloteModel> _turfOpeningTime = new ObservableCollection<TimeSloteModel>();
+        public ObservableCollection<TimeSloteModel> TurfOpeningTime
         {
-            get { return _timeSloteModels; }
+            get { return _turfOpeningTime; }
             set
             {
-                if (_timeSloteModels == value) return;
-                _timeSloteModels = value;
-                onPropertyChanged(nameof(TimeSloteModels));
+                if (_turfOpeningTime == value) return;
+                _turfOpeningTime = value;
+                onPropertyChanged(nameof(TurfOpeningTime));
             }
         }
 
-        private List<TimeSloteModel> _timeSlotes;
+        private ObservableCollection<TimeSloteModel> _turfClosingTime = new ObservableCollection<TimeSloteModel>();
+        public ObservableCollection<TimeSloteModel> TurfClosingTime
+        {
+            get { return _turfClosingTime; }
+            set
+            {
+                if (_turfClosingTime == value) return;
+                _turfClosingTime = value;
+                onPropertyChanged(nameof(TurfClosingTime));
+            }
+        }
 
-        public List<TimeSloteModel> TimeSlotes { get { return _timeSlotes; } set { _timeSlotes = value;} }
 
+
+        private ObservableCollection<PaymentTypeModel> _paymentType = new ObservableCollection<PaymentTypeModel>();
+        public ObservableCollection<PaymentTypeModel> PaymentType
+        {
+            get { return _paymentType; }
+            set
+            {
+                if (_paymentType == value) return;
+                _paymentType = value;
+                onPropertyChanged(nameof(PaymentType));
+            }
+        }
 
         public UserNewTurfBookingViewModel()
         {
             TurfBookingCommands = new TurfBookingCommand(this);
             TimeSloteModel timeModel = new TimeSloteModel();
-            timeModel.TimeID = 1;
-            var query = userTurfBookingBusinessModel.GetOpeningTime(timeModel);
-            foreach (var item in query)
-            {  
-                TimeSloteModel timeSloteModel = new TimeSloteModel();
-                timeSloteModel.TimeID = item.TimeID;
-                timeSloteModel.TimeSlots = item.TimeSlots;
-                TimeSloteModels.Add(timeSloteModel);
+            PaymentTypeModel payment = new PaymentTypeModel();
+            
+            var query1 = userTurfBookingBusinessModel.GetOpeningTime(timeModel);
+            var query2 = userTurfBookingBusinessModel.GetClosingTime(timeModel);
+            var query3 = userTurfBookingBusinessModel.GetPaymentType(payment);
+
+            foreach (var item in query1)
+            {
+                TimeSloteModel timeModels = new TimeSloteModel();
+                timeModels.TimeSlots = item.TimeSlots;
+                TurfOpeningTime.Add(timeModels);   
+            }
+            
+            foreach (var item in query2)
+            {
+                TimeSloteModel timeModels = new TimeSloteModel();
+                timeModels.TimeSlots = item.TimeSlots;
+                TurfClosingTime.Add(timeModels);
+            }
+
+            foreach (var item in query3)
+            {
+                PaymentTypeModel payments = new PaymentTypeModel();
+                payments.PaymentMethod = item.PaymentMethod;
+                PaymentType.Add(payments);
             }
 
         }
