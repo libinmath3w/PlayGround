@@ -28,7 +28,7 @@
             <playgroundview:AdminAddNewTurfView/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type playgroundviewmodel:AdminTurfBookingViewModel}">
-            <playgroundview:AdminTurfBookingView/>
+            <playgroundview:AdminTurfDetailsView/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type playgroundviewmodel:AdminTurfBookingHistoryViewModel}">
             <playgroundview:AdminBookingHistoryView/>

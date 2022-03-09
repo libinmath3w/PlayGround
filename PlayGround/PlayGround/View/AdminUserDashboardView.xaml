@@ -20,26 +20,29 @@
                 </Style>
             </materialDesign:Card.Resources>
             <StackPanel Orientation="Horizontal">
-                <TextBox x:Name="txtName" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="300" Height="50" Text="{Binding SearchName}"  VerticalContentAlignment="Center" Margin="40,0,0,0" 
+                <TextBox x:Name="txtSearch" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="300" Height="50" Text="{Binding SearchName}"  VerticalContentAlignment="Center" Margin="40,0,0,0" 
                             materialDesign:HintAssist.Hint="Search User by Name" />
 
-                <Button Style="{DynamicResource MaterialDesignToolButton}" Command="{Binding TurfBookingCommands}" CommandParameter="Search">
+                <Button Style="{DynamicResource MaterialDesignToolButton}" Command="{Binding AdminUserDetailsCommands}" CommandParameter="Search">
                     <materialDesign:PackIcon Kind="Magnify" Height="30" Opacity="50" Margin="10,0,0,0" HorizontalAlignment="Right" RenderTransformOrigin="-2.75,0.333" ToolTip="Search"/>
                 </Button>
                 <TextBox x:Name="txtID" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="130" Height="50" Text="{Binding FindUserID}"  VerticalContentAlignment="Center" Margin="40,0,0,0" 
                             materialDesign:HintAssist.Hint="Enter User ID" />
-                <Button Style="{DynamicResource MaterialDesignToolButton}" Command="{Binding TurfBookingCommands}" CommandParameter="Approve">
+                <Button Style="{DynamicResource MaterialDesignToolButton}" Command="{Binding AdminUserDetailsCommands}" CommandParameter="Approve" ToolTip="Approve User">
                     <materialDesign:PackIcon Kind="Tick" Height="30" Opacity="50" Margin="10,0,0,0" HorizontalAlignment="Right" RenderTransformOrigin="-2.75,0.333" ToolTip="Approve User"/>
                 </Button>
-                <Button Style="{DynamicResource MaterialDesignToolButton}" Command="{Binding TurfBookingCommands}" CommandParameter="Approve">
+                <Button Style="{DynamicResource MaterialDesignToolButton}" Command="{Binding AdminUserDetailsCommands}" CommandParameter="UserBan" Height="40" ToolTip="Ban user">
                     <materialDesign:PackIcon Kind="Ban" Opacity="50" Margin="10,0,0,0" HorizontalAlignment="Right" ToolTip="Ban user"/>
                 </Button>
+                <Button Style="{DynamicResource MaterialDesignToolButton}" Command="{Binding AdminUserDetailsCommands}" CommandParameter="UserUnBan" ToolTip="Unban user">
+                    <materialDesign:PackIcon Kind="User" Opacity="50" Margin="10,0,0,0" HorizontalAlignment="Right" ToolTip="Unban user"/>
+                </Button>
                 <Button Style="{DynamicResource MaterialDesignRaisedDarkButton}"
-                        Content="Make As Admin" x:Name="btnMakeAdmin" FontSize="16" FontWeight="Bold" Margin="35,2,0,0" Command="{Binding UserSettingsCommands}" CommandParameter="SaveUserChanges"
+                        Content="Make As Admin" x:Name="btnMakeAdmin" FontSize="16" FontWeight="Bold" Margin="35,2,0,0" Command="{Binding AdminUserDetailsCommands}" CommandParameter="MakeUserAsAdmin"
                         materialDesign:ButtonAssist.CornerRadius="25" Width="150" Height="40" ToolTip="Make As Admin" />
             </StackPanel>
         </materialDesign:Card>
-        <materialDesign:Card VerticalAlignment="Top" Margin="0,100,0,0">
+        <materialDesign:Card VerticalAlignment="Top" Margin="0,130,0,0">
             <materialDesign:Card.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="20"/>

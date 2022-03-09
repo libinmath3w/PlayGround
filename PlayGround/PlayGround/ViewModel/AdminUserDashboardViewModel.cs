@@ -28,6 +28,8 @@ namespace PlayGround.ViewModel
         private DateTime _dateofaccountcreated = DateTime.Now;
         private string _status;
         private int _roleID;
+        private string _search;
+        private string _findbyid;
         public ICommand AdminUserDetailsCommands { get; set; }
         public AdminUserDashboardViewModel adminUserDashboardViewModel { get; set; }
         public int UserID { get => _userID; set { _userID = value; onPropertyChanged("User ID"); } }
@@ -42,6 +44,8 @@ namespace PlayGround.ViewModel
         public DateTime DateOfAccountCreated { get => _dateofaccountcreated; set { _dateofaccountcreated = value; onPropertyChanged("date of account created"); } }
         public string Status { get => _status; set { _status = value; onPropertyChanged("Status"); } }
         public int RoleID { get => _roleID; set { _roleID = value; onPropertyChanged("Role ID"); } }
+        public string SearchName { get => _search; set { _search = value; onPropertyChanged("Search Name"); } }
+        public string FindUserID { get => _findbyid; set { _findbyid = value; onPropertyChanged("Find User ID"); } }
         public List<UsersModel> usersDetailsList { get; set; }
 
         public ObservableCollection<UsersModel> _usersDetailsoc;
@@ -58,7 +62,7 @@ namespace PlayGround.ViewModel
 
         public AdminUserDashboardViewModel()
         {
-            AdminUserDetailsCommands = new AdminUserDetailsCommand();
+            AdminUserDetailsCommands = new AdminUserDetailsCommand(this);
             GetUsersList();
             //GetusersfromList();
         }
