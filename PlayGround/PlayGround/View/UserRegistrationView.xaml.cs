@@ -14,6 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Navigation;
+using System.Text.RegularExpressions;
+using PlayGround.ViewModel;
 
 namespace PlayGround.View
 {
@@ -28,11 +30,44 @@ namespace PlayGround.View
         {
             InitializeComponent();
             Icon = ImageAwesome.CreateImageSource(FontAwesomeIcon.SoccerBallOutline, Brushes.Green);
-            DataContext = this;
+            DataContext = new UserRegistrationViewModel();
             pswCmd = new UserSignupCommand();
            
         }
 
-        
+        private void btnSignUp_Click(object sender, RoutedEventArgs e)
+        {
+            Regex regex = new Regex("^[0-9]{10}");
+            bool isValid = regex.IsMatch(txtPhoneNumber.Text);
+            if (!isValid)
+            {
+                MessageBox.Show("Please Enter Valid Phone Number");
+            }
+            else
+            {
+               
+            }
+            System.Text.RegularExpressions.Regex rEmail = new System.Text.RegularExpressions.Regex(@"^[a-zA-Z][\w\.-]{2,28}[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$");
+            if (txtEmail.Text.Length > 0)
+            {
+                if (!rEmail.IsMatch(txtEmail.Text))
+                {
+                    MessageBox.Show("Invalid Email ID");
+                    txtEmail.SelectAll();
+                }
+                else
+                {
+                    
+
+                }
+            }
+        }
+
+        private void btnRegistration_Click(object sender, RoutedEventArgs e)
+        {
+            var newForm = new UserLoginView(); //create your new form.
+            newForm.Show(); //show the new form.
+            this.Close();
+        }
     }
 }

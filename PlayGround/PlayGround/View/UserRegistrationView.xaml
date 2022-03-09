@@ -37,7 +37,7 @@
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Email" Width="25" Height="25" Margin="15,20,0,0"/>
                     <TextBox x:Name="txtEmail" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="300" Text="{Binding UserEmailID}"  VerticalContentAlignment="Center" Margin="10,10,0,0"
-                            materialDesign:HintAssist.Hint="Email ID" />
+                            materialDesign:HintAssist.Hint="Email ID"  />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Phone" Width="25" Height="25" Margin="15,20,0,0"/>
@@ -47,7 +47,7 @@
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Key" Width="25" Height="25" Margin="15,20,0,0"/>
                     <PasswordBox x:Name="pwbPassword"  Style="{DynamicResource MaterialDesignOutlinedPasswordBox}"  PasswordChar="*" VerticalAlignment="Top" Width="300"
-                        materialDesign:HintAssist.Hint="Enter Password" Margin="10,10,0,0" materialDesign:HintAssist.HelperText="At least 8 characters"/>
+                        materialDesign:HintAssist.Hint="Enter Password" Margin="10,10,0,0" materialDesign:HintAssist.HelperText="At least 8 characters" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Key" Width="25" Height="25" Margin="15,30,0,0"/>
@@ -55,7 +55,7 @@
                         materialDesign:HintAssist.Hint="Confirm Password" Margin="10,20,0,0" materialDesign:HintAssist.HelperText="At least 8 characters"/>
                 </StackPanel>
                 <StackPanel>
-                    <Button Command="{Binding userSignUpCommands}" CommandParameter="userSignUp" Content="Sign Up" x:Name="btnSignUp" FontSize="16" FontWeight="Bold" Margin="10,30,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="172">
+                    <Button Command="{Binding userSignUpCommands}" CommandParameter="userSignUp" Content="Sign Up" x:Name="btnSignUp" FontSize="16" FontWeight="Bold" Margin="10,30,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="172" >
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="15"/>
@@ -65,7 +65,7 @@
                     </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Already have an account ?" Margin="45,20,0,0"/>
-                    <Button Content="Login now" x:Name="btnRegistration" Command="{Binding userSignUpCommands}" CommandParameter="signin" FontSize="14" FontWeight="Bold" Margin="15,20,0,0"  Foreground="Blue" Background="White" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" BorderThickness="0">
+                    <Button Content="Login now" x:Name="btnRegistration" Command="{Binding userSignUpCommands}" CommandParameter="signin" FontSize="14" FontWeight="Bold" Margin="15,20,0,0"  Foreground="Blue" Background="White" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" BorderThickness="0" Click="btnRegistration_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="15"/>

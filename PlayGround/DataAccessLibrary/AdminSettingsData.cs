@@ -18,7 +18,7 @@ namespace DataAccessLibrary
             {
                 TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
                 var query = from admindetails in turfManagementDBEntities.Users
-                            
+                            where admindetails.ID == usersModel.UserId
                             select admindetails;
                 foreach (var item in query)
                 {
@@ -75,7 +75,23 @@ namespace DataAccessLibrary
 
         public void SaveAvatar(UsersModel usersModel)
         {
-            throw new NotImplementedException();
+            try
+            {
+                TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
+                var query = from userinfo in turfManagementDBEntities.Users
+                            where userinfo.ID == usersModel.UserId
+                            select userinfo;
+                foreach (var item in query)
+                {
+                    item.Avatar = usersModel.Avatar;
+                }
+                turfManagementDBEntities.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }

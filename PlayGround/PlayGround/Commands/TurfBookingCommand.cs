@@ -45,6 +45,7 @@ namespace PlayGround.Commands
                     userNewTurfBookingViewModel.TurfSearchDetails.Add(turfModel);
                 }
             }
+            
         }
     }
 }

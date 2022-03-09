@@ -40,7 +40,7 @@
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Email" Width="25" Height="25" Margin="25,12,0,0"/>
                     <TextBox x:Name="txtEmail" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,2,0,5"
-                            materialDesign:HintAssist.Hint="Email ID" Text="{Binding UserEmailID}" />
+                            materialDesign:HintAssist.Hint="Email ID" Text="{Binding Emailid}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Phone" Width="25" Height="25"  Margin="25,12,0,0"/>
@@ -48,7 +48,7 @@
                             materialDesign:HintAssist.Hint="Phone Number" Text="{Binding PhoneNumber}"/>
                 </StackPanel>
                 <StackPanel>
-                    <Button Content="Save Changes" x:Name="btnSaveChanges" FontSize="16" FontWeight="Bold" Margin="0,30,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198">
+                    <Button Content="Save Changes" x:Name="btnSaveChanges" FontSize="16" FontWeight="Bold" Margin="0,30,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198" Command="{Binding AdminSettingsCommands}" CommandParameter="SaveUserChanges">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="15"/>
@@ -82,7 +82,7 @@
                         materialDesign:HintAssist.Hint="Confirm Password" Margin="25,10,0,13" materialDesign:HintAssist.HelperText="At least 8 characters"/>
                 </StackPanel>
             <StackPanel>
-                <Button Content="Update" x:Name="btnUpdate" FontSize="16" FontWeight="Bold" Margin="0,25,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198">
+                    <Button Content="Update" x:Name="btnUpdate" FontSize="16" FontWeight="Bold" Margin="0,25,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198" Command="{Binding AdminSettingsCommands}" CommandParameter="UpdatePassword">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="15"/>
@@ -105,7 +105,7 @@
                             <ImageBrush ImageSource="{Binding Avatar}" />
                         </Ellipse.Fill>
                     </Ellipse>
-                    <Button Content="Browse Image" x:Name="btnBrowserImage" FontSize="16" FontWeight="Bold" Margin="0,30,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198">
+                    <Button Content="Browse Image" x:Name="btnBrowserImage" FontSize="16" FontWeight="Bold" Margin="0,30,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198" Command="{Binding AdminSettingsCommands}" CommandParameter="UserBrowseImage" >
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="15"/>

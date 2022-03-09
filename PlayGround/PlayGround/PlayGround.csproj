@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -56,9 +57,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\AdminRedirectViewCommand.cs" />
+    <Compile Include="Commands\AdminSettingsCommand.cs" />
+    <Compile Include="Commands\AdminUserDetailsCommand.cs" />
     <Compile Include="Commands\RedirectViewCommand.cs" />
     <Compile Include="Commands\TurfBookingCommand.cs" />
     <Compile Include="Commands\UserSettingsCommand.cs" />
+    <Compile Include="Commands\UserSigninCommand.cs" />
     <Compile Include="Commands\UserSignupCommand.cs" />
     <Compile Include="ViewModel\AdminAddNewTurfViewModel.cs" />
     <Compile Include="ViewModel\AdminDashboardViewModel.cs" />
@@ -91,8 +95,8 @@
     <Compile Include="View\AdminSettingsView.xaml.cs">
       <DependentUpon>AdminSettingsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AdminTurfBookingView.xaml.cs">
-      <DependentUpon>AdminTurfBookingView.xaml</DependentUpon>
+    <Compile Include="View\AdminTurfDetailsView.xaml.cs">
+      <DependentUpon>AdminTurfDetailsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\AdminUserDashboardView.xaml.cs">
       <DependentUpon>AdminUserDashboardView.xaml</DependentUpon>
@@ -150,7 +154,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AdminTurfBookingView.xaml">
+    <Page Include="View\AdminTurfDetailsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -256,6 +260,10 @@
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
       <Project>{01E6A85B-2B4B-473F-B5E6-4BE0CAC06307}</Project>
       <Name>BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccessLibrary\DataAccessLayer.csproj">
+      <Project>{BEE2278B-CA9C-47DA-A635-A0FCF815FD6F}</Project>
+      <Name>DataAccessLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\EntityLayer\EntityLayer.csproj">
       <Project>{9670F018-7966-4446-82E0-F329A84F3F46}</Project>

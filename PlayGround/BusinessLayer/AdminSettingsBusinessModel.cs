@@ -11,21 +11,20 @@ namespace BusinessLayer
 {
     public class AdminSettingsBusinessModel : IUserSettings
     {
+        AdminSettingsData adminsettingsdata = new AdminSettingsData();
         public List<UsersModel> GetUserDetails(UsersModel usersModel)
         {
-            AdminSettingsData usersettingsdata = new AdminSettingsData();
-            return usersettingsdata.GetUserDetails(usersModel);
+            return adminsettingsdata.GetUserDetails(usersModel);
         }
 
         public void SaveAvatar(UsersModel usersModel)
         {
-            throw new NotImplementedException();
+            adminsettingsdata.SaveAvatar(usersModel);
         }
 
         public void SaveUserDetails(UsersModel usersModel)
         {
-            AdminSettingsData usersettingsdata = new AdminSettingsData();
-            usersettingsdata.SaveUserDetails(usersModel);
+            adminsettingsdata.SaveUserDetails(usersModel);
         }
     }
 }

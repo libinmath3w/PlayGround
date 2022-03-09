@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace PlayGround.View
 {
     /// <summary>
-    /// Interaction logic for AdminTurfBookingView.xaml
+    /// Interaction logic for AdminTurfDetailsView.xaml
     /// </summary>
-    public partial class AdminTurfBookingView : UserControl
+    public partial class AdminTurfDetailsView : UserControl
     {
-        public AdminTurfBookingView()
+        public AdminTurfDetailsView()
         {
             InitializeComponent();
         }
