@@ -103,7 +103,7 @@ namespace PlayGround.Commands
                             File.Copy(fd.FileName, imagePath);
                             UsersModel usersModel = new UsersModel();
                             usersModel.Avatar = fileNameToSave;
-                            usersModel.UserId = 2;
+                            usersModel.UserId = 3;
                             UserSettingsBusinessModel userSettingsBusinessModel = new UserSettingsBusinessModel();
                             userSettingsBusinessModel.SaveAvatar(usersModel);
                             MessageBox.Show("Avatar Updated");
