@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace PlayGround.ViewModel
@@ -26,6 +27,7 @@ namespace PlayGround.ViewModel
         private string _avatar;
         private DateTime _dateofaccountcreated = DateTime.Now;
         private string _status;
+        private int _roleID;
         public ICommand AdminUserDetailsCommands { get; set; }
         public AdminUserDashboardViewModel adminUserDashboardViewModel { get; set; }
         public int UserID { get => _userID; set { _userID = value; onPropertyChanged("User ID"); } }
@@ -39,6 +41,8 @@ namespace PlayGround.ViewModel
         public string Avatar { get => _avatar; set { _avatar = value; onPropertyChanged("Avatar"); } }
         public DateTime DateOfAccountCreated { get => _dateofaccountcreated; set { _dateofaccountcreated = value; onPropertyChanged("date of account created"); } }
         public string Status { get => _status; set { _status = value; onPropertyChanged("Status"); } }
+        public int RoleID { get => _roleID; set { _roleID = value; onPropertyChanged("Role ID"); } }
+        public List<UsersModel> usersDetailsList { get; set; }
 
         public ObservableCollection<UsersModel> _usersDetailsoc;
         public ObservableCollection<UsersModel> UsersDetailsOC
@@ -56,6 +60,15 @@ namespace PlayGround.ViewModel
         {
             AdminUserDetailsCommands = new AdminUserDetailsCommand();
             GetUsersList();
+            //GetusersfromList();
+        }
+
+        private void GetusersfromList()
+        {
+            AdminUsersDetailsBusinessModel adminUsersDetailsBusinessModel = new AdminUsersDetailsBusinessModel();
+            usersDetailsList = new List<UsersModel>();
+            usersDetailsList = adminUsersDetailsBusinessModel.GetAdminUsersDetails();
+
         }
 
         public void GetUsersList()
@@ -72,16 +85,27 @@ namespace PlayGround.ViewModel
                 usersModel.UserEmailID = item.UserEmailID;
                 usersModel.PhoneNumber = item.PhoneNumber;
                 usersModel.City = item.City;
-                usersModel.Status = item.Status;
+                if (item.Status == 1)
+                    usersModel.StatusName = "Active";
+                else if (item.Status == 0)
+                    usersModel.StatusName = "Pending";
+                else
+                    usersModel.StatusName = "Banned";
                 usersModel.State = item.State;
                 usersModel.Zip = item.Zip;
+                if (item.RoleID == 1)
+                    usersModel.RoleName = "Admin";
+                else if (item.RoleID == 2)
+                    usersModel.RoleName = "User";
                 usersModel.RoleID = item.RoleID;
                 usersModel.DateOfCreatedAccountTime = item.DateOfCreatedAccountTime;
-                var pathRegex = new Regex(@"\\bin(\\x86|\\x64)?\\(Debug|Release)$", RegexOptions.Compiled);
-                var directory = pathRegex.Replace(Directory.GetCurrentDirectory(), String.Empty);
-                usersModel.Avatar = directory + "/Uploads/" + item.Avatar;
+                //var pathRegex = new Regex(@"\\bin(\\x86|\\x64)?\\(Debug|Release)$", RegexOptions.Compiled);
+                //var directory = pathRegex.Replace(Directory.GetCurrentDirectory(), String.Empty);
+                //var newstring = directory.Replace("\\", "/");
+                //usersModel.Avatar = newstring + "/Uploads/" + item.Avatar;
                 UsersDetailsOC.Add(usersModel);
             }
+            
         }
     }
 }

@@ -44,6 +44,7 @@
     <Compile Include="AdminAddNewTurfBusinessModel.cs" />
     <Compile Include="AdminBookingHistoryBusinessModel.cs" />
     <Compile Include="AdminSettingsBusinessModel.cs" />
+    <Compile Include="AdminTurfDetailsBusinessModel.cs" />
     <Compile Include="AdminUsersDetailsBusinessModel.cs" />
     <Compile Include="UserBookingHistoryBusinessModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -95,8 +95,8 @@
     <Compile Include="View\AdminSettingsView.xaml.cs">
       <DependentUpon>AdminSettingsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AdminTurfBookingView.xaml.cs">
-      <DependentUpon>AdminTurfBookingView.xaml</DependentUpon>
+    <Compile Include="View\AdminTurfDetailsView.xaml.cs">
+      <DependentUpon>AdminTurfDetailsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\AdminUserDashboardView.xaml.cs">
       <DependentUpon>AdminUserDashboardView.xaml</DependentUpon>
@@ -154,7 +154,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AdminTurfBookingView.xaml">
+    <Page Include="View\AdminTurfDetailsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
