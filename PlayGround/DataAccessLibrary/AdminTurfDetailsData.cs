@@ -190,6 +190,7 @@ namespace DataAccessLibrary
                         turfModels.TurfCity = item.TCity;
                         turfModels.TurfImage = item.TImage;
                         turfModels.TurfType = item.TCategory;
+                        turfModels.TurfStatus = item.TStatus;
                         turfModels.TurfState = item.TState;
                         TurfDetailsList.Add(turfModels);
                     }
