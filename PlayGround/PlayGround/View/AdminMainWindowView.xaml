@@ -190,7 +190,7 @@
                         </ListViewItem>
                         <ListViewItem HorizontalAlignment="Center" Margin="0 10">
                             <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
-                             BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Command="{Binding AdminRedirectViewCommands}" CommandParameter="AdminTurfBookingDetails" ToolTip="Bookings">
+                             BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Command="{Binding AdminRedirectViewCommands}" CommandParameter="AdminAddNewTurf" ToolTip="Bookings">
                                 <StackPanel Margin="-5">
                                     <materialDesign:PackIcon Kind="CalendarBlankOutline"/>
                                 </StackPanel>

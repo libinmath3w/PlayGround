@@ -9,5 +9,9 @@ namespace EntityLayer.Interface
     public interface IAddNewTurf
     {
         void SaveNewTurf(TurfModel turfModel);
+
+        List<TimeSloteModel> GetStartingTime(TimeSloteModel timeSloteModel);
+        List<TimeSloteModel> GetEndingTime(TimeSloteModel timeSloteModel);
+        List<TurfCategoryModel> GetTurfType(TurfCategoryModel turfCategory);
     }
 }

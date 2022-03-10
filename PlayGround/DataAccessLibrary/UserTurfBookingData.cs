@@ -91,14 +91,17 @@ namespace DataAccessLibrary
         public List<PaymentTypeModel> GetPaymentTypes(PaymentTypeModel paymentTypeModel)
         {
             List<PaymentTypeModel> paymentTypes = new List<PaymentTypeModel>();
+
             TurfManagementDBEntities turfManagementDB = new TurfManagementDBEntities();
             var query = from type in turfManagementDB.Payment_Type
-                        where type.Payment_ID >= paymentTypeModel.PaymentID
-                        select type;
+                       
+                        select type.Payment_Method;
+
+
             foreach (var turf in query)
             {
                 PaymentTypeModel paymentTypeModels = new PaymentTypeModel();
-                paymentTypeModel.PaymentMethod = turf.Payment_Method;
+                paymentTypeModels.PaymentMethod = turf.ToString();
                 paymentTypes.Add(paymentTypeModels);
             }
             return paymentTypes;
