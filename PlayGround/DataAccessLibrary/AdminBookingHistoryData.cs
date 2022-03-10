@@ -27,7 +27,7 @@ namespace DataAccessLibrary
                     SqlConnection sqlConnection = null;
                     foreach (var item in query)
                     {
-                        if (item.Booking_Status == true)
+                        if (item.Booking_Status == 1)
                         {
                             MessageBox.Show("Booking is Already Approved");
                         }
@@ -74,14 +74,14 @@ namespace DataAccessLibrary
                     {
                         if (item.Payment_Status == 1)
                         {
-                            MessageBox.Show("Booking is Already Approved");
+                            MessageBox.Show("Payment is Already Approved");
                         }
                         else
                         {
                             try
                             {
                                 sqlConnection = new SqlConnection("Data Source =.; Database = TurfManagementDB; Integrated Security=true;");
-                                SqlDataAdapter adapter = new SqlDataAdapter("UPDATE BOOKING SET PAYMENT_STATUS = 0 WHERE BOOKING_ID = " + bookingModel.BookingID, sqlConnection);
+                                SqlDataAdapter adapter = new SqlDataAdapter("UPDATE BOOKING SET PAYMENT_STATUS = 1 WHERE BOOKING_ID = " + bookingModel.BookingID, sqlConnection);
                                 DataSet dataSet = new DataSet();
                                 adapter.Fill(dataSet);
                                 MessageBox.Show("Payment Approved");
@@ -147,11 +147,13 @@ namespace DataAccessLibrary
                     bookingModels.StartTime = item.BStartTime;
                     bookingModels.EndTime = item.BEndTime;
                     bookingModels.Amount = (float)item.BAmount;
-                    bookingModels.BookingStatus = (bool)item.BBStatus;
-                    if ((bool)item.BBStatus == true)
+                    bookingModels.BookingStatus = (int)item.BBStatus;
+                    if (item.BBStatus == 1)
                         bookingModels.BStatus = "Approved";
-                    else
+                    else if (item.BBStatus == 2)
                         bookingModels.BStatus = "Pending";
+                    else 
+                        bookingModels.BStatus = "Cancelled";
                     bookingModels.PaymentType = item.BPaymentType;
                     if (item.Bpaymentstatus == 1)
                         bookingModels.PaymentStatus = "Paid";
@@ -180,7 +182,7 @@ namespace DataAccessLibrary
                     SqlConnection sqlConnection = null;
                     foreach (var item in query)
                     {
-                        if (item.Booking_Status == false)
+                        if (item.Booking_Status == 3)
                         {
                             MessageBox.Show("Booking is Already Cancelled");
                         }
@@ -189,7 +191,7 @@ namespace DataAccessLibrary
                             try
                             {
                                 sqlConnection = new SqlConnection("Data Source =.; Database = TurfManagementDB; Integrated Security=true;");
-                                SqlDataAdapter adapter = new SqlDataAdapter("UPDATE BOOKING SET BOOKING_STATUS = 0 WHERE BOOKING_ID = " + bookingModel.BookingID, sqlConnection);
+                                SqlDataAdapter adapter = new SqlDataAdapter("UPDATE BOOKING SET BOOKING_STATUS = 3 WHERE BOOKING_ID = " + bookingModel.BookingID, sqlConnection);
                                 DataSet dataSet = new DataSet();
                                 adapter.Fill(dataSet);
                                 MessageBox.Show("Booking Cancelled");
@@ -257,11 +259,13 @@ namespace DataAccessLibrary
                         bookingModels.StartTime = item.BStartTime;
                         bookingModels.EndTime = item.BEndTime;
                         bookingModels.Amount = (float)item.BAmount;
-                        bookingModels.BookingStatus = (bool)item.BBStatus;
-                        if ((bool)item.BBStatus == true)
+                        bookingModels.BookingStatus = (int)item.BBStatus;
+                        if (item.BBStatus == 1)
                             bookingModels.BStatus = "Approved";
-                        else
+                        else if (item.BBStatus == 2)
                             bookingModels.BStatus = "Pending";
+                        else
+                            bookingModels.BStatus = "Cancelled";
                         bookingModels.PaymentType = item.BPaymentType;
                         if (item.Bpaymentstatus == 1)
                             bookingModels.PaymentStatus = "Paid";

@@ -24,7 +24,7 @@ namespace EntityLayer
         private string _bookingDate;
         private string _paymentStatus;
         private DateTime _bookingTime;
-        private bool _bookingStatus;
+        private int _bookingStatus;
         private string _bStatus;
         private string _avatar;
 
@@ -41,7 +41,7 @@ namespace EntityLayer
         public string BookingDate { get => _bookingDate; set { _bookingDate = value; onPropertyChanged("Booking Date"); } }
         public string PaymentStatus { get => _paymentStatus; set { _paymentStatus = value; onPropertyChanged("Payment Status"); } }
         public DateTime BookingTime { get => _bookingTime; set { _bookingTime = value; onPropertyChanged("Booking Time"); } }
-        public bool BookingStatus { get => _bookingStatus; set { _bookingStatus = value; onPropertyChanged("Booking Status"); } }
+        public int BookingStatus { get => _bookingStatus; set { _bookingStatus = value; onPropertyChanged("Booking Status"); } }
         public string BStatus { get => _bStatus; set { _bStatus = value; onPropertyChanged("B Status"); } }
         public string Avatar { get => _avatar; set { _avatar = value; onPropertyChanged("Avatar"); } }
     }

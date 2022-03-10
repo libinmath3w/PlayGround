@@ -57,7 +57,7 @@ namespace DataAccessLayer
                     bookingModels.StartTime = item.BStartTime;
                     bookingModels.EndTime = item.BEndTime;
                     bookingModels.Amount = (float)item.BAmount;
-                    bookingModels.BookingStatus = (bool)item.BBStatus;
+                    bookingModels.BookingStatus = (int)item.BBStatus;
                     bookingModels.PaymentType = item.BPaymentType;
                     if (item.Bpaymentstatus == 1)
                         bookingModels.PaymentStatus = "Paid";
