@@ -56,6 +56,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\AddNewTurfCommand.cs" />
     <Compile Include="Commands\AdminRedirectViewCommand.cs" />
     <Compile Include="Commands\AdminSettingsCommand.cs" />
     <Compile Include="Commands\AdminTurfBookingDetailsCommand.cs" />

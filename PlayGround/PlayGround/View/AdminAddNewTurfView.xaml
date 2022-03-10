@@ -56,7 +56,7 @@
                 <materialDesign:PackIcon Kind="Timelapse" Width="25" Height="25"  Margin="170,-23,0,0"/>
                 <StackPanel Margin="-280,10,0,0" Width="200" Height="61">
                     <Label Content="Start Time" Margin="30,0,0,0" Width="190"/>
-                    <ComboBox Margin="40,10,0,0" Height="30" Width="124"  materialDesign:HintAssist.Hint="Starting Time" ItemsSource="{Binding TurfStartingTime}" DisplayMemberPath="TimeSlots"/>
+                    <ComboBox x:Name="cbStartTime" Margin="40,10,0,0" Height="30" Width="124"  materialDesign:HintAssist.Hint="Starting Time" ItemsSource="{Binding TurfStartingTime}" SelectedValue="StartingTime" DisplayMemberPath="TimeSlots"/>
                 </StackPanel>
                 <StackPanel Margin="-1,-62,-250,0" Width="221" Height="61">
                     <Label Content="End Time" Margin="-10,0,0,0" Width="190" Height="23.6033333333333"></Label>
@@ -75,7 +75,7 @@
                             materialDesign:HintAssist.Hint="Pricing per Hour" />
                 </StackPanel>
                 <StackPanel>
-                    <Button Content="Save Changes" x:Name="btnSaveChanges" FontSize="16" FontWeight="Bold" Margin="0,20,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198">
+                    <Button Content="Save Changes" x:Name="btnSaveChanges" FontSize="16" FontWeight="Bold" Margin="0,20,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198" >
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="15"/>
@@ -101,7 +101,7 @@
                             <ImageBrush ImageSource="/Assets/turfs.png"/>
                         </Ellipse.Fill>
                     </Ellipse>
-                    <Button Content="Click to add Turf Photo" x:Name="btnTurfPhoto" FontSize="16" FontWeight="Bold" Margin="-30,30,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198">
+                    <Button Content="Click to add Turf Photo" x:Name="btnTurfPhoto" FontSize="16" FontWeight="Bold" Margin="-30,30,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198" Command="{Binding AddNewTurfCommands}" CommandParameter="AddNewTurf">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="15"/>
