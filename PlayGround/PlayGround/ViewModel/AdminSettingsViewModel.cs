@@ -42,6 +42,7 @@ namespace PlayGround.ViewModel
                 var directory = pathRegex.Replace(Directory.GetCurrentDirectory(), String.Empty);
                 Avatar = directory + "/Uploads/" + item.Avatar;
             }
+
         }
     }
 }
