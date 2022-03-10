@@ -17,7 +17,7 @@ namespace BusinessLayer
             adminBookingHistoryData.ApproveBooking(bookingModel);
         }
 
-        public void ApprovePayment(BookingModel bookingModel)
+        public void  ApprovePayment(BookingModel bookingModel)
         {
             adminBookingHistoryData.ApprovePayment(bookingModel);
         }
