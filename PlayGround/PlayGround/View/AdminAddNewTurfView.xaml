@@ -34,22 +34,22 @@
                 
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Soccer" Width="25" Height="25" Margin="25,35,0,0"/>
-                    <TextBox x:Name="txtTurfName" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,25,0,5"
+                    <TextBox x:Name="txtTurfName" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,25,0,5" Text="{Binding TurfName}"
                             materialDesign:HintAssist.Hint="Turf Name" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="City" Width="25" Height="25" Margin="25,35,0,0"/>
-                    <TextBox x:Name="txtTurfCity" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,25,0,5"
+                    <TextBox x:Name="txtTurfCity" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,25,0,5" Text="{Binding TurfCity}"
                             materialDesign:HintAssist.Hint="CIty" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Estate" Width="25" Height="25" Margin="25,35,0,0"/>
-                    <TextBox x:Name="txtTurfState" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,25,0,5"
+                    <TextBox x:Name="txtTurfState" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,25,0,5" Text="{Binding TurfState}"
                             materialDesign:HintAssist.Hint="State" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Post" Width="25" Height="25" Margin="25,35,0,0"/>
-                    <TextBox x:Name="txtTurfPost" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,25,0,5"
+                    <TextBox x:Name="txtTurfPost" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,25,0,5" Text="{Binding TurfZip}"
                             materialDesign:HintAssist.Hint="Zip Code" />
                 </StackPanel>
                 <Label Content="Time Slot" Margin="-50,20,0,0" Width="423" HorizontalContentAlignment="Center"></Label>
@@ -71,11 +71,11 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Rupee" Width="25" Height="25" Margin="25,30,0,0"/>
-                    <TextBox x:Name="txtTurfAmount" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,18,0,5"
+                    <TextBox x:Name="txtTurfAmount" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,18,0,5" Text="{Binding TurfPrice}"
                             materialDesign:HintAssist.Hint="Pricing per Hour" />
                 </StackPanel>
                 <StackPanel>
-                    <Button Content="Save Changes" x:Name="btnSaveChanges" FontSize="16" FontWeight="Bold" Margin="0,20,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198" >
+                    <Button Content="Save Changes" x:Name="btnSaveChanges" FontSize="16" FontWeight="Bold" Margin="0,20,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198" Command="{Binding AddNewTurfCommands}" CommandParameter="AddNewTurf">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="15"/>
@@ -101,7 +101,7 @@
                             <ImageBrush ImageSource="/Assets/turfs.png"/>
                         </Ellipse.Fill>
                     </Ellipse>
-                    <Button Content="Click to add Turf Photo" x:Name="btnTurfPhoto" FontSize="16" FontWeight="Bold" Margin="-30,30,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198" Command="{Binding AddNewTurfCommands}" CommandParameter="AddNewTurf">
+                    <Button Content="Click to add Turf Photo" x:Name="btnTurfPhoto" FontSize="16" FontWeight="Bold" Margin="-30,30,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198" Command="{Binding AddNewTurfCommands}" CommandParameter="NewTurfImage">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="15"/>

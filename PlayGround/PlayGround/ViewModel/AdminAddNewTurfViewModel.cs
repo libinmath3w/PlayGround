@@ -15,6 +15,11 @@ namespace PlayGround.ViewModel
     {
         AdminAddNewTurfBusinessModel adminAddNewTurfBusinessModel = new AdminAddNewTurfBusinessModel();
 
+        private string _turfname;
+        private string _turfcity;
+        private string _turfstate;
+        private string _turfzip;
+        private string _turfprice;
         private int _searchTerm;
         public int SearchTerm { get => _searchTerm; set { _searchTerm = value; onPropertyChanged("Search box"); } }
 
@@ -62,7 +67,12 @@ namespace PlayGround.ViewModel
             }
         }
         public ICommand AddNewTurfCommands { get; set; }
-       
+        public string TurfName { get => _turfname; set { _turfname = value; onPropertyChanged("turf name"); } }
+        public string TurfCity { get => _turfcity; set { _turfcity = value; onPropertyChanged("turf city"); } }
+        public string TurfState { get => _turfstate; set { _turfstate = value; onPropertyChanged("turf state"); } }
+        public string TurfZip { get => _turfzip; set { _turfzip = value; onPropertyChanged("turf zip"); } }
+        public string TurfPrice { get => _turfprice; set { _turfprice = value; onPropertyChanged("turf price"); } }
+
         public AdminAddNewTurfViewModel()
         {
             TurfStartingTime = new ObservableCollection<TimeSloteModel>(); 
