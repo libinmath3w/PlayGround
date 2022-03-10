@@ -39,7 +39,7 @@
                 </Button>
             </StackPanel>
         </materialDesign:Card>
-        <DataGrid x:Name="gdShowBookings" AutoGenerateColumns="False" CanUserAddRows="False" ColumnWidth="*" ItemsSource="{Binding ViewAdminTurfBookingsAndBookNew}" Margin="0,120,0,0">
+        <DataGrid x:Name="gdShowBookings" AutoGenerateColumns="False" CanUserAddRows="False" ColumnWidth="*" ItemsSource="{Binding BookingDetailsOC}" Margin="0,120,0,0">
             <DataGrid.Columns>
                 <materialDesign:DataGridTextColumn Header="Booking ID" Binding="{Binding BookingID}" IsReadOnly="True" />
                 <materialDesign:DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True"/>

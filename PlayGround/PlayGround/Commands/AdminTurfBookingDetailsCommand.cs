@@ -40,9 +40,25 @@ namespace PlayGround.Commands
                         BookingModel bookingModel = new BookingModel();
                         AdminBookingHistoryBusinessModel adminBookingHistoryBusinessModel = new AdminBookingHistoryBusinessModel();
                         bookingModel.Name = SearchValue;
-                        adminTurfBookingHistoryViewModel.ViewAdminTurfBookingsAndBookNew = new List<BookingModel>();
-                        adminTurfBookingHistoryViewModel.ViewAdminTurfBookingsAndBookNew = adminBookingHistoryBusinessModel.SearchBookingDetails(bookingModel);
+                        adminTurfBookingHistoryViewModel.BookingDetailsOC = new System.Collections.ObjectModel.ObservableCollection<BookingModel>();
+                        var query = adminBookingHistoryBusinessModel.SearchBookingDetails(bookingModel);
+                        foreach (var item in query)
+                        {
+                        BookingModel bookingModels = new BookingModel();
+                        bookingModels.BookingID = item.BookingID;
+                        bookingModels.TurfName = item.TurfName;
+                        bookingModels.Name = item.Name;
+                        bookingModels.PaymentStatus = item.PaymentStatus;
+                        bookingModels.PaymentType = item.PaymentType;
+                        bookingModels.StartTime = item.StartTime;
+                        bookingModels.EndTime = item.EndTime;
+                        bookingModels.BookingStatus = item.BookingStatus;
+                        bookingModels.Amount = item.Amount;
+                        bookingModels.BookingDate = item.BookingDate;
+                        bookingModels.BStatus = item.BStatus;
+                        adminTurfBookingHistoryViewModel.BookingDetailsOC.Add(bookingModels);
                     }
+                }
             }
             else if (parameter.ToString() == "ApproveBooking")
             {
