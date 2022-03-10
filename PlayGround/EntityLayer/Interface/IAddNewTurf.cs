@@ -13,5 +13,6 @@ namespace EntityLayer.Interface
         List<TimeSloteModel> GetStartingTime(TimeSloteModel timeSloteModel);
         List<TimeSloteModel> GetEndingTime(TimeSloteModel timeSloteModel);
         List<TurfCategoryModel> GetTurfType(TurfCategoryModel turfCategory);
+        void AddNewTurf(TurfModel turfModel);
     }
 }

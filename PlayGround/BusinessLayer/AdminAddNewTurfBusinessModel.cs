@@ -11,33 +11,34 @@ namespace BusinessLayer
 {
     public class AdminAddNewTurfBusinessModel : IAddNewTurf
     {
+        AddNewTurfDataModel addNewTurfDataModel = new AddNewTurfDataModel();
+        AdminSettingsData adminSettingsData = new AdminSettingsData();
         public List<TurfModel> GetNewTurf(TurfModel turfModel)
         {
-            AdminSettingsData adminSettingsData = new AdminSettingsData();
             return adminSettingsData.GetNewTurf(turfModel);
-
         }
 
         public List<TimeSloteModel> GetStartingTime(TimeSloteModel timeSloteModel)
         {
-            AddNewTurfDataModel addNewTurfDataModel = new AddNewTurfDataModel();
             return addNewTurfDataModel.GetStartingTime(timeSloteModel);
         }
         public List<TimeSloteModel> GetEndingTime(TimeSloteModel timeSloteModel)
         {
-            AddNewTurfDataModel addNewTurfDataModel = new AddNewTurfDataModel();
             return addNewTurfDataModel.GetEndingTime(timeSloteModel);
         }
         public void SaveNewTurf(TurfModel turfModel)
         {
-            AdminSettingsData adminSettingsData = new AdminSettingsData();
             adminSettingsData.SaveNewTurf(turfModel);
         }
 
         public List<TurfCategoryModel> GetTurfType(TurfCategoryModel turfCategory)
         {
-            AddNewTurfDataModel addNewTurfDataModel = new AddNewTurfDataModel();
             return addNewTurfDataModel.GetTurfType(turfCategory);
+        }
+
+        public void AddNewTurf(TurfModel turfModel)
+        {
+            addNewTurfDataModel.AddNewTurf(turfModel);
         }
     }
 }

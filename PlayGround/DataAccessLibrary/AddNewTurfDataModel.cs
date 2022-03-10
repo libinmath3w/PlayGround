@@ -29,15 +29,6 @@ namespace DataAccessLibrary
         }
         public List<TimeSloteModel> GetStartingTime(TimeSloteModel timeModel)
         {
-            //SqlConnection sqlConnection = new SqlConnection();
-            //sqlConnection.ConnectionString = "Data source = . ; database = PlaygroundDB; integrated security = SSPI ";
-            //sqlConnection.Open();
-            //SqlCommand sqlCommand = new SqlCommand();
-            //sqlCommand.Connection = sqlConnection;
-            //int id = timeModel.TimeID;
-            //sqlCommand.CommandText = "select * from Time_Slote where Time_ID != (select max(Time_ID) from Time_Slote)";
-            //int rows = sqlCommand.ExecuteNonQuery();
-
 
             List<TimeSloteModel> TurfStartingTime = new List<TimeSloteModel>();
 
@@ -90,6 +81,34 @@ namespace DataAccessLibrary
                 TurfCategory.Add(turfCategory);
             }
             return TurfCategory;
+        }
+
+        public void AddNewTurf(TurfModel turfModel)
+        {
+            try
+            {
+                TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
+                Turf turfModels = new Turf();
+                turfModels.Turf_Name = turfModel.TurfName;
+                turfModels.Turf_Location = turfModel.TurfCity;
+                turfModels.Opening_Time = turfModel.OpeningTime;
+                turfModels.Closing_Time = turfModel.ClosingTime;
+                turfModels.Turf_Category_ID = turfModel.TurfCategoryID;
+                turfModels.Turf_Price = turfModel.TurfPrice;
+                turfModels.Turf_City = turfModel.TurfCity;
+                turfModels.Turf_State = turfModel.TurfState;
+                turfModels.Turf_Zip = turfModel.Zip;
+                turfModels.Turf_Status = turfModel.TurfStatus;
+                turfModels.Turf_Image = turfModel.TurfImage;
+                turfManagementDBEntities.Turfs.Add(turfModels);
+                turfManagementDBEntities.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
         }
     }
     
