@@ -56,22 +56,18 @@
                 <materialDesign:PackIcon Kind="Timelapse" Width="25" Height="25"  Margin="170,-23,0,0"/>
                 <StackPanel Margin="-280,10,0,0" Width="200" Height="61">
                     <Label Content="Start Time" Margin="30,0,0,0" Width="190"/>
-                    <ComboBox Margin="40,10,0,0" Height="30" Width="124">
-                        <ComboBoxItem IsSelected="True">Select Start Time</ComboBoxItem>
-                    </ComboBox>
+                    <ComboBox Margin="40,10,0,0" Height="30" Width="124"  materialDesign:HintAssist.Hint="Starting Time" ItemsSource="{Binding TurfStartingTime}" DisplayMemberPath="TimeSlots"/>
                 </StackPanel>
                 <StackPanel Margin="-1,-62,-250,0" Width="221" Height="61">
-                    <Label Content="Closing Time" Margin="-10,0,0,0" Width="190" Height="23.6033333333333"></Label>
-                    <ComboBox Margin="25,10,0,0" Height="30" Width="136">
-                        <ComboBoxItem IsSelected="True">Select Closing Time</ComboBoxItem>
-                    </ComboBox>
+                    <Label Content="End Time" Margin="-10,0,0,0" Width="190" Height="23.6033333333333"></Label>
+                    <ComboBox Margin="25,10,0,0" Height="30" Width="136"  materialDesign:HintAssist.Hint="Ending Time"  ItemsSource="{Binding TurfEndingTime}" DisplayMemberPath="TimeSlots"/>
                 </StackPanel>
                 <Label Content="Type of Turf" Margin="50,20,0,0" Width="455"></Label>
                 <StackPanel  Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="GamepadClassic" Width="25" Height="25"  Margin="25,10,0,0"/>
-                    <ComboBox Margin="40,10,0,0" Height="24" Width="136">
-                        <ComboBoxItem IsSelected="True">FootBall</ComboBoxItem>
-                    </ComboBox>
+                    <ComboBox Margin="40,10,0,0" Height="24" Width="136" materialDesign:HintAssist.Hint="Turf Types"  ItemsSource="{Binding TurfCategoryType}" DisplayMemberPath="TurfType"/>
+
+
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Rupee" Width="25" Height="25" Margin="25,30,0,0"/>

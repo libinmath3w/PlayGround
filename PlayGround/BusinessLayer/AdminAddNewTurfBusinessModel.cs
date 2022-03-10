@@ -18,10 +18,26 @@ namespace BusinessLayer
 
         }
 
+        public List<TimeSloteModel> GetStartingTime(TimeSloteModel timeSloteModel)
+        {
+            AddNewTurfDataModel addNewTurfDataModel = new AddNewTurfDataModel();
+            return addNewTurfDataModel.GetStartingTime(timeSloteModel);
+        }
+        public List<TimeSloteModel> GetEndingTime(TimeSloteModel timeSloteModel)
+        {
+            AddNewTurfDataModel addNewTurfDataModel = new AddNewTurfDataModel();
+            return addNewTurfDataModel.GetEndingTime(timeSloteModel);
+        }
         public void SaveNewTurf(TurfModel turfModel)
         {
             AdminSettingsData adminSettingsData = new AdminSettingsData();
             adminSettingsData.SaveNewTurf(turfModel);
+        }
+
+        public List<TurfCategoryModel> GetTurfType(TurfCategoryModel turfCategory)
+        {
+            AddNewTurfDataModel addNewTurfDataModel = new AddNewTurfDataModel();
+            return addNewTurfDataModel.GetTurfType(turfCategory);
         }
     }
 }
