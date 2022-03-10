@@ -58,6 +58,7 @@
     </ApplicationDefinition>
     <Compile Include="Commands\AdminRedirectViewCommand.cs" />
     <Compile Include="Commands\AdminSettingsCommand.cs" />
+    <Compile Include="Commands\AdminTurfBookingDetailsCommand.cs" />
     <Compile Include="Commands\AdminTurfDetailsCommand.cs" />
     <Compile Include="Commands\AdminUserDetailsCommand.cs" />
     <Compile Include="Commands\RedirectViewCommand.cs" />

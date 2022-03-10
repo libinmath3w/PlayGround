@@ -11,6 +11,16 @@ namespace DataAccessLibrary
 {
     public class AdminBookingHistoryData : IAdminBookingHistory
     {
+        public void ApproveBooking(BookingModel bookingModel)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ApprovePayment(BookingModel bookingModel)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<BookingModel> GetBookingDetails()
         {
             List<BookingModel> BookingResultList = new List<BookingModel>();
@@ -72,6 +82,16 @@ namespace DataAccessLibrary
                 throw ex;
             }
             return BookingResultList;
+        }
+
+        public void RejectBooking(BookingModel bookingModel)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<BookingModel> SearchBookingDetails(BookingModel bookingModel)
+        {
+            throw new NotImplementedException();
         }
     }
 

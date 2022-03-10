@@ -33,9 +33,9 @@ namespace PlayGround.Commands
                 usersModel.UserId = 1;
                 viewModel.SelectedViewModel = new AdminSettingsViewModel(usersModel);
             }
-            else if (parameter.ToString() == "AdminAddNewTurf")
+            else if (parameter.ToString() == "AdminTurfBookings")
             {
-                viewModel.SelectedViewModel = new AdminAddNewTurfViewModel();
+                viewModel.SelectedViewModel = new AdminTurfBookingHistoryViewModel();
             }
             else if (parameter.ToString() == "AdminTurfDetails")
             {

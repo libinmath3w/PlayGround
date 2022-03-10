@@ -9,7 +9,11 @@ namespace BusinessLayer
 {
         public interface IAdminBookingHistory
         {
-            List<BookingModel> GetBookingDetails();
+            List<BookingModel> GetBookingDetails ();
+            List<BookingModel> SearchBookingDetails (BookingModel bookingModel);
+            void ApproveBooking (BookingModel bookingModel);
+            void RejectBooking (BookingModel bookingModel);
+            void ApprovePayment(BookingModel bookingModel);
         }
     
 }
