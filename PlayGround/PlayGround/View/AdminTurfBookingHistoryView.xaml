@@ -20,7 +20,7 @@
                 </Style>
             </materialDesign:Card.Resources>
             <StackPanel Orientation="Horizontal">
-                <TextBox x:Name="txtSearch" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="300" Height="50" Text="{Binding TurfSearch}"  VerticalContentAlignment="Center" Margin="40,0,0,0" 
+                <TextBox x:Name="txtSearch" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="300" Height="50" Text="{Binding SearchName}"  VerticalContentAlignment="Center" Margin="40,0,0,0" 
                             materialDesign:HintAssist.Hint="Search Booking by Customer Name" />
 
                 <Button Style="{DynamicResource MaterialDesignToolButton}" Command="{Binding AdminTurfBookingDetailsCommands}" CommandParameter="BookingSearch">

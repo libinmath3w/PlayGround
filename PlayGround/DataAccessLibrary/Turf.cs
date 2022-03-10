@@ -33,10 +33,10 @@ namespace DataAccessLibrary
         public int Turf_Status { get; set; }
         public string Turf_Image { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Booking> Bookings { get; set; }
         public virtual Time_Slote Time_Slote { get; set; }
         public virtual Time_Slote Time_Slote1 { get; set; }
         public virtual Turf_Category Turf_Category { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Booking> Bookings { get; set; }
     }
 }

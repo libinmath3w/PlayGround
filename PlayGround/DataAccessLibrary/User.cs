@@ -34,8 +34,8 @@ namespace DataAccessLibrary
         public string Zip { get; set; }
         public string Avatar { get; set; }
     
+        public virtual UserRole UserRole { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Booking> Bookings { get; set; }
-        public virtual UserRole UserRole { get; set; }
     }
 }

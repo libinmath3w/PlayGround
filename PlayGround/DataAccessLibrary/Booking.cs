@@ -24,7 +24,7 @@ namespace DataAccessLibrary
         public Nullable<System.DateTime> Booking_Date { get; set; }
         public int Payment_Status { get; set; }
         public System.DateTime Booking_Time { get; set; }
-        public Nullable<bool> Booking_Status { get; set; }
+        public Nullable<int> Booking_Status { get; set; }
     
         public virtual Time_Slote Time_Slote { get; set; }
         public virtual Payment_Type Payment_Type { get; set; }
