@@ -48,7 +48,7 @@
                     <Setter Property="CornerRadius" Value="20"/>
                 </Style>
             </materialDesign:Card.Resources>
-        <DataGrid x:Name="gdShowUsers" AutoGenerateColumns="False" CanUserAddRows="False" ColumnWidth="*" ItemsSource="{Binding UsersDetailsOC}" Margin="0,20,0,0">
+            <DataGrid x:Name="gdShowUsers" AutoGenerateColumns="False" CanUserAddRows="False" ColumnWidth="*" ItemsSource="{Binding UsersDetailsOC}" Margin="0,20,0,0" MouseDoubleClick="Row_MouseDoubleClick">
             <DataGrid.Columns>
                 <materialDesign:DataGridTextColumn Header="ID" Binding="{Binding UserId}" IsReadOnly="True" />
                 <materialDesign:DataGridTextColumn Header="User Name" Binding="{Binding UserName}" IsReadOnly="True"/>

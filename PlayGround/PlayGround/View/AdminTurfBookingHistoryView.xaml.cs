@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EntityLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,11 @@ namespace PlayGround.View
         public AdminBookingHistoryView()
         {
             InitializeComponent();
+        }
+
+        private void Row_MouseDoubleClick(object sender, RoutedEventArgs e)
+        {
+            txtID.Text = (gdShowBookings.SelectedItem as BookingModel).BookingID.ToString();
         }
     }
 }

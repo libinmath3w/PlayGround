@@ -24,5 +24,9 @@ namespace PlayGround.View
         {
             InitializeComponent();
         }
+        private void Row_MouseDoubleClick(object sender, RoutedEventArgs e)
+        {
+            txtID.Text = (gdShowBookings.SelectedItem as BookingModel).BookingID.ToString();
+        }
     }
 }

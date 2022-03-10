@@ -45,7 +45,7 @@
                     <Setter Property="CornerRadius" Value="20"/>
                 </Style>
             </materialDesign:Card.Resources>
-            <DataGrid x:Name="gdShowBokkings" AutoGenerateColumns="False" CanUserAddRows="False" ColumnWidth="*" ItemsSource="{Binding TurfDetailsOC}" Margin="5,5,5,20">
+            <DataGrid x:Name="gdShowBookings" AutoGenerateColumns="False" CanUserAddRows="False" ColumnWidth="*" ItemsSource="{Binding TurfDetailsOC}" Margin="5,5,5,20" MouseDoubleClick="Row_MouseDoubleClick">
                 <DataGrid.Columns>
                     <materialDesign:DataGridTextColumn Header="Turf" Binding="{Binding TurfID}" IsReadOnly="True"/>
                     <materialDesign:DataGridTextColumn Header="Type Name" Binding="{Binding TurfName}" IsReadOnly="True"/>
