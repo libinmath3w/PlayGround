@@ -45,6 +45,10 @@ namespace PlayGround.Commands
             {
                 viewModel.SelectedViewModel = new AdminAddNewTurfViewModel();
             }
+            else if (parameter.ToString() == "AdminUsersList")
+            {
+                viewModel.SelectedViewModel = new AdminUserDashboardViewModel();
+            }
         }
     }
 }

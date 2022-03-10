@@ -198,18 +198,18 @@
                         </ListViewItem>
                         <ListViewItem HorizontalAlignment="Center" Margin="0">
                             <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
-                             BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Command="{Binding AdminRedirectViewCommands}" CommandParameter="AdminSettings" ToolTip="Settings">
-                                <StackPanel Margin="-5">
-                                    <materialDesign:PackIcon Kind="EqualiserVertical"/>
-                                </StackPanel>
-                            </Button>
-                        </ListViewItem>
-
-                        <ListViewItem HorizontalAlignment="Center" Margin="0">
-                            <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
                              BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Command="{Binding AdminRedirectViewCommands}" CommandParameter="AdminUsersList" ToolTip="Settings">
                                 <StackPanel Margin="-5">
                                     <materialDesign:PackIcon Kind="Users"/>
+                                </StackPanel>
+                            </Button>
+                        </ListViewItem>
+                        
+                        <ListViewItem HorizontalAlignment="Center" Margin="0">
+                            <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
+                             BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Command="{Binding AdminRedirectViewCommands}" CommandParameter="AdminSettings" ToolTip="Settings">
+                                <StackPanel Margin="-5">
+                                    <materialDesign:PackIcon Kind="EqualiserVertical"/>
                                 </StackPanel>
                             </Button>
                         </ListViewItem>
