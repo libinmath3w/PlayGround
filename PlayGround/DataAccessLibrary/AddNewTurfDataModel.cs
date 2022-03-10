@@ -48,6 +48,7 @@ namespace DataAccessLibrary
             foreach (var turf in result)
             {
                 TimeSloteModel timeModels = new TimeSloteModel();
+                timeModels.TimeID = turf.Time_ID;
                 timeModels.TimeSlots = turf.Time_Slots;
                 TurfStartingTime.Add(timeModels);
             }
@@ -67,6 +68,7 @@ namespace DataAccessLibrary
             foreach (var turf in result)
             {
                 TimeSloteModel timeModels = new TimeSloteModel();
+                timeModels.TimeID = turf.Time_ID;
                 timeModels.TimeSlots = turf.Time_Slots;
                 TurfEndingTime.Add(timeModels);
             }

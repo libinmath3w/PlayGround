@@ -14,7 +14,9 @@ namespace PlayGround.ViewModel
     public class AdminAddNewTurfViewModel : BaseViewModel
     {
         AdminAddNewTurfBusinessModel adminAddNewTurfBusinessModel = new AdminAddNewTurfBusinessModel();
-       
+
+        private int _searchTerm;
+        public int SearchTerm { get => _searchTerm; set { _searchTerm = value; onPropertyChanged("Search box"); } }
 
         private ObservableCollection<TimeSloteModel> _turfStartingTime;
         public ObservableCollection<TimeSloteModel> TurfStartingTime
@@ -26,6 +28,13 @@ namespace PlayGround.ViewModel
                 _turfStartingTime = value;
                 onPropertyChanged(nameof(TurfStartingTime));
             }
+        }
+        private ObservableCollection<TimeSloteModel> _startingTime;
+        public ObservableCollection<TimeSloteModel> StartingTime
+        {
+            get { return _startingTime; }
+            set {_startingTime = value;
+                onPropertyChanged("StartingTime");}
         }
 
 
@@ -52,15 +61,18 @@ namespace PlayGround.ViewModel
                 onPropertyChanged(nameof(TurfCategoryType));
             }
         }
-
+        public ICommand AddNewTurfCommands { get; set; }
+       
         public AdminAddNewTurfViewModel()
         {
             TurfStartingTime = new ObservableCollection<TimeSloteModel>(); 
             TurfEndingTime = new ObservableCollection<TimeSloteModel>();
             TurfCategoryType = new ObservableCollection<TurfCategoryModel>();
+            StartingTime = new ObservableCollection<TimeSloteModel>();
 
-            TimeSloteModel timeModel = new TimeSloteModel();
+            AddNewTurfCommands = new AddNewTurfCommand(this);   
             TurfCategoryModel turfCategoryModel = new TurfCategoryModel();
+            TimeSloteModel timeModel = new TimeSloteModel();
 
             var query1 = adminAddNewTurfBusinessModel.GetStartingTime(timeModel);
             var query2 = adminAddNewTurfBusinessModel.GetEndingTime(timeModel);
@@ -68,12 +80,16 @@ namespace PlayGround.ViewModel
             foreach (var item in query1)
             {
                 TimeSloteModel timeModels = new TimeSloteModel();
+                timeModels.TimeID = item.TimeID;
                 timeModels.TimeSlots = item.TimeSlots;
                 TurfStartingTime.Add(timeModels);
+                StartingTime.Add(timeModels);
+                
             }
             foreach (var item in query2)
             {
                 TimeSloteModel timeModels = new TimeSloteModel();
+                timeModels.TimeID = item.TimeID;
                 timeModels.TimeSlots = item.TimeSlots;
                 TurfEndingTime.Add(timeModels);
             }
