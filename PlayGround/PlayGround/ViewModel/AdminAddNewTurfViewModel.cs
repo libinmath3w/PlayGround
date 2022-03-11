@@ -15,6 +15,7 @@ namespace PlayGround.ViewModel
     {
         AdminAddNewTurfBusinessModel adminAddNewTurfBusinessModel = new AdminAddNewTurfBusinessModel();
 
+        private string _turfID;
         private string _turfname;
         private string _turfcity;
         private string _turfstate;
@@ -47,7 +48,6 @@ namespace PlayGround.ViewModel
                 onPropertyChanged("StartingTime");}
         }
 
-
         private ObservableCollection<TimeSloteModel> _turfEndingTime;
         public ObservableCollection<TimeSloteModel> TurfEndingTime
         {
@@ -75,6 +75,7 @@ namespace PlayGround.ViewModel
             }
         }
         public ICommand AddNewTurfCommands { get; set; }
+        public string TurfID { get => _turfID; set { _turfID = value; onPropertyChanged("TurfID"); } }
         public string TurfName { get => _turfname; set { _turfname = value; onPropertyChanged("turf name"); } }
         public string TurfCity { get => _turfcity; set { _turfcity = value; onPropertyChanged("turf city"); } }
         public string TurfState { get => _turfstate; set { _turfstate = value; onPropertyChanged("turf state"); } }
@@ -91,10 +92,12 @@ namespace PlayGround.ViewModel
             AddNewTurfCommands = new AddNewTurfCommand(this);   
             TurfCategoryModel turfCategoryModel = new TurfCategoryModel();
             TimeSloteModel timeModel = new TimeSloteModel();
+            TurfModel turfModel = new TurfModel();
 
             var query1 = adminAddNewTurfBusinessModel.GetStartingTime(timeModel);
             var query2 = adminAddNewTurfBusinessModel.GetEndingTime(timeModel);
             var query3 = adminAddNewTurfBusinessModel.GetTurfType(turfCategoryModel);
+          
             foreach (var item in query1)
             {
                 TimeSloteModel timeModels = new TimeSloteModel();
@@ -117,6 +120,7 @@ namespace PlayGround.ViewModel
                 turfModels.TurfType = item.TurfType;
                 TurfCategoryType.Add(turfModels);
             }
+          
         }
     }
 }

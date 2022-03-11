@@ -40,6 +40,14 @@ namespace BusinessLayer
         {
             addNewTurfDataModel.AddNewTurf(turfModel);
         }
+        public List<TurfModel> GetTurfDetails(TurfModel turfModel)
+        {
+            return addNewTurfDataModel.GetTurfDetails(turfModel);
+        }
+        public void UpdateTurf(TurfModel turfModel)
+        {
+            addNewTurfDataModel.UpdateTurf(turfModel);
+        }
     }
 }
 
