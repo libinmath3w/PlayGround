@@ -40,32 +40,32 @@ namespace PlayGround.Commands
                 string price = adminAddNewTurfViewModel.TurfPrice;
                 if (!string.IsNullOrEmpty(Name) && !string.IsNullOrEmpty(City) && !string.IsNullOrEmpty(State) && !string.IsNullOrEmpty(Zip) && !string.IsNullOrEmpty(price))
                 {
-                    MessageBox.Show("blah");
+                    if (!int.TryParse(price, out _))
+                    {
+                        MessageBox.Show("Price should be a number");
+                    }
+                    else
+                    {
+                        TurfModel model = new TurfModel();
+                        model.TurfName = Name;
+                        model.TurfCity = City;
+                        model.TurfState = State;
+                        model.Zip = Zip;
+                        model.TurfPrice = float.Parse(price);
+                        model.OpeningTime = adminAddNewTurfViewModel.TimeSlotStartTime.TimeID;
+                        model.ClosingTime = adminAddNewTurfViewModel.TimeSlotEndTime.TimeID;
+                        model.TurfCategoryID = adminAddNewTurfViewModel.TurfCategoryValue.TurfID;
+                        if (!string.IsNullOrEmpty(ImagePath))
+                            model.TurfImage = ImagePath;
+                        else
+                            model.TurfImage = "turf.jpg";
+
+                    }
                 }
                 else
                 {
                     MessageBox.Show("Enter value in all fields");
                 }
-                //AdminAddNewTurfViewModel adminAddNewTurfViewModel = new AdminAddNewTurfViewModel();
-                //TimeSloteModel timeSloteModel = new TimeSloteModel();
-
-                //MessageBox.Show(this.adminAddNewTurfViewModel.StartingTime.ToString());
-
-                MessageBox.Show(ImagePath);
-
-                // startId = adminAddNewTurfViewModel.StartingTime                
-
-                //foreach (var item in result)
-                //{
-                //    timeSloteModel.TimeID = item.TimeID;
-                //    adminAddNewTurfViewModel.TurfStartingTime.Add(timeSloteModel);
-                //}
-                //foreach (var item in query)
-                //{
-                //    timeSloteModel.TimeID = item.TimeID;
-                //    adminAddNewTurfViewModel.TurfEndingTime.Add(timeSloteModel);
-                //}
-
             }
             else if (parameter.ToString() == "NewTurfImage")
             {
