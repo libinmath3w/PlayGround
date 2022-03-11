@@ -52,9 +52,9 @@ namespace PlayGround.Commands
                 //MessageBox.Show(this.adminAddNewTurfViewModel.StartingTime.ToString());
 
                 MessageBox.Show(ImagePath);
-                
-               // startId = adminAddNewTurfViewModel.StartingTime                
-                
+
+                // startId = adminAddNewTurfViewModel.StartingTime                
+
                 //foreach (var item in result)
                 //{
                 //    timeSloteModel.TimeID = item.TimeID;
@@ -67,7 +67,7 @@ namespace PlayGround.Commands
                 //}
 
             }
-            else if (parameter.ToString() =="NewTurfImage")
+            else if (parameter.ToString() == "NewTurfImage")
             {
                 try
                 {
@@ -93,7 +93,31 @@ namespace PlayGround.Commands
                     throw ex;
                 }
             }
-        }
+            else if (parameter.ToString() == "EditTurf")
+            {
+                string turfid = adminAddNewTurfViewModel.TurfID;
+                if(!string.IsNullOrEmpty(turfid))
+                {
+                    AdminAddNewTurfBusinessModel adminAddNewTurfBusinessModels = new AdminAddNewTurfBusinessModel();
+                    TurfModel turf = new TurfModel();
+                    turf.TurfID =Convert.ToInt32(turfid);
+                    var query = adminAddNewTurfBusinessModels.GetTurfDetails(turf);
+                    foreach (var item in query)
+                    {
+                        adminAddNewTurfViewModel.TurfName = item.TurfName;
+                        adminAddNewTurfViewModel.TurfCity = item.TurfCity;
+                        adminAddNewTurfViewModel.TurfState = item.TurfState;
+                        adminAddNewTurfViewModel.TurfZip = item.Zip;
+                        adminAddNewTurfViewModel.TurfPrice = item.TurfPrice.ToString();
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Enter a Turf ID");
+                }
+            }
+            }
 
         public static String GetTimestamp(DateTime value)
         {

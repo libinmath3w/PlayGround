@@ -111,6 +111,25 @@
                 </StackPanel>
             </StackPanel>
         </materialDesign:Card>
+        <materialDesign:Card Grid.Row="0" Grid.Column="0"  Margin="10,400,0,0" VerticalAlignment="Top" Height="150" Width="300">
+            <materialDesign:Card.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </materialDesign:Card.Resources>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="txtId" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="200" Margin="10,55,0,0" HorizontalAlignment="Center" VerticalAlignment="Top"
+                            materialDesign:HintAssist.Hint="Enter Turf ID" Text="{Binding TurfID}"/>
+                <Button  x:Name="btnEdit" FontSize="16" FontWeight="Bold" Margin="20,10,0,0"  Foreground="White" Background="LightBlue" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Width="50" Height="40" Command="{Binding AddNewTurfCommands}" CommandParameter="EditTurf">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="15"/>
+                        </Style>
+                    </Button.Resources>
+                    <materialDesign:PackIcon Kind="Edit" Width="26" Height="25" HorizontalAlignment="Center" Foreground="black"/>
+                </Button>
+            </StackPanel>
+        </materialDesign:Card>
 
     </Grid>
 </UserControl>

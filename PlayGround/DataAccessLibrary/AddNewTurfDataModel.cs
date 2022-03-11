@@ -110,6 +110,37 @@ namespace DataAccessLibrary
             }
 
         }
+
+        public List<TurfModel> GetTurfDetails(TurfModel turfModel)
+        {
+            List<TurfModel> TurfModels = new List<TurfModel>();
+
+            TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
+          
+            var result = from Turf in turfManagementDBEntities.Turfs
+                         where Turf.Turf_ID == turfModel.TurfID
+                         select Turf;
+            foreach (var turf in result)
+            {
+                TurfModel turfs = new TurfModel();
+                turfs.TurfID = turf.Turf_ID;
+                turfs.TurfName = turf.Turf_Name;
+                turfs.OpeningTime = turf.Opening_Time;
+                turfs.ClosingTime = turf.Closing_Time;
+                turfs.TurfCity = turf.Turf_City;
+                turfs.TurfState = turf.Turf_State;
+                turfs.Zip = turf.Turf_Zip;
+                turfs.TurfCategoryID = turf.Turf_Category_ID;
+                turfs.TurfPrice = (float)turf.Turf_Price;
+                TurfModels.Add(turfs);
+            }
+            return TurfModels;
+        }
+
+        public void UpdateTurf(TurfModel turfModel)
+        {
+            throw new NotImplementedException();
+        }
     }
     
 }
