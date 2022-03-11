@@ -22,6 +22,11 @@ namespace PlayGround.ViewModel
         private string _turfprice;
         private int _searchTerm;
         public int SearchTerm { get => _searchTerm; set { _searchTerm = value; onPropertyChanged("Search box"); } }
+        private TimeSloteModel _timeSlotStartTime;
+        public TimeSloteModel TimeSlotStartTime { get => _timeSlotStartTime; set { _timeSlotStartTime = value; onPropertyChanged("Starting Time"); } }
+        
+        private TimeSloteModel _timeSlotEndTime;
+        public TimeSloteModel TimeSlotEndTime { get => _timeSlotEndTime; set { _timeSlotEndTime = value; onPropertyChanged("End Time"); } }
 
         private ObservableCollection<TimeSloteModel> _turfStartingTime;
         public ObservableCollection<TimeSloteModel> TurfStartingTime
@@ -54,6 +59,9 @@ namespace PlayGround.ViewModel
                 onPropertyChanged(nameof(TurfEndingTime));
             }
         }
+
+        private TurfCategoryModel _turfCategoryValue;
+        public TurfCategoryModel TurfCategoryValue { get => _turfCategoryValue; set { _turfCategoryValue = value; onPropertyChanged("Turf Category"); } }
 
         private ObservableCollection<TurfCategoryModel> _turfCategoryType;
         public ObservableCollection<TurfCategoryModel> TurfCategoryType
