@@ -13,10 +13,27 @@ namespace PlayGround.ViewModel
 {
     public class UserNewTurfBookingViewModel : BaseViewModel
     {
+        private string _turfname;
+        private string _turfcity;
+        private string _turfstate;
+        private string _turfzip;
+        private string _turfprice;
         private string _searchTerm;
-        
+        public string SearchTerm { get => _searchTerm; set { _searchTerm = value; onPropertyChanged("Search box"); } }
+        public string TurfName { get => _turfname; set { _turfname = value; onPropertyChanged("turf name"); } }
+        public string TurfCity { get => _turfcity; set { _turfcity = value; onPropertyChanged("turf city"); } }
+        public string TurfState { get => _turfstate; set { _turfstate = value; onPropertyChanged("turf state"); } }
+        public string TurfZip { get => _turfzip; set { _turfzip = value; onPropertyChanged("turf zip"); } }
+        public string TurfPrice { get => _turfprice; set { _turfprice = value; onPropertyChanged("turf price"); } }
+        public ICommand UserNewTurfBookingCommand { get; set; }
+
         public ObservableCollection<TurfModel> _turfDetails = new ObservableCollection<TurfModel>();
-        public ObservableCollection<TurfModel> TurfSearchDetails { get { return _turfDetails; } 
+        public ObservableCollection<TurfModel> TurfSearchDetails 
+        {
+            get
+            {
+                return _turfDetails; 
+            } 
             set 
             {
                 if (_turfDetails == value) return;
@@ -29,13 +46,14 @@ namespace PlayGround.ViewModel
         
         public UserTurfBookingBusinessModel userTurfBookingBusinessModel = new UserTurfBookingBusinessModel();
         public ICommand TurfBookingCommands { get; set; }
-        public string SearchTerm { get => _searchTerm; set {  _searchTerm = value; onPropertyChanged("Search box"); } }
-
-
+      
         private ObservableCollection<TimeSloteModel> _turfOpeningTime = new ObservableCollection<TimeSloteModel>();
         public ObservableCollection<TimeSloteModel> TurfOpeningTime
         {
-            get { return _turfOpeningTime; }
+            get
+            {
+                return _turfOpeningTime;
+            }
             set
             {
                 if (_turfOpeningTime == value) return;
@@ -43,11 +61,26 @@ namespace PlayGround.ViewModel
                 onPropertyChanged(nameof(TurfOpeningTime));
             }
         }
-
+        private TimeSloteModel _openingTime { get; set; }
+        public TimeSloteModel OpeningTime
+        {
+            get
+            { 
+                return _openingTime; 
+            }
+            set
+            {
+                _openingTime = value;
+                onPropertyChanged(nameof(OpeningTime));
+            }
+        }
         private ObservableCollection<TimeSloteModel> _turfClosingTime = new ObservableCollection<TimeSloteModel>();
         public ObservableCollection<TimeSloteModel> TurfClosingTime
         {
-            get { return _turfClosingTime; }
+            get
+            { 
+                return _turfClosingTime; 
+            }
             set
             {
                 if (_turfClosingTime == value) return;
@@ -55,13 +88,28 @@ namespace PlayGround.ViewModel
                 onPropertyChanged(nameof(TurfClosingTime));
             }
         }
-
+        private TimeSloteModel _closingTime { get; set; }
+        public TimeSloteModel ClosingTime
+        {
+            get
+            { 
+                return _closingTime;
+            }
+            set
+            {
+                _closingTime = value;
+                onPropertyChanged(nameof(ClosingTime));
+            }
+        }
 
 
         private ObservableCollection<PaymentTypeModel> _paymentType = new ObservableCollection<PaymentTypeModel>();
         public ObservableCollection<PaymentTypeModel> PaymentType
         {
-            get { return _paymentType; }
+            get
+            {
+                return _paymentType; 
+            }
             set
             {
                 if (_paymentType == value) return;
@@ -69,9 +117,23 @@ namespace PlayGround.ViewModel
                 onPropertyChanged(nameof(PaymentType));
             }
         }
+        private PaymentTypeModel _typeOfPayment { get; set; }
+        public PaymentTypeModel TypeOfPayment
+        {
+            get
+            {
+                return _typeOfPayment;
+            }
+            set
+            {
+                _typeOfPayment = value;
+                onPropertyChanged(nameof(TypeOfPayment));
+            }
+        }
 
         public UserNewTurfBookingViewModel()
         {
+            
             TurfBookingCommands = new TurfBookingCommand(this);
             TimeSloteModel timeModel = new TimeSloteModel();
             PaymentTypeModel payment = new PaymentTypeModel();
