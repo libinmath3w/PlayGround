@@ -52,29 +52,37 @@ namespace PlayGround.Commands
                         {
                             if (item.Status == 1)
                             {
-                                if (item.RoleID == 2) 
+                                if (item.Status == 3)
                                 {
-                                    UsersModel usersModel = new UsersModel();
-                                    usersModel.UserId = item.UserId;
-                                    usersModel.Name = item.Name;
-                                    usersModel.Avatar = item.Avatar;
-                                    var newForm = new MainWindow(usersModel); //create your new form.
-                                    //var newForm = new MainWindow();
-                                    UserLoginView userLoginView = new UserLoginView();
-                                    userLoginView.CloseLoginPage();
-                                    newForm.Show(); //show the new form.
-                                    userLoginViewModel.CloseWindow(userLoginView); //Added call to CloseWindow Method
-                                } 
-                                else if (item.RoleID == 1)
-                                {
-                                    UsersModel usersModel = new UsersModel();
-                                    usersModel.UserId = item.UserId;
-                                    var newForm = new AdminMainWindowView(); //create your new form.
-                                    newForm.Show(); //show the new form.
+                                    if (item.RoleID == 2)
+                                    {
+                                        UsersModel usersModel = new UsersModel();
+                                        usersModel.UserId = item.UserId;
+                                        usersModel.Name = item.Name;
+                                        usersModel.Avatar = item.Avatar;
+                                        var newForm = new MainWindow(usersModel); //create your new form.
+                                                                                  //var newForm = new MainWindow();
+                                        UserLoginView userLoginView = new UserLoginView();
+                                        userLoginView.CloseLoginPage();
+                                        newForm.Show(); //show the new form.
+                                        userLoginViewModel.CloseWindow(userLoginView); //Added call to CloseWindow Method
+                                    }
+                                    else if (item.RoleID == 1)
+                                    {
+                                        UsersModel usersModel = new UsersModel();
+                                        usersModel.UserId = item.UserId;
+                                        var newForm = new AdminMainWindowView(); //create your new form.
+                                        newForm.Show(); //show the new form.
+                                    }
                                 }
+                                else
+                                {
+                                    MessageBox.Show("You are Banned :)");
+                                }
+                                   
                             }
                             else
-                                MessageBox.Show("You are Banned :)");
+                                MessageBox.Show("your account is pending for admin approval :)");
                         }
                         else
                         {

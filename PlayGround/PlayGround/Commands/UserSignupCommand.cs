@@ -68,20 +68,28 @@ namespace PlayGround.Commands
                                     {
                                         if (!isValidUserName(UserName))
                                         {
-                                        UsersModel usersModels = new UsersModel();
-                                        UserSignUpBusinessModel userSignUpBusinessModels = new UserSignUpBusinessModel();
-                                        usersModels.UserName = UserName;
-                                        usersModels.Name = Name;
-                                        usersModels.UserEmailID = UserEmailID;
-                                        usersModels.PhoneNumber = PhoneNumber;
-                                        usersModels.RoleID = 2;
-                                        usersModels.Status = 0;
-                                        string encrypass = Protect(PhoneNumber);
-                                        usersModels.Password = encrypass;
-                                        usersModels.DateOfCreatedAccount = DateTime.Now;
-                                        usersModels.Avatar = "avatar.jpg";
-                                        userSignUpBusinessModels.SaveSignUpDetails(usersModels);
-                                        MessageBox.Show("Registration Successfull");
+                                         if (!string.IsNullOrEmpty(UserName))
+                                         {
+                                            UsersModel usersModels = new UsersModel();
+                                            UserSignUpBusinessModel userSignUpBusinessModels = new UserSignUpBusinessModel();
+                                            usersModels.UserName = UserName;
+                                            usersModels.Name = Name;
+                                            usersModels.UserEmailID = UserEmailID;
+                                            usersModels.PhoneNumber = PhoneNumber;
+                                            usersModels.RoleID = 2;
+                                            usersModels.Status = 0;
+                                            string encrypass = Protect(PhoneNumber);
+                                            usersModels.Password = encrypass;
+                                            usersModels.DateOfCreatedAccount = DateTime.Now;
+                                            usersModels.Avatar = "avatar.jpg";
+                                            userSignUpBusinessModels.SaveSignUpDetails(usersModels);
+                                            MessageBox.Show("Registration Successfull");
+                                         }
+                                         else
+                                         {
+                                            MessageBox.Show("Username is blank");
+                                         }
+                                        
                                         }
                                         else
                                         {
