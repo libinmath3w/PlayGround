@@ -44,7 +44,7 @@ namespace PlayGround.Commands
                 string UserName = UserRegistrationViewModel.UserName;
                 string UserEmailID = UserRegistrationViewModel.UserEmailID;
                 string PhoneNumber = UserRegistrationViewModel.PhoneNumber;
-                if (Name != null && UserName != null && UserEmailID != null && PhoneNumber != null)
+                if (string.IsNullOrEmpty(Name) && UserName != null && UserEmailID != null && PhoneNumber != null)
                 {
                         if (!isValidEmail(UserEmailID))
                         {
