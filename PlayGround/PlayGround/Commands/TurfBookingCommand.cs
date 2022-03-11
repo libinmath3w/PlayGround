@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace PlayGround.Commands
@@ -44,6 +45,12 @@ namespace PlayGround.Commands
                     turfModel.TurfType = item.TurfType;
                     userNewTurfBookingViewModel.TurfSearchDetails.Add(turfModel);
                 }
+            }
+            else if (parameter.ToString() =="BookNow")
+            {
+                MessageBox.Show(userNewTurfBookingViewModel.OpeningTime.TimeSlots.ToString());
+                MessageBox.Show(userNewTurfBookingViewModel.ClosingTime.TimeSlots.ToString());
+                MessageBox.Show(userNewTurfBookingViewModel.TypeOfPayment.PaymentMethod.ToString());
             }
             
         }

@@ -58,9 +58,9 @@
                 <Label x:Name="lblTimeSlot" Content="Time Slot" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-487,88,0,0" FontSize="20"/>
                 <materialDesign:PackIcon Kind="Clock" Width="25" Height="25" Margin="-350,90,0,0"/>
                 <ComboBox x:Name="cbStartTime" Width="150" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="-445,82,0,0"
-                            materialDesign:HintAssist.Hint="Start Time" FontSize="20" ItemsSource="{Binding TurfOpeningTime}" DisplayMemberPath="TimeSlots" />
+                            materialDesign:HintAssist.Hint="Start Time" FontSize="20" ItemsSource="{Binding TurfOpeningTime}" DisplayMemberPath="TimeSlots" SelectedValue="{Binding OpeningTime}"/>
                 <ComboBox x:Name="cbEndTime" Width="150"  VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="-120,82,0,0"
-                            materialDesign:HintAssist.Hint="End Time" FontSize="20" ItemsSource="{Binding TurfClosingTime}" DisplayMemberPath="TimeSlots" />
+                            materialDesign:HintAssist.Hint="End Time" FontSize="20" ItemsSource="{Binding TurfClosingTime}" DisplayMemberPath="TimeSlots" SelectedValue="{Binding ClosingTime}" />
               
 
                     <StackPanel Orientation="Horizontal">
@@ -73,10 +73,10 @@
                     <Label x:Name="lblPayment" Content="Payment"  VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-517,180,0,0" FontSize="20"/>
                     <materialDesign:PackIcon Kind="Payment" Width="25" Height="25" Margin="-380,185,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"/>
                     <ComboBox x:Name="cbModeOfPayment" Width="190" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="-465,175,0,0"
-                            materialDesign:HintAssist.Hint="Mode Of Payment" FontSize="20" ItemsSource="{Binding PaymentType}" DisplayMemberPath="PaymentMethod" />
+                            materialDesign:HintAssist.Hint="Mode Of Payment" FontSize="20" ItemsSource="{Binding PaymentType}" DisplayMemberPath="PaymentMethod" SelectedValue="{Binding TypeOfPayment}"/>
                 </StackPanel>
                 <StackPanel>
-                    <Button Content="Book Now" x:Name="btnBookNow" FontSize="16" FontWeight="Bold" Margin="-490,250,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="172">
+                    <Button Content="Book Now" x:Name="btnBookNow" FontSize="16" FontWeight="Bold" Margin="-490,250,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="172" Command="{Binding TurfBookingCommands}" CommandParameter="BookNow">
                         <Button.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="15"/>
