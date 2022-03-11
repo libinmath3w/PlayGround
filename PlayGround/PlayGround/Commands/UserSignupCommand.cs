@@ -44,7 +44,7 @@ namespace PlayGround.Commands
                 string UserName = UserRegistrationViewModel.UserName;
                 string UserEmailID = UserRegistrationViewModel.UserEmailID;
                 string PhoneNumber = UserRegistrationViewModel.PhoneNumber;
-                if (string.IsNullOrEmpty(Name) && UserName != null && UserEmailID != null && PhoneNumber != null)
+                if (Name != null && UserName != null && UserEmailID != null && PhoneNumber != null)
                 {
                         if (!isValidEmail(UserEmailID))
                         {
@@ -70,20 +70,28 @@ namespace PlayGround.Commands
                                         {
                                          if (!string.IsNullOrEmpty(UserName))
                                          {
-                                            UsersModel usersModels = new UsersModel();
-                                            UserSignUpBusinessModel userSignUpBusinessModels = new UserSignUpBusinessModel();
-                                            usersModels.UserName = UserName;
-                                            usersModels.Name = Name;
-                                            usersModels.UserEmailID = UserEmailID;
-                                            usersModels.PhoneNumber = PhoneNumber;
-                                            usersModels.RoleID = 2;
-                                            usersModels.Status = 0;
-                                            string encrypass = Protect(PhoneNumber);
-                                            usersModels.Password = encrypass;
-                                            usersModels.DateOfCreatedAccount = DateTime.Now;
-                                            usersModels.Avatar = "avatar.jpg";
-                                            userSignUpBusinessModels.SaveSignUpDetails(usersModels);
-                                            MessageBox.Show("Registration Successfull");
+                                            if (!string.IsNullOrEmpty(Name))
+                                            {
+                                                UsersModel usersModels = new UsersModel();
+                                                UserSignUpBusinessModel userSignUpBusinessModels = new UserSignUpBusinessModel();
+                                                usersModels.UserName = UserName;
+                                                usersModels.Name = Name;
+                                                usersModels.UserEmailID = UserEmailID;
+                                                usersModels.PhoneNumber = PhoneNumber;
+                                                usersModels.RoleID = 2;
+                                                usersModels.Status = 0;
+                                                string encrypass = Protect(PhoneNumber);
+                                                usersModels.Password = encrypass;
+                                                usersModels.DateOfCreatedAccount = DateTime.Now;
+                                                usersModels.Avatar = "avatar.jpg";
+                                                userSignUpBusinessModels.SaveSignUpDetails(usersModels);
+                                                MessageBox.Show("Registration Successfull");
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("name is blank");
+                                            }
+                                            
                                          }
                                          else
                                          {
