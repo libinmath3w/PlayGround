@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLayer;
+using EntityLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,31 @@ namespace PlayGround.View
         public AdminAddNewTurfView()
         {
             InitializeComponent();
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            string turfid = txtId.Text;
+            if (!string.IsNullOrEmpty(turfid))
+            {
+                lblnewturf.Content = "Edit Turf Details";
+                AdminAddNewTurfBusinessModel adminAddNewTurfBusinessModels = new AdminAddNewTurfBusinessModel();
+                TurfModel turf = new TurfModel();
+                turf.TurfID = Convert.ToInt32(turfid);
+                var query = adminAddNewTurfBusinessModels.GetTurfDetails(turf);
+                foreach (var item in query)
+                {
+                    txtTurfName.Text = item.TurfName;
+                    txtTurfCity.Text = item.TurfCity;
+                    txtTurfState.Text = item.TurfState;
+                    txtTurfPost.Text = item.Zip;
+                    txtTurfAmount.Text = item.TurfPrice.ToString();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Enter a Turf ID");
+            }
         }
     }
 }

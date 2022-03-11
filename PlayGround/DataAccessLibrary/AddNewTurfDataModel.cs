@@ -12,75 +12,103 @@ namespace DataAccessLibrary
     {
         public void SaveNewTurf(TurfModel turfModel)
         {
-            TurfManagementDBEntities entities = new TurfManagementDBEntities();
-            Turf turf = new Turf();
-            turf.Turf_Name = turfModel.TurfName;
-            turf.Turf_Location = turfModel.TurfLocation;
-            turf.Opening_Time = turfModel.OpeningTime;
-            turf.Closing_Time = turfModel.ClosingTime;
-            turf.Turf_Category_ID = turfModel.TurfCategoryID;
-            turf.Turf_Price = turfModel.TurfPrice;
-            turf.Turf_City = turfModel.TurfCity;
-            turf.Turf_State = turfModel.TurfState;
-            turf.Turf_Zip = turfModel.Zip; 
-            turf.Turf_Image = turfModel.TurfImage;
-            entities.Turfs.Add(turf);
-            entities.SaveChanges();
-        }
-        public List<TimeSloteModel> GetStartingTime(TimeSloteModel timeModel)
-        {
+            try
+            {
+                TurfManagementDBEntities entities = new TurfManagementDBEntities();
+                Turf turf = new Turf();
+                turf.Turf_Name = turfModel.TurfName;
+                turf.Turf_Location = turfModel.TurfLocation;
+                turf.Opening_Time = turfModel.OpeningTime;
+                turf.Closing_Time = turfModel.ClosingTime;
+                turf.Turf_Category_ID = turfModel.TurfCategoryID;
+                turf.Turf_Price = turfModel.TurfPrice;
+                turf.Turf_City = turfModel.TurfCity;
+                turf.Turf_State = turfModel.TurfState;
+                turf.Turf_Zip = turfModel.Zip;
+                turf.Turf_Image = turfModel.TurfImage;
+                entities.Turfs.Add(turf);
+                entities.SaveChanges();
+            }
+            catch (Exception ex)
+            {
 
+                throw ex;
+            }
+        }
+        public List<TimeSloteModel> GetStartingTime()
+        {
             List<TimeSloteModel> TurfStartingTime = new List<TimeSloteModel>();
-
-            TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
-            var result = from startTime in turfManagementDBEntities.Time_Slote
-                         where startTime.Time_ID >= timeModel.TimeID
-                         select startTime;
-            foreach (var turf in result)
+            try
             {
-                TimeSloteModel timeModels = new TimeSloteModel();
-                timeModels.TimeID = turf.Time_ID;
-                timeModels.TimeSlots = turf.Time_Slots;
-                TurfStartingTime.Add(timeModels);
+                TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
+                var result = from startTime in turfManagementDBEntities.Time_Slote
+                             select startTime;
+                foreach (var turf in result)
+                {
+                    TimeSloteModel timeModels = new TimeSloteModel();
+                    timeModels.TimeID = turf.Time_ID;
+                    timeModels.TimeSlots = turf.Time_Slots;
+                    TurfStartingTime.Add(timeModels);
+                }
+                return TurfStartingTime;
             }
-            return TurfStartingTime;
-        }
+            catch (Exception ex)
+            {
 
-        public List<TimeSloteModel> GetEndingTime(TimeSloteModel timeModel)
-        {
-            List<TimeSloteModel> TurfEndingTime = new List<TimeSloteModel>();
-           
-
-            TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
+                throw ex;
+            }
             
-            var result = from endTime in turfManagementDBEntities.Time_Slote
-                         where endTime.Time_ID >= timeModel.TimeID
-                         select endTime;
-            foreach (var turf in result)
-            {
-                TimeSloteModel timeModels = new TimeSloteModel();
-                timeModels.TimeID = turf.Time_ID;
-                timeModels.TimeSlots = turf.Time_Slots;
-                TurfEndingTime.Add(timeModels);
-            }
-            return TurfEndingTime;
         }
 
-        public List<TurfCategoryModel> GetTurfType(TurfCategoryModel turfModel)
+        public List<TimeSloteModel> GetEndingTime()
         {
-
-            List<TurfCategoryModel> TurfCategory = new List<TurfCategoryModel>();
-
-            TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
-            var result = from Type in turfManagementDBEntities.Turf_Category
-                         select Type.Turf_Type;
-            foreach (var turf in result)
+            try
             {
-                TurfCategoryModel turfCategory = new TurfCategoryModel();
-                turfCategory.TurfType = turf.ToString();
-                TurfCategory.Add(turfCategory);
+                List<TimeSloteModel> TurfEndingTime = new List<TimeSloteModel>();
+                TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
+
+                var result = from endTime in turfManagementDBEntities.Time_Slote
+                             select endTime;
+                foreach (var turf in result)
+                {
+                    TimeSloteModel timeModels = new TimeSloteModel();
+                    timeModels.TimeID = turf.Time_ID;
+                    timeModels.TimeSlots = turf.Time_Slots;
+                    TurfEndingTime.Add(timeModels);
+                }
+                return TurfEndingTime;
             }
-            return TurfCategory;
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
+        }
+
+        public List<TurfCategoryModel> GetTurfType()
+        {
+            try
+            {
+                List<TurfCategoryModel> TurfCategoryList = new List<TurfCategoryModel>();
+                TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
+                var query = from turfTypes in turfManagementDBEntities.Turf_Category
+                            select turfTypes;
+                foreach (var item in query)
+                {
+                    TurfCategoryModel turfCategory = new TurfCategoryModel();
+                    turfCategory.TurfID = item.TurfID;
+                    turfCategory.TurfType = item.Turf_Type;
+                    TurfCategoryList.Add(turfCategory);
+                }
+                return TurfCategoryList;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
 
         public void AddNewTurf(TurfModel turfModel)
@@ -113,33 +141,48 @@ namespace DataAccessLibrary
 
         public List<TurfModel> GetTurfDetails(TurfModel turfModel)
         {
-            List<TurfModel> TurfModels = new List<TurfModel>();
-
-            TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
-          
-            var result = from Turf in turfManagementDBEntities.Turfs
-                         where Turf.Turf_ID == turfModel.TurfID
-                         select Turf;
-            foreach (var turf in result)
+            try
             {
-                TurfModel turfs = new TurfModel();
-                turfs.TurfID = turf.Turf_ID;
-                turfs.TurfName = turf.Turf_Name;
-                turfs.OpeningTime = turf.Opening_Time;
-                turfs.ClosingTime = turf.Closing_Time;
-                turfs.TurfCity = turf.Turf_City;
-                turfs.TurfState = turf.Turf_State;
-                turfs.Zip = turf.Turf_Zip;
-                turfs.TurfCategoryID = turf.Turf_Category_ID;
-                turfs.TurfPrice = (float)turf.Turf_Price;
-                TurfModels.Add(turfs);
+                List<TurfModel> TurfModels = new List<TurfModel>();
+                TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
+                var result = from Turf in turfManagementDBEntities.Turfs
+                             where Turf.Turf_ID == turfModel.TurfID
+                             select Turf;
+                foreach (var turf in result)
+                {
+                    TurfModel turfs = new TurfModel();
+                    turfs.TurfID = turf.Turf_ID;
+                    turfs.TurfName = turf.Turf_Name;
+                    turfs.OpeningTime = turf.Opening_Time;
+                    turfs.ClosingTime = turf.Closing_Time;
+                    turfs.TurfCity = turf.Turf_City;
+                    turfs.TurfState = turf.Turf_State;
+                    turfs.Zip = turf.Turf_Zip;
+                    turfs.TurfCategoryID = turf.Turf_Category_ID;
+                    turfs.TurfPrice = (float)turf.Turf_Price;
+                    TurfModels.Add(turfs);
+                }
+                return TurfModels;
             }
-            return TurfModels;
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
 
         public void UpdateTurf(TurfModel turfModel)
         {
-            throw new NotImplementedException();
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
     

@@ -33,38 +33,79 @@ namespace PlayGround.Commands
         {
             if (parameter.ToString() == "AddNewTurf")
             {
+                string TurfID = adminAddNewTurfViewModel.TurfID;
                 string Name = adminAddNewTurfViewModel.TurfName;
                 string City = adminAddNewTurfViewModel.TurfCity;
                 string State = adminAddNewTurfViewModel.TurfState;
                 string Zip = adminAddNewTurfViewModel.TurfZip;
                 string price = adminAddNewTurfViewModel.TurfPrice;
-                if (!string.IsNullOrEmpty(Name) && !string.IsNullOrEmpty(City) && !string.IsNullOrEmpty(State) && !string.IsNullOrEmpty(Zip) && !string.IsNullOrEmpty(price))
+                if (!string.IsNullOrEmpty(TurfID))
                 {
-                    if (!int.TryParse(price, out _))
+                    if (!string.IsNullOrEmpty(Name) && !string.IsNullOrEmpty(City) && !string.IsNullOrEmpty(State) && !string.IsNullOrEmpty(Zip) && !string.IsNullOrEmpty(price) && !string.IsNullOrEmpty(TurfID))
                     {
-                        MessageBox.Show("Price should be a number");
+                        if (!int.TryParse(price, out _))
+                        {
+                            MessageBox.Show("Price should be a number");
+                        }
+                        else
+                        {
+                            AdminAddNewTurfBusinessModel adminAddNewTurfBusinessModel = new AdminAddNewTurfBusinessModel();
+                            TurfModel model = new TurfModel();
+                            model.TurfID = Convert.ToInt32(TurfID);
+                            model.TurfName = Name;
+                            model.TurfCity = City;
+                            model.TurfState = State;
+                            model.Zip = Zip;
+                            model.TurfPrice = float.Parse(price);
+                            model.OpeningTime = adminAddNewTurfViewModel.TimeSlotStartTime.TimeID;
+                            model.ClosingTime = adminAddNewTurfViewModel.TimeSlotEndTime.TimeID;
+                            model.TurfCategoryID = adminAddNewTurfViewModel.TurfCategoryValue.TurfID;
+                            if (!string.IsNullOrEmpty(ImagePath))
+                                model.TurfImage = ImagePath;
+                            else
+                                model.TurfImage = "turf.jpg";
+                            adminAddNewTurfBusinessModel.UpdateTurf(model);
+                            MessageBox.Show("Turf Details Updated");
+                        }
                     }
                     else
                     {
-                        TurfModel model = new TurfModel();
-                        model.TurfName = Name;
-                        model.TurfCity = City;
-                        model.TurfState = State;
-                        model.Zip = Zip;
-                        model.TurfPrice = float.Parse(price);
-                        model.OpeningTime = adminAddNewTurfViewModel.TimeSlotStartTime.TimeID;
-                        model.ClosingTime = adminAddNewTurfViewModel.TimeSlotEndTime.TimeID;
-                        model.TurfCategoryID = adminAddNewTurfViewModel.TurfCategoryValue.TurfID;
-                        if (!string.IsNullOrEmpty(ImagePath))
-                            model.TurfImage = ImagePath;
-                        else
-                            model.TurfImage = "turf.jpg";
-
+                        MessageBox.Show("Enter value in all fields");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Enter value in all fields");
+                    if (!string.IsNullOrEmpty(Name) && !string.IsNullOrEmpty(City) && !string.IsNullOrEmpty(State) && !string.IsNullOrEmpty(Zip) && !string.IsNullOrEmpty(price))
+                    {
+                        if (!int.TryParse(price, out _))
+                        {
+                            MessageBox.Show("Price should be a number");
+                        }
+                        else
+                        {
+                            AdminAddNewTurfBusinessModel adminAddNewTurfBusinessModel = new AdminAddNewTurfBusinessModel();
+                            TurfModel model = new TurfModel();
+                            model.TurfName = Name;
+                            model.TurfCity = City;
+                            model.TurfState = State;
+                            model.Zip = Zip;
+                            model.TurfPrice = float.Parse(price);
+                            model.TurfStatus = 0;
+                            model.OpeningTime = adminAddNewTurfViewModel.TimeSlotStartTime.TimeID;
+                            model.ClosingTime = adminAddNewTurfViewModel.TimeSlotEndTime.TimeID;
+                            model.TurfCategoryID = adminAddNewTurfViewModel.TurfCategoryValue.TurfID;
+                            if (!string.IsNullOrEmpty(ImagePath))
+                                model.TurfImage = ImagePath;
+                            else
+                                model.TurfImage = "turf.jpg";
+                            adminAddNewTurfBusinessModel.AddNewTurf(model);
+                            MessageBox.Show("New Turf Added");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Enter value in all fields");
+                    }
                 }
             }
             else if (parameter.ToString() == "NewTurfImage")
@@ -96,28 +137,12 @@ namespace PlayGround.Commands
             else if (parameter.ToString() == "EditTurf")
             {
                 string turfid = adminAddNewTurfViewModel.TurfID;
-                if(!string.IsNullOrEmpty(turfid))
-                {
-                    AdminAddNewTurfBusinessModel adminAddNewTurfBusinessModels = new AdminAddNewTurfBusinessModel();
-                    TurfModel turf = new TurfModel();
-                    turf.TurfID =Convert.ToInt32(turfid);
-                    var query = adminAddNewTurfBusinessModels.GetTurfDetails(turf);
-                    foreach (var item in query)
-                    {
-                        adminAddNewTurfViewModel.TurfName = item.TurfName;
-                        adminAddNewTurfViewModel.TurfCity = item.TurfCity;
-                        adminAddNewTurfViewModel.TurfState = item.TurfState;
-                        adminAddNewTurfViewModel.TurfZip = item.Zip;
-                        adminAddNewTurfViewModel.TurfPrice = item.TurfPrice.ToString();
-
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Enter a Turf ID");
-                }
             }
-            }
+            else
+            {
+                MessageBox.Show("Enter a Turf ID");
+            } 
+        }
 
         public static String GetTimestamp(DateTime value)
         {

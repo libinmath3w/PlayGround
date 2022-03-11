@@ -30,11 +30,11 @@
                 </Style>
             </materialDesign:Card.Resources>
             <StackPanel>
-                <Label Content="Add New Turf" HorizontalAlignment="Center" FontSize="17" Height="29" />
+                <Label Name="lblnewturf" Content="Add New Turf" HorizontalAlignment="Center" FontSize="17" Height="29" />
                 
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Soccer" Width="25" Height="25" Margin="25,35,0,0"/>
-                    <TextBox x:Name="txtTurfName" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,25,0,5" Text="{Binding TurfName}"
+                    <TextBox x:Name="txtTurfName" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,25,0,5" Text="{Binding TurfName, Mode=TwoWay}"
                             materialDesign:HintAssist.Hint="Turf Name" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
@@ -120,7 +120,7 @@
             <StackPanel Orientation="Horizontal">
                 <TextBox x:Name="txtId" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="200" Margin="10,55,0,0" HorizontalAlignment="Center" VerticalAlignment="Top"
                             materialDesign:HintAssist.Hint="Enter Turf ID" Text="{Binding TurfID}"/>
-                <Button  x:Name="btnEdit" FontSize="16" FontWeight="Bold" Margin="20,10,0,0"  Foreground="White" Background="LightBlue" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Width="50" Height="40" Command="{Binding AddNewTurfCommands}" CommandParameter="EditTurf">
+                <Button  x:Name="btnEdit" FontSize="16" FontWeight="Bold" Margin="20,10,0,0"  Foreground="White" Background="LightBlue" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Width="50" Height="40" Command="{Binding AddNewTurfCommands}" CommandParameter="EditTurf" Click="btnEdit_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="15"/>

@@ -10,9 +10,9 @@ namespace EntityLayer.Interface
     {
         void SaveNewTurf(TurfModel turfModel);
 
-        List<TimeSloteModel> GetStartingTime(TimeSloteModel timeSloteModel);
-        List<TimeSloteModel> GetEndingTime(TimeSloteModel timeSloteModel);
-        List<TurfCategoryModel> GetTurfType(TurfCategoryModel turfCategory);
+        List<TimeSloteModel> GetStartingTime();
+        List<TimeSloteModel> GetEndingTime();
+        List<TurfCategoryModel> GetTurfType();
         void AddNewTurf(TurfModel turfModel);
         List<TurfModel> GetTurfDetails(TurfModel turfModel);
         void UpdateTurf(TurfModel turfModel);

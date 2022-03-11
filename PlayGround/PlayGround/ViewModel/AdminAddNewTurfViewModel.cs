@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace PlayGround.ViewModel
@@ -30,50 +31,21 @@ namespace PlayGround.ViewModel
         public TimeSloteModel TimeSlotEndTime { get => _timeSlotEndTime; set { _timeSlotEndTime = value; onPropertyChanged("End Time"); } }
 
         private ObservableCollection<TimeSloteModel> _turfStartingTime;
-        public ObservableCollection<TimeSloteModel> TurfStartingTime
-        {
-            get { return _turfStartingTime; }
-            set
-            {
-                if (_turfStartingTime == value) return;
-                _turfStartingTime = value;
-                onPropertyChanged(nameof(TurfStartingTime));
-            }
-        }
+        public ObservableCollection<TimeSloteModel> TurfStartingTime { get { return _turfStartingTime; } 
+            set { if (_turfStartingTime == value) return; _turfStartingTime = value; onPropertyChanged(nameof(TurfStartingTime)); } }
         private ObservableCollection<TimeSloteModel> _startingTime;
-        public ObservableCollection<TimeSloteModel> StartingTime
-        {
-            get { return _startingTime; }
-            set {_startingTime = value;
-                onPropertyChanged("StartingTime");}
-        }
+        public ObservableCollection<TimeSloteModel> StartingTime { get { return _startingTime; } set {_startingTime = value; onPropertyChanged("StartingTime");}}
 
         private ObservableCollection<TimeSloteModel> _turfEndingTime;
-        public ObservableCollection<TimeSloteModel> TurfEndingTime
-        {
-            get { return _turfEndingTime; }
-            set
-            {
-                if (_turfEndingTime == value) return;
-                _turfEndingTime = value;
-                onPropertyChanged(nameof(TurfEndingTime));
-            }
-        }
+        public ObservableCollection<TimeSloteModel> TurfEndingTime { get { return _turfEndingTime; }
+            set { if (_turfEndingTime == value) return; _turfEndingTime = value; onPropertyChanged(nameof(TurfEndingTime)); } }
 
         private TurfCategoryModel _turfCategoryValue;
         public TurfCategoryModel TurfCategoryValue { get => _turfCategoryValue; set { _turfCategoryValue = value; onPropertyChanged("Turf Category"); } }
 
         private ObservableCollection<TurfCategoryModel> _turfCategoryType;
-        public ObservableCollection<TurfCategoryModel> TurfCategoryType
-        {
-            get { return _turfCategoryType; }
-            set
-            {
-                if (_turfCategoryType == value) return;
-                _turfCategoryType = value;
-                onPropertyChanged(nameof(TurfCategoryType));
-            }
-        }
+        public ObservableCollection<TurfCategoryModel> TurfCategoryType { get { return _turfCategoryType; }
+            set { if (_turfCategoryType == value) return; _turfCategoryType = value; onPropertyChanged(nameof(TurfCategoryType)); } }
         public ICommand AddNewTurfCommands { get; set; }
         public string TurfID { get => _turfID; set { _turfID = value; onPropertyChanged("TurfID"); } }
         public string TurfName { get => _turfname; set { _turfname = value; onPropertyChanged("turf name"); } }
@@ -88,39 +60,49 @@ namespace PlayGround.ViewModel
             TurfEndingTime = new ObservableCollection<TimeSloteModel>();
             TurfCategoryType = new ObservableCollection<TurfCategoryModel>();
             StartingTime = new ObservableCollection<TimeSloteModel>();
+            AddNewTurfCommands = new AddNewTurfCommand(this);
+            GetAllComboValues();
+        }
 
-            AddNewTurfCommands = new AddNewTurfCommand(this);   
-            TurfCategoryModel turfCategoryModel = new TurfCategoryModel();
-            TimeSloteModel timeModel = new TimeSloteModel();
-            TurfModel turfModel = new TurfModel();
-
-            var query1 = adminAddNewTurfBusinessModel.GetStartingTime(timeModel);
-            var query2 = adminAddNewTurfBusinessModel.GetEndingTime(timeModel);
-            var query3 = adminAddNewTurfBusinessModel.GetTurfType(turfCategoryModel);
-          
-            foreach (var item in query1)
+        public void GetAllComboValues()
+        {
+            var startTimeCombo = adminAddNewTurfBusinessModel.GetStartingTime();
+            foreach (var item in startTimeCombo)
             {
                 TimeSloteModel timeModels = new TimeSloteModel();
                 timeModels.TimeID = item.TimeID;
                 timeModels.TimeSlots = item.TimeSlots;
                 TurfStartingTime.Add(timeModels);
                 StartingTime.Add(timeModels);
-                
+
             }
-            foreach (var item in query2)
+            var EndTimeCombo = adminAddNewTurfBusinessModel.GetEndingTime();
+            foreach (var item in EndTimeCombo)
             {
                 TimeSloteModel timeModels = new TimeSloteModel();
                 timeModels.TimeID = item.TimeID;
                 timeModels.TimeSlots = item.TimeSlots;
                 TurfEndingTime.Add(timeModels);
             }
-            foreach (var item in query3)
+            var GetTurfCombo = adminAddNewTurfBusinessModel.GetTurfType();
+            foreach (var item in GetTurfCombo)
             {
                 TurfCategoryModel turfModels = new TurfCategoryModel();
                 turfModels.TurfType = item.TurfType;
+                turfModels.TurfID = item.TurfID;
                 TurfCategoryType.Add(turfModels);
             }
-          
+        }
+        public void GetEditTurfValues(TurfModel turfModels)
+        {
+            AdminAddNewTurfBusinessModel adminAddNewTurfBusinessModels = new AdminAddNewTurfBusinessModel();
+            var query = adminAddNewTurfBusinessModels.GetTurfDetails(turfModels);
+            MessageBox.Show("Please Wait......");
+            foreach (var item in query)
+            {
+                TurfName = item.TurfName;
+                TurfCity = item.TurfCity;
+            }
         }
     }
 }
