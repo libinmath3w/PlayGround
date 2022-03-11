@@ -55,7 +55,6 @@ namespace PlayGround.Commands
                 
                // startId = adminAddNewTurfViewModel.StartingTime                
                 
-
                 //foreach (var item in result)
                 //{
                 //    timeSloteModel.TimeID = item.TimeID;
