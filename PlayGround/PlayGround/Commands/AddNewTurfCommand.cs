@@ -1,6 +1,7 @@
 ﻿using BusinessLayer;
 using EntityLayer;
 using Microsoft.Win32;
+using PlayGround.View;
 using PlayGround.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -66,6 +67,8 @@ namespace PlayGround.Commands
                                 model.TurfImage = "turf.jpg";
                             adminAddNewTurfBusinessModel.UpdateTurf(model);
                             MessageBox.Show("Turf Details Updated");
+                            AdminAddNewTurfView adminAddNewTurfView = new AdminAddNewTurfView();
+                            adminAddNewTurfView.Refresh();
                         }
                     }
                     else

@@ -20,7 +20,6 @@ namespace DataAccessLibrary
                             join turftypes in turfManagementDBEntities.Turf_Category on turfDetails.Turf_Category_ID equals turftypes.TurfID
                             join Startturftime in turfManagementDBEntities.Time_Slote on turfDetails.Opening_Time equals Startturftime.Time_ID
                             join Endturftime in turfManagementDBEntities.Time_Slote on turfDetails.Closing_Time equals Endturftime.Time_ID
-                            where turfDetails.Turf_City.Equals(turfModel.TurfCity) 
                             select new
                             {
                                 TID = turfDetails.Turf_ID,
@@ -33,7 +32,8 @@ namespace DataAccessLibrary
                                 TImage = turfDetails.Turf_Image,
                                 TState = turfDetails.Turf_State
                             };
-                foreach (var item in query)
+                var result = query.Where(p => p.TCity.Contains(turfModel.TurfCity));
+                foreach (var item in result)
                 {
                     TurfModel turfModels = new TurfModel();
                     turfModels.TurfID = item.TID;

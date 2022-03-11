@@ -2,9 +2,12 @@
 using EntityLayer.Interface;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace DataAccessLibrary
 {
@@ -148,20 +151,28 @@ namespace DataAccessLibrary
                 var result = from Turf in turfManagementDBEntities.Turfs
                              where Turf.Turf_ID == turfModel.TurfID
                              select Turf;
-                foreach (var turf in result)
+                if(result.Count() > 0)
                 {
-                    TurfModel turfs = new TurfModel();
-                    turfs.TurfID = turf.Turf_ID;
-                    turfs.TurfName = turf.Turf_Name;
-                    turfs.OpeningTime = turf.Opening_Time;
-                    turfs.ClosingTime = turf.Closing_Time;
-                    turfs.TurfCity = turf.Turf_City;
-                    turfs.TurfState = turf.Turf_State;
-                    turfs.Zip = turf.Turf_Zip;
-                    turfs.TurfCategoryID = turf.Turf_Category_ID;
-                    turfs.TurfPrice = (float)turf.Turf_Price;
-                    TurfModels.Add(turfs);
+                    foreach (var turf in result)
+                    {
+                        TurfModel turfs = new TurfModel();
+                        turfs.TurfID = turf.Turf_ID;
+                        turfs.TurfName = turf.Turf_Name;
+                        turfs.OpeningTime = turf.Opening_Time;
+                        turfs.ClosingTime = turf.Closing_Time;
+                        turfs.TurfCity = turf.Turf_City;
+                        turfs.TurfState = turf.Turf_State;
+                        turfs.Zip = turf.Turf_Zip;
+                        turfs.TurfCategoryID = turf.Turf_Category_ID;
+                        turfs.TurfPrice = (float)turf.Turf_Price;
+                        TurfModels.Add(turfs);
+                    }
                 }
+                else
+                {
+                    MessageBox.Show("No turf found in this ID");
+                }
+                
                 return TurfModels;
             }
             catch (Exception ex)
@@ -176,11 +187,14 @@ namespace DataAccessLibrary
         {
             try
             {
-
+                SqlConnection sqlConnection = null;
+                sqlConnection = new SqlConnection("Data Source =.; Database = TurfManagementDB; Integrated Security=true;");
+                SqlDataAdapter adapter = new SqlDataAdapter("UPDATE TURF SET TURF_NAME = '" + turfModel.TurfName + "', TURF_CITY = '" + turfModel.TurfCity + "', TURF_STATE = '" + turfModel.TurfState + "', TURF_ZIP = '" + turfModel.Zip + "', Opening_Time = " + turfModel.OpeningTime + ", Closing_Time = " + turfModel.ClosingTime + ", Turf_Category_ID = " + turfModel.TurfCategoryID + ", Turf_Price = " + turfModel.TurfPrice + ", Turf_Image = '" + turfModel.TurfImage + "' WHERE TURF_ID = " + turfModel.TurfID, sqlConnection);
+                DataSet dataSet = new DataSet();
+                adapter.Fill(dataSet);           
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }

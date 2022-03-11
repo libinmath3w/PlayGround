@@ -27,6 +27,15 @@ namespace PlayGround.View
             InitializeComponent();
         }
 
+        public void Refresh()
+        {
+            txtTurfName.Text = string.Empty;
+            txtTurfCity.Text = string.Empty;
+            txtTurfState.Text = string.Empty;
+            txtTurfPost.Text = string.Empty;
+            txtTurfAmount.Text = string.Empty;
+        }
+
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
             string turfid = txtId.Text;
