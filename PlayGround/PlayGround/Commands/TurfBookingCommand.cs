@@ -35,15 +35,16 @@ namespace PlayGround.Commands
                 var query = userTurfBookingBusinessModel.GetTurfDetails(turfModel);
                 foreach (var item in query)
                 {
-                    turfModel.TurfName = item.TurfName;
-                    turfModel.StartTime = item.StartTime;
-                    turfModel.EndTime = item.EndTime;
-                    turfModel.TurfLocation = item.TurfCity;
-                    turfModel.TurfPrice = item.TurfPrice;
-                    turfModel.TurfID = item.TurfID;
-                    turfModel.TurfState = item.TurfState;
-                    turfModel.TurfType = item.TurfType;
-                    userNewTurfBookingViewModel.TurfSearchDetails.Add(turfModel);
+                    TurfModel turfModels = new TurfModel();
+                    turfModels.TurfName = item.TurfName;
+                    turfModels.StartTime = item.StartTime;
+                    turfModels.EndTime = item.EndTime;
+                    turfModels.TurfLocation = item.TurfCity;
+                    turfModels.TurfPrice = item.TurfPrice;
+                    turfModels.TurfID = item.TurfID;
+                    turfModels.TurfState = item.TurfState;
+                    turfModels.TurfType = item.TurfType;
+                    userNewTurfBookingViewModel.TurfSearchDetails.Add(turfModels);
                 }
             }
             else if (parameter.ToString() =="BookNow")
