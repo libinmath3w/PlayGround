@@ -13,7 +13,16 @@
              FontFamily="{materialDesign:MaterialDesignFont}"
              d:DesignHeight="750" d:DesignWidth="1100">
     <Grid>
-        <materialDesign:Card Height="80" VerticalAlignment="Top" Margin="35,10,0,0" Width="600">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="260"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <materialDesign:Card Height="70" VerticalAlignment="Top" Margin="35,10,0,0" Width="600">
             <materialDesign:Card.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="20"/>
@@ -28,8 +37,8 @@
                 </Button>
             </StackPanel>
         </materialDesign:Card>
-        <Grid Margin="10,-600,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="800">
-            <materialDesign:Card Margin="25,350,0,0" Height="220" Width="750"  >
+        <Grid Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="800" Height="250" Grid.Row="1">
+            <materialDesign:Card Margin="25,0,0,0" Height="220" Width="750"  >
                 <materialDesign:Card.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="20"/>
@@ -44,14 +53,13 @@
                     <DataGridTextColumn Header="Opening Time" Binding="{Binding StartTime}" IsReadOnly="True"/>
                     <DataGridTextColumn Header="Closing Time" Binding="{Binding EndTime}" IsReadOnly="True"/>
                     <DataGridTextColumn Header="State" Binding="{Binding TurfState}" IsReadOnly="True"/>
-                    <!--<DataGridTextColumn Header="Zip" Binding="{Binding Zip}" IsReadOnly="True"/>-->
                     <DataGridTextColumn Header="Amount" Binding="{Binding TurfPrice}" IsReadOnly="True"/>
                 </DataGrid.Columns>
             </DataGrid>
             </materialDesign:Card>
         </Grid>
-       
-        <materialDesign:Card Margin="25,350,0,0" Height="320" Width="600"  >
+        <Grid Grid.Row="2">
+        <materialDesign:Card Margin="25,0,0,0" Height="320" Width="600"  >
             <materialDesign:Card.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="20"/>
@@ -97,5 +105,6 @@
                 </StackPanel>
             </StackPanel>
         </materialDesign:Card>
+        </Grid>
     </Grid>
 </UserControl>
