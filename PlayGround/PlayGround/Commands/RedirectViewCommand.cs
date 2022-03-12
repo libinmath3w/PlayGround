@@ -33,7 +33,7 @@ namespace PlayGround.Commands
                 usersModel.UserId = viewModel.UsersModels.UserId;
                 usersModel.Name = viewModel.UsersModels.Name;
                 usersModel.Avatar = viewModel.UsersModels.Avatar;
-                viewModel.SelectedViewModel = new UserDashboardViewModel();
+                viewModel.SelectedViewModel = new UserDashboardViewModel(usersModel);
             }
             else if (parameter.ToString() == "UserSettings")
             {
