@@ -52,7 +52,7 @@
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Booking Date"  VerticalAlignment="Top" FontSize="20" Margin="15,16,0,0"/>
                     <materialDesign:PackIcon Kind="Calendar" Width="25" Height="25" Margin="10,20,0,0"/>
-                    <DatePicker HorizontalAlignment="Center" VerticalAlignment="Top" Width="300" materialDesign:HintAssist.Hint="Select Date" Style="{DynamicResource MaterialDesignOutlinedDatePicker}" Margin="25,10,0,0"/>
+                    <DatePicker x:Name="dpBookingDates" HorizontalAlignment="Center" VerticalAlignment="Top" Width="300" materialDesign:HintAssist.Hint="Select Date" Style="{DynamicResource MaterialDesignOutlinedDatePicker}" Margin="25,10,0,0"/>
                 </StackPanel>
                 
                 <Label x:Name="lblTimeSlot" Content="Time Slot" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-487,88,0,0" FontSize="20"/>

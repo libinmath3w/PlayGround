@@ -23,6 +23,7 @@ namespace PlayGround.View
         public UserNewTurfBookingView()
         {
             InitializeComponent();
+            dpBookingDates.DisplayDateStart = DateTime.Now;
         }
     }
 }
