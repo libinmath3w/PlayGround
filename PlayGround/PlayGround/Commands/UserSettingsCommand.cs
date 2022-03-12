@@ -58,7 +58,7 @@ namespace PlayGround.Commands
                             if (phone.Length == 10)
                             {
                                 UsersModel usersModel = new UsersModel();
-                                usersModel.UserId = 2;
+                                usersModel.UserId = userSettingsViewModels.UserID;
                                 usersModel.Name = userSettingsViewModels.Name;
                                 usersModel.UserEmailID = userSettingsViewModels.Emailid;
                                 usersModel.PhoneNumber = userSettingsViewModels.PhoneNumber;
@@ -103,7 +103,7 @@ namespace PlayGround.Commands
                             File.Copy(fd.FileName, imagePath);
                             UsersModel usersModel = new UsersModel();
                             usersModel.Avatar = fileNameToSave;
-                            usersModel.UserId = 3;
+                            usersModel.UserId = userSettingsViewModels.UserID;
                             UserSettingsBusinessModel userSettingsBusinessModel = new UserSettingsBusinessModel();
                             userSettingsBusinessModel.SaveAvatar(usersModel);
                             MessageBox.Show("Avatar Updated");

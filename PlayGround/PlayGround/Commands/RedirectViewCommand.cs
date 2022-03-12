@@ -29,18 +29,22 @@ namespace PlayGround.Commands
         {
             if (parameter.ToString() == "UserDashboard")
             {
+                UsersModel usersModel = new UsersModel();
+                usersModel.UserId = viewModel.UsersModels.UserId;
+                usersModel.Name = viewModel.UsersModels.Name;
+                usersModel.Avatar = viewModel.UsersModels.Avatar;
                 viewModel.SelectedViewModel = new UserDashboardViewModel();
             }
             else if (parameter.ToString() == "UserSettings")
             {
                 UsersModel usersModel = new UsersModel();
-                usersModel.UserId = 3;
+                usersModel.UserId = viewModel.UsersModels.UserId;
                 viewModel.SelectedViewModel = new UserSettingsViewModels(usersModel);
             }
             else if (parameter.ToString() == "UserTurfBooking")
             {
                 BookingModel bookingModel = new BookingModel();
-                bookingModel.UserID = 2;
+                bookingModel.UserID = viewModel.UsersModels.UserId;
                 viewModel.SelectedViewModel = new UserTurfBookingViewModel(bookingModel);
             }
             else if (parameter.ToString() == "IsDarkMode")
@@ -62,13 +66,11 @@ namespace PlayGround.Commands
             {
                 viewModel.SelectedViewModel = new UserLogoutViewModel();
             }
-            else if (parameter.ToString() == "AdminSettings")
+            else if (parameter.ToString() == "UserAddNewTurf")
             {
-                viewModel.SelectedViewModel = new AdminTurfBookingHistoryViewModel();
-            }
-            else if (parameter.ToString() == "AdminAddNewTurf")
-            {
-                viewModel.SelectedViewModel = new UserNewTurfBookingViewModel();
+                UsersModel usersModel = new UsersModel();
+                usersModel.UserId = viewModel.UsersModels.UserId;
+                viewModel.SelectedViewModel = new UserNewTurfBookingViewModel(usersModel);
             }
 
         }

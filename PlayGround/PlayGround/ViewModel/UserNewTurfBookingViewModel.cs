@@ -130,10 +130,11 @@ namespace PlayGround.ViewModel
                 onPropertyChanged(nameof(TypeOfPayment));
             }
         }
+        public int UserID { get; set; }
 
-        public UserNewTurfBookingViewModel()
+        public UserNewTurfBookingViewModel(UsersModel usersModel)
         {
-            
+            UserID = usersModel.UserId;
             TurfBookingCommands = new TurfBookingCommand(this);
             TimeSloteModel timeModel = new TimeSloteModel();
             PaymentTypeModel payment = new PaymentTypeModel();

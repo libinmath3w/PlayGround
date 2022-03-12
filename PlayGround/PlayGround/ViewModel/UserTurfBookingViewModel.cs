@@ -15,7 +15,6 @@ namespace PlayGround.ViewModel
         public UserBookingHistoryBusinessModel userBookingHistoryBusinessModel = new UserBookingHistoryBusinessModel();
         public UserTurfBookingViewModel(BookingModel bookingModel)
         {
-            bookingModel.UserID = 2;
             _viewUserTurfBookingsAndBookNew = userBookingHistoryBusinessModel.GetBookingDetails(bookingModel);
         }
     }

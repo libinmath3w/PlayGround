@@ -40,6 +40,7 @@ namespace PlayGround.ViewModel
             UserSettingsBusinessModel userSettingsBusinessModel = new UserSettingsBusinessModel();
             UsersModel users = new UsersModel();
             users.UserId = usersModel.UserId;
+            UserID = usersModel.UserId;
             var query = userSettingsBusinessModel.GetUserDetails(users);
             foreach (var item in query)
             {

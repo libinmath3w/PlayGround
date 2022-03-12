@@ -71,7 +71,7 @@
   Padding="16">
             <DockPanel Margin="0,0,20,0">
                 <materialDesign:Chip Margin="0,-8,0,0"
-  Content="Hello, David" Foreground="Wheat" DockPanel.Dock="Right" Width="150">
+  Content="{Binding HelloName}" Foreground="Wheat" DockPanel.Dock="Right" Width="150">
                     <materialDesign:Chip.Icon>
                         <Image Source="/Assets/avatar.jpg"/>
                     </materialDesign:Chip.Icon>
@@ -187,14 +187,6 @@
                                 </StackPanel>
                             </Button>
                         </ListViewItem>
-                        <ListViewItem HorizontalAlignment="Center" Margin="0">
-                            <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left" Command="{Binding RedirectViewCommands}" CommandParameter="AdminSettings" ToolTip="Dashboard"
-                             BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black">
-                                <StackPanel Margin="-5">
-                                    <materialDesign:PackIcon Kind="CircleSlice6"/>
-                                </StackPanel>
-                            </Button>
-                        </ListViewItem>
                         <ListViewItem HorizontalAlignment="Center" Margin="0 10">
                             <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
                              BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Command="{Binding RedirectViewCommands}" CommandParameter="UserTurfBooking" ToolTip="Bookings">
@@ -214,7 +206,7 @@
 
                         <ListViewItem HorizontalAlignment="Center" Margin="0 60 0 0">
                             <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
-                             BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" x:Name="btnExit" ToolTip="Log Out" Command="{Binding RedirectViewCommands}" CommandParameter="SignOut">
+                             BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" x:Name="btnExit" ToolTip="Log Out" Command="{Binding RedirectViewCommands}" CommandParameter="SignOut" Click="btnExit_Click">
                                 <StackPanel Margin="-5">
                                     <materialDesign:PackIcon Kind="Logout"/>
                                 </StackPanel>
@@ -226,7 +218,7 @@
                     <ContentControl Content="{Binding SelectedViewModel}" />
                     <Button
         Style="{DynamicResource MaterialDesignFloatingActionMiniAccentButton}"
-        Command="{Binding RedirectViewCommands}" CommandParameter="AdminAddNewTurf" ToolTip="Book Turf Now"
+        Command="{Binding RedirectViewCommands}" CommandParameter="UserAddNewTurf" ToolTip="Book Turf Now"
         VerticalAlignment="Bottom"
         HorizontalAlignment="Right"
         Margin="0 0 100 100"

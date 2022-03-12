@@ -48,9 +48,10 @@ namespace PlayGround.Commands
             }
             else if (parameter.ToString() =="BookNow")
             {
-                MessageBox.Show(userNewTurfBookingViewModel.OpeningTime.TimeSlots.ToString());
-                MessageBox.Show(userNewTurfBookingViewModel.ClosingTime.TimeSlots.ToString());
-                MessageBox.Show(userNewTurfBookingViewModel.TypeOfPayment.PaymentMethod.ToString());
+                int UserID = userNewTurfBookingViewModel.UserID;
+                MessageBox.Show(UserID.ToString());
+                //MessageBox.Show(userNewTurfBookingViewModel.ClosingTime.TimeSlots.ToString());
+                //MessageBox.Show(userNewTurfBookingViewModel.TypeOfPayment.PaymentMethod.ToString());
             }
             
         }

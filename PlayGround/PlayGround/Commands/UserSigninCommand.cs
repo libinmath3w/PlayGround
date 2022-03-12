@@ -50,9 +50,13 @@ namespace PlayGround.Commands
                     {
                         if (Password == Unprotect(item.Password))
                         {
-                            if (item.Status == 1)
+                            if (item.Status == 0)
                             {
-                                if (item.Status == 3)
+                                MessageBox.Show("your account is pending for admin approval :)");
+                            }
+                            else
+                            {
+                                if (item.Status == 1)
                                 {
                                     if (item.RoleID == 2)
                                     {
@@ -71,6 +75,8 @@ namespace PlayGround.Commands
                                     {
                                         UsersModel usersModel = new UsersModel();
                                         usersModel.UserId = item.UserId;
+                                        usersModel.Name = item.Name;
+                                        usersModel.Avatar = item.Avatar;
                                         var newForm = new AdminMainWindowView(); //create your new form.
                                         newForm.Show(); //show the new form.
                                     }
@@ -79,10 +85,7 @@ namespace PlayGround.Commands
                                 {
                                     MessageBox.Show("You are Banned :)");
                                 }
-                                   
                             }
-                            else
-                                MessageBox.Show("your account is pending for admin approval :)");
                         }
                         else
                         {
