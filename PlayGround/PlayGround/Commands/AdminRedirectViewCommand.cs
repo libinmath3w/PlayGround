@@ -25,7 +25,7 @@ namespace PlayGround.Commands
         {
             if (parameter.ToString() == "AdminDashboard")
             {
-                viewModel.SelectedViewModel = new AdminUserDashboardViewModel();
+                viewModel.SelectedViewModel = new AdminDashboardViewModel();
             }
             else if (parameter.ToString() == "AdminSettings")
             {
