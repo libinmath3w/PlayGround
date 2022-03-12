@@ -50,7 +50,6 @@ namespace PlayGround.Commands
                         turfModels.TurfType = item.TurfType;
                         userNewTurfBookingViewModel.TurfSearchDetails.Add(turfModels);
                     }
-                    userNewTurfBookingViewModel.SearchTerm = "";
                 }
                 else
                 {
