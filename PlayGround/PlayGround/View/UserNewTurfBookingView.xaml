@@ -13,22 +13,29 @@
              FontFamily="{materialDesign:MaterialDesignFont}"
              d:DesignHeight="750" d:DesignWidth="1100">
     <Grid>
+        <materialDesign:Card Height="80" VerticalAlignment="Top" Margin="35,10,0,0" Width="600">
+            <materialDesign:Card.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </materialDesign:Card.Resources>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="txtSearch" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="300" Height="50" Text="{Binding SearchTerm}"  VerticalContentAlignment="Center" Margin="145,0,0,0" 
+                            materialDesign:HintAssist.Hint="Search Turf Location" />
 
-        <StackPanel Orientation="Horizontal" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="20">
-            <Button
-            Style="{DynamicResource MaterialDesignToolButton}" Command="{Binding TurfBookingCommands}" CommandParameter="Search">
-                <materialDesign:PackIcon Kind="Search" Opacity="10" Margin="300,0,0,0" HorizontalAlignment="Right"/>
-            </Button>
-            <TextBox
-            Margin="-300,10,0,0"
-            materialDesign:HintAssist.Hint="Search Turf Location"
-            materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-            BorderThickness="0"
-                HorizontalAlignment="Left"
-            VerticalAlignment="Top" Height="31" Width="270" Text="{Binding SearchTerm}"/>
-        </StackPanel>
-        <Grid Margin="-90,-250,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="800">
-            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" Height="200" ItemsSource="{Binding TurfSearchDetails}" ColumnWidth="*">
+                <Button Style="{DynamicResource MaterialDesignToolButton}" Command="{Binding TurfBookingCommands}" CommandParameter="Search">
+                    <materialDesign:PackIcon Kind="Magnify" Height="30" Opacity="50" Margin="10,0,0,0" HorizontalAlignment="Right" RenderTransformOrigin="-2.75,0.333" ToolTip="Search"/>
+                </Button>
+            </StackPanel>
+        </materialDesign:Card>
+        <Grid Margin="10,-600,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="800">
+            <materialDesign:Card Margin="25,350,0,0" Height="220" Width="750"  >
+                <materialDesign:Card.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </materialDesign:Card.Resources>
+                <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" Height="200" ItemsSource="{Binding TurfSearchDetails}" ColumnWidth="*">
                 <DataGrid.Columns >
                     <DataGridTextColumn Header="Turf ID" Binding="{Binding TurfID}" IsReadOnly="True"/>
                     <DataGridTextColumn Header="Turf Name" Binding="{Binding TurfName}" IsReadOnly="True"/>
@@ -41,7 +48,9 @@
                     <DataGridTextColumn Header="Amount" Binding="{Binding TurfPrice}" IsReadOnly="True"/>
                 </DataGrid.Columns>
             </DataGrid>
+            </materialDesign:Card>
         </Grid>
+       
         <materialDesign:Card Margin="25,350,0,0" Height="320" Width="600"  >
             <materialDesign:Card.Resources>
                 <Style TargetType="Border">
@@ -75,14 +84,16 @@
                     <ComboBox x:Name="cbModeOfPayment" Width="190" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="-465,175,0,0"
                             materialDesign:HintAssist.Hint="Mode Of Payment" FontSize="20" ItemsSource="{Binding PaymentType}" DisplayMemberPath="PaymentMethod" SelectedValue="{Binding TypeOfPayment}"/>
                 </StackPanel>
-                <StackPanel>
-                    <Button Content="Book Now" x:Name="btnBookNow" FontSize="16" FontWeight="Bold" Margin="-490,250,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="172" Command="{Binding TurfBookingCommands}" CommandParameter="BookNow">
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Book Now" x:Name="btnBookNow" FontSize="16" FontWeight="Bold" Margin="-590,250,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="172" Command="{Binding TurfBookingCommands}" CommandParameter="BookNow">
                         <Button.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="15"/>
                             </Style>
                         </Button.Resources>
                     </Button>
+                    <Label x:Name="lblId"  VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-150,250,0,0" FontSize="20" Width="200" Height="30"/>
+
                 </StackPanel>
             </StackPanel>
         </materialDesign:Card>
