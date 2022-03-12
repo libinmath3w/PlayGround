@@ -44,18 +44,21 @@
                         <Setter Property="CornerRadius" Value="20"/>
                     </Style>
                 </materialDesign:Card.Resources>
-                <DataGrid x:Name="gdTurfdetails" AutoGenerateColumns="False" CanUserAddRows="False" Height="200" ItemsSource="{Binding TurfSearchDetails}" ColumnWidth="*" MouseDoubleClick="Row_MouseDoubleClick">
-                <DataGrid.Columns >
-                    <DataGridTextColumn Header="Turf ID" Binding="{Binding TurfID}" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="Turf Name" Binding="{Binding TurfName}" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="Type" Binding="{Binding TurfType}" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="Location" Binding="{Binding TurfLocation}" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="Opening Time" Binding="{Binding StartTime}" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="Closing Time" Binding="{Binding EndTime}" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="State" Binding="{Binding TurfState}" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="Amount" Binding="{Binding TurfPrice}" IsReadOnly="True"/>
-                </DataGrid.Columns>
-            </DataGrid>
+                <DataGrid x:Name="gdTurfdetails" AutoGenerateColumns="False" CanUserAddRows="False" Height="200" ItemsSource="{Binding TurfSearchDetails}" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" SelectedItem="{Binding SelectedTurf}">
+                    <DataGrid.Columns >
+                        <DataGridTextColumn Header="Turf ID" Binding="{Binding TurfID}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Turf Name" Binding="{Binding TurfName}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Type" Binding="{Binding TurfType}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Location" Binding="{Binding TurfLocation}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Opening Time" Binding="{Binding StartTime}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Closing Time" Binding="{Binding EndTime}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="State" Binding="{Binding TurfState}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Amount" Binding="{Binding TurfPrice}" IsReadOnly="True"/>
+                    </DataGrid.Columns>
+                    <DataGrid.InputBindings>
+                        <MouseBinding Gesture="LeftDoubleClick" Command="{Binding TurfBookingCommands}" CommandParameter="TurfID"/>
+                    </DataGrid.InputBindings>
+                </DataGrid>
             </materialDesign:Card>
         </Grid>
         <Grid Grid.Row="2">
@@ -69,23 +72,22 @@
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Booking Date"  VerticalAlignment="Top" FontSize="20" Margin="15,16,0,0"/>
                     <materialDesign:PackIcon Kind="Calendar" Width="25" Height="25" Margin="10,20,0,0"/>
-                        <DatePicker x:Name="dpBookingDates" HorizontalAlignment="Center" VerticalAlignment="Top" Width="300" materialDesign:HintAssist.Hint="Select Date" Style="{DynamicResource MaterialDesignOutlinedDatePicker}" Margin="25,10,0,0" SelectedDateChanged="dpBookingDates_SelectedDateChanged"/>
+                        <DatePicker x:Name="dpBookingDates" HorizontalAlignment="Center" VerticalAlignment="Top" Width="300" materialDesign:HintAssist.Hint="Select Date" Style="{DynamicResource MaterialDesignOutlinedDatePicker}" Margin="25,10,0,0"  SelectedDate="{Binding BookingDate, Mode=TwoWay}"/>
                 </StackPanel>
                 
                 <Label x:Name="lblTimeSlot" Content="Time Slot" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-487,88,0,0" FontSize="20"/>
                 <materialDesign:PackIcon Kind="Clock" Width="25" Height="25" Margin="-350,90,0,0"/>
                 <ComboBox x:Name="cbStartTime" Width="150" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="-445,82,0,0"
-                            materialDesign:HintAssist.Hint="Start Time" FontSize="20" ItemsSource="{Binding TimeSlotes}" />
+                            materialDesign:HintAssist.Hint="Start Time" FontSize="20" ItemsSource="{Binding TurfOpeningTime}" DisplayMemberPath="TimeSlots" SelectedValue="{Binding OpeningTime}" />
                 <ComboBox x:Name="cbEndTime" Width="150"  VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="-120,82,0,0"
-                            materialDesign:HintAssist.Hint="End Time" FontSize="20" ItemsSource="{Binding TimeSlotes}"/>
+                            materialDesign:HintAssist.Hint="End Time" FontSize="20" ItemsSource="{Binding TurfClosingTime}" DisplayMemberPath="TimeSlots" SelectedValue="{Binding ClosingTime}"/>
               
-
                     <StackPanel Orientation="Horizontal">
                     <Label x:Name="lblAmount" Content="Amount" Margin="-517,135,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="20"/>
                     <materialDesign:PackIcon Kind="Rupee" Width="25" Height="25" Margin="-380,140,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                    <Label x:Name="lblPrice" Content="1200" Margin="-300,135,0,0" Width="80" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-
-                </StackPanel>
+                    <Label x:Name="lblPrice" Content="{Binding TurfPrice}" Margin="-300,135,0,0" Width="80" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                    
+                    </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label x:Name="lblPayment" Content="Payment"  VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-517,180,0,0" FontSize="20"/>
                     <materialDesign:PackIcon Kind="Payment" Width="25" Height="25" Margin="-380,185,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"/>

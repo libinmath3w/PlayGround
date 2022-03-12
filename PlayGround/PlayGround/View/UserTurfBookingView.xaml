@@ -16,17 +16,6 @@
         <DataGrid x:Name="gdShowBokkings" AutoGenerateColumns="False" CanUserAddRows="False" ColumnWidth="*" ItemsSource="{Binding ViewUserTurfBookingsAndBookNew}" Margin="20,20,0,0">
             <DataGrid.Columns>
                 <materialDesign:DataGridTextColumn Header="Booking ID" Binding="{Binding BookingID}" IsReadOnly="True"/>
-                <DataGridTemplateColumn Width="80">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Ellipse HorizontalAlignment="Center" Height="30" Width="30">
-                                <Ellipse.Fill>
-                                    <ImageBrush ImageSource="{Binding Avatar}"/>
-                                </Ellipse.Fill>
-                            </Ellipse>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
                 <materialDesign:DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True"/>
                 <materialDesign:DataGridTextColumn Header="Turf Name" Binding="{Binding TurfName}" IsReadOnly="True"/>
                 <materialDesign:DataGridTextColumn Header="Date" Binding="{Binding BookingDate}" IsReadOnly="True"/>
@@ -35,6 +24,7 @@
                 <materialDesign:DataGridTextColumn Header="Amount" Binding="{Binding Amount}" IsReadOnly="True"/>
                 <materialDesign:DataGridTextColumn Header="Payment Status" Binding="{Binding PaymentStatus}" IsReadOnly="True"/>
                 <materialDesign:DataGridTextColumn Header="Payment Type" Binding="{Binding PaymentType}" IsReadOnly="True"/>
+                <materialDesign:DataGridTextColumn Header="Booking Status" Binding="{Binding BStatus}" IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

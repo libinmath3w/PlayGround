@@ -78,36 +78,50 @@ namespace DataAccessLibrary
 
         public List<TimeSloteModel> GetClosingTime(TimeSloteModel timeModel)
         {
-            List<TimeSloteModel> TurfClosingTime = new List<TimeSloteModel>();
-
-            TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
-            var result = from time in turfManagementDBEntities.Time_Slote
-                         where time.Time_ID > timeModel.TimeID
-                         select time;
-            foreach (var turf in result)
+            try
             {
-                TimeSloteModel timeModels = new TimeSloteModel();
-                timeModels.TimeSlots = turf.Time_Slots;
-                TurfClosingTime.Add(timeModels);
+                List<TimeSloteModel> TurfClosingTime = new List<TimeSloteModel>();
+                TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
+                var result = from time in turfManagementDBEntities.Time_Slote
+                             where time.Time_ID > timeModel.TimeID
+                             select time;
+                foreach (var turf in result)
+                {
+                    TimeSloteModel timeModels = new TimeSloteModel();
+                    timeModels.TimeSlots = turf.Time_Slots;
+                    TurfClosingTime.Add(timeModels);
+                }
+                return TurfClosingTime;
             }
-            return TurfClosingTime;
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         public List<PaymentTypeModel> GetPaymentTypes(PaymentTypeModel paymentTypeModel)
         {
-            List<PaymentTypeModel> paymentTypes = new List<PaymentTypeModel>();
-
-            TurfManagementDBEntities turfManagementDB = new TurfManagementDBEntities();
-            var query = from type in turfManagementDB.Payment_Type
-                        select type.Payment_Method;
-
-
-            foreach (var turf in query)
+            try
             {
-                PaymentTypeModel paymentTypeModels = new PaymentTypeModel();
-                paymentTypeModels.PaymentMethod = turf.ToString();
-                paymentTypes.Add(paymentTypeModels);
+                List<PaymentTypeModel> paymentTypes = new List<PaymentTypeModel>();
+
+                TurfManagementDBEntities turfManagementDB = new TurfManagementDBEntities();
+                var query = from type in turfManagementDB.Payment_Type
+                            select type;
+
+                foreach (var item in query)
+                {
+                    PaymentTypeModel paymentTypeModels = new PaymentTypeModel();
+                    paymentTypeModels.PaymentID = item.Payment_ID;
+                    paymentTypeModels.PaymentMethod = item.Payment_Method;
+                    paymentTypes.Add(paymentTypeModels);
+                }
+                return paymentTypes;
             }
-            return paymentTypes;
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         public List<TimeSloteModel> GetCurrentTimeDetails(TimeSloteModel timeSloteModel)
@@ -319,6 +333,32 @@ namespace DataAccessLibrary
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+        }
+
+        public void BookTurf(BookingModel bookingModel)
+        {
+            try
+            {
+                TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
+                Booking booking = new Booking();
+                booking.User_ID = bookingModel.UserID;
+                booking.Turf_ID = bookingModel.TurfID;
+                booking.Start_Time = bookingModel.BookingStartTime;
+                booking.End_Time = bookingModel.BookingEndTime;
+                booking.Amount = bookingModel.Amount;
+                booking.Payment_ID = bookingModel.PaymentID;
+                booking.Booking_Date = bookingModel.BookingDateTime;
+                booking.Payment_Status = bookingModel.PaymentStatusInt;
+                booking.Booking_Time = bookingModel.BookingTime;
+                booking.Booking_Status = bookingModel.BookingStatus;
+                turfManagementDBEntities.Bookings.Add(booking);
+                turfManagementDBEntities.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
                 throw ex;
             }
         }

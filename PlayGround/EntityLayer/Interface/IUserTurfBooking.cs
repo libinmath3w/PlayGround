@@ -13,6 +13,7 @@ namespace EntityLayer.Interface
         List<TimeSloteModel> GetCurrentEndTimeDetails(TimeSloteModel timeSloteModel);
         List<TimeSloteModel> GetNonCurrentTimeDetails(TimeSloteModel timeSloteModel);
         List<TimeSloteModel> GetNonCurrentEndTimeDetails(TimeSloteModel timeSloteModel);
+        void BookTurf(BookingModel bookingModel);
 
     }
 }
