@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace DataAccessLibrary
 {
@@ -12,6 +13,8 @@ namespace DataAccessLibrary
     {
         public int TimeID;
         public int EndTimeId;
+        public int TurfOpeningTime;
+        public int TurfClosingTime;
         public List<TurfModel> GetTurfDetails(TurfModel turfModel)
         {
             List<TurfModel> BookingTurfList = new List<TurfModel>();
@@ -60,7 +63,6 @@ namespace DataAccessLibrary
         public List<TimeSloteModel> GetOpeningTime(TimeSloteModel timeModel)
         {
             List<TimeSloteModel> TurfOpeningTime = new List<TimeSloteModel>();
-
             TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
             var result = from time in turfManagementDBEntities.Time_Slote
                          where time.Time_ID >= timeModel.TimeID
@@ -112,8 +114,6 @@ namespace DataAccessLibrary
         {
             try
             {
-                
-               
                 List<TimeSloteModel> timeDetails = new List<TimeSloteModel>();
                 TurfManagementDBEntities turfManagementDB = new TurfManagementDBEntities();
                 var query = turfManagementDB.Time_Slote
@@ -121,19 +121,47 @@ namespace DataAccessLibrary
                 foreach (var time in query)
                 {
                     TimeID = time.Time_ID;
+                }
+                var turfTimeQuery = from TOpenTime in turfManagementDB.Turfs
+                                    where TOpenTime.Turf_ID == timeSloteModel.TurfID
+                                    select TOpenTime;
+                foreach (var item in turfTimeQuery)
+                {
+                    TurfOpeningTime = item.Opening_Time;
+                    TurfClosingTime = item.Closing_Time;
 
                 }
-                EndTimeId = TimeID + 1; 
-                var result = from time in turfManagementDB.Time_Slote
-                             where time.Time_ID > EndTimeId
-                             select time;
-                foreach (var time in result)
+                if (TimeID >= TurfOpeningTime)
                 {
-                    TimeSloteModel timeSlote = new TimeSloteModel();
-                    timeSlote.TimeID = time.Time_ID;
-                    timeSlote.TimeSlots = time.Time_Slots;
-                    timeDetails.Add(timeSlote);
+                    var TurfBookingOpeningTime = from TBOTime in turfManagementDB.Bookings
+                                                 where TBOTime.Booking_Date == timeSloteModel.BookingTime
+                                                 select TBOTime;
+                    if (TurfBookingOpeningTime.Count() > 0)
+                    {
+                        MessageBox.Show("inside More Counts");
+                    }
+                    else
+                    {
+                        var result = from time in turfManagementDB.Time_Slote
+                                     where (time.Time_ID > TimeID) && (time.Time_ID < TurfClosingTime)
+                                     select time;
+
+                        foreach (var item in result)
+                        {
+                            TimeSloteModel timeSlote = new TimeSloteModel();
+                            timeSlote.TimeID = item.Time_ID;
+                            timeSlote.TimeSlots = item.Time_Slots;
+                            timeDetails.Add(timeSlote);
+                        }
+                    }
+                    
                 }
+                else
+                {
+                    MessageBox.Show("No slots Available");
+                }
+
+              
                 return timeDetails;
             }
             catch (Exception ex)
@@ -154,21 +182,143 @@ namespace DataAccessLibrary
                 {
                     TimeID = time.Time_ID;
                 }
-                var result = from time in turfManagementDB.Time_Slote
-                             where time.Time_ID > TimeID 
-                             select time;
-                foreach (var time in result)
+                var turfTimeQuery = from TOpenTime in turfManagementDB.Turfs
+                                    where TOpenTime.Turf_ID == timeSloteModel.TurfID
+                                    select TOpenTime;
+                foreach (var item in turfTimeQuery)
                 {
-                    TimeSloteModel timeSlote = new TimeSloteModel();
-                    timeSlote.TimeID = time.Time_ID;
-                    timeSlote.TimeSlots = time.Time_Slots;
-                    timeDetails.Add(timeSlote);
+                    TurfOpeningTime = item.Opening_Time;
+                    TurfClosingTime = item.Closing_Time;
+
+                }
+                if (TimeID >= TurfOpeningTime)
+                {
+                    var TurfBookingOpeningTime = from TBOTime in turfManagementDB.Bookings
+                                                 where TBOTime.Booking_Date == timeSloteModel.BookingTime
+                                                 select TBOTime;
+                    if (TurfBookingOpeningTime.Count() > 0)
+                    {
+                        MessageBox.Show("inside More Counts");
+                    }
+                    else
+                    {
+                        TimeID = TimeID + 1;
+                        TurfClosingTime = TurfClosingTime + 1;
+                        var result = from time in turfManagementDB.Time_Slote
+                                     where (time.Time_ID > TimeID) && (time.Time_ID < TurfClosingTime)
+                                     select time;
+
+                        foreach (var item in result)
+                        {
+                            TimeSloteModel timeSlote = new TimeSloteModel();
+                            timeSlote.TimeID = item.Time_ID;
+                            timeSlote.TimeSlots = item.Time_Slots;
+                            timeDetails.Add(timeSlote);
+                        }
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("No slots Available");
                 }
                 return timeDetails;
             }
             catch (Exception ex)
             {
 
+                throw ex;
+            }
+        }
+
+        public List<TimeSloteModel> GetNonCurrentTimeDetails(TimeSloteModel timeSloteModel)
+        {
+
+            try
+            {
+                List<TimeSloteModel> timeDetails = new List<TimeSloteModel>();
+                TurfManagementDBEntities turfManagementDB = new TurfManagementDBEntities();
+                var turfTimeQuery = from TOpenTime in turfManagementDB.Turfs
+                                    where TOpenTime.Turf_ID == timeSloteModel.TurfID
+                                    select TOpenTime;
+                foreach (var item in turfTimeQuery)
+                {
+                    TurfOpeningTime = item.Opening_Time;
+                    TurfClosingTime = item.Closing_Time;
+
+                }
+                    var TurfBookingOpeningTime = from TBOTime in turfManagementDB.Bookings
+                                                 where TBOTime.Booking_Date == timeSloteModel.BookingTime
+                                                 select TBOTime;
+                    if (TurfBookingOpeningTime.Count() > 0)
+                    {
+                        MessageBox.Show("inside More Counts");
+                    }
+                    else
+                    {
+                        var result = from time in turfManagementDB.Time_Slote
+                                     where (time.Time_ID >= TurfOpeningTime) && (time.Time_ID < TurfClosingTime)
+                                     select time;
+
+                        foreach (var item in result)
+                        {
+                            TimeSloteModel timeSlote = new TimeSloteModel();
+                            timeSlote.TimeID = item.Time_ID;
+                            timeSlote.TimeSlots = item.Time_Slots;
+                            timeDetails.Add(timeSlote);
+                        }
+                    }
+
+                return timeDetails;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<TimeSloteModel> GetNonCurrentEndTimeDetails(TimeSloteModel timeSloteModel)
+        {
+            try
+            {
+                List<TimeSloteModel> timeDetails = new List<TimeSloteModel>();
+                TurfManagementDBEntities turfManagementDB = new TurfManagementDBEntities();
+                var turfTimeQuery = from TOpenTime in turfManagementDB.Turfs
+                                    where TOpenTime.Turf_ID == timeSloteModel.TurfID
+                                    select TOpenTime;
+                foreach (var item in turfTimeQuery)
+                {
+                    TurfOpeningTime = item.Opening_Time;
+                    TurfClosingTime = item.Closing_Time;
+
+                }
+                var TurfBookingOpeningTime = from TBOTime in turfManagementDB.Bookings
+                                             where TBOTime.Booking_Date == timeSloteModel.BookingTime
+                                             select TBOTime;
+                if (TurfBookingOpeningTime.Count() > 0)
+                {
+                    MessageBox.Show("inside More Counts");
+                }
+                else
+                {
+                    TurfOpeningTime = TurfOpeningTime + 1;
+                    var result = from time in turfManagementDB.Time_Slote
+                                 where (time.Time_ID > TurfOpeningTime) && (time.Time_ID <= TurfClosingTime)
+                                 select time;
+
+                    foreach (var item in result)
+                    {
+                        TimeSloteModel timeSlote = new TimeSloteModel();
+                        timeSlote.TimeID = item.Time_ID;
+                        timeSlote.TimeSlots = item.Time_Slots;
+                        timeDetails.Add(timeSlote);
+                    }
+                }
+
+                return timeDetails;
+            }
+            catch (Exception ex)
+            {
                 throw ex;
             }
         }

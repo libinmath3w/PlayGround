@@ -10,7 +10,7 @@ namespace PlayGround.ViewModel
 {
     public class UserDashboardViewModel : BaseViewModel
     {
-        public UsersModel Users { get; set; }
+        public UsersModel Users = new UsersModel();
         public UserDashboardViewModel(UsersModel usersModel)
         {
             Users.UserId = usersModel.UserId;

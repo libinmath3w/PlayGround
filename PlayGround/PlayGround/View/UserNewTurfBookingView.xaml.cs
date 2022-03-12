@@ -22,7 +22,7 @@ namespace PlayGround.View
     /// </summary>
     public partial class UserNewTurfBookingView : UserControl
     {
-        public string turfId;
+        public int turfId;
         public UserNewTurfBookingView()
         {
             InitializeComponent();
@@ -42,22 +42,37 @@ namespace PlayGround.View
                 UserTurfBookingBusinessModel userTurfBookingBusinessModel = new UserTurfBookingBusinessModel();
                 TimeSloteModel timeSlote = new TimeSloteModel();
                 timeSlote.CurrentDateHour = current_date_hour;
+                timeSlote.TurfID = turfId;
+                timeSlote.BookingTime = SelectedDate;
                 var query = userTurfBookingBusinessModel.GetCurrentTimeDetails(timeSlote);
                 
                 foreach(var t in query)
                 {
-                    cbEndTime.Items.Add(t.TimeSlots);
+                    cbStartTime.Items.Add(t.TimeSlots);
                 }
                 var result = userTurfBookingBusinessModel.GetCurrentEndTimeDetails(timeSlote);
 
                 foreach (var t in result)
                 {
-                    cbStartTime.Items.Add(t.TimeSlots);
+                    cbEndTime.Items.Add(t.TimeSlots);
                 }
             }
             else
             {
-                MessageBox.Show("Not Equal");
+                UserTurfBookingBusinessModel userTurfBookingBusinessModel = new UserTurfBookingBusinessModel();
+                TimeSloteModel timeSlote = new TimeSloteModel();
+                timeSlote.TurfID = turfId;
+                timeSlote.BookingTime = SelectedDate;
+                var NonCurrentTime = userTurfBookingBusinessModel.GetNonCurrentTimeDetails(timeSlote);
+                foreach (var t in NonCurrentTime)
+                {
+                    cbStartTime.Items.Add(t.TimeSlots);
+                }
+                var NonEndCurrentTime = userTurfBookingBusinessModel.GetNonCurrentEndTimeDetails(timeSlote);
+                foreach (var t in NonEndCurrentTime)
+                {
+                    cbEndTime.Items.Add(t.TimeSlots);
+                }
             }
         }
         public static String GetCurrentHour(DateTime value)
@@ -68,10 +83,7 @@ namespace PlayGround.View
         }
         private void Row_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
-            turfId = (gdTurfdetails.SelectedItem as TurfModel).TurfID.ToString();
-            // MessageBox.Show(turfId);
-            TimeSloteModel timeSlote = new TimeSloteModel();
-            cbStartTime.Items.Add(timeSlote);
+            turfId = (gdTurfdetails.SelectedItem as TurfModel).TurfID;
         }
     }
 }

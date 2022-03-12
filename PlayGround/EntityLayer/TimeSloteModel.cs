@@ -15,6 +15,7 @@ namespace EntityLayer
         public string TimeSlots { get; set; }
         public int TurfID { get; set; }
         public string CurrentDateHour { get; set; }
+        public DateTime BookingTime { get; set; }
 
     }
 }

@@ -11,6 +11,8 @@ namespace EntityLayer.Interface
         List<TurfModel> GetTurfDetails(TurfModel turfModel);
         List<TimeSloteModel> GetCurrentTimeDetails(TimeSloteModel timeSloteModel);
         List<TimeSloteModel> GetCurrentEndTimeDetails(TimeSloteModel timeSloteModel);
+        List<TimeSloteModel> GetNonCurrentTimeDetails(TimeSloteModel timeSloteModel);
+        List<TimeSloteModel> GetNonCurrentEndTimeDetails(TimeSloteModel timeSloteModel);
 
     }
 }

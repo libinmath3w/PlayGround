@@ -1,5 +1,6 @@
 ﻿using DataAccessLibrary;
 using EntityLayer;
+using EntityLayer.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,37 +9,42 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer
 {
-    public class UserTurfBookingBusinessModel
+    public class UserTurfBookingBusinessModel : IUserTurfBooking
     {
+        UserTurfBookingData userTurfBookingData = new UserTurfBookingData();
         public List<TurfModel> GetTurfDetails(TurfModel turfModel)
         {
-            UserTurfBookingData userTurfBookingData = new UserTurfBookingData();
             return userTurfBookingData.GetTurfDetails(turfModel);
         }
         public List<TimeSloteModel> GetOpeningTime(TimeSloteModel timeModel)
         {
-            UserTurfBookingData userTurfBookingData = new UserTurfBookingData();
-            return userTurfBookingData.GetOpeningTime(timeModel);
+           return userTurfBookingData.GetOpeningTime(timeModel);
         }
         public List<TimeSloteModel> GetClosingTime(TimeSloteModel timeModel)
         {
-            UserTurfBookingData userTurfBookingData = new UserTurfBookingData();
             return userTurfBookingData.GetClosingTime(timeModel);
         }
         public List<PaymentTypeModel> GetPaymentType(PaymentTypeModel paymentTypeModel)
         {
-            UserTurfBookingData userTurfBookingData = new UserTurfBookingData();
             return userTurfBookingData.GetPaymentTypes(paymentTypeModel);
         }
         public List<TimeSloteModel> GetCurrentTimeDetails(TimeSloteModel timeModel)
         {
-            UserTurfBookingData userTurfBookingData = new UserTurfBookingData();
             return userTurfBookingData.GetCurrentTimeDetails(timeModel);
         }
         public List<TimeSloteModel> GetCurrentEndTimeDetails(TimeSloteModel timeModel)
         {
-            UserTurfBookingData userTurfBookingData = new UserTurfBookingData();
             return userTurfBookingData.GetCurrentEndTimeDetails(timeModel);
+        }
+
+        public List<TimeSloteModel> GetNonCurrentTimeDetails(TimeSloteModel timeSloteModel)
+        {
+            return userTurfBookingData.GetNonCurrentTimeDetails(timeSloteModel);
+        }
+
+        public List<TimeSloteModel> GetNonCurrentEndTimeDetails(TimeSloteModel timeSloteModel)
+        {
+            return userTurfBookingData.GetNonCurrentEndTimeDetails(timeSloteModel);
         }
     }
 }
