@@ -31,21 +31,32 @@ namespace PlayGround.Commands
             {
                 UserTurfBookingBusinessModel userTurfBookingBusinessModel = new UserTurfBookingBusinessModel();
                 TurfModel turfModel = new TurfModel();
-                turfModel.TurfCity = userNewTurfBookingViewModel.SearchTerm;
-                var query = userTurfBookingBusinessModel.GetTurfDetails(turfModel);
-                foreach (var item in query)
+                userNewTurfBookingViewModel.TurfSearchDetails = new System.Collections.ObjectModel.ObservableCollection<TurfModel>();
+                string SearchTerm = userNewTurfBookingViewModel.SearchTerm;
+                if (!string.IsNullOrEmpty(SearchTerm))
                 {
-                    TurfModel turfModels = new TurfModel();
-                    turfModels.TurfName = item.TurfName;
-                    turfModels.StartTime = item.StartTime;
-                    turfModels.EndTime = item.EndTime;
-                    turfModels.TurfLocation = item.TurfCity;
-                    turfModels.TurfPrice = item.TurfPrice;
-                    turfModels.TurfID = item.TurfID;
-                    turfModels.TurfState = item.TurfState;
-                    turfModels.TurfType = item.TurfType;
-                    userNewTurfBookingViewModel.TurfSearchDetails.Add(turfModels);
+                    turfModel.TurfCity = SearchTerm;
+                    var query = userTurfBookingBusinessModel.GetTurfDetails(turfModel);
+                    foreach (var item in query)
+                    {
+                        TurfModel turfModels = new TurfModel();
+                        turfModels.TurfName = item.TurfName;
+                        turfModels.StartTime = item.StartTime;
+                        turfModels.EndTime = item.EndTime;
+                        turfModels.TurfLocation = item.TurfCity;
+                        turfModels.TurfPrice = item.TurfPrice;
+                        turfModels.TurfID = item.TurfID;
+                        turfModels.TurfState = item.TurfState;
+                        turfModels.TurfType = item.TurfType;
+                        userNewTurfBookingViewModel.TurfSearchDetails.Add(turfModels);
+                    }
+                    userNewTurfBookingViewModel.SearchTerm = "";
                 }
+                else
+                {
+                    MessageBox.Show("Enter a Location");
+                }
+                
             }
             else if (parameter.ToString() =="BookNow")
             {
