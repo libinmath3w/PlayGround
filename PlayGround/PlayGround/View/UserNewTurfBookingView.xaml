@@ -44,7 +44,7 @@
                         <Setter Property="CornerRadius" Value="20"/>
                     </Style>
                 </materialDesign:Card.Resources>
-                <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" Height="200" ItemsSource="{Binding TurfSearchDetails}" ColumnWidth="*">
+                <DataGrid x:Name="gdTurfdetails" AutoGenerateColumns="False" CanUserAddRows="False" Height="200" ItemsSource="{Binding TurfSearchDetails}" ColumnWidth="*" MouseDoubleClick="Row_MouseDoubleClick">
                 <DataGrid.Columns >
                     <DataGridTextColumn Header="Turf ID" Binding="{Binding TurfID}" IsReadOnly="True"/>
                     <DataGridTextColumn Header="Turf Name" Binding="{Binding TurfName}" IsReadOnly="True"/>
@@ -69,15 +69,15 @@
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Booking Date"  VerticalAlignment="Top" FontSize="20" Margin="15,16,0,0"/>
                     <materialDesign:PackIcon Kind="Calendar" Width="25" Height="25" Margin="10,20,0,0"/>
-                    <DatePicker x:Name="dpBookingDates" HorizontalAlignment="Center" VerticalAlignment="Top" Width="300" materialDesign:HintAssist.Hint="Select Date" Style="{DynamicResource MaterialDesignOutlinedDatePicker}" Margin="25,10,0,0"/>
+                        <DatePicker x:Name="dpBookingDates" HorizontalAlignment="Center" VerticalAlignment="Top" Width="300" materialDesign:HintAssist.Hint="Select Date" Style="{DynamicResource MaterialDesignOutlinedDatePicker}" Margin="25,10,0,0" SelectedDateChanged="dpBookingDates_SelectedDateChanged"/>
                 </StackPanel>
                 
                 <Label x:Name="lblTimeSlot" Content="Time Slot" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-487,88,0,0" FontSize="20"/>
                 <materialDesign:PackIcon Kind="Clock" Width="25" Height="25" Margin="-350,90,0,0"/>
                 <ComboBox x:Name="cbStartTime" Width="150" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="-445,82,0,0"
-                            materialDesign:HintAssist.Hint="Start Time" FontSize="20" ItemsSource="{Binding TurfOpeningTime}" DisplayMemberPath="TimeSlots" SelectedValue="{Binding OpeningTime}"/>
+                            materialDesign:HintAssist.Hint="Start Time" FontSize="20" ItemsSource="{Binding TimeSlotes}" />
                 <ComboBox x:Name="cbEndTime" Width="150"  VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="-120,82,0,0"
-                            materialDesign:HintAssist.Hint="End Time" FontSize="20" ItemsSource="{Binding TurfClosingTime}" DisplayMemberPath="TimeSlots" SelectedValue="{Binding ClosingTime}" />
+                            materialDesign:HintAssist.Hint="End Time" FontSize="20" ItemsSource="{Binding TimeSlotes}"/>
               
 
                     <StackPanel Orientation="Horizontal">
@@ -93,16 +93,14 @@
                             materialDesign:HintAssist.Hint="Mode Of Payment" FontSize="20" ItemsSource="{Binding PaymentType}" DisplayMemberPath="PaymentMethod" SelectedValue="{Binding TypeOfPayment}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Button Content="Book Now" x:Name="btnBookNow" FontSize="16" FontWeight="Bold" Margin="-590,250,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="172" Command="{Binding TurfBookingCommands}" CommandParameter="BookNow">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="15"/>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
-                    <Label x:Name="lblId"  VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-150,250,0,0" FontSize="20" Width="200" Height="30"/>
-
-                </StackPanel>
+                        <Button Content="Book Now" x:Name="btnBookNow" FontSize="16" FontWeight="Bold" Margin="-590,250,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="172" Command="{Binding TurfBookingCommands}" CommandParameter="BookNow">
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="15"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </StackPanel>
             </StackPanel>
         </materialDesign:Card>
         </Grid>

@@ -147,14 +147,14 @@ namespace PlayGround.ViewModel
             {
                 TimeSloteModel timeModels = new TimeSloteModel();
                 timeModels.TimeSlots = item.TimeSlots;
-                TurfOpeningTime.Add(timeModels);   
+                //TurfOpeningTime.Add(timeModels);   
             }
             
             foreach (var item in query2)
             {
                 TimeSloteModel timeModels = new TimeSloteModel();
                 timeModels.TimeSlots = item.TimeSlots;
-                TurfClosingTime.Add(timeModels);
+               // TurfClosingTime.Add(timeModels);
             }
 
             foreach (var item in query3)

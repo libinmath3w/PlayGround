@@ -9,5 +9,8 @@ namespace EntityLayer.Interface
     public interface IUserTurfBooking
     {
         List<TurfModel> GetTurfDetails(TurfModel turfModel);
+        List<TimeSloteModel> GetCurrentTimeDetails(TimeSloteModel timeSloteModel);
+        List<TimeSloteModel> GetCurrentEndTimeDetails(TimeSloteModel timeSloteModel);
+
     }
 }

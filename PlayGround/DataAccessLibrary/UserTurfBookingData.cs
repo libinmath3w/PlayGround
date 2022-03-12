@@ -10,6 +10,8 @@ namespace DataAccessLibrary
 {
     public class UserTurfBookingData : IUserTurfBooking
     {
+        public int TimeID;
+        public int EndTimeId;
         public List<TurfModel> GetTurfDetails(TurfModel turfModel)
         {
             List<TurfModel> BookingTurfList = new List<TurfModel>();
@@ -94,7 +96,6 @@ namespace DataAccessLibrary
 
             TurfManagementDBEntities turfManagementDB = new TurfManagementDBEntities();
             var query = from type in turfManagementDB.Payment_Type
-                       
                         select type.Payment_Method;
 
 
@@ -105,6 +106,71 @@ namespace DataAccessLibrary
                 paymentTypes.Add(paymentTypeModels);
             }
             return paymentTypes;
+        }
+
+        public List<TimeSloteModel> GetCurrentTimeDetails(TimeSloteModel timeSloteModel)
+        {
+            try
+            {
+                
+               
+                List<TimeSloteModel> timeDetails = new List<TimeSloteModel>();
+                TurfManagementDBEntities turfManagementDB = new TurfManagementDBEntities();
+                var query = turfManagementDB.Time_Slote
+                                .Where(p => p.Time_Slots.Contains(timeSloteModel.CurrentDateHour));
+                foreach (var time in query)
+                {
+                    TimeID = time.Time_ID;
+
+                }
+                EndTimeId = TimeID + 1; 
+                var result = from time in turfManagementDB.Time_Slote
+                             where time.Time_ID > EndTimeId
+                             select time;
+                foreach (var time in result)
+                {
+                    TimeSloteModel timeSlote = new TimeSloteModel();
+                    timeSlote.TimeID = time.Time_ID;
+                    timeSlote.TimeSlots = time.Time_Slots;
+                    timeDetails.Add(timeSlote);
+                }
+                return timeDetails;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<TimeSloteModel> GetCurrentEndTimeDetails(TimeSloteModel timeSloteModel)
+        {
+            try
+            {
+                List<TimeSloteModel> timeDetails = new List<TimeSloteModel>();
+                TurfManagementDBEntities turfManagementDB = new TurfManagementDBEntities();
+                var query = turfManagementDB.Time_Slote
+                                .Where(p => p.Time_Slots.Contains(timeSloteModel.CurrentDateHour));
+                foreach (var time in query)
+                {
+                    TimeID = time.Time_ID;
+                }
+                var result = from time in turfManagementDB.Time_Slote
+                             where time.Time_ID > TimeID 
+                             select time;
+                foreach (var time in result)
+                {
+                    TimeSloteModel timeSlote = new TimeSloteModel();
+                    timeSlote.TimeID = time.Time_ID;
+                    timeSlote.TimeSlots = time.Time_Slots;
+                    timeDetails.Add(timeSlote);
+                }
+                return timeDetails;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }

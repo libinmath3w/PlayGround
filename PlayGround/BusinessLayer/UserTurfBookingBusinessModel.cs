@@ -30,5 +30,15 @@ namespace BusinessLayer
             UserTurfBookingData userTurfBookingData = new UserTurfBookingData();
             return userTurfBookingData.GetPaymentTypes(paymentTypeModel);
         }
+        public List<TimeSloteModel> GetCurrentTimeDetails(TimeSloteModel timeModel)
+        {
+            UserTurfBookingData userTurfBookingData = new UserTurfBookingData();
+            return userTurfBookingData.GetCurrentTimeDetails(timeModel);
+        }
+        public List<TimeSloteModel> GetCurrentEndTimeDetails(TimeSloteModel timeModel)
+        {
+            UserTurfBookingData userTurfBookingData = new UserTurfBookingData();
+            return userTurfBookingData.GetCurrentEndTimeDetails(timeModel);
+        }
     }
 }
