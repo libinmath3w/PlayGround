@@ -59,10 +59,25 @@ namespace PlayGround.Commands
             }
             else if (parameter.ToString() =="BookNow")
             {
-                int UserID = userNewTurfBookingViewModel.UserID;
-                MessageBox.Show(UserID.ToString());
-                //MessageBox.Show(userNewTurfBookingViewModel.ClosingTime.TimeSlots.ToString());
-                //MessageBox.Show(userNewTurfBookingViewModel.TypeOfPayment.PaymentMethod.ToString());
+                UserTurfBookingBusinessModel userTurfBookingBusinessModel = new UserTurfBookingBusinessModel();
+                BookingModel bookingModel = new BookingModel();
+                bookingModel.UserID = userNewTurfBookingViewModel.UserID;
+                bookingModel.BookingDateTime = userNewTurfBookingViewModel.BookingDate;
+                bookingModel.BookingTime = DateTime.Now;
+                bookingModel.TurfID = userNewTurfBookingViewModel.SelectedTurf.TurfID;
+                bookingModel.BookingStartTime = userNewTurfBookingViewModel.OpeningTime.TimeID;
+                bookingModel.BookingEndTime = userNewTurfBookingViewModel.ClosingTime.TimeID;
+                bookingModel.BookingStatus = 2;
+                int bookingamountdiff = userNewTurfBookingViewModel.ClosingTime.TimeID - userNewTurfBookingViewModel.OpeningTime.TimeID;
+                bookingModel.Amount = bookingamountdiff * userNewTurfBookingViewModel.SelectedTurf.TurfPrice;
+                bookingModel.PaymentID = userNewTurfBookingViewModel.TypeOfPayment.PaymentID;
+                bookingModel.PaymentStatusInt = 0;
+                userTurfBookingBusinessModel.BookTurf(bookingModel);
+                MessageBox.Show("Booking Completed. Please Wait for Admin Verification");
+            }
+            else if (parameter.ToString() == "TurfID")
+            {
+                userNewTurfBookingViewModel.TurfPrice = "1500";
             }
             
         }

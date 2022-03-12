@@ -46,5 +46,10 @@ namespace BusinessLayer
         {
             return userTurfBookingData.GetNonCurrentEndTimeDetails(timeSloteModel);
         }
+
+        public void BookTurf(BookingModel bookingModel)
+        {
+            userTurfBookingData.BookTurf(bookingModel);
+        }
     }
 }

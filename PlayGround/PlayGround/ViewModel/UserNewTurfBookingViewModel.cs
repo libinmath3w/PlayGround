@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace PlayGround.ViewModel
@@ -19,12 +20,15 @@ namespace PlayGround.ViewModel
         private string _turfzip;
         private string _turfprice;
         private string _searchTerm;
+        private DateTime _bookingDate = DateTime.Now;
+        private string _labelTurfID;
         public string SearchTerm { get => _searchTerm; set { _searchTerm = value; onPropertyChanged("Search box"); } }
         public string TurfName { get => _turfname; set { _turfname = value; onPropertyChanged("turf name"); } }
         public string TurfCity { get => _turfcity; set { _turfcity = value; onPropertyChanged("turf city"); } }
         public string TurfState { get => _turfstate; set { _turfstate = value; onPropertyChanged("turf state"); } }
         public string TurfZip { get => _turfzip; set { _turfzip = value; onPropertyChanged("turf zip"); } }
         public string TurfPrice { get => _turfprice; set { _turfprice = value; onPropertyChanged("turf price"); } }
+        public DateTime BookingDate { get => _bookingDate; set { _bookingDate = value; onPropertyChanged("Booking Date"); GetCurrentDateData(); } }
         public ICommand UserNewTurfBookingCommand { get; set; }
 
         public ObservableCollection<TurfModel> _turfDetails = new ObservableCollection<TurfModel>();
@@ -104,70 +108,91 @@ namespace PlayGround.ViewModel
 
 
         private ObservableCollection<PaymentTypeModel> _paymentType = new ObservableCollection<PaymentTypeModel>();
-        public ObservableCollection<PaymentTypeModel> PaymentType
-        {
-            get
-            {
-                return _paymentType; 
-            }
-            set
-            {
-                if (_paymentType == value) return;
-                _paymentType = value;
-                onPropertyChanged(nameof(PaymentType));
-            }
-        }
+        public ObservableCollection<PaymentTypeModel> PaymentType { get { return _paymentType; } set { if (_paymentType == value) return; _paymentType = value; onPropertyChanged(nameof(PaymentType)); } }
         private PaymentTypeModel _typeOfPayment { get; set; }
-        public PaymentTypeModel TypeOfPayment
-        {
-            get
-            {
-                return _typeOfPayment;
-            }
-            set
-            {
-                _typeOfPayment = value;
-                onPropertyChanged(nameof(TypeOfPayment));
-            }
-        }
+        public PaymentTypeModel TypeOfPayment { get { return _typeOfPayment; } set { _typeOfPayment = value; onPropertyChanged(nameof(TypeOfPayment)); } }
         public int UserID { get; set; }
+        public TurfModel SelectedTurf { get; set; }
 
         public UserNewTurfBookingViewModel(UsersModel usersModel)
         {
             UserID = usersModel.UserId;
             TurfBookingCommands = new TurfBookingCommand(this);
-            TimeSloteModel timeModel = new TimeSloteModel();
             PaymentTypeModel payment = new PaymentTypeModel();
-            
-            var query1 = userTurfBookingBusinessModel.GetOpeningTime(timeModel);
-            var query2 = userTurfBookingBusinessModel.GetClosingTime(timeModel);
-            var query3 = userTurfBookingBusinessModel.GetPaymentType(payment);
+            var PayementQuery = userTurfBookingBusinessModel.GetPaymentType(payment);
 
-            foreach (var item in query1)
-            {
-                TimeSloteModel timeModels = new TimeSloteModel();
-                timeModels.TimeSlots = item.TimeSlots;
-                //TurfOpeningTime.Add(timeModels);   
-            }
-            
-            foreach (var item in query2)
-            {
-                TimeSloteModel timeModels = new TimeSloteModel();
-                timeModels.TimeSlots = item.TimeSlots;
-               // TurfClosingTime.Add(timeModels);
-            }
-
-            foreach (var item in query3)
+            foreach (var item in PayementQuery)
             {
                 PaymentTypeModel payments = new PaymentTypeModel();
                 payments.PaymentMethod = item.PaymentMethod;
+                payments.PaymentID = item.PaymentID;
                 PaymentType.Add(payments);
             }
 
         }
-        public void TurfFillData(object param)
+        public void GetCurrentDateData()
         {
+            DateTime SelectedDate = BookingDate;
+            DateTime CurrentDate = DateTime.Now;
+            string selected_date = SelectedDate.Date.ToString();
+            string current_date = CurrentDate.Date.ToString();
+            string current_date_hour = GetCurrentHour(CurrentDate);
 
+            if (selected_date == current_date)
+            {
+                UserTurfBookingBusinessModel userTurfBookingBusinessModel = new UserTurfBookingBusinessModel();
+                TimeSloteModel timeSlote = new TimeSloteModel();
+                timeSlote.CurrentDateHour = current_date_hour;
+                timeSlote.TurfID = SelectedTurf.TurfID;
+                timeSlote.BookingTime = SelectedDate;
+                var query = userTurfBookingBusinessModel.GetCurrentTimeDetails(timeSlote);
+
+                foreach (var item in query)
+                {
+                    TimeSloteModel timeModels = new TimeSloteModel();
+                    timeModels.TimeSlots = item.TimeSlots;
+                    timeModels.TimeID = item.TimeID;
+                    TurfOpeningTime.Add(timeModels);
+                }
+                var result = userTurfBookingBusinessModel.GetCurrentEndTimeDetails(timeSlote);
+
+                foreach (var item in result)
+                {
+                    TimeSloteModel timeModels = new TimeSloteModel();
+                    timeModels.TimeSlots = item.TimeSlots;
+                    timeModels.TimeID = item.TimeID;
+                    TurfClosingTime.Add(timeModels);
+                }
+            }
+            else
+            {
+                UserTurfBookingBusinessModel userTurfBookingBusinessModel = new UserTurfBookingBusinessModel();
+                TimeSloteModel timeSlote = new TimeSloteModel();
+                timeSlote.TurfID = SelectedTurf.TurfID;
+                timeSlote.BookingTime = SelectedDate;
+                var NonCurrentTime = userTurfBookingBusinessModel.GetNonCurrentTimeDetails(timeSlote);
+                foreach (var item in NonCurrentTime)
+                {
+                    TimeSloteModel timeModels = new TimeSloteModel();
+                    timeModels.TimeSlots = item.TimeSlots;
+                    timeModels.TimeID = item.TimeID;
+                    TurfOpeningTime.Add(timeModels);
+                }
+                var NonEndCurrentTime = userTurfBookingBusinessModel.GetNonCurrentEndTimeDetails(timeSlote);
+                foreach (var item in NonEndCurrentTime)
+                {
+                    TimeSloteModel timeModels = new TimeSloteModel();
+                    timeModels.TimeSlots = item.TimeSlots;
+                    timeModels.TimeID = item.TimeID;
+                    TurfClosingTime.Add(timeModels);
+                }
+            }
+        }
+        public static String GetCurrentHour(DateTime value)
+        {
+            string hour = value.ToString("hh");
+            string AmPm = value.ToString("tt");
+            return hour + ":00 " + AmPm;
         }
     }
 }

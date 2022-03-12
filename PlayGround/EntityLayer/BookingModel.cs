@@ -24,9 +24,13 @@ namespace EntityLayer
         private string _bookingDate;
         private string _paymentStatus;
         private DateTime _bookingTime;
+        private DateTime _bookingDateTime;
         private int _bookingStatus;
         private string _bStatus;
         private string _avatar;
+        private int _bstartTime;
+        private int _bendTime;
+        private int _paymentStatusInt;
 
         public int BookingID { get => _bookingID; set { _bookingID = value; onPropertyChanged("Booking ID"); } }
         public int UserID { get => _userID; set { _userID = value; onPropertyChanged("User ID"); } }
@@ -40,9 +44,13 @@ namespace EntityLayer
         public string PaymentType { get => _paymentType; set { _paymentType = value; onPropertyChanged("Payment Type"); } }
         public string BookingDate { get => _bookingDate; set { _bookingDate = value; onPropertyChanged("Booking Date"); } }
         public string PaymentStatus { get => _paymentStatus; set { _paymentStatus = value; onPropertyChanged("Payment Status"); } }
+        public int PaymentStatusInt { get => _paymentStatusInt; set { _paymentStatusInt = value; onPropertyChanged("Payment Status Int"); } }
         public DateTime BookingTime { get => _bookingTime; set { _bookingTime = value; onPropertyChanged("Booking Time"); } }
         public int BookingStatus { get => _bookingStatus; set { _bookingStatus = value; onPropertyChanged("Booking Status"); } }
         public string BStatus { get => _bStatus; set { _bStatus = value; onPropertyChanged("B Status"); } }
         public string Avatar { get => _avatar; set { _avatar = value; onPropertyChanged("Avatar"); } }
+        public DateTime BookingDateTime { get => _bookingDateTime; set { _bookingDateTime = value; onPropertyChanged("Booking Date Time"); } }
+        public int BookingStartTime { get => _bstartTime; set { _bstartTime = value; onPropertyChanged("Booking Start Time"); } }
+        public int BookingEndTime { get => _bendTime; set { _bendTime = value; onPropertyChanged("Booking End Time"); } }
     }
 }
