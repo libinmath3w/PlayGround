@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="AdminAddNewTurfBusinessModel.cs" />
     <Compile Include="AdminBookingHistoryBusinessModel.cs" />
+    <Compile Include="AdminDashboardBusinessLayer.cs" />
     <Compile Include="AdminSettingsBusinessModel.cs" />
     <Compile Include="AdminTurfDetailsBusinessModel.cs" />
     <Compile Include="AdminUsersDetailsBusinessModel.cs" />

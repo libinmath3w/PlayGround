@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="AddNewTurfDataModel.cs" />
     <Compile Include="AdminBookingHistoryData.cs" />
+    <Compile Include="AdminDashboardData.cs" />
     <Compile Include="AdminSettingsData.cs" />
     <Compile Include="AdminTurfDetailsData.cs" />
     <Compile Include="AdminViewUserDetailsData.cs" />
