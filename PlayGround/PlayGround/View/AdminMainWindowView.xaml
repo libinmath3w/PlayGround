@@ -176,7 +176,14 @@
                                 <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
                              BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Command="{Binding AdminRedirectViewCommands}" CommandParameter="AdminDashboard" ToolTip="Dashboard">
                                     <StackPanel Margin="-5" Orientation="Horizontal">
-                                        <materialDesign:PackIcon Kind="Resistor"/>
+                                        <materialDesign:PackIcon Kind="Resistor">
+                                            <materialDesign:PackIcon.Foreground>
+                                                <LinearGradientBrush StartPoint="1,0" EndPoint="0.5,1">
+                                                    <GradientStop Color="red" Offset="0" />
+                                                    <GradientStop Color="orange" Offset="1" />
+                                                </LinearGradientBrush>
+                                            </materialDesign:PackIcon.Foreground>
+                                        </materialDesign:PackIcon>
                                     </StackPanel>
                                 </Button>
                             </ListViewItem>
@@ -184,7 +191,14 @@
                                 <Button Style="{DynamicResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left" Command="{Binding AdminRedirectViewCommands}" CommandParameter="AdminTurfDetails" ToolTip="Turf Details"
                              BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black">
                                     <StackPanel Margin="-5">
-                                        <materialDesign:PackIcon Kind="Soccer"/>
+                                        <materialDesign:PackIcon Kind="Soccer">
+                                            <materialDesign:PackIcon.Foreground>
+                                                <LinearGradientBrush StartPoint="1,0" EndPoint="0.5,1">
+                                                    <GradientStop Color="red" Offset="0" />
+                                                    <GradientStop Color="orange" Offset="1" />
+                                                </LinearGradientBrush>
+                                            </materialDesign:PackIcon.Foreground>
+                                        </materialDesign:PackIcon>
                                     </StackPanel>
                                 </Button>
                             </ListViewItem>
@@ -192,7 +206,14 @@
                                 <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
                              BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Command="{Binding AdminRedirectViewCommands}" CommandParameter="AdminTurfBookings" ToolTip="Bookings">
                                     <StackPanel Margin="-5">
-                                        <materialDesign:PackIcon Kind="CalendarBlankOutline"/>
+                                        <materialDesign:PackIcon Kind="CalendarBlankOutline">
+                                            <materialDesign:PackIcon.Foreground>
+                                                <LinearGradientBrush StartPoint="1,0" EndPoint="0.5,1">
+                                                    <GradientStop Color="red" Offset="0" />
+                                                    <GradientStop Color="orange" Offset="1" />
+                                                </LinearGradientBrush>
+                                            </materialDesign:PackIcon.Foreground>
+                                        </materialDesign:PackIcon>
                                     </StackPanel>
                                 </Button>
                             </ListViewItem>
@@ -200,7 +221,14 @@
                                 <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
                              BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Command="{Binding AdminRedirectViewCommands}" CommandParameter="AdminUsersList" ToolTip="Settings">
                                     <StackPanel Margin="-5">
-                                        <materialDesign:PackIcon Kind="Users"/>
+                                        <materialDesign:PackIcon Kind="Users">
+                                            <materialDesign:PackIcon.Foreground>
+                                                <LinearGradientBrush StartPoint="1,0" EndPoint="0.5,1">
+                                                    <GradientStop Color="red" Offset="0" />
+                                                    <GradientStop Color="orange" Offset="1" />
+                                                </LinearGradientBrush>
+                                            </materialDesign:PackIcon.Foreground>
+                                        </materialDesign:PackIcon>
                                     </StackPanel>
                                 </Button>
                             </ListViewItem>
@@ -209,7 +237,14 @@
                                 <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
                              BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Command="{Binding AdminRedirectViewCommands}" CommandParameter="AdminSettings" ToolTip="Settings">
                                     <StackPanel Margin="-5">
-                                        <materialDesign:PackIcon Kind="EqualiserVertical"/>
+                                        <materialDesign:PackIcon Kind="EqualiserVertical">
+                                            <materialDesign:PackIcon.Foreground>
+                                                <LinearGradientBrush StartPoint="1,0" EndPoint="0.5,1">
+                                                    <GradientStop Color="red" Offset="0" />
+                                                    <GradientStop Color="orange" Offset="1" />
+                                                </LinearGradientBrush>
+                                            </materialDesign:PackIcon.Foreground>
+                                        </materialDesign:PackIcon>
                                     </StackPanel>
                                 </Button>
                             </ListViewItem>
@@ -218,7 +253,14 @@
                                 <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
                              BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" x:Name="btnExit" ToolTip="Log Out" Command="{Binding AdminRedirectViewCommands}" CommandParameter="SignOut">
                                     <StackPanel Margin="-5">
-                                        <materialDesign:PackIcon Kind="ExitToApp"/>
+                                        <materialDesign:PackIcon Kind="ExitToApp">
+                                            <materialDesign:PackIcon.Foreground>
+                                                <LinearGradientBrush StartPoint="1,0" EndPoint="0.5,1">
+                                                    <GradientStop Color="red" Offset="0" />
+                                                    <GradientStop Color="orange" Offset="1" />
+                                                </LinearGradientBrush>
+                                            </materialDesign:PackIcon.Foreground>
+                                        </materialDesign:PackIcon>
                                     </StackPanel>
                                 </Button>
                             </ListViewItem>

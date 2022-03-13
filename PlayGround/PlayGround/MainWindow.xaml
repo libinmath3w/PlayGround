@@ -183,7 +183,14 @@
                             <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
                              BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Command="{Binding RedirectViewCommands}" CommandParameter="UserDashboard" ToolTip="Dashboard">
                                 <StackPanel Margin="-5" Orientation="Horizontal">
-                                    <materialDesign:PackIcon Kind="Resistor"/>
+                                    <materialDesign:PackIcon Kind="Resistor">
+                                        <materialDesign:PackIcon.Foreground>
+                                            <LinearGradientBrush StartPoint="1,0" EndPoint="0.5,1">
+                                                <GradientStop Color="red" Offset="0" />
+                                                <GradientStop Color="orange" Offset="1" />
+                                            </LinearGradientBrush>
+                                        </materialDesign:PackIcon.Foreground>
+                                    </materialDesign:PackIcon>
                                 </StackPanel>
                             </Button>
                         </ListViewItem>
@@ -191,7 +198,14 @@
                             <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
                              BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Command="{Binding RedirectViewCommands}" CommandParameter="UserTurfBooking" ToolTip="Bookings">
                                 <StackPanel Margin="-5">
-                                    <materialDesign:PackIcon Kind="CalendarBlankOutline"/>
+                                    <materialDesign:PackIcon Kind="CalendarBlankOutline">
+                                        <materialDesign:PackIcon.Foreground>
+                                            <LinearGradientBrush StartPoint="1,0" EndPoint="0.5,1">
+                                                <GradientStop Color="red" Offset="0" />
+                                                <GradientStop Color="orange" Offset="1" />
+                                            </LinearGradientBrush>
+                                        </materialDesign:PackIcon.Foreground>
+                                    </materialDesign:PackIcon>
                                 </StackPanel>
                             </Button>
                         </ListViewItem>
@@ -199,7 +213,14 @@
                             <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
                              BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" Command="{Binding RedirectViewCommands}" CommandParameter="UserSettings" ToolTip="Settings">
                                 <StackPanel Margin="-5">
-                                    <materialDesign:PackIcon Kind="EqualiserVertical"/>
+                                    <materialDesign:PackIcon Kind="EqualiserVertical">
+                                        <materialDesign:PackIcon.Foreground>
+                                            <LinearGradientBrush StartPoint="1,0" EndPoint="0.5,1">
+                                                <GradientStop Color="red" Offset="0" />
+                                                <GradientStop Color="orange" Offset="1" />
+                                            </LinearGradientBrush>
+                                        </materialDesign:PackIcon.Foreground>
+                                    </materialDesign:PackIcon>
                                 </StackPanel>
                             </Button>
                         </ListViewItem>
@@ -208,7 +229,14 @@
                             <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
                              BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" x:Name="btnExit" ToolTip="Log Out" Command="{Binding RedirectViewCommands}" CommandParameter="SignOut" Click="btnExit_Click">
                                 <StackPanel Margin="-5">
-                                    <materialDesign:PackIcon Kind="Logout"/>
+                                    <materialDesign:PackIcon Kind="Logout">
+                                        <materialDesign:PackIcon.Foreground>
+                                            <LinearGradientBrush StartPoint="1,0" EndPoint="0.5,1">
+                                                <GradientStop Color="red" Offset="0" />
+                                                <GradientStop Color="orange" Offset="1" />
+                                            </LinearGradientBrush>
+                                        </materialDesign:PackIcon.Foreground>
+                                    </materialDesign:PackIcon>
                                 </StackPanel>
                             </Button>
                         </ListViewItem>
