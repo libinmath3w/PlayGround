@@ -40,54 +40,54 @@
                     <WrapPanel HorizontalAlignment="Center">
                         <Border BorderBrush="White" BorderThickness="5" Margin="20 0" CornerRadius="15">
                             <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth0" UniformCornerRadius="15" BorderThickness="5"
-                         BorderBrush="White" Width="110" Height="130" Background="#F6F6F8">
+                          Width="110" Height="130">
                                 <StackPanel Margin="10">
                                     <materialDesign:PackIcon Kind="Soccer">
                                         <materialDesign:PackIcon.Foreground>
                                             <LinearGradientBrush StartPoint="1,0" EndPoint="0.5,1">
-                                                <GradientStop Color="Black" Offset="0" />
-                                                <GradientStop Color="green" Offset="1" />
+                                                <GradientStop Color="Red" Offset="0" />
+                                                <GradientStop Color="Orange" Offset="1" />
                                             </LinearGradientBrush>
                                         </materialDesign:PackIcon.Foreground>
                                     </materialDesign:PackIcon>
-                                    <TextBlock FontWeight="SemiBold" FontSize="25" Text="{Binding CountTurf}" Margin="0 10 0 0" />
-                                    <TextBlock FontSize="14" Text="Turfs" />
+                                    <TextBlock FontWeight="SemiBold" FontSize="25" Text="{Binding CountTurf}" Margin="0 10 0 0" Foreground="red"/>
+                                    <TextBlock FontSize="14" Text="Turfs" Foreground="Orange"/>
                                     <materialDesign:PackIcon Kind="EllipsisHorizontal" HorizontalAlignment="Right" />
                                 </StackPanel>
                             </materialDesign:Card>
                         </Border>
                         <Border BorderBrush="White" BorderThickness="5" Margin="20 0" CornerRadius="15">
                             <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth0" UniformCornerRadius="15" BorderThickness="5"
-                         BorderBrush="White" Width="110" Height="130" Background="#F6F6F8">
+                         Width="110" Height="130">
                                 <StackPanel Margin="10">
                                     <materialDesign:PackIcon Kind="User">
                                         <materialDesign:PackIcon.Foreground>
                                             <LinearGradientBrush StartPoint="1,0" EndPoint="0.5,1">
-                                                <GradientStop Color="Black" Offset="0" />
-                                                <GradientStop Color="Green" Offset="1" />
+                                                <GradientStop Color="red" Offset="0" />
+                                                <GradientStop Color="Orange" Offset="1" />
                                             </LinearGradientBrush>
                                         </materialDesign:PackIcon.Foreground>
                                     </materialDesign:PackIcon>
-                                    <TextBlock FontWeight="SemiBold" FontSize="25" Text="{Binding CountUser}" Margin="0 10 0 0" />
-                                    <TextBlock FontSize="14" Text="Users" />
+                                    <TextBlock FontWeight="SemiBold" FontSize="25" Text="{Binding CountUser}" Margin="0 10 0 0"  Foreground="red"/>
+                                    <TextBlock FontSize="14" Text="Users"  Foreground="orange"/>
                                     <materialDesign:PackIcon Kind="EllipsisHorizontal" HorizontalAlignment="Right" />
                                 </StackPanel>
                             </materialDesign:Card>
                         </Border>
                         <Border BorderBrush="White" BorderThickness="5" Margin="20 0" CornerRadius="15">
                             <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth0" UniformCornerRadius="15" BorderThickness="5"
-                         BorderBrush="White" Width="110" Height="130" Background="#F6F6F8">
+                         Width="110" Height="130">
                                 <StackPanel Margin="10">
                                     <materialDesign:PackIcon Kind="BookOpenBlankVariant">
                                         <materialDesign:PackIcon.Foreground>
                                             <LinearGradientBrush StartPoint="1,0" EndPoint="0.5,1">
-                                                <GradientStop Color="Black" Offset="0" />
-                                                <GradientStop Color="Green" Offset="1" />
+                                                <GradientStop Color="red" Offset="0" />
+                                                <GradientStop Color="orange" Offset="1" />
                                             </LinearGradientBrush>
                                         </materialDesign:PackIcon.Foreground>
                                     </materialDesign:PackIcon>
-                                    <TextBlock FontWeight="SemiBold" FontSize="25" Text="{Binding CountBooking}" Margin="0 10 0 0" />
-                                    <TextBlock FontSize="14" Text="Bookings" />
+                                    <TextBlock FontWeight="SemiBold" FontSize="25" Text="{Binding CountBooking}" Margin="0 10 0 0"  Foreground="red"/>
+                                    <TextBlock FontSize="14" Text="Bookings"  Foreground="Orange"/>
                                     <materialDesign:PackIcon Kind="EllipsisHorizontal" HorizontalAlignment="Right" />
                                 </StackPanel>
                             </materialDesign:Card>
