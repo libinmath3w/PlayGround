@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PlayGround.View"
              mc:Ignorable="d" 
+             xmlns:locals="clr-namespace:PlayGround.Converter"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              TextElement.Foreground="{DynamicResource MaterialDesignBody}"
              Background="{DynamicResource MaterialDesignPaper}"
@@ -106,8 +107,19 @@
                         <PasswordBox x:Name="pwbConfirmPassword" Style="{DynamicResource MaterialDesignOutlinedPasswordBox}" VerticalAlignment="Top" Width="330"
                         materialDesign:HintAssist.Hint="Confirm Password" Margin="10,10,0,20" materialDesign:HintAssist.HelperText="At least 8 characters"/>
                         <Button Style="{DynamicResource MaterialDesignRaisedDarkButton}"
-                        Content="Update Password" x:Name="btnPasswordUpdate" FontSize="16" FontWeight="Bold" Margin="145,15,0,0" Command="{Binding UserSettingsCommands}" CommandParameter="UpdatePassword"
-                        materialDesign:ButtonAssist.CornerRadius="25" Width="230" Height="40" ToolTip="Save Details" />
+                        Content="Update Password" x:Name="btnPasswordUpdate" FontSize="16" FontWeight="Bold" Margin="145,15,0,0" Command="{Binding UserSettingsCommands}"
+                        materialDesign:ButtonAssist.CornerRadius="25" Width="230" Height="40" ToolTip="Save Details" >
+                            <Button.Resources>
+                                <locals:PlainMultiValueConverter x:Key="PlainMultiValueConverter"/>
+                            </Button.Resources>
+                            <Button.CommandParameter>
+                                <MultiBinding Converter="{StaticResource PlainMultiValueConverter}">
+                                    <Binding ElementName="pwbCurrentPassword"/>
+                                    <Binding ElementName="pwbNewPassword"/>
+                                    <Binding ElementName="pwbConfirmPassword"/>
+                                </MultiBinding>
+                            </Button.CommandParameter>
+                        </Button>
                     </StackPanel>
                 </StackPanel>
             </materialDesign:Card>

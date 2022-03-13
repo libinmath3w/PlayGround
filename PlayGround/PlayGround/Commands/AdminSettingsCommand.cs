@@ -12,12 +12,18 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace PlayGround.Commands
 {
     public class AdminSettingsCommand : ICommand
     {
+        public string CurrentPassword { get; set; }
+        public string ConfirmPassword { get; set; }
+        public string FirstPassword { get; set; }
+        public string DecryptedPassword { get; set; }
+
         public event EventHandler CanExecuteChanged;
         public AdminSettingsViewModel adminSettingsViewModel { get; set; }
         public AdminSettingsCommand(AdminSettingsViewModel adminSettingsViewModels)
@@ -108,6 +114,56 @@ namespace PlayGround.Commands
 
                     throw ex;
                 }
+            }
+            else
+            {
+                var values = (object[])parameter;
+                if (values != null)
+                {
+                    var passvalueOne = values[0];
+                    var passvalueTwo = values[1];
+                    var passvalueThree = values[2];
+                    PasswordBox boxpass = (PasswordBox)passvalueOne;
+                    CurrentPassword = boxpass.Password;
+                    PasswordBox boxpasses = (PasswordBox)passvalueTwo;
+                    FirstPassword = boxpasses.Password;
+                    PasswordBox boxpasseses = (PasswordBox)passvalueThree;
+                    ConfirmPassword = boxpasseses.Password;
+                    UsersModel usersModel = new UsersModel();
+                    usersModel.UserId = adminSettingsViewModel.UserID;
+                    AdminSettingsBusinessModel adminSettingsBusinessModel = new AdminSettingsBusinessModel();
+                    if (!string.IsNullOrEmpty(CurrentPassword) && !string.IsNullOrEmpty(FirstPassword) && !string.IsNullOrEmpty(ConfirmPassword))
+                    {
+                        if (FirstPassword == ConfirmPassword)
+                        {
+                            var query = adminSettingsBusinessModel.GetUserPasswordDetails(usersModel);
+                            foreach (var item in query)
+                            {
+                                DecryptedPassword = Unprotect(item.Password);
+                            }
+                            if (DecryptedPassword == CurrentPassword)
+                            {
+                                if (DecryptedPassword == FirstPassword)
+                                    MessageBox.Show("Old Password and new Password are Match. Try with New Password");
+                                else
+                                {
+                                    usersModel.Password = Protect(FirstPassword);
+                                    adminSettingsBusinessModel.UpdatePassword(usersModel);
+                                    MessageBox.Show("Password Updated");
+                                }
+                            }
+
+                            else
+                                MessageBox.Show("Current Password is not match");
+                        }
+                        else
+                            MessageBox.Show("Both Password Not Match");
+                    }
+                    else
+                        MessageBox.Show("Enter All Password Fields");
+                }
+                else
+                    MessageBox.Show("Enter Password");
             }
         }
 

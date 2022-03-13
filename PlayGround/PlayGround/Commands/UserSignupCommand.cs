@@ -18,7 +18,8 @@ namespace PlayGround.Commands
     public class UserSignupCommand : ICommand
     {
         public string Password { get; set; }
-       
+        public string ConfirmPassword { get; set; }
+        public string FirstPassword { get; set; }
 
         public event EventHandler CanExecuteChanged;
         public UserRegistrationViewModel UserRegistrationViewModel { get; set; }
@@ -38,110 +39,100 @@ namespace PlayGround.Commands
 
         public void Execute(object parameter)
         {
-            if (parameter.ToString() == "userSignUp")
+            
+            var values = (object[]) parameter;
+            if (values != null)
             {
+                var passvalueOne = values[0];
+                var passvalueTwo = values[1];
+                PasswordBox boxpass = (PasswordBox)passvalueOne;
+                FirstPassword = boxpass.Password;
+                PasswordBox boxpasses = (PasswordBox)passvalueTwo;
+                ConfirmPassword = boxpasses.Password;
                 string Name = UserRegistrationViewModel.Name;
                 string UserName = UserRegistrationViewModel.UserName;
                 string UserEmailID = UserRegistrationViewModel.UserEmailID;
                 string PhoneNumber = UserRegistrationViewModel.PhoneNumber;
-                if (Name != null && UserName != null && UserEmailID != null && PhoneNumber != null)
+                if (Name != null && UserName != null && UserEmailID != null && PhoneNumber != null && !string.IsNullOrEmpty(FirstPassword) && !string.IsNullOrEmpty(ConfirmPassword))
                 {
-                        if (!isValidEmail(UserEmailID))
+                    if (!isValidEmail(UserEmailID))
+                    {
+                        MessageBox.Show("Invalid Email ID");
+                    }
+                    else
+                    {
+                        if (isEmailIDExists(UserEmailID) == true)
                         {
-                            MessageBox.Show("Invalid Email ID");
+                            MessageBox.Show("Email ID Already Exists");
                         }
                         else
                         {
-                            if (isEmailIDExists(UserEmailID) == true)
+                            if (!isValidPhoneNumber(PhoneNumber))
                             {
-                                MessageBox.Show("Email ID Already Exists");
+                                MessageBox.Show("Invalid Phone Number");
                             }
                             else
                             {
-                                if (!isValidPhoneNumber(PhoneNumber))
+                                if (PhoneNumber.Length == 10)
                                 {
-                                    MessageBox.Show("Invalid Phone Number");
-                                }
-                                else
-                                {
-                                    if (PhoneNumber.Length == 10)
+                                    if (!isValidUserName(UserName))
                                     {
-                                        if (!isValidUserName(UserName))
+                                        if (!string.IsNullOrEmpty(UserName))
                                         {
-                                         if (!string.IsNullOrEmpty(UserName))
-                                         {
                                             if (!string.IsNullOrEmpty(Name))
                                             {
-                                                UsersModel usersModels = new UsersModel();
-                                                UserSignUpBusinessModel userSignUpBusinessModels = new UserSignUpBusinessModel();
-                                                usersModels.UserName = UserName;
-                                                usersModels.Name = Name;
-                                                usersModels.UserEmailID = UserEmailID;
-                                                usersModels.PhoneNumber = PhoneNumber;
-                                                usersModels.RoleID = 2;
-                                                usersModels.Status = 0;
-                                                string encrypass = Protect(PhoneNumber);
-                                                usersModels.Password = encrypass;
-                                                usersModels.DateOfCreatedAccount = DateTime.Now;
-                                                usersModels.Avatar = "avatar.jpg";
-                                                userSignUpBusinessModels.SaveSignUpDetails(usersModels);
-                                                MessageBox.Show("Registration Successfull");
+                                                if (FirstPassword == ConfirmPassword)
+                                                {
+                                                    if (FirstPassword.Count() >= 8)
+                                                    {
+                                                        UsersModel usersModels = new UsersModel();
+                                                        UserSignUpBusinessModel userSignUpBusinessModels = new UserSignUpBusinessModel();
+                                                        usersModels.UserName = UserName;
+                                                        usersModels.Name = Name;
+                                                        usersModels.UserEmailID = UserEmailID;
+                                                        usersModels.PhoneNumber = PhoneNumber;
+                                                        usersModels.RoleID = 2;
+                                                        usersModels.Status = 0;
+                                                        string encrypass = Protect(FirstPassword);
+                                                        usersModels.Password = encrypass;
+                                                        usersModels.DateOfCreatedAccount = DateTime.Now;
+                                                        usersModels.Avatar = "avatar.jpg";
+                                                        userSignUpBusinessModels.SaveSignUpDetails(usersModels);
+                                                        MessageBox.Show("Registration Successfull");
+                                                    }
+                                                    else
+                                                        MessageBox.Show("Password should be At least 8 characters ");
+                                                    
+                                                }
+                                                else
+                                                    MessageBox.Show("Password not Match");
+                                                
                                             }
                                             else
-                                            {
                                                 MessageBox.Show("name is blank");
-                                            }
-                                            
-                                         }
-                                         else
-                                         {
-                                            MessageBox.Show("Username is blank");
-                                         }
-                                        
+
                                         }
                                         else
-                                        {
-                                            MessageBox.Show("Username Already Exists");
-                                        }
+                                            MessageBox.Show("Username is blank");
+
                                     }
                                     else
-                                    {
-                                        MessageBox.Show("Phone Number should be 10 digits");
-                                    }
-                                    
+                                        MessageBox.Show("Username Already Exists");
                                 }
+                                else
+                                    MessageBox.Show("Phone Number should be 10 digits");
+
                             }
                         }
+                    }
 
                 }
                 else
-                {
                     System.Windows.MessageBox.Show("Enter all fields");
-                }
-                //PasswordBox boxpass = (PasswordBox)parameter;
-                //Password = boxpass.Password;
-
-                //if (Password.Length > 8)
-                //{
-                //    if (UserRegistrationViewModel.UserEmailID.Length > 0)
-                //    {
-                //        System.Text.RegularExpressions.Regex rEmail = new System.Text.RegularExpressions.Regex(@"^[a-zA-Z][\w\.-]{2,28}[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$");
-                //        if (!rEmail.IsMatch(UserRegistrationViewModel.UserEmailID))
-                //        {
-                //            MessageBox.Show("Invalid Email ID");
-
-                //        }
-                //    }
-                //    System.Windows.MessageBox.Show("Password length too small");
-
-                //}
-                //else
-                //{
-
-                //}
-
-
             }
+            else
+                MessageBox.Show("Enter Password");
+
         }
 
         public static bool isValidEmail(string inputEmail)

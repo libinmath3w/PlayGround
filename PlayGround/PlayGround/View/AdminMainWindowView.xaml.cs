@@ -1,4 +1,5 @@
-﻿using FontAwesome.WPF;
+﻿using EntityLayer;
+using FontAwesome.WPF;
 using MaterialDesignThemes.Wpf;
 using PlayGround.ViewModel;
 using System;
@@ -24,7 +25,7 @@ namespace PlayGround.View
     {
         public bool IsDarknLightMode { get; set; }
         private readonly PaletteHelper paletteHelper = new PaletteHelper();
-        public AdminMainWindowView()
+        public AdminMainWindowView(UsersModel usersModel)
         {
             InitializeComponent();
             Icon = ImageAwesome.CreateImageSource(FontAwesomeIcon.SoccerBallOutline, Brushes.Green);

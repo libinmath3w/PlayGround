@@ -54,6 +54,7 @@
     <Compile Include="Interface\IUserSettings.cs" />
     <Compile Include="Interface\IUserSignUp.cs" />
     <Compile Include="Interface\IUserTurfBooking.cs" />
+    <Compile Include="PassWordModel.cs" />
     <Compile Include="PaymentTypeModel.cs" />
     <Compile Include="TimeSloteModel.cs" />
     <Compile Include="TurfCategoryModel.cs" />

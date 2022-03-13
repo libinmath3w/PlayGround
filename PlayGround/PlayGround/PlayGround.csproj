@@ -67,6 +67,7 @@
     <Compile Include="Commands\UserSettingsCommand.cs" />
     <Compile Include="Commands\UserSigninCommand.cs" />
     <Compile Include="Commands\UserSignupCommand.cs" />
+    <Compile Include="Converter\PlainMultiValueConverter.cs" />
     <Compile Include="ViewModel\AdminAddNewTurfViewModel.cs" />
     <Compile Include="ViewModel\AdminDashboardViewModel.cs" />
     <Compile Include="ViewModel\AdminTurfBookingHistoryViewModel.cs" />
