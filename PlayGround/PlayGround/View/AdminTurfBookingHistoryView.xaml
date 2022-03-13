@@ -39,19 +39,26 @@
                 </Button>
             </StackPanel>
         </materialDesign:Card>
-        <DataGrid x:Name="gdShowBookings" AutoGenerateColumns="False" CanUserAddRows="False" ColumnWidth="*" ItemsSource="{Binding BookingDetailsOC}" Margin="0,120,0,0" MouseDoubleClick="Row_MouseDoubleClick">
-            <DataGrid.Columns>
-                <materialDesign:DataGridTextColumn Header="Booking ID" Binding="{Binding BookingID}" IsReadOnly="True" />
-                <materialDesign:DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True"/>
-                <materialDesign:DataGridTextColumn Header="Turf Name" Binding="{Binding TurfName}" IsReadOnly="True"/>
-                <materialDesign:DataGridTextColumn Header="Date" Binding="{Binding BookingDate}" IsReadOnly="True"/>
-                <materialDesign:DataGridTextColumn Header="Start Time" Binding="{Binding StartTime}" IsReadOnly="True"/>
-                <materialDesign:DataGridTextColumn Header="End Time" Binding="{Binding EndTime}" IsReadOnly="True"/>
-                <materialDesign:DataGridTextColumn Header="Amount" Binding="{Binding Amount}" IsReadOnly="True"/>
-                <materialDesign:DataGridTextColumn Header="Payment Status" Binding="{Binding PaymentStatus}" IsReadOnly="True"/>
-                <materialDesign:DataGridTextColumn Header="Payment Type" Binding="{Binding PaymentType}" IsReadOnly="True"/>
-                <materialDesign:DataGridTextColumn Header="Status" Binding="{Binding BStatus}" IsReadOnly="True"/>
-            </DataGrid.Columns>
-        </DataGrid>
+        <materialDesign:Card Margin="10,110,10,10">
+            <materialDesign:Card.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </materialDesign:Card.Resources>
+            <DataGrid x:Name="gdShowBookings" AutoGenerateColumns="False" CanUserAddRows="False" ColumnWidth="*" ItemsSource="{Binding BookingDetailsOC}" Margin="0,10,0,0" MouseDoubleClick="Row_MouseDoubleClick">
+                <DataGrid.Columns>
+                    <materialDesign:DataGridTextColumn Header="Booking ID" Binding="{Binding BookingID}" IsReadOnly="True" />
+                    <materialDesign:DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True"/>
+                    <materialDesign:DataGridTextColumn Header="Turf Name" Binding="{Binding TurfName}" IsReadOnly="True"/>
+                    <materialDesign:DataGridTextColumn Header="Date" Binding="{Binding BookingDate}" IsReadOnly="True"/>
+                    <materialDesign:DataGridTextColumn Header="Start Time" Binding="{Binding StartTime}" IsReadOnly="True"/>
+                    <materialDesign:DataGridTextColumn Header="End Time" Binding="{Binding EndTime}" IsReadOnly="True"/>
+                    <materialDesign:DataGridTextColumn Header="Amount" Binding="{Binding Amount}" IsReadOnly="True"/>
+                    <materialDesign:DataGridTextColumn Header="Payment Status" Binding="{Binding PaymentStatus}" IsReadOnly="True"/>
+                    <materialDesign:DataGridTextColumn Header="Payment Type" Binding="{Binding PaymentType}" IsReadOnly="True"/>
+                    <materialDesign:DataGridTextColumn Header="Status" Binding="{Binding BStatus}" IsReadOnly="True"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </materialDesign:Card>
     </Grid>
 </UserControl>
