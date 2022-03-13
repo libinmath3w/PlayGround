@@ -4,8 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
+        xmlns:local="clr-namespace:PlayGround.Converter"
         WindowStartupLocation="CenterScreen"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:viewmodel="clr-namespace:PlayGround.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:UserRegistrationViewModel}"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        xmlns:viewmodel="clr-namespace:PlayGround.ViewModel" 
+        d:DataContext="{d:DesignInstance Type=viewmodel:UserRegistrationViewModel}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
         TextElement.FontWeight="Medium"
@@ -46,26 +49,33 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Key" Width="25" Height="25" Margin="15,20,0,0"/>
-                    <PasswordBox x:Name="pwbPassword"  Style="{DynamicResource MaterialDesignOutlinedPasswordBox}"  PasswordChar="*" VerticalAlignment="Top" Width="300"
+                    <PasswordBox x:Name="pwbPasswords"  Style="{DynamicResource MaterialDesignOutlinedPasswordBox}"  PasswordChar="*" VerticalAlignment="Top" Width="300"
                         materialDesign:HintAssist.Hint="Enter Password" Margin="10,10,0,0" materialDesign:HintAssist.HelperText="At least 8 characters" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Key" Width="25" Height="25" Margin="15,30,0,0"/>
-                    <PasswordBox x:Name="pwbConfirmPassword" Style="{DynamicResource MaterialDesignOutlinedPasswordBox}"  PasswordChar="*" VerticalAlignment="Top" Width="300"
+                    <PasswordBox x:Name="pwbConfirmPasswords" Style="{DynamicResource MaterialDesignOutlinedPasswordBox}"  PasswordChar="*" VerticalAlignment="Top" Width="300"
                         materialDesign:HintAssist.Hint="Confirm Password" Margin="10,20,0,0" materialDesign:HintAssist.HelperText="At least 8 characters"/>
                 </StackPanel>
                 <StackPanel>
-                    <Button Command="{Binding userSignUpCommands}" CommandParameter="userSignUp" Content="Sign Up" x:Name="btnSignUp" FontSize="16" FontWeight="Bold" Margin="10,30,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="172" >
-                            <Button.Resources>
-                                <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="15"/>
-                                </Style>
-                            </Button.Resources>
+                    <Button Command="{Binding userSignUpCommands}" Content="Sign Up" x:Name="btnSignUp" FontSize="16" FontWeight="Bold" Margin="10,30,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="172" >
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="15"/>
+                            </Style>
+                            <local:PlainMultiValueConverter x:Key="PlainMultiValueConverter"/>
+                        </Button.Resources>
+                        <Button.CommandParameter>
+                                <MultiBinding Converter="{StaticResource PlainMultiValueConverter}">
+                                <Binding ElementName="pwbPasswords"/>
+                                <Binding ElementName="pwbConfirmPasswords"/>
+                                </MultiBinding>
+                            </Button.CommandParameter>
                         </Button>
-                    </StackPanel>
+                </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Already have an account ?" Margin="45,20,0,0"/>
-                    <Button Content="Login now" x:Name="btnRegistration" Command="{Binding userSignUpCommands}" CommandParameter="signin" FontSize="14" FontWeight="Bold" Margin="15,20,0,0"  Foreground="Blue" Background="White" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" BorderThickness="0" Click="btnRegistration_Click">
+                    <Button Content="Login now" x:Name="btnRegistration" FontSize="14" FontWeight="Bold" Margin="15,20,0,0"  Foreground="Blue" Background="White" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" BorderThickness="0" Click="btnRegistration_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="15"/>

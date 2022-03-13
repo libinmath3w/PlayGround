@@ -25,9 +25,6 @@ namespace PlayGround.View
         public UserSettingsView()
         {
             InitializeComponent();
-            //UsersModel users = new UsersModel();
-            //users.UserId = 2; 
-            //DataContext = new UserSettingsViewModels(users);
         }
     }
 }

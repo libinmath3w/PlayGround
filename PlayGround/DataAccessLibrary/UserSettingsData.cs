@@ -48,6 +48,30 @@ namespace DataAccessLibrary
             return UserSettingsResult;
         }
 
+        public List<UsersModel> GetUserPasswordDetails(UsersModel usersModel)
+        {
+            List<UsersModel> UserSettingsResult = new List<UsersModel>();
+            try
+            {
+                TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
+                var query = from userdetails in turfManagementDBEntities.Users
+                            where userdetails.ID.Equals(usersModel.UserId)
+                            select userdetails;
+                foreach (var item in query)
+                {
+                    UsersModel users = new UsersModel();
+                    users.Password = item.Password;
+                    UserSettingsResult.Add(users);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return UserSettingsResult;
+        }
+
         public void SaveAvatar(UsersModel usersModel)
         {
             try
@@ -94,6 +118,22 @@ namespace DataAccessLibrary
                 }
                
            }
+
+        public void UpdatePassword(UsersModel usersModel)
+        {
+            try
+            {
+                SqlConnection sqlConnection = null;
+                sqlConnection = new SqlConnection("Data Source =.; Database = TurfManagementDB; Integrated Security=true;");
+                SqlDataAdapter adapter = new SqlDataAdapter("UPDATE USERS SET PASSWORD = '" + usersModel.Password + "' WHERE ID = " + usersModel.UserId, sqlConnection);
+                DataSet dataSet = new DataSet();
+                adapter.Fill(dataSet);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
 
