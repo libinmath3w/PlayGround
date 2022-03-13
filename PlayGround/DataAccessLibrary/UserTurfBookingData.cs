@@ -15,6 +15,8 @@ namespace DataAccessLibrary
         public int EndTimeId;
         public int TurfOpeningTime;
         public int TurfClosingTime;
+        public int AlreadyBStartTime;
+        public int AlreadyBEndTime;
         public List<TurfModel> GetTurfDetails(TurfModel turfModel)
         {
             List<TurfModel> BookingTurfList = new List<TurfModel>();
@@ -152,7 +154,33 @@ namespace DataAccessLibrary
                                                  select TBOTime;
                     if (TurfBookingOpeningTime.Count() > 0)
                     {
-                        MessageBox.Show("inside More Counts");
+                        var AllTurfBookingInfo = from TBOTime in turfManagementDB.Bookings
+                                                      where (TBOTime.Booking_Date == timeSloteModel.BookingTime) && (TBOTime.Turf_ID == timeSloteModel.TurfID)
+                                                      select TBOTime;
+                        foreach (var item in AllTurfBookingInfo)
+                        {
+                            AlreadyBStartTime = item.Start_Time;
+                            AlreadyBEndTime = item.End_Time;
+                        }
+                        if ((AlreadyBEndTime - AlreadyBStartTime) == 1)
+                        {
+                            for (int i = AlreadyBStartTime; i < AlreadyBEndTime; i++)
+                            {
+                                var itemToRemove = timeDetails.SingleOrDefault(r => r.TimeID == i);
+                                if (itemToRemove != null)
+                                    timeDetails.Remove(itemToRemove);
+                            }
+                        }
+                        else
+                        {
+                            for (int i = AlreadyBStartTime; i < AlreadyBEndTime; i++)
+                            {
+                                var itemToRemove = timeDetails.SingleOrDefault(r => r.TimeID == i);
+                                if (itemToRemove != null)
+                                    timeDetails.Remove(itemToRemove);
+                            }
+                        }
+
                     }
                     else
                     {
@@ -170,9 +198,66 @@ namespace DataAccessLibrary
                     }
                     
                 }
-                else
+                else if (TurfOpeningTime > TimeID)
                 {
-                    MessageBox.Show("No slots Available");
+                    var TurfBookingOpeningTime = from TBOTime in turfManagementDB.Bookings
+                                                 where TBOTime.Booking_Date == timeSloteModel.BookingTime
+                                                 select TBOTime;
+                    if (TurfBookingOpeningTime.Count() > 0)
+                    {
+                        var result = from time in turfManagementDB.Time_Slote
+                                     where (time.Time_ID > TimeID) && (time.Time_ID < TurfClosingTime)
+                                     select time;
+
+                        foreach (var item in result)
+                        {
+                            TimeSloteModel timeSlote = new TimeSloteModel();
+                            timeSlote.TimeID = item.Time_ID;
+                            timeSlote.TimeSlots = item.Time_Slots;
+                            timeDetails.Add(timeSlote);
+                        }
+
+                        var AllTurfBookingInfo = from TBOTime in turfManagementDB.Bookings
+                                                 where (TBOTime.Booking_Date == timeSloteModel.BookingTime) && (TBOTime.Turf_ID == timeSloteModel.TurfID)
+                                                 select TBOTime;
+                        foreach (var item in AllTurfBookingInfo)
+                        {
+                            AlreadyBStartTime = item.Start_Time;
+                            AlreadyBEndTime = item.End_Time;
+                        }
+                        if ((AlreadyBEndTime - AlreadyBStartTime) == 1)
+                        {
+                            for (int i = AlreadyBStartTime; i < AlreadyBEndTime; i++)
+                            {
+                                var itemToRemove = timeDetails.SingleOrDefault(r => r.TimeID == i);
+                                if (itemToRemove != null)
+                                    timeDetails.Remove(itemToRemove);
+                            }
+                        }
+                        else
+                        {
+                            for (int i = AlreadyBStartTime; i < AlreadyBEndTime; i++)
+                            {
+                                var itemToRemove = timeDetails.SingleOrDefault(r => r.TimeID == i);
+                                if (itemToRemove != null)
+                                    timeDetails.Remove(itemToRemove);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        var result = from time in turfManagementDB.Time_Slote
+                                     where (time.Time_ID >= TurfOpeningTime) && (time.Time_ID < TurfClosingTime)
+                                     select time;
+
+                        foreach (var item in result)
+                        {
+                            TimeSloteModel timeSlote = new TimeSloteModel();
+                            timeSlote.TimeID = item.Time_ID;
+                            timeSlote.TimeSlots = item.Time_Slots;
+                            timeDetails.Add(timeSlote);
+                        }
+                    }
                 }
 
               
@@ -203,7 +288,6 @@ namespace DataAccessLibrary
                 {
                     TurfOpeningTime = item.Opening_Time;
                     TurfClosingTime = item.Closing_Time;
-
                 }
                 if (TimeID >= TurfOpeningTime)
                 {
@@ -212,10 +296,50 @@ namespace DataAccessLibrary
                                                  select TBOTime;
                     if (TurfBookingOpeningTime.Count() > 0)
                     {
-                        MessageBox.Show("inside More Counts");
+                        var AllTurfBookingInfo = from TBOTime in turfManagementDB.Bookings
+                                                 where (TBOTime.Booking_Date == timeSloteModel.BookingTime) && (TBOTime.Turf_ID == timeSloteModel.TurfID)
+                                                 select TBOTime;
+                        foreach (var item in AllTurfBookingInfo)
+                        {
+                            AlreadyBStartTime = item.Start_Time;
+                            AlreadyBEndTime = item.End_Time;
+                        }
+
                     }
                     else
                     {
+                        TimeID = TimeID + 1;
+                        TurfClosingTime = TurfClosingTime + 1;
+                        var result = from time in turfManagementDB.Time_Slote
+                                     where (time.Time_ID >= TimeID) && (time.Time_ID < TurfClosingTime)
+                                     select time;
+
+                        foreach (var item in result)
+                        {
+                            TimeSloteModel timeSlote = new TimeSloteModel();
+                            timeSlote.TimeID = item.Time_ID;
+                            timeSlote.TimeSlots = item.Time_Slots;
+                            timeDetails.Add(timeSlote);
+                        }
+                    }
+
+                }
+                else if (TurfOpeningTime > TimeID)
+                {
+                    var TurfBookingOpeningTime = from TBOTime in turfManagementDB.Bookings
+                                                 where TBOTime.Booking_Date == timeSloteModel.BookingTime
+                                                 select TBOTime;
+                    if (TurfBookingOpeningTime.Count() > 0)
+                    {
+                        var AllTurfBookingInfo = from TBOTime in turfManagementDB.Bookings
+                                                 where (TBOTime.Booking_Date == timeSloteModel.BookingTime) && (TBOTime.Turf_ID == timeSloteModel.TurfID)
+                                                 select TBOTime;
+                        foreach (var item in AllTurfBookingInfo)
+                        {
+                            AlreadyBStartTime = item.Start_Time;
+                            AlreadyBEndTime = item.End_Time;
+                        }
+
                         TimeID = TimeID + 1;
                         TurfClosingTime = TurfClosingTime + 1;
                         var result = from time in turfManagementDB.Time_Slote
@@ -229,12 +353,29 @@ namespace DataAccessLibrary
                             timeSlote.TimeSlots = item.Time_Slots;
                             timeDetails.Add(timeSlote);
                         }
-                    }
+                        for (int i = AlreadyBStartTime; i < AlreadyBEndTime; i++)
+                        {
+                            var itemToRemove = timeDetails.SingleOrDefault(r => r.TimeID == i);
+                            if (itemToRemove != null)
+                                timeDetails.Remove(itemToRemove);
+                        }
 
-                }
-                else
-                {
-                    MessageBox.Show("No slots Available");
+                    }
+                    else
+                    {
+                        TurfClosingTime = TurfClosingTime + 1;
+                        var result = from time in turfManagementDB.Time_Slote
+                                     where (time.Time_ID > TurfOpeningTime) && (time.Time_ID < TurfClosingTime)
+                                     select time;
+
+                        foreach (var item in result)
+                        {
+                            TimeSloteModel timeSlote = new TimeSloteModel();
+                            timeSlote.TimeID = item.Time_ID;
+                            timeSlote.TimeSlots = item.Time_Slots;
+                            timeDetails.Add(timeSlote);
+                        }
+                    }
                 }
                 return timeDetails;
             }
@@ -266,7 +407,52 @@ namespace DataAccessLibrary
                                                  select TBOTime;
                     if (TurfBookingOpeningTime.Count() > 0)
                     {
-                        MessageBox.Show("inside More Counts");
+                       var result = from time in turfManagementDB.Time_Slote
+                                     where (time.Time_ID >= TurfOpeningTime) && (time.Time_ID < TurfClosingTime)
+                                     select time;
+
+                        foreach (var item in result)
+                        {
+                            TimeSloteModel timeSlote = new TimeSloteModel();
+                            timeSlote.TimeID = item.Time_ID;
+                            timeSlote.TimeSlots = item.Time_Slots;
+                            timeDetails.Add(timeSlote);
+                        }
+                            var AllTurfBookingInfo = from TBOTime in turfManagementDB.Bookings
+                                                 where (TBOTime.Booking_Date == timeSloteModel.BookingTime) && (TBOTime.Turf_ID == timeSloteModel.TurfID)
+                                                 select TBOTime;
+                            if (AllTurfBookingInfo.Count() > 0)
+                            {
+                            foreach (var item in AllTurfBookingInfo)
+                            {
+                                AlreadyBStartTime = item.Start_Time;
+                                AlreadyBEndTime = item.End_Time;
+
+                                
+                            }
+                            if ((AlreadyBEndTime - AlreadyBStartTime) == 1)
+                                {
+                                    for (int i = AlreadyBStartTime; i < AlreadyBEndTime; i++)
+                                        {
+                                var itemToRemove = timeDetails.SingleOrDefault(r => r.TimeID == i);
+                                if (itemToRemove != null)
+                                    timeDetails.Remove(itemToRemove);
+                                    }
+                               }
+                        else
+                            {
+                                for (int i = AlreadyBStartTime; i < AlreadyBEndTime; i++)
+                                    {
+                                var itemToRemove = timeDetails.SingleOrDefault(r => r.TimeID == i);
+                                if (itemToRemove != null)
+                                    timeDetails.Remove(itemToRemove);
+                                    }
+                        }
+                        }
+                        else
+                            {
+                            MessageBox.Show("its Not Working");
+                            }
                     }
                     else
                     {
@@ -311,13 +497,41 @@ namespace DataAccessLibrary
                                              select TBOTime;
                 if (TurfBookingOpeningTime.Count() > 0)
                 {
-                    MessageBox.Show("inside More Counts");
+                    TurfOpeningTime = TurfOpeningTime + 1;
+                    var result = from time in turfManagementDB.Time_Slote
+                                 where (time.Time_ID > TurfOpeningTime) && (time.Time_ID <= TurfClosingTime)
+                                 select time;
+
+                    foreach (var item in result)
+                    {
+                        TimeSloteModel timeSlote = new TimeSloteModel();
+                        timeSlote.TimeID = item.Time_ID;
+                        timeSlote.TimeSlots = item.Time_Slots;
+                        timeDetails.Add(timeSlote);
+                    }
+
+                    var AllTurfBookingInfo = from TBOTime in turfManagementDB.Bookings
+                                             where (TBOTime.Booking_Date == timeSloteModel.BookingTime) && (TBOTime.Turf_ID == timeSloteModel.TurfID)
+                                             select TBOTime;
+                    if (AllTurfBookingInfo.Count() > 0)
+                    {
+                        foreach (var item in AllTurfBookingInfo)
+                        {
+                            var itemToRemove = timeDetails.SingleOrDefault(r => r.TimeID == item.End_Time);
+                            if (itemToRemove != null)
+                                timeDetails.Remove(itemToRemove);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("its Not Working");
+                    }
                 }
                 else
                 {
                     TurfOpeningTime = TurfOpeningTime + 1;
                     var result = from time in turfManagementDB.Time_Slote
-                                 where (time.Time_ID > TurfOpeningTime) && (time.Time_ID <= TurfClosingTime)
+                                 where (time.Time_ID >= TurfOpeningTime) && (time.Time_ID <= TurfClosingTime)
                                  select time;
 
                     foreach (var item in result)
