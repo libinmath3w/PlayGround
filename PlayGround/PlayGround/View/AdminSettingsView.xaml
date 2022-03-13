@@ -14,106 +14,107 @@
              Background="{DynamicResource MaterialDesignPaper}"
              FontFamily="{DynamicResource MaterialDesignFont}"
              d:DesignHeight="750" d:DesignWidth="1100">
-
-    <Grid>
-        <Grid.ColumnDefinitions>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="6*"/>
                 <ColumnDefinition Width="13*"/>
             </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
-        <materialDesign:Card HorizontalAlignment="left" Grid.Row="0" Grid.Column="1" Margin="30,30,0,0" VerticalAlignment="Top" Height="310" Width="500">
-            <materialDesign:Card.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="20"/>
-                </Style>
-            </materialDesign:Card.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <materialDesign:Card HorizontalAlignment="left" Grid.Row="0" Grid.Column="1" Margin="30,30,0,0" VerticalAlignment="Top" Height="310" Width="500">
+                <materialDesign:Card.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </materialDesign:Card.Resources>
                 <StackPanel>
                     <Label Content="Personal Details" HorizontalAlignment="Center" FontSize="17" Height="29" />
                     <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="User" Width="25" Height="25" Margin="25,35,0,0"/>
-                    <TextBox x:Name="txtName" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,25,0,5"
+                        <materialDesign:PackIcon Kind="User" Width="25" Height="25" Margin="25,35,0,0"/>
+                        <TextBox x:Name="txtName" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,25,0,5"
                             materialDesign:HintAssist.Hint="Name" Text="{Binding Name}" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Email" Width="25" Height="25" Margin="25,12,0,0"/>
-                    <TextBox x:Name="txtEmail" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,2,0,5"
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Email" Width="25" Height="25" Margin="25,12,0,0"/>
+                        <TextBox x:Name="txtEmail" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,2,0,5"
                             materialDesign:HintAssist.Hint="Email ID" Text="{Binding Emailid}" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Phone" Width="25" Height="25"  Margin="25,12,0,0"/>
-                    <TextBox x:Name="txtPhoneNumber" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,2,0,5"
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Phone" Width="25" Height="25"  Margin="25,12,0,0"/>
+                        <TextBox x:Name="txtPhoneNumber" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="400" VerticalContentAlignment="Center" Margin="25,2,0,5"
                             materialDesign:HintAssist.Hint="Phone Number" Text="{Binding PhoneNumber}"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="Save Changes" x:Name="btnSaveChanges" FontSize="16" FontWeight="Bold" Margin="0,30,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198" Command="{Binding AdminSettingsCommands}" CommandParameter="SaveUserChanges">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="15"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </StackPanel>
                 </StackPanel>
+            </materialDesign:Card>
+            <materialDesign:Card HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" Margin="30,50,0,0" VerticalAlignment="top" Height="330" Width="500">
+                <materialDesign:Card.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </materialDesign:Card.Resources>
                 <StackPanel>
-                    <Button Content="Save Changes" x:Name="btnSaveChanges" FontSize="16" FontWeight="Bold" Margin="0,30,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198" Command="{Binding AdminSettingsCommands}" CommandParameter="SaveUserChanges">
-                        <Button.Resources>
-                            <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="15"/>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
-                </StackPanel>
-            </StackPanel>
-        </materialDesign:Card>
-        <materialDesign:Card HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" Margin="30,50,0,0" VerticalAlignment="top" Height="330" Width="500">
-            <materialDesign:Card.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="20"/>
-                </Style>
-            </materialDesign:Card.Resources>
-            <StackPanel>
-                <Label Content="Change Password" HorizontalAlignment="Center" FontSize="17" Height="29" />
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Key" Width="25" Height="25" Margin="15,25,0,0"/>
-                    <PasswordBox x:Name="pwbCurrentPassword" Style="{DynamicResource MaterialDesignOutlinedPasswordBox}" VerticalAlignment="Top" Width="400"
+                    <Label Content="Change Password" HorizontalAlignment="Center" FontSize="17" Height="29" />
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Key" Width="25" Height="25" Margin="15,25,0,0"/>
+                        <PasswordBox x:Name="pwbCurrentPassword" Style="{DynamicResource MaterialDesignOutlinedPasswordBox}" VerticalAlignment="Top" Width="400"
                         materialDesign:HintAssist.Hint="Current Password" Margin="25,10,0,15" materialDesign:HintAssist.HelperText="At least 8 characters"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Password" Width="25" Height="25"  Margin="15,25,0,0"/>
-                    <PasswordBox x:Name="pwbNewPassword" Style="{DynamicResource MaterialDesignOutlinedPasswordBox}" VerticalAlignment="Top" Width="400"
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Password" Width="25" Height="25"  Margin="15,25,0,0"/>
+                        <PasswordBox x:Name="pwbNewPassword" Style="{DynamicResource MaterialDesignOutlinedPasswordBox}" VerticalAlignment="Top" Width="400"
                         materialDesign:HintAssist.Hint="New Password" Margin="25,10,0,15" materialDesign:HintAssist.HelperText="At least 8 characters"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                <materialDesign:PackIcon Kind="Password" Width="25" Height="25"  Margin="15,25,0,0"/>
-                    <PasswordBox x:Name="pwbConfirmPassword" Style="{DynamicResource MaterialDesignOutlinedPasswordBox}" VerticalAlignment="Top" Width="400"
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Password" Width="25" Height="25"  Margin="15,25,0,0"/>
+                        <PasswordBox x:Name="pwbConfirmPassword" Style="{DynamicResource MaterialDesignOutlinedPasswordBox}" VerticalAlignment="Top" Width="400"
                         materialDesign:HintAssist.Hint="Confirm Password" Margin="25,10,0,13" materialDesign:HintAssist.HelperText="At least 8 characters"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="Update" x:Name="btnUpdate" FontSize="16" FontWeight="Bold" Margin="0,25,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198" Command="{Binding AdminSettingsCommands}" CommandParameter="UpdatePassword">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="15"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </StackPanel>
                 </StackPanel>
-            <StackPanel>
-                    <Button Content="Update" x:Name="btnUpdate" FontSize="16" FontWeight="Bold" Margin="0,25,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198" Command="{Binding AdminSettingsCommands}" CommandParameter="UpdatePassword">
-                    <Button.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="15"/>
-                        </Style>
-                    </Button.Resources>
-                </Button>
-            </StackPanel>
+            </materialDesign:Card>
+            <materialDesign:Card HorizontalAlignment="Left" Margin="20,30,10,0" Grid.Row="0" Grid.Column="0" VerticalAlignment="top" Height="300" Width="300">
+                <materialDesign:Card.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </materialDesign:Card.Resources>
+                <StackPanel>
+                    <StackPanel Width="300" Margin="0,0,0,0">
+                        <Ellipse HorizontalAlignment="Left" Margin="50,10,0,0" Height="200" Width="200">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="{Binding Avatar}" />
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <Button Content="Browse Image" x:Name="btnBrowserImage" FontSize="16" FontWeight="Bold" Margin="0,30,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198" Command="{Binding AdminSettingsCommands}" CommandParameter="UserBrowseImage" >
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="15"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </StackPanel>
                 </StackPanel>
-        </materialDesign:Card>
-        <materialDesign:Card HorizontalAlignment="Left" Margin="20,30,10,0" Grid.Row="0" Grid.Column="0" VerticalAlignment="top" Height="300" Width="300">
-            <materialDesign:Card.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="20"/>
-                </Style>
-            </materialDesign:Card.Resources>
-            <StackPanel>
-                <StackPanel Width="300" Margin="0,0,0,0">
-                    <Ellipse HorizontalAlignment="Left" Margin="50,10,0,0" Height="200" Width="200">
-                        <Ellipse.Fill>
-                            <ImageBrush ImageSource="{Binding Avatar}" />
-                        </Ellipse.Fill>
-                    </Ellipse>
-                    <Button Content="Browse Image" x:Name="btnBrowserImage" FontSize="16" FontWeight="Bold" Margin="0,30,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="198" Command="{Binding AdminSettingsCommands}" CommandParameter="UserBrowseImage" >
-                        <Button.Resources>
-                            <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="15"/>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
-                </StackPanel>
-            </StackPanel>
-        </materialDesign:Card>
-    </Grid>
+            </materialDesign:Card>
+        </Grid>
+    </ScrollViewer>
 </UserControl>

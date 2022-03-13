@@ -45,6 +45,7 @@
     <Compile Include="BookingModel.cs" />
     <Compile Include="Interface\IAddNewTurf.cs" />
     <Compile Include="Interface\IAdminBookingHistory.cs" />
+    <Compile Include="Interface\IAdminDashboard.cs" />
     <Compile Include="Interface\IAdminTurfDetails.cs" />
     <Compile Include="Interface\IAdminUsersDetails.cs" />
     <Compile Include="Interface\ICloseable.cs" />

@@ -12,99 +12,101 @@
              TextElement.FontSize="14"
              FontFamily="{materialDesign:MaterialDesignFont}"
              d:DesignHeight="750" d:DesignWidth="1100">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="90"/>
-            <RowDefinition Height="260"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        
-        <materialDesign:Card Height="70" VerticalAlignment="Top" Margin="35,10,0,0" Width="600">
-            <materialDesign:Card.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="20"/>
-                </Style>
-            </materialDesign:Card.Resources>
-            <StackPanel Orientation="Horizontal">
-                <TextBox x:Name="txtSearch" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="300" Height="50" Text="{Binding SearchTerm}"  VerticalContentAlignment="Center" Margin="145,0,0,0" 
-                            materialDesign:HintAssist.Hint="Search Turf Location" />
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="260"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
-                <Button Style="{DynamicResource MaterialDesignToolButton}" Command="{Binding TurfBookingCommands}" CommandParameter="Search">
-                    <materialDesign:PackIcon Kind="Magnify" Height="30" Opacity="50" Margin="10,0,0,0" HorizontalAlignment="Right" RenderTransformOrigin="-2.75,0.333" ToolTip="Search"/>
-                </Button>
-            </StackPanel>
-        </materialDesign:Card>
-        <Grid Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="800" Height="250" Grid.Row="1">
-            <materialDesign:Card Margin="25,0,0,0" Height="220" Width="750"  >
+            <materialDesign:Card Height="70" VerticalAlignment="Top" Margin="35,10,0,0" Width="600">
                 <materialDesign:Card.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="20"/>
                     </Style>
                 </materialDesign:Card.Resources>
-                <DataGrid x:Name="gdTurfdetails" AutoGenerateColumns="False" CanUserAddRows="False" Height="200" ItemsSource="{Binding TurfSearchDetails}" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" SelectedItem="{Binding SelectedTurf}">
-                    <DataGrid.Columns >
-                        <DataGridTextColumn Header="Turf ID" Binding="{Binding TurfID}" IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Turf Name" Binding="{Binding TurfName}" IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Type" Binding="{Binding TurfType}" IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Location" Binding="{Binding TurfLocation}" IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Opening Time" Binding="{Binding StartTime}" IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Closing Time" Binding="{Binding EndTime}" IsReadOnly="True"/>
-                        <DataGridTextColumn Header="State" Binding="{Binding TurfState}" IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Amount" Binding="{Binding TurfPrice}" IsReadOnly="True"/>
-                    </DataGrid.Columns>
-                    <DataGrid.InputBindings>
-                        <MouseBinding Gesture="LeftDoubleClick" Command="{Binding TurfBookingCommands}" CommandParameter="TurfID"/>
-                    </DataGrid.InputBindings>
-                </DataGrid>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="txtSearch" Style="{DynamicResource MaterialDesignOutlinedTextBox}" Width="300" Height="50" Text="{Binding SearchTerm}"  VerticalContentAlignment="Center" Margin="145,0,0,0" 
+                            materialDesign:HintAssist.Hint="Search Turf Location" />
+
+                    <Button Style="{DynamicResource MaterialDesignToolButton}" Command="{Binding TurfBookingCommands}" CommandParameter="Search">
+                        <materialDesign:PackIcon Kind="Magnify" Height="30" Opacity="50" Margin="10,0,0,0" HorizontalAlignment="Right" RenderTransformOrigin="-2.75,0.333" ToolTip="Search"/>
+                    </Button>
+                </StackPanel>
             </materialDesign:Card>
-        </Grid>
-        <Grid Grid.Row="2">
-        <materialDesign:Card Margin="25,0,0,0" Height="320" Width="600"  >
-            <materialDesign:Card.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="20"/>
-                </Style>
-            </materialDesign:Card.Resources>
-            <StackPanel Orientation="Horizontal">
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="Booking Date"  VerticalAlignment="Top" FontSize="20" Margin="15,16,0,0"/>
-                    <materialDesign:PackIcon Kind="Calendar" Width="25" Height="25" Margin="10,20,0,0"/>
-                        <DatePicker x:Name="dpBookingDates" HorizontalAlignment="Center" VerticalAlignment="Top" Width="300" materialDesign:HintAssist.Hint="Select Date" Style="{DynamicResource MaterialDesignOutlinedDatePicker}" Margin="25,10,0,0"  SelectedDate="{Binding BookingDate, Mode=TwoWay}"/>
-                </StackPanel>
-                
-                <Label x:Name="lblTimeSlot" Content="Time Slot" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-487,88,0,0" FontSize="20"/>
-                <materialDesign:PackIcon Kind="Clock" Width="25" Height="25" Margin="-350,90,0,0"/>
-                <ComboBox x:Name="cbStartTime" Width="150" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="-445,82,0,0"
-                            materialDesign:HintAssist.Hint="Start Time" FontSize="20" ItemsSource="{Binding TurfOpeningTime}" DisplayMemberPath="TimeSlots" SelectedValue="{Binding OpeningTime}" />
-                <ComboBox x:Name="cbEndTime" Width="150"  VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="-120,82,0,0"
-                            materialDesign:HintAssist.Hint="End Time" FontSize="20" ItemsSource="{Binding TurfClosingTime}" DisplayMemberPath="TimeSlots" SelectedValue="{Binding ClosingTime}"/>
-              
+            <Grid Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="800" Height="250" Grid.Row="1">
+                <materialDesign:Card Margin="25,0,0,0" Height="220" Width="750"  >
+                    <materialDesign:Card.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="20"/>
+                        </Style>
+                    </materialDesign:Card.Resources>
+                    <DataGrid x:Name="gdTurfdetails" AutoGenerateColumns="False" CanUserAddRows="False" Height="200" ItemsSource="{Binding TurfSearchDetails}" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" SelectedItem="{Binding SelectedTurf}">
+                        <DataGrid.Columns >
+                            <DataGridTextColumn Header="Turf ID" Binding="{Binding TurfID}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Turf Name" Binding="{Binding TurfName}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Type" Binding="{Binding TurfType}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Location" Binding="{Binding TurfLocation}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Opening Time" Binding="{Binding StartTime}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Closing Time" Binding="{Binding EndTime}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="State" Binding="{Binding TurfState}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Amount" Binding="{Binding TurfPrice}" IsReadOnly="True"/>
+                        </DataGrid.Columns>
+                        <DataGrid.InputBindings>
+                            <MouseBinding Gesture="LeftDoubleClick" Command="{Binding TurfBookingCommands}" CommandParameter="TurfID"/>
+                        </DataGrid.InputBindings>
+                    </DataGrid>
+                </materialDesign:Card>
+            </Grid>
+            <Grid Grid.Row="2">
+                <materialDesign:Card Margin="25,0,0,0" Height="320" Width="600"  >
+                    <materialDesign:Card.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="20"/>
+                        </Style>
+                    </materialDesign:Card.Resources>
                     <StackPanel Orientation="Horizontal">
-                    <Label x:Name="lblAmount" Content="Amount" Margin="-517,135,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="20"/>
-                    <materialDesign:PackIcon Kind="Rupee" Width="25" Height="25" Margin="-380,140,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                    <Label x:Name="lblPrice" Content="{Binding TurfPrice}" Margin="-300,135,0,0" Width="80" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                    
-                    </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Label x:Name="lblPayment" Content="Payment"  VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-517,180,0,0" FontSize="20"/>
-                    <materialDesign:PackIcon Kind="Payment" Width="25" Height="25" Margin="-380,185,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                    <ComboBox x:Name="cbModeOfPayment" Width="190" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="-465,175,0,0"
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Booking Date"  VerticalAlignment="Top" FontSize="20" Margin="15,16,0,0"/>
+                            <materialDesign:PackIcon Kind="Calendar" Width="25" Height="25" Margin="10,20,0,0"/>
+                            <DatePicker x:Name="dpBookingDates" HorizontalAlignment="Center" VerticalAlignment="Top" Width="300" materialDesign:HintAssist.Hint="Select Date" Style="{DynamicResource MaterialDesignOutlinedDatePicker}" Margin="25,10,0,0"  SelectedDate="{Binding BookingDate, Mode=TwoWay}"/>
+                        </StackPanel>
+
+                        <Label x:Name="lblTimeSlot" Content="Time Slot" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-487,88,0,0" FontSize="20"/>
+                        <materialDesign:PackIcon Kind="Clock" Width="25" Height="25" Margin="-350,90,0,0"/>
+                        <ComboBox x:Name="cbStartTime" Width="150" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="-445,82,0,0"
+                            materialDesign:HintAssist.Hint="Start Time" FontSize="20" ItemsSource="{Binding TurfOpeningTime}" DisplayMemberPath="TimeSlots" SelectedValue="{Binding OpeningTime}" />
+                        <ComboBox x:Name="cbEndTime" Width="150"  VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="-120,82,0,0"
+                            materialDesign:HintAssist.Hint="End Time" FontSize="20" ItemsSource="{Binding TurfClosingTime}" DisplayMemberPath="TimeSlots" SelectedValue="{Binding ClosingTime}"/>
+
+                        <StackPanel Orientation="Horizontal">
+                            <Label x:Name="lblAmount" Content="Amount" Margin="-517,135,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="20"/>
+                            <materialDesign:PackIcon Kind="Rupee" Width="25" Height="25" Margin="-380,140,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                            <Label x:Name="lblPrice" Content="{Binding TurfPrice}" Margin="-300,135,0,0" Width="80" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label x:Name="lblPayment" Content="Payment"  VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-517,180,0,0" FontSize="20"/>
+                            <materialDesign:PackIcon Kind="Payment" Width="25" Height="25" Margin="-380,185,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                            <ComboBox x:Name="cbModeOfPayment" Width="190" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="-465,175,0,0"
                             materialDesign:HintAssist.Hint="Mode Of Payment" FontSize="20" ItemsSource="{Binding PaymentType}" DisplayMemberPath="PaymentMethod" SelectedValue="{Binding TypeOfPayment}"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                        <Button Content="Book Now" x:Name="btnBookNow" FontSize="16" FontWeight="Bold" Margin="-590,250,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="172" Command="{Binding TurfBookingCommands}" CommandParameter="BookNow">
-                            <Button.Resources>
-                                <Style TargetType="{x:Type Border}">
-                                    <Setter Property="CornerRadius" Value="15"/>
-                                </Style>
-                            </Button.Resources>
-                        </Button>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="Book Now" x:Name="btnBookNow" FontSize="16" FontWeight="Bold" Margin="-590,250,0,0"  Foreground="White" Background="DarkGreen" RenderTransformOrigin="0.582,0.626" Style="{DynamicResource RoundCorner}" Height="36" Width="172" Command="{Binding TurfBookingCommands}" CommandParameter="BookNow">
+                                <Button.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="15"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </StackPanel>
                     </StackPanel>
-            </StackPanel>
-        </materialDesign:Card>
+                </materialDesign:Card>
+            </Grid>
         </Grid>
-    </Grid>
+    </ScrollViewer>
 </UserControl>

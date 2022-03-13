@@ -27,7 +27,9 @@ namespace EntityLayer
         public string TurfImage { get; set; }
         public int TurfStatus { get; set; }
         public string TurfStatusName { get; set; }
-
+        public string Total_turf_count { get; set; }
+        public string Total_users_count { get; set; }
+        public string Total_booking_count { get; set; }
 
     }
 }
