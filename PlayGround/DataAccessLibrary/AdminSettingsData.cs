@@ -2,6 +2,8 @@
 using EntityLayer.Interface;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -90,6 +92,46 @@ namespace DataAccessLibrary
             catch (Exception ex)
             {
 
+                throw ex;
+            }
+        }
+
+        public List<UsersModel> GetUserPasswordDetails(UsersModel usersModel)
+        {
+            List<UsersModel> adminSettingsResultList = new List<UsersModel>();
+            try
+            {
+                TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
+                var query = from userdetails in turfManagementDBEntities.Users
+                            where userdetails.ID.Equals(usersModel.UserId)
+                            select userdetails;
+                foreach (var item in query)
+                {
+                    UsersModel users = new UsersModel();
+                    users.Password = item.Password;
+                    adminSettingsResultList.Add(users);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return adminSettingsResultList;
+        }
+
+        public void UpdatePassword(UsersModel usersModel)
+        {
+            try
+            {
+                SqlConnection sqlConnection = null;
+                sqlConnection = new SqlConnection("Data Source =.; Database = TurfManagementDB; Integrated Security=true;");
+                SqlDataAdapter adapter = new SqlDataAdapter("UPDATE USERS SET PASSWORD = '" + usersModel.Password + "' WHERE ID = " + usersModel.UserId, sqlConnection);
+                DataSet dataSet = new DataSet();
+                adapter.Fill(dataSet);
+            }
+            catch (Exception ex)
+            {
                 throw ex;
             }
         }

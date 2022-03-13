@@ -77,7 +77,7 @@ namespace PlayGround.Commands
                                         usersModel.UserId = item.UserId;
                                         usersModel.Name = item.Name;
                                         usersModel.Avatar = item.Avatar;
-                                        var newForm = new AdminMainWindowView(); //create your new form.
+                                        var newForm = new AdminMainWindowView(usersModel); //create your new form.
                                         newForm.Show(); //show the new form.
                                     }
                                 }

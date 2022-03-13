@@ -17,6 +17,11 @@ namespace BusinessLayer
             return usersettingsdata.GetUserDetails(usersModel);
         }
 
+        public List<UsersModel> GetUserPasswordDetails(UsersModel usersModel)
+        {
+            return usersettingsdata.GetUserPasswordDetails(usersModel);
+        }
+
         public void SaveAvatar(UsersModel usersModel)
         {
             usersettingsdata.SaveAvatar(usersModel);
@@ -27,5 +32,9 @@ namespace BusinessLayer
             usersettingsdata.SaveUserDetails(usersModel);
         }
 
+        public void UpdatePassword(UsersModel usersModel)
+        {
+            usersettingsdata.UpdatePassword(usersModel);
+        }
     }
 }

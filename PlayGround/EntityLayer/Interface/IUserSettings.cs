@@ -11,5 +11,7 @@ namespace EntityLayer.Interface
         List<UsersModel> GetUserDetails(UsersModel usersModel);
         void SaveUserDetails(UsersModel usersModel);
         void SaveAvatar(UsersModel usersModel);
+        List<UsersModel> GetUserPasswordDetails(UsersModel usersModel);
+        void UpdatePassword(UsersModel usersModel);
     }
 }
