@@ -1,6 +1,7 @@
 ﻿using BusinessLayer;
 using EntityLayer;
 using PlayGround.Commands;
+using PlayGround.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -27,7 +28,7 @@ namespace PlayGround.ViewModel
         public string TurfCity { get => _turfcity; set { _turfcity = value; onPropertyChanged("turf city"); } }
         public string TurfState { get => _turfstate; set { _turfstate = value; onPropertyChanged("turf state"); } }
         public string TurfZip { get => _turfzip; set { _turfzip = value; onPropertyChanged("turf zip"); } }
-        public string TurfPrice { get => _turfprice; set { _turfprice = value; onPropertyChanged("turf price"); } }
+        public string TurfPrice { get => this._turfprice; set { if (this._turfprice == value) return; this._turfprice = value;  onPropertyChanged("TurfPrice"); } }
         public DateTime BookingDate { get => _bookingDate; set { _bookingDate = value; onPropertyChanged("Booking Date"); GetCurrentDateData(); } }
         public ICommand UserNewTurfBookingCommand { get; set; }
 
@@ -93,18 +94,7 @@ namespace PlayGround.ViewModel
             }
         }
         private TimeSloteModel _closingTime { get; set; }
-        public TimeSloteModel ClosingTime
-        {
-            get
-            { 
-                return _closingTime;
-            }
-            set
-            {
-                _closingTime = value;
-                onPropertyChanged(nameof(ClosingTime));
-            }
-        }
+        public TimeSloteModel ClosingTime { get  {  return _closingTime; } set { _closingTime = value; onPropertyChanged(nameof(ClosingTime)); SetPrice(); } }
 
 
         private ObservableCollection<PaymentTypeModel> _paymentType = new ObservableCollection<PaymentTypeModel>();
@@ -193,6 +183,11 @@ namespace PlayGround.ViewModel
             string hour = value.ToString("hh");
             string AmPm = value.ToString("tt");
             return hour + ":00 " + AmPm;
+        }
+        public void SetPrice()
+        {
+            int TimeValue = ClosingTime.TimeID - OpeningTime.TimeID;
+            TurfPrice = (TimeValue * SelectedTurf.TurfPrice).ToString();
         }
     }
 }

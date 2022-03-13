@@ -73,11 +73,11 @@ namespace PlayGround.Commands
                 bookingModel.PaymentID = userNewTurfBookingViewModel.TypeOfPayment.PaymentID;
                 bookingModel.PaymentStatusInt = 0;
                 userTurfBookingBusinessModel.BookTurf(bookingModel);
-                MessageBox.Show("Booking Completed. Please Wait for Admin Verification");
+                MessageBox.Show("Booking is Completed. Please Wait for Admin Approval");
             }
             else if (parameter.ToString() == "TurfID")
             {
-                userNewTurfBookingViewModel.TurfPrice = "1500";
+                
             }
             
         }

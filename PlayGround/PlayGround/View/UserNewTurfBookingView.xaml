@@ -86,8 +86,7 @@
                         <StackPanel Orientation="Horizontal">
                             <Label x:Name="lblAmount" Content="Amount" Margin="-517,135,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="20"/>
                             <materialDesign:PackIcon Kind="Rupee" Width="25" Height="25" Margin="-380,140,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                            <Label x:Name="lblPrice" Content="{Binding TurfPrice}" Margin="-300,135,0,0" Width="80" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-
+                            <Label x:Name="lblPrice" Margin="-330,135,0,0" Width="140" Height="30" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left" Content="{Binding TurfPrice}"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <Label x:Name="lblPayment" Content="Payment"  VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-517,180,0,0" FontSize="20"/>
