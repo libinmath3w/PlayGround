@@ -9,5 +9,6 @@ namespace EntityLayer.Interface
     public interface IAdminDashboard
     {
         List<TurfModel> GetCounts(TurfModel turfModel);
+        List<TurfModel> GetUserCount(TurfModel turfModel);
     }
 }

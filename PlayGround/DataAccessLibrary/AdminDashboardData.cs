@@ -40,5 +40,33 @@ namespace DataAccessLibrary
                 throw ex;
             }
         }
+
+        public List<TurfModel> GetUserCount(TurfModel turfModel)
+        {
+
+            try
+            {
+                List<TurfModel> Counts = new List<TurfModel>();
+                TurfModel turf = new TurfModel();
+                TurfManagementDBEntities dBEntities = new TurfManagementDBEntities();
+                var turfquery = (from turfCount in dBEntities.Turfs
+                                 select turfCount).Count();
+                turf.Total_turf_count = turfquery.ToString();
+
+                var bookingquery = (from bookingCount in dBEntities.Bookings
+                                    where bookingCount.User_ID == turfModel.UserId
+                                    select bookingCount).Count();
+                turf.Total_booking_count = bookingquery.ToString();
+
+                Counts.Add(turf);
+                return Counts;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
+    
 }
