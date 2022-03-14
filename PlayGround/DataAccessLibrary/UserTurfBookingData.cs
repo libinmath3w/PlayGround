@@ -224,23 +224,24 @@ namespace DataAccessLibrary
                         {
                             AlreadyBStartTime = item.Start_Time;
                             AlreadyBEndTime = item.End_Time;
-                        }
-                        if ((AlreadyBEndTime - AlreadyBStartTime) == 1)
-                        {
-                            for (int i = AlreadyBStartTime; i < AlreadyBEndTime; i++)
+
+                            if ((AlreadyBEndTime - AlreadyBStartTime) == 1)
                             {
-                                var itemToRemove = timeDetails.SingleOrDefault(r => r.TimeID == i);
-                                if (itemToRemove != null)
-                                    timeDetails.Remove(itemToRemove);
+                                for (int i = AlreadyBStartTime; i < AlreadyBEndTime; i++)
+                                {
+                                    var itemToRemove = timeDetails.SingleOrDefault(r => r.TimeID == i);
+                                    if (itemToRemove != null)
+                                        timeDetails.Remove(itemToRemove);
+                                }
                             }
-                        }
-                        else
-                        {
-                            for (int i = AlreadyBStartTime; i < AlreadyBEndTime; i++)
+                            else
                             {
-                                var itemToRemove = timeDetails.SingleOrDefault(r => r.TimeID == i);
-                                if (itemToRemove != null)
-                                    timeDetails.Remove(itemToRemove);
+                                for (int i = AlreadyBStartTime; i < AlreadyBEndTime; i++)
+                                {
+                                    var itemToRemove = timeDetails.SingleOrDefault(r => r.TimeID == i);
+                                    if (itemToRemove != null)
+                                        timeDetails.Remove(itemToRemove);
+                                }
                             }
                         }
                     }
@@ -331,17 +332,9 @@ namespace DataAccessLibrary
                                                  select TBOTime;
                     if (TurfBookingOpeningTime.Count() > 0)
                     {
-                        var AllTurfBookingInfo = from TBOTime in turfManagementDB.Bookings
-                                                 where (TBOTime.Booking_Date == timeSloteModel.BookingTime) && (TBOTime.Turf_ID == timeSloteModel.TurfID)
-                                                 select TBOTime;
-                        foreach (var item in AllTurfBookingInfo)
-                        {
-                            AlreadyBStartTime = item.Start_Time;
-                            AlreadyBEndTime = item.End_Time;
-                        }
-                        TurfOpeningTime = TurfOpeningTime + 1;
+                        TurfOpeningTime++;
                         var result = from time in turfManagementDB.Time_Slote
-                                     where (time.Time_ID > TurfOpeningTime) && (time.Time_ID < TurfClosingTime)
+                                     where (time.Time_ID > TurfOpeningTime) && (time.Time_ID <= TurfClosingTime)
                                      select time;
 
                         foreach (var item in result)
@@ -351,13 +344,21 @@ namespace DataAccessLibrary
                             timeSlote.TimeSlots = item.Time_Slots;
                             timeDetails.Add(timeSlote);
                         }
-                        for (int i = AlreadyBStartTime; i < AlreadyBEndTime; i++)
+                        var AllTurfBookingInfo = from TBOTime in turfManagementDB.Bookings
+                                                 where (TBOTime.Booking_Date == timeSloteModel.BookingTime) && (TBOTime.Turf_ID == timeSloteModel.TurfID)
+                                                 select TBOTime;
+                        foreach (var item in AllTurfBookingInfo)
                         {
-                            var itemToRemove = timeDetails.SingleOrDefault(r => r.TimeID == i);
-                            if (itemToRemove != null)
-                                timeDetails.Remove(itemToRemove);
-                        }
+                            AlreadyBStartTime = item.Start_Time;
+                            AlreadyBEndTime = item.End_Time;
 
+                            for (int i = AlreadyBStartTime + 1; i <= AlreadyBEndTime; i++)
+                            {
+                                var itemToRemove = timeDetails.SingleOrDefault(r => r.TimeID == i);
+                                if (itemToRemove != null)
+                                    timeDetails.Remove(itemToRemove);
+                            }
+                        }
                     }
                     else
                     {
@@ -517,7 +518,7 @@ namespace DataAccessLibrary
                             AlreadyBEndTime = item.End_Time;
                             if ((AlreadyBEndTime - AlreadyBStartTime) == 1)
                             {
-                                for (int i = AlreadyBStartTime; i < AlreadyBEndTime; i++)
+                                for (int i = AlreadyBStartTime + 1; i <= AlreadyBEndTime; i++)
                                 {
                                     var itemToRemove = timeDetails.SingleOrDefault(r => r.TimeID == i);
                                     if (itemToRemove != null)
@@ -526,7 +527,7 @@ namespace DataAccessLibrary
                             }
                             else
                             {
-                                for (int i = AlreadyBStartTime; i < AlreadyBEndTime; i++)
+                                for (int i = AlreadyBStartTime + 1; i <= AlreadyBEndTime; i++)
                                 {
                                     var itemToRemove = timeDetails.SingleOrDefault(r => r.TimeID == i);
                                     if (itemToRemove != null)
