@@ -60,7 +60,7 @@ namespace PlayGround.Commands
                             if (phone.Length == 10)
                             {
                                 UsersModel usersModel = new UsersModel();
-                                usersModel.UserId = 1;
+                                usersModel.UserId = adminSettingsViewModel.UserID;
                                 usersModel.Name = name;
                                 usersModel.UserEmailID = email;
                                 usersModel.PhoneNumber = phone;
@@ -130,7 +130,7 @@ namespace PlayGround.Commands
                     PasswordBox boxpasseses = (PasswordBox)passvalueThree;
                     ConfirmPassword = boxpasseses.Password;
                     UsersModel usersModel = new UsersModel();
-                    usersModel.UserId = adminSettingsViewModel.UserID;
+                    usersModel.UserId = adminSettingsViewModel.usersModelss.UserId;
                     AdminSettingsBusinessModel adminSettingsBusinessModel = new AdminSettingsBusinessModel();
                     if (!string.IsNullOrEmpty(CurrentPassword) && !string.IsNullOrEmpty(FirstPassword) && !string.IsNullOrEmpty(ConfirmPassword))
                     {

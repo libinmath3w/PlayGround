@@ -19,6 +19,7 @@ namespace PlayGround.ViewModel
         private string _emailid;
         private string _phoneNumber;
         private string _avatar;
+        public UsersModel usersModelss = new UsersModel();
         public int UserID { get => _userID; set { _userID = value; onPropertyChanged("User ID"); } }
         public string Name { get => _name; set { _name = value; onPropertyChanged("Name"); } }
         public string Emailid { get => _emailid; set { _emailid = value; onPropertyChanged("Email ID"); } }
@@ -32,6 +33,7 @@ namespace PlayGround.ViewModel
             AdminSettingsBusinessModel adminSettingsBusinessModel = new AdminSettingsBusinessModel();
             UsersModel users = new UsersModel();
             users.UserId = usersModel.UserId;
+            usersModelss.UserId = usersModel.UserId;
             var query = adminSettingsBusinessModel.GetUserDetails(users);
             foreach (var item in query)
             {
