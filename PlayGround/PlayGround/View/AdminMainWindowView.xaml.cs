@@ -29,7 +29,7 @@ namespace PlayGround.View
         {
             InitializeComponent();
             Icon = ImageAwesome.CreateImageSource(FontAwesomeIcon.SoccerBallOutline, Brushes.Green);
-            DataContext = new AdminMainWindowViewModel();
+            DataContext = new AdminMainWindowViewModel(usersModel);
         }
         private void TongleTheme(object sender, RoutedEventArgs e)
         {

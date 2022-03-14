@@ -30,7 +30,7 @@ namespace PlayGround.Commands
             else if (parameter.ToString() == "AdminSettings")
             {
                 UsersModel usersModel = new UsersModel();
-                usersModel.UserId = 1;
+                usersModel.UserId = viewModel.UsersModels.UserId;
                 viewModel.SelectedViewModel = new AdminSettingsViewModel(usersModel);
             }
             else if (parameter.ToString() == "AdminTurfBookings")
