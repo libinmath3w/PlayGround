@@ -513,9 +513,26 @@ namespace DataAccessLibrary
                     {
                         foreach (var item in AllTurfBookingInfo)
                         {
-                            var itemToRemove = timeDetails.SingleOrDefault(r => r.TimeID == item.End_Time);
-                            if (itemToRemove != null)
-                                timeDetails.Remove(itemToRemove);
+                            AlreadyBStartTime = item.Start_Time;
+                            AlreadyBEndTime = item.End_Time;
+                            if ((AlreadyBEndTime - AlreadyBStartTime) == 1)
+                            {
+                                for (int i = AlreadyBStartTime; i < AlreadyBEndTime; i++)
+                                {
+                                    var itemToRemove = timeDetails.SingleOrDefault(r => r.TimeID == i);
+                                    if (itemToRemove != null)
+                                        timeDetails.Remove(itemToRemove);
+                                }
+                            }
+                            else
+                            {
+                                for (int i = AlreadyBStartTime; i < AlreadyBEndTime; i++)
+                                {
+                                    var itemToRemove = timeDetails.SingleOrDefault(r => r.TimeID == i);
+                                    if (itemToRemove != null)
+                                        timeDetails.Remove(itemToRemove);
+                                }
+                            }
                         }
                     }
                     else
