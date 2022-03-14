@@ -102,7 +102,7 @@ namespace PlayGround.Commands
                             File.Copy(fd.FileName, imagePath);
                             UsersModel usersModel = new UsersModel();
                             usersModel.Avatar = fileNameToSave;
-                            usersModel.UserId = 1;
+                            usersModel.UserId = adminSettingsViewModel.UserID;
                             AdminSettingsBusinessModel adminSettingsBusinessModel = new AdminSettingsBusinessModel();
                             adminSettingsBusinessModel.SaveAvatar(usersModel);
                             System.Windows.MessageBox.Show("Avatar Updated");

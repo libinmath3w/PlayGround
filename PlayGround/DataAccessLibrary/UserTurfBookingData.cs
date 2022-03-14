@@ -206,7 +206,7 @@ namespace DataAccessLibrary
                     if (TurfBookingOpeningTime.Count() > 0)
                     {
                         var result = from time in turfManagementDB.Time_Slote
-                                     where (time.Time_ID > TimeID) && (time.Time_ID < TurfClosingTime)
+                                     where (time.Time_ID > TurfOpeningTime) && (time.Time_ID < TurfClosingTime)
                                      select time;
 
                         foreach (var item in result)
@@ -339,11 +339,9 @@ namespace DataAccessLibrary
                             AlreadyBStartTime = item.Start_Time;
                             AlreadyBEndTime = item.End_Time;
                         }
-
-                        TimeID = TimeID + 1;
-                        TurfClosingTime = TurfClosingTime + 1;
+                        TurfOpeningTime = TurfOpeningTime + 1;
                         var result = from time in turfManagementDB.Time_Slote
-                                     where (time.Time_ID > TimeID) && (time.Time_ID < TurfClosingTime)
+                                     where (time.Time_ID > TurfOpeningTime) && (time.Time_ID < TurfClosingTime)
                                      select time;
 
                         foreach (var item in result)
@@ -421,38 +419,36 @@ namespace DataAccessLibrary
                             var AllTurfBookingInfo = from TBOTime in turfManagementDB.Bookings
                                                  where (TBOTime.Booking_Date == timeSloteModel.BookingTime) && (TBOTime.Turf_ID == timeSloteModel.TurfID)
                                                  select TBOTime;
-                            if (AllTurfBookingInfo.Count() > 0)
-                            {
-                            foreach (var item in AllTurfBookingInfo)
-                            {
-                                AlreadyBStartTime = item.Start_Time;
-                                AlreadyBEndTime = item.End_Time;
-
-                                
-                            }
+                    if (AllTurfBookingInfo.Count() > 0)
+                    {
+                        foreach (var item in AllTurfBookingInfo)
+                        {
+                            AlreadyBStartTime = item.Start_Time;
+                            AlreadyBEndTime = item.End_Time;
                             if ((AlreadyBEndTime - AlreadyBStartTime) == 1)
-                                {
-                                    for (int i = AlreadyBStartTime; i < AlreadyBEndTime; i++)
-                                        {
-                                var itemToRemove = timeDetails.SingleOrDefault(r => r.TimeID == i);
-                                if (itemToRemove != null)
-                                    timeDetails.Remove(itemToRemove);
-                                    }
-                               }
-                        else
                             {
                                 for (int i = AlreadyBStartTime; i < AlreadyBEndTime; i++)
-                                    {
-                                var itemToRemove = timeDetails.SingleOrDefault(r => r.TimeID == i);
-                                if (itemToRemove != null)
-                                    timeDetails.Remove(itemToRemove);
-                                    }
-                        }
-                        }
-                        else
-                            {
-                            MessageBox.Show("its Not Working");
+                                {
+                                    var itemToRemove = timeDetails.SingleOrDefault(r => r.TimeID == i);
+                                    if (itemToRemove != null)
+                                        timeDetails.Remove(itemToRemove);
+                                }
                             }
+                            else
+                            {
+                                for (int i = AlreadyBStartTime; i < AlreadyBEndTime; i++)
+                                {
+                                    var itemToRemove = timeDetails.SingleOrDefault(r => r.TimeID == i);
+                                    if (itemToRemove != null)
+                                        timeDetails.Remove(itemToRemove);
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("its Not Working");
+                    }
                     }
                     else
                     {
