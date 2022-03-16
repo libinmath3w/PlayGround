@@ -56,9 +56,14 @@ namespace DataAccessLibrary
             try
             {
                 TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
-                var query = from userinfo in turfManagementDBEntities.Users
-                            where userinfo.ID == usersModel.UserId
-                            select userinfo;
+                //var query = from userinfo in turfManagementDBEntities.Users
+                //            where userinfo.ID == usersModel.UserId
+                //            select userinfo;
+                
+                /** Linq in lambda **/
+
+                var query = turfManagementDBEntities.Users.Where(i => i.ID == usersModel.UserId);
+
                 foreach (var item in query)
                 {
                     item.Email = usersModel.UserEmailID;
@@ -80,10 +85,13 @@ namespace DataAccessLibrary
             try
             {
                 TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
-                var query = from userinfo in turfManagementDBEntities.Users
-                            where userinfo.ID == usersModel.UserId
-                            select userinfo;
-                foreach (var item in query)
+                //var query = from userinfo in turfManagementDBEntities.Users
+                //            where userinfo.ID == usersModel.UserId
+                //            select userinfo;
+                /** moved to lambda **/
+
+                var result = turfManagementDBEntities.Users.Where(x => x.ID == usersModel.UserId);
+                foreach (var item in result)
                 {
                     item.Avatar = usersModel.Avatar;
                 }
@@ -102,9 +110,11 @@ namespace DataAccessLibrary
             try
             {
                 TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
-                var query = from userdetails in turfManagementDBEntities.Users
-                            where userdetails.ID.Equals(usersModel.UserId)
-                            select userdetails;
+                //var query = from userdetails in turfManagementDBEntities.Users
+                //            where userdetails.ID.Equals(usersModel.UserId)
+                //            select userdetails;
+
+                var query = turfManagementDBEntities.Users.Where(x => x.ID.Equals(usersModel.UserId));
                 foreach (var item in query)
                 {
                     UsersModel users = new UsersModel();
