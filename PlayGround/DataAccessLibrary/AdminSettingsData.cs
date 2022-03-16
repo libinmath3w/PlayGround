@@ -19,10 +19,12 @@ namespace DataAccessLibrary
             try
             {
                 TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
-                var query = from admindetails in turfManagementDBEntities.Users
-                            where admindetails.ID == usersModel.UserId
-                            select admindetails;
-                foreach (var item in query)
+                //var query = from admindetails in turfManagementDBEntities.Users
+                //            where admindetails.ID == usersModel.UserId
+                //            select admindetails;
+
+                var result = turfManagementDBEntities.Users.Where(x => x.ID == usersModel.UserId);
+                foreach (var item in result)
                 {
                     UsersModel usersModels = new UsersModel();
                     usersModels.UserId = item.ID;
