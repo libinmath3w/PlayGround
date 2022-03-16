@@ -60,7 +60,7 @@ namespace PlayGround.Commands
                             if (phone.Length == 10)
                             {
                                 UsersModel usersModel = new UsersModel();
-                                usersModel.UserId = adminSettingsViewModel.UserID;
+                                usersModel.UserId = adminSettingsViewModel.usersModelss.UserId;
                                 usersModel.Name = name;
                                 usersModel.UserEmailID = email;
                                 usersModel.PhoneNumber = phone;

@@ -76,7 +76,6 @@ namespace DataAccessLibrary
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
            
