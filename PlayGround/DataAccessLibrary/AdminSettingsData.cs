@@ -86,10 +86,6 @@ namespace DataAccessLibrary
             try
             {
                 TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
-                //var query = from userinfo in turfManagementDBEntities.Users
-                //            where userinfo.ID == usersModel.UserId
-                //            select userinfo;
-                /** moved to lambda **/
 
                 var result = turfManagementDBEntities.Users.Where(x => x.ID == usersModel.UserId);
                 foreach (var item in result)
