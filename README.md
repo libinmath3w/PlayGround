@@ -9,7 +9,9 @@ illustrates in clear terms, the system’s primary uses.
 # C# WPF MVVM Project
 
 # Screenshots
+![Alt text](https://github.com/libinmath3w/PlayGround/blob/main/Documentation/User%20Login%20Page.png?raw=true "")
+![Alt text](https://github.com/libinmath3w/PlayGround/blob/main/Documentation/User%20Registration%20page.png?raw=true "")
+![Alt text](https://github.com/libinmath3w/PlayGround/blob/main/Documentation/user%20settings%20page.png?raw=true "")
+![Alt text](https://github.com/libinmath3w/PlayGround/blob/main/Documentation/admin%20dashboard.png?raw=true "")
+![Alt text](https://github.com/libinmath3w/PlayGround/blob/main/Documentation/turfbookings.png?raw=true "")
 
-![Alt text](/Documentation/User Login Page.png?raw=true "")
-![Alt text](/Documentation/User Registration page.png?raw=true "")
-![Alt text](/Documentation/user settings page.png?raw=true "")
