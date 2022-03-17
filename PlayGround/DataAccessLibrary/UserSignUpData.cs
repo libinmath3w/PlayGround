@@ -16,10 +16,8 @@ namespace DataAccessLibrary
             try
             {
                 TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
-                var query = from UserDetails in turfManagementDBEntities.Users
-                            where UserDetails.Email == userModel.UserEmailID
-                            select UserDetails;
-                if (query.Count() > 0)
+                var result = turfManagementDBEntities.Users.Where(x => x.Email == userModel.UserEmailID);
+                if (result.Count() > 0)
                     UserEmailExists = true;
                 else
                     UserEmailExists = false;
@@ -37,10 +35,8 @@ namespace DataAccessLibrary
             try
             {
                 TurfManagementDBEntities turfManagementDBEntities = new TurfManagementDBEntities();
-                var query = from UserDetails in turfManagementDBEntities.Users
-                            where UserDetails.UserName == userModel.UserName
-                            select UserDetails;
-                if (query.Count() > 0)
+                var result = turfManagementDBEntities.Users.Where(x => x.UserName == userModel.UserName);
+                if (result.Count() > 0)
                     UserExists = true;
                 else 
                     UserExists = false;
